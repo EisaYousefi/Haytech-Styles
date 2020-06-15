@@ -24,4 +24,9 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.haytech.haytechstyles.test", appContext.getPackageName());
     }
+
+    @Test
+    public void test(){
+
+    }
 }
