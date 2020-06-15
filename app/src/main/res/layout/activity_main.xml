@@ -41,7 +41,7 @@
         app:layout_constraintStart_toStartOf="@+id/passwordFieldLayout"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.haytech.haytechstyles.PasswordFieldEditText
+        <com.haytech.haytechstyles.UsernameFieldEditText
             android:id="@+id/usernameFieldEditText"
             style="@style/EditTextStyle"
             android:layout_width="match_parent"
@@ -59,7 +59,7 @@
         app:layout_constraintStart_toStartOf="@+id/passwordFieldLayout"
         app:layout_constraintTop_toBottomOf="@+id/passwordFieldLayout">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.haytech.haytechstyles.PhoneFieldEditText
             android:id="@+id/phoneFieldEditText"
             style="@style/EditTextStyle"
             android:layout_width="match_parent"

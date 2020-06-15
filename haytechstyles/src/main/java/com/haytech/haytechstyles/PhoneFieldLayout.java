@@ -58,14 +58,19 @@ public class PhoneFieldLayout extends TextInputLayout {
 
         @Override
         public void afterTextChanged(Editable s) {
+            if (!s.toString().startsWith("09")) {
+                notValidStartPhoneNumber();
+            }
+
+            boolean isValid = (s.toString().length() == 11 && !s.toString().substring(2, 4).equals("00") && !s.toString().startsWith("09")) && (!s.toString().isEmpty());
+            boolean isNotValid = 0 < s.toString().length() && s.toString().length() <= 11;
+
             if (validatorListener != null) {
                 if (!s.toString().startsWith("09")) {
                     validatorListener.startPhoneNumber(s.toString());
                 }
 
-
-                if ((s.toString().length() == 11 && !s.toString().substring(2, 4).equals("00") && !s.toString().startsWith("09"))
-                        && (!s.toString().isEmpty())) {
+                if (isValid) {
                     validatorListener.validPhoneNumber();
                 }
 
@@ -73,11 +78,26 @@ public class PhoneFieldLayout extends TextInputLayout {
                     validatorListener.emptyPhoneNumber();
                 }
 
-                if (0 < s.toString().length() && s.toString().length() <= 11) {
+                if (isNotValid) {
                     validatorListener.notValidationPhoneNumber(s.toString());
                 }
-            }
+            } else {
+                if (!s.toString().startsWith("09")) {
+                    notValidStartPhoneNumber();
+                }
 
+                if (isValid) {
+                    setError("");
+                }
+
+                if (s.toString().length() == 0) {
+                    empty();
+                }
+
+                if (isNotValid) {
+                    notValidPhoneNumber(s.toString());
+                }
+            }
         }
     };
 
@@ -99,6 +119,26 @@ public class PhoneFieldLayout extends TextInputLayout {
 
     public void notValidStartPhoneNumber() {
         setError(getResources().getString(R.string.start_phone_number));
+    }
+
+    public void notValidPhoneNumber( String phoneNumber,int notValidPhoneNumber , int lowerBound) {
+        if (phoneNumber.length() > 3 && phoneNumber.substring(2, 4).equals("00")) {
+            setError(getResources().getString(notValidPhoneNumber));
+        } else if (phoneNumber.length() == 11 && phoneNumber.substring(2, 4).equals("00")) {
+            setError(getResources().getString(notValidPhoneNumber));
+        } else if (phoneNumber.length() < 11) {
+            setError(getResources().getString(lowerBound));
+        } else {
+            setError("");
+        }
+    }
+
+    public void empty(int emptyPhoneNumber) {
+        setError(getResources().getString(emptyPhoneNumber));
+    }
+
+    public void notValidStartPhoneNumber(int startPhoneNumber ) {
+        setError(getResources().getString(startPhoneNumber));
     }
 }
 
