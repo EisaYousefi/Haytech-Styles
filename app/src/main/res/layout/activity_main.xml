@@ -66,7 +66,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="@string/password_good"
+        android:hint="@string/enter_password"
         app:layout_constraintEnd_toEndOf="@+id/usernameFieldLayout"
         app:layout_constraintStart_toStartOf="@+id/usernameFieldLayout"
         app:layout_constraintTop_toBottomOf="@+id/usernameFieldLayout">
