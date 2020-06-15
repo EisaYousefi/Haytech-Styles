@@ -1,0 +1,4 @@
+<resources>
+	<dimen name="text_size_normal_btn_12">15.6sp</dimen>
+	<dimen name="corner_size_10">13sp</dimen>
+</resources>

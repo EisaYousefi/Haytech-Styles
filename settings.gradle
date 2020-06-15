@@ -1,0 +1,3 @@
+rootProject.name='HaytechStyle'
+include ':app'
+include ':haytechstyles'

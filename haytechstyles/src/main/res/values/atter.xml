@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PasswordFieldLayout">
+        <attr name="ctl_icon_color" format="color"/>
+        <attr name="FP_box_stroke_color_weak_pass" format="color"/>
+        <attr name="FP_box_stroke_color_good_pass" format="color"/>
+        <attr name="FP_box_stroke_color_stroke_pass" format="color"/>
+        <attr name="FP_error_text_color_weak_pass" format="color"/>
+        <attr name="FP_error_text_color_good_pass" format="color"/>
+        <attr name="FP_error_text_color_stroke_pass" format="color"/>
+        <attr name="FP_boxStrokeErrorColor" format="color"/>
+        <attr name="FP_icon" format="color"/>
+        <attr name="FP_text_good_pass" format="string"/>
+        <attr name="FP_text_weak_pass" format="string"/>
+        <attr name="FP_flag_validation" format="boolean"/>
+    </declare-styleable>
+</resources>

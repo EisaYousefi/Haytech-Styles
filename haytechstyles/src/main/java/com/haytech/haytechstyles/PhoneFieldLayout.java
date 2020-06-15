@@ -1,0 +1,104 @@
+package com.haytech.haytechstyles;
+
+import android.content.Context;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
+import android.util.AttributeSet;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Objects;
+
+public class PhoneFieldLayout extends TextInputLayout {
+
+
+    private Validation.phoneValidator validatorListener;
+
+    public PhoneFieldLayout(@NonNull Context context) {
+        super(context);
+    }
+
+    public PhoneFieldLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public PhoneFieldLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
+
+    public Validation.phoneValidator getValidatorListener() {
+        return validatorListener;
+    }
+
+    public void setValidatorListener(Validation.phoneValidator validatorListener) {
+        this.validatorListener = validatorListener;
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Objects.requireNonNull(getEditText()).addTextChangedListener(phoneTextWatcher);
+        getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
+    }
+
+    private TextWatcher phoneTextWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (validatorListener != null) {
+                if (!s.toString().startsWith("09")) {
+                    validatorListener.startPhoneNumber(s.toString());
+                }
+
+
+                if ((s.toString().length() == 11 && !s.toString().substring(2, 4).equals("00") && !s.toString().startsWith("09"))
+                        && (!s.toString().isEmpty())) {
+                    validatorListener.validPhoneNumber();
+                }
+
+                if (s.toString().length() == 0) {
+                    validatorListener.emptyPhoneNumber();
+                }
+
+                if (0 < s.toString().length() && s.toString().length() <= 11) {
+                    validatorListener.notValidationPhoneNumber(s.toString());
+                }
+            }
+
+        }
+    };
+
+    public void notValidPhoneNumber(String lengthPhoneNumber) {
+        if (lengthPhoneNumber.length() > 3 && lengthPhoneNumber.substring(2, 4).equals("00")) {
+            setError(getResources().getString(R.string.not_valid_phone_number));
+        } else if (lengthPhoneNumber.length() == 11 && lengthPhoneNumber.substring(2, 4).equals("00")) {
+            setError(getResources().getString(R.string.not_valid_phone_number));
+        } else if (lengthPhoneNumber.length() < 11) {
+            setError(getResources().getString(R.string.length_phone_number));
+        } else {
+            setError("");
+        }
+    }
+
+    public void empty() {
+        setError(getResources().getString(R.string.empty_phone_number));
+    }
+
+    public void notValidStartPhoneNumber() {
+        setError(getResources().getString(R.string.start_phone_number));
+    }
+}
+
