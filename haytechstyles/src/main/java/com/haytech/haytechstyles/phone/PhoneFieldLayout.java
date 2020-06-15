@@ -1,4 +1,4 @@
-package com.haytech.haytechstyles;
+package com.haytech.haytechstyles.phone;
 
 import android.content.Context;
 import android.text.Editable;
@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.haytech.haytechstyles.R;
+import com.haytech.haytechstyles.Validation;
 
 import java.util.Objects;
 

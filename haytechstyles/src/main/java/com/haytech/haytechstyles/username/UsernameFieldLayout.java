@@ -1,4 +1,4 @@
-package com.haytech.haytechstyles;
+package com.haytech.haytechstyles.username;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.haytech.haytechstyles.R;
+import com.haytech.haytechstyles.utils.Utils;
 
 import java.util.Objects;
 

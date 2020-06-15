@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="HaytechTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+    <style name="HaytechTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="android:textColorHint">@color/colorPrimary_def</item>
         <item name="boxStrokeColor">@color/edit_text_color</item>
         <item name="android:maxLines">1</item>
@@ -26,7 +26,18 @@
     </style>
 
 
-    <style name="EditTextStyle" >
+    <style name="PasswordEditTextStyle">
+        <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_size_normal_btn_12sp</item>
+        <item name="singleLine">true</item>
+        <item name="android:maxLength">25</item>
+        <item name="android:layoutDirection">ltr</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="UsernameEditTextStyle">
         <item name="android:textColor">@color/edit_text_color</item>
         <item name="android:singleLine">true</item>
         <item name="android:textSize">@dimen/text_size_normal_btn_12sp</item>
@@ -34,6 +45,17 @@
         <item name="android:maxLength">25</item>
         <item name="android:layoutDirection">ltr</item>
         <item name="android:imeOptions">actionNext</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="PhoneEditTextStyle">
+        <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_size_normal_btn_12sp</item>
+        <item name="singleLine">true</item>
+        <item name="android:maxLength">11</item>
+        <item name="android:layoutDirection">ltr</item>
+        <item name="android:imeOptions">actionDone</item>
         <item name="android:textAlignment">viewStart</item>
     </style>
 

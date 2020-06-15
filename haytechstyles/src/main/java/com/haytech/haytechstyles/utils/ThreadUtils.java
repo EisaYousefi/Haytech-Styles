@@ -1,4 +1,4 @@
-package com.haytech.haytechstyles;
+package com.haytech.haytechstyles.utils;
 
 import android.annotation.SuppressLint;
 

@@ -1,4 +1,4 @@
-package com.haytech.haytechstyles;
+package com.haytech.haytechstyles.password;
 
 import android.content.Context;
 import android.util.AttributeSet;

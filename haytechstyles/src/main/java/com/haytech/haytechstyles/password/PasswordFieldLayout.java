@@ -1,4 +1,4 @@
-package com.haytech.haytechstyles;
+package com.haytech.haytechstyles.password;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -17,6 +17,10 @@ import androidx.core.widget.TextViewCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.haytech.haytechstyles.R;
+import com.haytech.haytechstyles.utils.ThreadUtils;
+import com.haytech.haytechstyles.utils.Utils;
+import com.haytech.haytechstyles.Validation;
 
 import java.util.Objects;
 
