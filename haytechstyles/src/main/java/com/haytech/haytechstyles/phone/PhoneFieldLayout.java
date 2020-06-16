@@ -68,32 +68,38 @@ public class PhoneFieldLayout extends TextInputLayout {
             boolean isNotValid = 0 < s.toString().length() && s.toString().length() <= 11;
 
             if (validatorListener != null) {
-                if (!s.toString().startsWith("09")) {
+                if (!s.toString().startsWith("09") && !s.toString().isEmpty()) {
                     validatorListener.startPhoneNumber(s.toString());
+                    return;
                 }
 
                 if (isValid) {
                     validatorListener.validPhoneNumber();
+                    return;
                 }
 
                 if (s.toString().length() == 0) {
                     validatorListener.emptyPhoneNumber();
+                    return;
                 }
 
                 if (isNotValid) {
                     validatorListener.notValidationPhoneNumber(s.toString());
                 }
             } else {
-                if (!s.toString().startsWith("09")) {
+                if (!s.toString().startsWith("09") && !s.toString().isEmpty()) {
                     notValidStartPhoneNumber();
+                    return;
                 }
 
                 if (isValid) {
                     setError("");
+                    return;
                 }
 
                 if (s.toString().length() == 0) {
                     empty();
+                    return;
                 }
 
                 if (isNotValid) {

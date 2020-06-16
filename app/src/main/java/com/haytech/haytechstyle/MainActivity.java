@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this , R.layout.activity_main);
 
-        //  binding.passLableText.setTextGoodPass(R.string.app_name);
-        //binding.passLableText.setFlagValidationPass(true);
+         // binding.passwordFieldLayout.setTextGoodPass(R.string.app_name);
+       // binding.passwordFieldLayout.setFlagValidationPass(true);
 
         binding.phoneFieldLayout.setValidatorListener(this);
 
