@@ -33,6 +33,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="@string/login_to_app"
                 style="@style/btnRectangle"
+                android:background="@drawable/back_btn_rectangle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
