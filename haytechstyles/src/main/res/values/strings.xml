@@ -18,4 +18,16 @@
     <string name="length_phone_number">شماره تلفن باید 11 رقم باشد</string>
     <string name="empty_phone_number">شماره تلفن نباید خالی باشد</string>
     <string name="not_valid_phone_number">شماره تلفن معتبر نمی باشد</string>
+
+
+    <string name="one">1</string>
+    <string name="tow">2</string>
+    <string name="three">3</string>
+    <string name="fore">4</string>
+    <string name="five">5</string>
+    <string name="sex">6</string>
+    <string name="seven">7</string>
+    <string name="eahgt">8</string>
+    <string name="nine">9</string>
+    <string name="zero">0</string>
 </resources>

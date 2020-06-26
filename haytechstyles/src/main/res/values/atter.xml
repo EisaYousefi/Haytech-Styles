@@ -14,4 +14,25 @@
         <attr name="FP_text_weak_pass" format="string"/>
         <attr name="FP_flag_validation" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="MyTextChecker">
+        <attr name="mtc_checked_inner_color" format="color"/>
+        <attr name="mtc_checked_outer_color" format="color"/>
+        <attr name="mtc_duration" format="integer"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="ExpandableLayout">
+        <attr name="el_duration" format="integer" />
+        <attr name="el_expanded" format="boolean" />
+        <attr name="el_parallax" format="float" />
+        <attr name="android:orientation"/>
+    </declare-styleable>
+
+    <declare-styleable name="EditTextVerify">
+        <attr name="etv_text_empty_color" format="color"/>
+        <attr name="etv_text_full_color" format="color"/>
+        <attr name="etv_text_size" format="float"/>
+    </declare-styleable>
+
 </resources>

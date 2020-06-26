@@ -4,9 +4,25 @@
     <color name="icon_color">#2CB9B0</color>
     <color name="edit_text_color">#2F2F3B</color>
 
+    <color name="colorBackground">#1A68B2</color>
+
     <color name="colorRed">#FFAA0000</color>
     <color name="colorOrangeYellow">#EDA700</color>
     <color name="colorGreen">#2CB9B0</color>
     <color name="colorWarning">#f4511e</color>
     <color name="black">#000000</color>
+
+    <!--    selector color-->
+    <color name="innerColor">#898787</color>
+    <color name="outerColor">#848080</color>
+    <color name="white">#FFFFFF</color>
+
+    <!--    EditTextVerify-->
+    <color name="text_empty_color">#615B5B</color>
+    <color name="back_key_down_color">#F3F1F1</color>
+    <color name="text_key_down_color">#615B5B</color>
+    <color name="text_full_color">#ffffff</color>
+    <color name="text_key_up_color">#1F1919</color>
+    <color name="back_key_up_color">#fff</color>
+
 </resources>

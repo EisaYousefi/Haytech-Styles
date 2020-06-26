@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myprogress"
+    android:oneshot="true"  >
+
+    <item android:drawable="@drawable/expandable_layout_bkg_select_1" android:duration="100" />
+    <item android:drawable="@drawable/expandable_layout_bkg_select_2" android:duration="100" />
+    <item android:drawable="@drawable/expandable_layout_bkg_select_3" android:duration="100" />
+    <item android:drawable="@drawable/expandable_layout_bkg_select_4" android:duration="100" />
+    <item android:drawable="@drawable/expandable_layout_bkg_select_5" android:duration="100" />
+    <item android:drawable="@drawable/expandable_layout_bkg_select_6" android:duration="100" />
+</animation-list>
