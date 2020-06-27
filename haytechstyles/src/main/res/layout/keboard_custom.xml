@@ -9,19 +9,19 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="88dp"
-        android:layout_marginTop="20dp"
         android:background="@drawable/back_layout_text_verify"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/guideline6">
 
         <com.haytech.haytechstyles.editTextVerify.EditTextVerify
             android:id="@+id/one"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginBottom="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/tow"
@@ -72,29 +72,33 @@
         <ImageView
             android:id="@+id/img_clear"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
+            android:background="@drawable/back_clear_verify_text"
+            android:padding="2dp"
             android:src="@drawable/back_btn"
-            app:layout_constraintBottom_toBottomOf="@+id/five"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/five" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="0dp"
-        android:layout_height="316dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3">
 
         <TextView
             android:id="@+id/tv1"
+            style="@style/KeyStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:text="@string/one"
-            style="@style/KeyStyle"
             app:layout_constraintBottom_toBottomOf="@+id/tv2"
             app:layout_constraintEnd_toStartOf="@+id/tv2"
             app:layout_constraintHorizontal_bias="0.5"
@@ -105,8 +109,8 @@
             style="@style/KeyStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/tow"
             app:layout_constraintBottom_toBottomOf="@+id/tv3"
             app:layout_constraintEnd_toStartOf="@+id/tv3"
@@ -115,11 +119,11 @@
 
         <TextView
             android:id="@+id/tv3"
+            style="@style/KeyStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:text="@string/three"
-            style="@style/KeyStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tv2"
@@ -127,10 +131,10 @@
 
         <TextView
             android:id="@+id/tv4"
+            style="@style/KeyStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/fore"
-            style="@style/KeyStyle"
             app:layout_constraintBottom_toBottomOf="@+id/tv5"
             app:layout_constraintEnd_toStartOf="@+id/tv5"
             app:layout_constraintHorizontal_bias="0.5"
@@ -141,8 +145,8 @@
             style="@style/KeyStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/five"
             app:layout_constraintBottom_toBottomOf="@+id/tv6"
             app:layout_constraintEnd_toStartOf="@+id/tv6"
@@ -151,11 +155,11 @@
 
         <TextView
             android:id="@+id/tv6"
+            style="@style/KeyStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="17dp"
             android:text="@string/sex"
-            style="@style/KeyStyle"
             app:layout_constraintEnd_toEndOf="@+id/tv3"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tv5"
@@ -163,10 +167,10 @@
 
         <TextView
             android:id="@+id/tv7"
+            style="@style/KeyStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/seven"
-            style="@style/KeyStyle"
             app:layout_constraintBottom_toBottomOf="@+id/tv8"
             app:layout_constraintEnd_toStartOf="@+id/tv8"
             app:layout_constraintHorizontal_bias="0.5"
@@ -177,8 +181,8 @@
             style="@style/KeyStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/eahgt"
             app:layout_constraintBottom_toBottomOf="@+id/tv9"
             app:layout_constraintEnd_toStartOf="@+id/tv9"
@@ -187,11 +191,11 @@
 
         <TextView
             android:id="@+id/tv9"
+            style="@style/KeyStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="17dp"
             android:text="@string/nine"
-            style="@style/KeyStyle"
             app:layout_constraintEnd_toEndOf="@+id/tv6"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tv8"
@@ -199,14 +203,14 @@
 
         <TextView
             android:id="@+id/tv0"
+            style="@style/KeyStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="17dp"
             android:text="@string/zero"
-            style="@style/KeyStyle"
             app:layout_constraintEnd_toEndOf="@+id/tv8"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toEndOf="@+id/tv7"
+            app:layout_constraintStart_toStartOf="@+id/tv8"
             app:layout_constraintTop_toBottomOf="@+id/tv8" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -237,4 +241,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.94" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.28" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

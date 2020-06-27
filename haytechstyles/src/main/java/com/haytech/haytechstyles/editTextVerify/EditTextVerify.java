@@ -67,7 +67,7 @@ public class EditTextVerify extends View implements View.OnClickListener {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.EditTextVerify);
         emptyTextColor = typedArray.getColor(R.styleable.EditTextVerify_etv_text_full_color, getResources().getColor(R.color.text_empty_color));
         fullTextColor = typedArray.getColor(R.styleable.EditTextVerify_etv_text_full_color,  getResources().getColor(R.color.text_full_color));
-        testSize = typedArray.getFloat(R.styleable.EditTextVerify_etv_text_size , 35f);
+        testSize = typedArray.getFloat(R.styleable.EditTextVerify_etv_text_size , 30f);
         typedArray.recycle();
 
         paintEmptyTextColor = new Paint(Paint.ANTI_ALIAS_FLAG);

@@ -3,101 +3,100 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:layoutDirection="rtl">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="rtl"
+        tools:context=".MainActivity">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneFieldLayout">
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneFieldLayout">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <com.haytech.haytechstyles.button.ButtonField
-                android:id="@+id/button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginBottom="10dp"
-                android:text="@string/login_to_app"
-                style="@style/btnRectangle"
-                android:background="@drawable/back_btn_rectangle"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent" />
+                <com.haytech.haytechstyles.button.ButtonFieldRectangle
+                    android:id="@+id/button"
+                    style="@style/btnRectangleStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/login_to_app"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
-    <com.haytech.haytechstyles.username.UsernameFieldLayout
-        android:id="@+id/usernameFieldLayout"
-        style="@style/HaytechTextInputLayoutStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="@string/enter_user_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.haytech.haytechstyles.username.UsernameFieldEditText
-            android:id="@+id/usernameFieldEditText"
-            style="@style/UsernameEditTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.haytech.haytechstyles.username.UsernameFieldLayout>
-
-    <com.haytech.haytechstyles.password.PasswordFieldLayout
-        android:id="@+id/passwordFieldLayout"
-        style="@style/HaytechTextInputLayoutStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="@string/enter_password"
-        app:layout_constraintEnd_toEndOf="@+id/usernameFieldLayout"
-        app:layout_constraintStart_toStartOf="@+id/usernameFieldLayout"
-        app:layout_constraintTop_toBottomOf="@+id/usernameFieldLayout">
-
-        <com.haytech.haytechstyles.password.PasswordFieldEditText
-            android:id="@+id/passwordFieldEditText"
-            style="@style/PasswordEditTextStyle"
-            android:layout_width="match_parent"
+        <com.haytech.haytechstyles.username.UsernameFieldLayout
+            android:id="@+id/usernameFieldLayout"
+            style="@style/HaytechTextInputLayoutStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
-    </com.haytech.haytechstyles.password.PasswordFieldLayout>
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/enter_user_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <com.haytech.haytechstyles.phone.PhoneFieldLayout
-        android:id="@+id/phoneFieldLayout"
-        style="@style/HaytechTextInputLayoutStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:hint="@string/empty_phone_number"
-        app:layout_constraintEnd_toEndOf="@+id/passwordFieldLayout"
-        app:layout_constraintStart_toStartOf="@+id/passwordFieldLayout"
-        app:layout_constraintTop_toBottomOf="@+id/passwordFieldLayout">
+            <com.haytech.haytechstyles.username.UsernameFieldEditText
+                android:id="@+id/usernameFieldEditText"
+                style="@style/UsernameEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.haytech.haytechstyles.username.UsernameFieldLayout>
 
-        <com.haytech.haytechstyles.phone.PhoneFieldEditText
-            android:id="@+id/phoneFieldEditText"
-            style="@style/PhoneEditTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.haytech.haytechstyles.phone.PhoneFieldLayout>
+        <com.haytech.haytechstyles.password.PasswordFieldLayout
+            android:id="@+id/passwordFieldLayout"
+            style="@style/HaytechTextInputLayoutStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/enter_password"
+            app:layout_constraintEnd_toEndOf="@+id/usernameFieldLayout"
+            app:layout_constraintStart_toStartOf="@+id/usernameFieldLayout"
+            app:layout_constraintTop_toBottomOf="@+id/usernameFieldLayout">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.haytech.haytechstyles.password.PasswordFieldEditText
+                android:id="@+id/passwordFieldEditText"
+                style="@style/PasswordEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.haytech.haytechstyles.password.PasswordFieldLayout>
+
+        <com.haytech.haytechstyles.phone.PhoneFieldLayout
+            android:id="@+id/phoneFieldLayout"
+            style="@style/HaytechTextInputLayoutStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="@string/empty_phone_number"
+            app:layout_constraintEnd_toEndOf="@+id/passwordFieldLayout"
+            app:layout_constraintStart_toStartOf="@+id/passwordFieldLayout"
+            app:layout_constraintTop_toBottomOf="@+id/passwordFieldLayout">
+
+            <com.haytech.haytechstyles.phone.PhoneFieldEditText
+                android:id="@+id/phoneFieldEditText"
+                style="@style/PhoneEditTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.haytech.haytechstyles.phone.PhoneFieldLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

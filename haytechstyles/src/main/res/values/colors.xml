@@ -18,11 +18,12 @@
     <color name="white">#FFFFFF</color>
 
     <!--    EditTextVerify-->
-    <color name="text_empty_color">#615B5B</color>
+    <color name="text_empty_color">#8DB4D8</color>
     <color name="back_key_down_color">#F3F1F1</color>
     <color name="text_key_down_color">#615B5B</color>
     <color name="text_full_color">#ffffff</color>
     <color name="text_key_up_color">#1F1919</color>
     <color name="back_key_up_color">#fff</color>
+    <color name="ripple_color">#94AABE</color>
 
 </resources>

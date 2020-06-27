@@ -86,10 +86,22 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="btnRectangle" >
-        <item name="background">@drawable/back_btn_rectangle</item>
+    <style name="btnRectangleStyle" parent="Widget.MaterialComponents.Button">
         <item name="android:textSize">@dimen/text_size_normal_btn_12sp</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/back_btn_rectangle</item>
+    </style>
+
+    <style name="btnCircleStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">@dimen/text_size_normal_btn_12sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/back_btn_circle</item>
+        <item name="android:src">@drawable/arrow_left</item>
+    </style>
+
+    <style name="btnMenuStyle" >
+        <item name="android:background">@drawable/back_btn_menu</item>
+        <item name="android:src">@drawable/menu_icon</item>
     </style>
 
 </resources>
