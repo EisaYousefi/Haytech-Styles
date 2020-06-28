@@ -21,6 +21,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.ViewCompat;
 
 import com.haytech.haytechstyles.R;
+import com.haytech.haytechstyles.button.ButtonFieldCircle;
 import com.haytech.haytechstyles.utils.ThreadUtils;
 
 
@@ -33,8 +34,11 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
     private String verifyNumber = "";
     private int backPressedKey = 0;
     public TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv0;
+    private TextView tvEditPhoneNumber , tvReSendCode ;
+    private ButtonFieldCircle buttonFieldCircle;
     private Animation animation;
     private CountDownTimer countDownTimer;
+    private VerifyCodeClickListener verifyCodeClickListener ;
 
     public CustomKeyboardEditTextVerify(Context context) {
         super(context);
@@ -81,6 +85,11 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
         tv8 = findViewById(R.id.tv8);
         tv9 = findViewById(R.id.tv9);
         tv0 = findViewById(R.id.tv0);
+
+        tvEditPhoneNumber = findViewById(R.id.tv_edit_phone_number);
+        tvReSendCode = findViewById(R.id.tv_re_send);
+        buttonFieldCircle =findViewById(R.id.btn_verify);
+
         ImageView btnClear = findViewById(R.id.img_clear);
 
 
@@ -90,6 +99,21 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
 
         btnClear.setOnClickListener(v -> {
             clear();
+        });
+
+        tvEditPhoneNumber.setOnClickListener(v->{
+            if (verifyCodeClickListener!=null)
+                verifyCodeClickListener.onEditPhoneNumberClicked(v);
+        });
+
+        tvReSendCode.setOnClickListener(v->{
+            if (verifyCodeClickListener!=null)
+                verifyCodeClickListener.onResendCodeClicked(v);
+        });
+
+        buttonFieldCircle.setOnClickListener(v->{
+            if (verifyCodeClickListener!=null)
+                verifyCodeClickListener.onBtnOkClicked(v);
         });
 
     }
@@ -244,6 +268,22 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
         }
     }
 
+    public TextView getTvEditPhoneNumber() {
+        return tvEditPhoneNumber;
+    }
+
+    public void setTvEditPhoneNumber(String tvEditPhoneNumber) {
+        this.tvEditPhoneNumber.setText(tvEditPhoneNumber);
+    }
+
+    public TextView getTvReSendCode() {
+        return tvReSendCode;
+    }
+
+    public void setTvReSendCode(String tvReSendCode) {
+        this.tvReSendCode.setText(tvReSendCode);
+    }
+
 
     public int getBackPressedKey() {
         return backPressedKey;
@@ -259,6 +299,14 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
 
     public void setVerifyNumber(String verifyNumber) {
         this.verifyNumber = verifyNumber;
+    }
+
+    public VerifyCodeClickListener getVerifyCodeClickListener() {
+        return verifyCodeClickListener;
+    }
+
+    public void setVerifyCodeClickListener(VerifyCodeClickListener verifyCodeClickListener) {
+        this.verifyCodeClickListener = verifyCodeClickListener;
     }
 
     public void startAnimation(View view, int id) {

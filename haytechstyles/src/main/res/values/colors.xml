@@ -26,4 +26,6 @@
     <color name="back_key_up_color">#fff</color>
     <color name="ripple_color">#94AABE</color>
 
+    <color name="textColor">#0E1823</color>
+
 </resources>

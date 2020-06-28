@@ -105,4 +105,9 @@
         <item name="android:src">@drawable/menu_icon</item>
     </style>
 
+    <style name="textViewStyle">
+        <item name="android:textSize">@dimen/text_size_normal_btn_12sp</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
 </resources>

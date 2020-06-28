@@ -8,6 +8,10 @@
         android:layout_height="match_parent"
         android:layoutDirection="rtl"
         tools:context=".MainActivity">
+        <com.haytech.haytechstyles.editTextVerify.CustomKeyboardEditTextVerify
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/key"/>
 
         <ScrollView
             android:id="@+id/scrollView2"
@@ -15,6 +19,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:fillViewport="true"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,6 +51,7 @@
             style="@style/HaytechTextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
@@ -64,6 +70,7 @@
         <com.haytech.haytechstyles.password.PasswordFieldLayout
             android:id="@+id/passwordFieldLayout"
             style="@style/HaytechTextInputLayoutStyle"
+            android:visibility="gone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -85,6 +92,7 @@
             style="@style/HaytechTextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_marginTop="30dp"
             android:hint="@string/empty_phone_number"
             app:layout_constraintEnd_toEndOf="@+id/passwordFieldLayout"

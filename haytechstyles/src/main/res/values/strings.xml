@@ -32,4 +32,7 @@
     <string name="eahgt">8</string>
     <string name="nine">9</string>
     <string name="zero">0</string>
+    <string name="text_ok_phone">کد تایید ارسال شده به شماره موبایل زیر را وارد نمایید</string>
+    <string name="edite_phone_number">"نیاز به اصلاح شماره موبایل دارید ؟ "</string>
+    <string name="reSendCodeVerify">ارسال مجدد کد</string>
 </resources>
