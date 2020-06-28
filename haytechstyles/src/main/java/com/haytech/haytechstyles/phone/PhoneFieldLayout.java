@@ -122,9 +122,7 @@ public class PhoneFieldLayout extends TextInputLayout {
             setError(getResources().getString(R.string.length_phone_number));
             setEndIconDrawable(null);
         } else {
-            setError("");
-            setEndIconVisible(true);
-            setEndIconDrawable(getResources().getDrawable(R.drawable.edit_text_ok));
+         valid();
         }
     }
 
@@ -144,11 +142,14 @@ public class PhoneFieldLayout extends TextInputLayout {
         } else if (phoneNumber.length() < 11) {
             setError(getResources().getString(lowerBound));
         } else {
-            setError("");
-            setEndIconVisible(true);
-            setEndIconDrawable(getResources().getDrawable(R.drawable.edit_text_ok));
-
+           valid();
         }
+    }
+
+    public void valid(){
+       setError("");
+       setEndIconVisible(true);
+       setEndIconDrawable(getResources().getDrawable(R.drawable.edit_text_ok));
     }
 
     public void empty(int emptyPhoneNumber) {
