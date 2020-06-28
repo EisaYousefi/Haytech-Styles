@@ -5,4 +5,5 @@
 	<dimen name="text_size_10dp">11dp</dimen>
 	<dimen name="text_size_12dp">13.2dp</dimen>
 	<dimen name="btn_circle_wh_61">67.1dp</dimen>
+	<dimen name="text_size_20sp">22sp</dimen>
 </resources>

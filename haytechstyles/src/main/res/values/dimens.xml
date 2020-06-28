@@ -3,6 +3,7 @@
     <!--    sp-->
     <dimen name="corner_size_10sp">10sp</dimen>
     <dimen name="text_size_normal_btn_12sp">12sp</dimen>
+    <dimen name="text_size_20sp">20sp</dimen>
 
 
     <!--   dp-->
