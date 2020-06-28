@@ -9,7 +9,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="88dp"
-        android:layout_marginTop="206dp"
+        android:layout_marginTop="234dp"
         android:background="@drawable/back_layout_text_verify"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="1.0"
