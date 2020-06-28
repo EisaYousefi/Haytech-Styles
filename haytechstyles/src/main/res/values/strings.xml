@@ -19,6 +19,8 @@
     <string name="empty_phone_number">شماره تلفن نباید خالی باشد</string>
     <string name="not_valid_phone_number">شماره تلفن معتبر نمی باشد</string>
 
+    <string name="login_to_app">ورود به سامانه</string>
+
 
     <string name="one">1</string>
     <string name="tow">2</string>
