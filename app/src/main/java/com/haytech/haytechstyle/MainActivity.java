@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
          // binding.passwordFieldLayout.setTextGoodPass(R.string.app_name);
        // binding.passwordFieldLayout.setFlagValidationPass(true);
 
-       // binding.phoneFieldLayout.setValidatorListener(this);
+        binding.phoneFieldLayout.setValidatorListener(this);
 
         binding.button.setOnClickListener(v -> {
             if (!Objects.requireNonNull(binding.usernameFieldEditText.getText()).toString().trim().equals("eisa")) {
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
     @Override
     public void validPhoneNumber() {
+        Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
         binding.phoneFieldLayout.setError("");
          }
 }

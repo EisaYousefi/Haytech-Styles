@@ -66,7 +66,7 @@ public class PhoneFieldLayout extends TextInputLayout {
                 notValidStartPhoneNumber();
             }
 
-            boolean isValid = (s.toString().length() == 11 && !s.toString().substring(2, 4).equals("00") && !s.toString().startsWith("09")) && (!s.toString().isEmpty());
+            boolean isValid = (s.toString().length() == 11 && !s.toString().substring(2, 4).equals("00") && s.toString().startsWith("09")) && (!s.toString().isEmpty());
             boolean isNotValid = 0 < s.toString().length() && s.toString().length() <= 11;
 
             if (validatorListener != null) {
@@ -75,7 +75,7 @@ public class PhoneFieldLayout extends TextInputLayout {
                     return;
                 }
 
-                if (checkValid) {
+                if (isValid) {
                     validatorListener.validPhoneNumber();
                     return;
                 }
@@ -94,7 +94,7 @@ public class PhoneFieldLayout extends TextInputLayout {
                     return;
                 }
 
-                if (checkValid) {
+                if (isValid) {
                     setError("");
                     return;
                 }
@@ -125,7 +125,6 @@ public class PhoneFieldLayout extends TextInputLayout {
             setError("");
             setEndIconVisible(true);
             setEndIconDrawable(getResources().getDrawable(R.drawable.edit_text_ok));
-            checkValid =true ;
         }
     }
 
@@ -148,7 +147,7 @@ public class PhoneFieldLayout extends TextInputLayout {
             setError("");
             setEndIconVisible(true);
             setEndIconDrawable(getResources().getDrawable(R.drawable.edit_text_ok));
-            checkValid =true ;
+
         }
     }
 
