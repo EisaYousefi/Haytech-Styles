@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
     @Override
     public void validPhoneNumber() {
-        Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
-        binding.phoneFieldLayout.setError("");
+        binding.phoneFieldLayout.valid();
          }
 }

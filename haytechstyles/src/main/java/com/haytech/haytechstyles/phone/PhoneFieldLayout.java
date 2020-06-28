@@ -1,6 +1,7 @@
 package com.haytech.haytechstyles.phone;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
@@ -52,7 +53,9 @@ public class PhoneFieldLayout extends TextInputLayout {
     private TextWatcher phoneTextWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                Objects.requireNonNull(getEditText()).setLetterSpacing(0.3f);
+            }
         }
 
         @Override
