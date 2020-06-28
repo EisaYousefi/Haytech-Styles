@@ -5,6 +5,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +20,7 @@ public class PhoneFieldLayout extends TextInputLayout {
 
 
     private Validation.phoneValidator validatorListener;
+    private boolean checkValid =false ;
 
     public PhoneFieldLayout(@NonNull Context context) {
         super(context);
@@ -73,7 +75,7 @@ public class PhoneFieldLayout extends TextInputLayout {
                     return;
                 }
 
-                if (isValid) {
+                if (checkValid) {
                     validatorListener.validPhoneNumber();
                     return;
                 }
@@ -92,7 +94,7 @@ public class PhoneFieldLayout extends TextInputLayout {
                     return;
                 }
 
-                if (isValid) {
+                if (checkValid) {
                     setError("");
                     return;
                 }
@@ -112,12 +114,18 @@ public class PhoneFieldLayout extends TextInputLayout {
     public void notValidPhoneNumber(String lengthPhoneNumber) {
         if (lengthPhoneNumber.length() > 3 && lengthPhoneNumber.substring(2, 4).equals("00")) {
             setError(getResources().getString(R.string.not_valid_phone_number));
+            setEndIconDrawable(null);
         } else if (lengthPhoneNumber.length() == 11 && lengthPhoneNumber.substring(2, 4).equals("00")) {
             setError(getResources().getString(R.string.not_valid_phone_number));
+            setEndIconDrawable(null);
         } else if (lengthPhoneNumber.length() < 11) {
             setError(getResources().getString(R.string.length_phone_number));
+            setEndIconDrawable(null);
         } else {
             setError("");
+            setEndIconVisible(true);
+            setEndIconDrawable(getResources().getDrawable(R.drawable.edit_text_ok));
+            checkValid =true ;
         }
     }
 
@@ -129,7 +137,7 @@ public class PhoneFieldLayout extends TextInputLayout {
         setError(getResources().getString(R.string.start_phone_number));
     }
 
-    public void notValidPhoneNumber( String phoneNumber,int notValidPhoneNumber , int lowerBound) {
+    public void notValidPhoneNumber(String phoneNumber, int notValidPhoneNumber, int lowerBound) {
         if (phoneNumber.length() > 3 && phoneNumber.substring(2, 4).equals("00")) {
             setError(getResources().getString(notValidPhoneNumber));
         } else if (phoneNumber.length() == 11 && phoneNumber.substring(2, 4).equals("00")) {
@@ -138,6 +146,9 @@ public class PhoneFieldLayout extends TextInputLayout {
             setError(getResources().getString(lowerBound));
         } else {
             setError("");
+            setEndIconVisible(true);
+            setEndIconDrawable(getResources().getDrawable(R.drawable.edit_text_ok));
+            checkValid =true ;
         }
     }
 
@@ -145,7 +156,7 @@ public class PhoneFieldLayout extends TextInputLayout {
         setError(getResources().getString(emptyPhoneNumber));
     }
 
-    public void notValidStartPhoneNumber(int startPhoneNumber ) {
+    public void notValidStartPhoneNumber(int startPhoneNumber) {
         setError(getResources().getString(startPhoneNumber));
     }
 }
