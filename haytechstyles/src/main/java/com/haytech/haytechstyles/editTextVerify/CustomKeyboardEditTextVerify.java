@@ -34,7 +34,7 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
     private String verifyNumber = "";
     private int backPressedKey = 0;
     public TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv0;
-    private TextView tvEditPhoneNumber , tvReSendCode ;
+    private TextView tvEditPhoneNumber , tvReSendCode  , tvPhoneNumber;
     private ButtonFieldCircle buttonFieldCircle;
     private Animation animation;
     private CountDownTimer countDownTimer;
@@ -88,6 +88,7 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
 
         tvEditPhoneNumber = findViewById(R.id.tv_edit_phone_number);
         tvReSendCode = findViewById(R.id.tv_re_send);
+        tvPhoneNumber = findViewById(R.id.tv_phone_number);
         buttonFieldCircle =findViewById(R.id.btn_verify);
 
         ImageView btnClear = findViewById(R.id.img_clear);
@@ -214,6 +215,7 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
     int a1;
     GradientDrawable shape1 = new GradientDrawable();
 
+    @SuppressLint("ResourceType")
     private void switchDownAndUp(MotionEvent event, TextView tv, String textNumber) {
         a1 = 100;
         switch (event.getAction()) {
@@ -284,6 +286,13 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
         this.tvReSendCode.setText(tvReSendCode);
     }
 
+    public TextView getTvPhoneNumber() {
+        return tvPhoneNumber;
+    }
+
+    public void setTvPhoneNumber(String tvPhoneNumber) {
+        this.tvPhoneNumber.setText(tvPhoneNumber);
+    }
 
     public int getBackPressedKey() {
         return backPressedKey;
