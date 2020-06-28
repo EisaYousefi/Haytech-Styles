@@ -54,7 +54,7 @@ public class PhoneFieldLayout extends TextInputLayout {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                Objects.requireNonNull(getEditText()).setLetterSpacing(0.3f);
+                Objects.requireNonNull(getEditText()).setLetterSpacing(0.4f);
             }
         }
 
