@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:background="@drawable/back_card_view_un_select"
+        android:background="@drawable/back_card_view_un_select_new"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -77,7 +77,7 @@
             android:id="@+id/myTextChecker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="17dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -96,7 +96,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/view"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="عبدل معظمی گودرزی" />
+            android:text="عبدل معظمی گودرزی" />
 
         <TextView
             android:id="@+id/tv_inquery_number"
@@ -111,7 +111,7 @@
             app:layout_constraintEnd_toStartOf="@+id/view"
             app:layout_constraintTop_toBottomOf="@+id/tv_expert_name"
             app:layout_constraintVertical_bias="1.0"
-            tools:text="1398 / 11201/05 / 1008 / 244" />
+            android:text="1398 / 11201/05 / 1008 / 244" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -131,7 +131,7 @@
             android:layout_marginBottom="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/view"
-            tools:text="1399/12/29" />
+            android:text="1399/12/29" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
