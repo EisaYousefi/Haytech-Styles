@@ -148,9 +148,9 @@ public class ExpertProfile extends ConstraintLayout implements MyTextChecker.Che
     public void setCheckBox() {
        // expandableLayout.toggle();
         if (expandableLayout.getExpansion() == 0) {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.aaaa));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_select));
         } else {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.bbb));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_un_select));
         }
     }
 
@@ -159,9 +159,9 @@ public class ExpertProfile extends ConstraintLayout implements MyTextChecker.Che
     public void check(boolean b) {
         expandableLayout.toggle();
         if (expandableLayout.getExpansion() == 0) {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.aaaa));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_select));
         } else {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.bbb));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_un_select));
         }
     }
     @Override

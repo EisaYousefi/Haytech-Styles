@@ -274,7 +274,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="09192562910"
-        android:textSize="@dimen/text_size_20sp"
+        android:textSize="@dimen/text_size_16sp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"

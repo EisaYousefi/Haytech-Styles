@@ -2,6 +2,8 @@ package com.haytech.haytechstyle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,12 +12,15 @@ import android.widget.Toast;
 import com.haytech.haytechstyle.databinding.ActivityMainBinding;
 import com.haytech.haytechstyles.Validation;
 import com.haytech.haytechstyles.editTextVerify.VerifyCodeClickListener;
+import com.haytech.haytechstyles.expandableLayout.DataList;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity implements Validation.phoneValidator {
 
     private ActivityMainBinding binding;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +63,11 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
             }
         });
 
+
+
+
     }
+
 
     @Override
     public void startPhoneNumber(String startPhoneNumber) {

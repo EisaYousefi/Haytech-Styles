@@ -6,4 +6,6 @@
 	<dimen name="text_size_12dp">13.2dp</dimen>
 	<dimen name="btn_circle_wh_61">67.1dp</dimen>
 	<dimen name="text_size_20sp">22sp</dimen>
+	<dimen name="text_size_16sp">17.6sp</dimen>
+	<dimen name="text_size_14sp">15.4sp</dimen>
 </resources>
