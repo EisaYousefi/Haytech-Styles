@@ -27,7 +27,7 @@ import com.haytech.haytechstyles.R;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-public class CircleProgressBar extends View {
+public class CircleFieldProgressBar extends View {
     public static final int LINE = 0;
     public static final int SOLID = 1;
     public static final int SOLID_LINE = 2;
@@ -109,11 +109,11 @@ public class CircleProgressBar extends View {
     // The blur style of mProgressPaint
     private BlurMaskFilter.Blur mBlurStyle;
 
-    public CircleProgressBar(Context context) {
+    public CircleFieldProgressBar(Context context) {
         this(context, null);
     }
 
-    public CircleProgressBar(Context context, AttributeSet attrs) {
+    public CircleFieldProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         initFromAttributes(context, attrs);
         initPaint();
@@ -129,29 +129,29 @@ public class CircleProgressBar extends View {
      */
     @SuppressWarnings("ResourceType")
     private void initFromAttributes(Context context, AttributeSet attrs) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleProgressBar);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleFieldProgressBar);
 
-        mLineCount = a.getInt(R.styleable.CircleProgressBar_line_count, DEFAULT_LINE_COUNT);
+        mLineCount = a.getInt(R.styleable.CircleFieldProgressBar_line_count, DEFAULT_LINE_COUNT);
 
-        mStyle = a.getInt(R.styleable.CircleProgressBar_progress_style, LINE);
-        mShader = a.getInt(R.styleable.CircleProgressBar_progress_shader, LINEAR);
-        mCap = a.hasValue(R.styleable.CircleProgressBar_progress_stroke_cap) ?
-                Paint.Cap.values()[a.getInt(R.styleable.CircleProgressBar_progress_stroke_cap, 0)] : Paint.Cap.BUTT;
+        mStyle = a.getInt(R.styleable.CircleFieldProgressBar_progress_style, LINE);
+        mShader = a.getInt(R.styleable.CircleFieldProgressBar_progress_shader, LINEAR);
+        mCap = a.hasValue(R.styleable.CircleFieldProgressBar_progress_stroke_cap) ?
+                Paint.Cap.values()[a.getInt(R.styleable.CircleFieldProgressBar_progress_stroke_cap, 0)] : Paint.Cap.BUTT;
 
-        mLineWidth = a.getDimensionPixelSize(R.styleable.CircleProgressBar_line_width, dip2px(getContext(), DEFAULT_LINE_WIDTH));
-        mProgressTextSize = a.getDimensionPixelSize(R.styleable.CircleProgressBar_progress_text_size, dip2px(getContext(), DEFAULT_PROGRESS_TEXT_SIZE));
-        mProgressStrokeWidth = a.getDimensionPixelSize(R.styleable.CircleProgressBar_progress_stroke_width, dip2px(getContext(), DEFAULT_PROGRESS_STROKE_WIDTH));
+        mLineWidth = a.getDimensionPixelSize(R.styleable.CircleFieldProgressBar_line_width, dip2px(getContext(), DEFAULT_LINE_WIDTH));
+        mProgressTextSize = a.getDimensionPixelSize(R.styleable.CircleFieldProgressBar_progress_text_size, dip2px(getContext(), DEFAULT_PROGRESS_TEXT_SIZE));
+        mProgressStrokeWidth = a.getDimensionPixelSize(R.styleable.CircleFieldProgressBar_progress_stroke_width, dip2px(getContext(), DEFAULT_PROGRESS_STROKE_WIDTH));
 
-        mProgressStartColor = a.getColor(R.styleable.CircleProgressBar_progress_start_color, Color.parseColor(COLOR_FFF2A670));
-        mProgressEndColor = a.getColor(R.styleable.CircleProgressBar_progress_end_color, Color.parseColor(COLOR_FFF2A670));
-        mProgressTextColor = a.getColor(R.styleable.CircleProgressBar_progress_text_color, Color.parseColor(COLOR_FFF2A670));
-        mProgressBackgroundColor = a.getColor(R.styleable.CircleProgressBar_progress_background_color, Color.parseColor(COLOR_FFD3D3D5));
+        mProgressStartColor = a.getColor(R.styleable.CircleFieldProgressBar_progress_start_color, Color.parseColor(COLOR_FFF2A670));
+        mProgressEndColor = a.getColor(R.styleable.CircleFieldProgressBar_progress_end_color, Color.parseColor(COLOR_FFF2A670));
+        mProgressTextColor = a.getColor(R.styleable.CircleFieldProgressBar_progress_text_color, Color.parseColor(COLOR_FFF2A670));
+        mProgressBackgroundColor = a.getColor(R.styleable.CircleFieldProgressBar_progress_background_color, Color.parseColor(COLOR_FFD3D3D5));
 
-        mStartDegree = a.getInt(R.styleable.CircleProgressBar_progress_start_degree, DEFAULT_START_DEGREE);
-        mDrawBackgroundOutsideProgress = a.getBoolean(R.styleable.CircleProgressBar_drawBackgroundOutsideProgress, false);
+        mStartDegree = a.getInt(R.styleable.CircleFieldProgressBar_progress_start_degree, DEFAULT_START_DEGREE);
+        mDrawBackgroundOutsideProgress = a.getBoolean(R.styleable.CircleFieldProgressBar_drawBackgroundOutsideProgress, false);
 
-        mBlurRadius = a.getDimensionPixelSize(R.styleable.CircleProgressBar_progress_blur_radius, 0);
-        int blurStyle = a.getInt(R.styleable.CircleProgressBar_progress_blur_style, 0);
+        mBlurRadius = a.getDimensionPixelSize(R.styleable.CircleFieldProgressBar_progress_blur_radius, 0);
+        int blurStyle = a.getInt(R.styleable.CircleFieldProgressBar_progress_blur_style, 0);
         switch (blurStyle) {
             case 1:
                 mBlurStyle = BlurMaskFilter.Blur.SOLID;

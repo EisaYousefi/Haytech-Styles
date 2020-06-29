@@ -36,7 +36,7 @@
     </declare-styleable>
 
 <!--    CircleProgressBar-->
-    <declare-styleable name="CircleProgressBar">
+    <declare-styleable name="CircleFieldProgressBar">
         <attr name="line_count" format="integer|reference"/>
         <attr name="line_width" format="dimension|reference"/>
         <attr name="progress_start_color" format="color|reference"/>

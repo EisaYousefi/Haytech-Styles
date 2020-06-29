@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content" />
         </com.haytech.haytechstyles.phone.PhoneFieldLayout>
 
-        <com.haytech.haytechstyles.progressBar.CircleProgressBar
+        <com.haytech.haytechstyles.progressBar.CircleFieldProgressBar
             android:id="@+id/circleProgressBar"
             android:layout_width="60dp"
             android:layout_height="60dp"
