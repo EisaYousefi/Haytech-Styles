@@ -26,8 +26,9 @@ public class ExpertProfile extends ConstraintLayout implements MyTextChecker.Che
     private ExpandableLayout expandableLayout;
     private MyTextChecker textChecker;
     private ConstraintLayout parentLayout;
-    private TextView name;
-    private TextView famil;
+    private TextView expertName;
+    private TextView InquiryٔNumber;
+    private TextView date ;
 
     private OnReadMoreClickedListener clickedListener;
     private boolean isChecked = false;
@@ -68,8 +69,9 @@ public class ExpertProfile extends ConstraintLayout implements MyTextChecker.Che
 
         TextView readMore = findViewById(R.id.tv_read_more);
         parentLayout = findViewById(R.id.constraint_parent_layout);
-        name = findViewById(R.id.name);
-        famil = findViewById(R.id.famil);
+        expertName = findViewById(R.id.tv_expert_name);
+        InquiryٔNumber = findViewById(R.id.tv_inquery_number);
+        date = findViewById(R.id.tv_date);
         textChecker = findViewById(R.id.myTextChecker);
         textChecker.setListener(this);
 
@@ -81,20 +83,28 @@ public class ExpertProfile extends ConstraintLayout implements MyTextChecker.Che
         readMore.setTextSize(COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.text_size_normal_btn_12sp));
     }
 
-    public TextView getName() {
-        return name;
+    public TextView getExpertName() {
+        return expertName;
     }
 
-    public void setName(@NonNull String name) {
-        this.name.setText(name);
+    public void setExpertName(@NonNull String expertName) {
+        this.expertName.setText(expertName);
     }
 
-    public TextView getFamil() {
-        return famil;
+    public TextView getInquiryٔNumber() {
+        return InquiryٔNumber;
     }
 
-    public void setFamil(String famil) {
-        this.famil.setText(famil);
+    public void setInquiryٔNumber(String inquiryٔNumber) {
+        this.InquiryٔNumber.setText(inquiryٔNumber);
+    }
+
+    public TextView getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date.setText(date);
     }
 
     public ExpandableLayout getExpandableLayout() {
@@ -114,11 +124,11 @@ public class ExpertProfile extends ConstraintLayout implements MyTextChecker.Che
     }
 
     public void setName(TextView name) {
-        this.name = name;
+        this.expertName = name;
     }
 
     public void setFamil(TextView famil) {
-        this.famil = famil;
+        this.InquiryٔNumber = famil;
     }
 
     public OnReadMoreClickedListener getClickedListener() {

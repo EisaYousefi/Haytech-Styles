@@ -66,10 +66,11 @@
             android:layout_width="1dp"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="15dp"
             android:background="@color/view_color"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.haytech.haytechstyles.selector.MyTextChecker
@@ -80,15 +81,16 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:mtc_checked_outer_color="@color/black"
+            app:mtc_checked_inner_color="@color/view_color"
+            app:mtc_checked_outer_color="@color/colorBackground"
             app:mtc_duration="100" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/tv_expert_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="22dp"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_16sp"
             android:textStyle="bold"
@@ -97,17 +99,17 @@
             tools:text="عبدل معظمی گودرزی" />
 
         <TextView
-            android:id="@+id/famil"
+            android:id="@+id/tv_inquery_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="15dp"
             android:textColor="@color/textColor"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_expert_name"
             app:layout_constraintVertical_bias="1.0"
             tools:text="1398 / 11201/05 / 1008 / 244" />
 
@@ -115,13 +117,13 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/car" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_date"
             style="@style/textViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -129,7 +131,8 @@
             android:layout_marginBottom="5dp"
             android:text="1399 / 1 / 26"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

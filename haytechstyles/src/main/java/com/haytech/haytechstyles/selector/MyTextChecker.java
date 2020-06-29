@@ -111,7 +111,7 @@ public class MyTextChecker extends View implements View.OnClickListener {
 
         Path path = new Path();
         path.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
-        //path.addCircle(w/2,h/2,(rab/1.2f)*mRopf, Path.Direction.CW);
+        //path.addCircle(w/2,h/2,(rab/1.2f), Path.Direction.CW);
         canvas.drawPath(path, paintInnerColor);
 
         Path path2 = new Path();
