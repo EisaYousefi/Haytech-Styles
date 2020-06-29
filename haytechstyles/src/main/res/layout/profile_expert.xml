@@ -66,7 +66,7 @@
             android:layout_width="1dp"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="13dp"
             android:layout_marginBottom="15dp"
             android:background="@color/view_color"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -127,12 +127,11 @@
             style="@style/textViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="15dp"
+            android:layout_marginStart="4dp"
             android:layout_marginBottom="5dp"
-            tools:text="1399/1/26"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/imageView" />
+            app:layout_constraintStart_toEndOf="@+id/view"
+            tools:text="1399/12/29" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

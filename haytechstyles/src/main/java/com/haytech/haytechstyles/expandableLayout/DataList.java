@@ -5,34 +5,35 @@ import java.util.List;
 
 public class DataList {
 
-    private String name;
-    private String famil;
+    private String expertName;
+    private String inquiryNumber;
+    private String date;
     private Boolean isExpended = false;
 
     public DataList() {
     }
 
-    public DataList(String name, String famil, Boolean isExpended) {
-        this.name = name;
-        this.famil = famil;
+    public DataList(String expertName, String inquiryNumber, Boolean isExpended) {
+        this.expertName = expertName;
+        this.inquiryNumber = inquiryNumber;
         this.isExpended = isExpended;
 
     }
 
-    public String getName() {
-        return name;
+    public String getExpertName() {
+        return expertName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setExpertName(String expertName) {
+        this.expertName = expertName;
     }
 
-    public String getFamil() {
-        return famil;
+    public String getInquiryNumber() {
+        return inquiryNumber;
     }
 
-    public void setFamil(String famil) {
-        this.famil = famil;
+    public void setInquiryNumber(String inquiryNumber) {
+        this.inquiryNumber = inquiryNumber;
     }
 
     public Boolean getExpended() {
@@ -43,21 +44,29 @@ public class DataList {
         isExpended = expended;
     }
 
+    public static List<DataList> getLists() {
+        return lists;
+    }
+
+    public static void setLists(List<DataList> lists) {
+        DataList.lists = lists;
+    }
+
     static List<DataList> lists;
 
     public static List<DataList> getListData() {
         if (lists == null)
             lists = new ArrayList<>();
-        lists.add(new DataList("Eisa", "Yousefi", false));
-        lists.add(new DataList("Mosa", "abdi", false));
-        lists.add(new DataList("Broa", "Yousefi", false));
-        lists.add(new DataList("Majid", "Hasani", false));
-        lists.add(new DataList("Ali", "Alavi", false));
-        lists.add(new DataList("Eisa", "Yousefi", false));
-        lists.add(new DataList("Mosa", "abdi", false));
-        lists.add(new DataList("Broa", "Yousefi", false));
-        lists.add(new DataList("Majid", "Hasani", false));
-        lists.add(new DataList("Ali", "Alavi", false));
+        lists.add(new DataList("عیسی یپسفی", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("مهندس جانباز", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("مجید حسنی", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("پریا مرادی", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("بروا یوسفی", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("عیسی یپسفی", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("مهندس جانباز", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("مجید حسنی", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("پریا مرادی", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("بروا یوسفی", "1398 / 11201/05 / 1008 / 244", false));
         return lists;
     }
 }
