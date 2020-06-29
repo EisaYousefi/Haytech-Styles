@@ -2,17 +2,17 @@
 <resources>
     <!--    sp-->
     <dimen name="corner_size_10sp">10sp</dimen>
-    <dimen name="text_size_normal_btn_12sp">12sp</dimen>
-    <dimen name="text_size_14sp">14sp</dimen>
-    <dimen name="text_size_16sp">16sp</dimen>
-    <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="text_size_normal_btn_12sp">10sp</dimen>
+    <dimen name="text_size_14sp">12sp</dimen>
+    <dimen name="text_size_16sp">14sp</dimen>
+    <dimen name="text_size_20sp">18sp</dimen>
 
 
     <!--   dp-->
-    <dimen name="text_size_9dp">9dp</dimen>
-    <dimen name="text_size_10dp">10dp</dimen>
-    <dimen name="text_size_12dp">12dp</dimen>
-    <dimen name="text_size_very_large_25">25sp</dimen>
-    <dimen name="btn_circle_wh_61">61dp</dimen>
-    <dimen name="height_layout_80">80dp</dimen>
+    <dimen name="text_size_9dp">7dp</dimen>
+    <dimen name="text_size_10dp">8dp</dimen>
+    <dimen name="text_size_12dp">10dp</dimen>
+    <dimen name="text_size_very_large_25">23sp</dimen>
+    <dimen name="btn_circle_wh_61">58dp</dimen>
+    <dimen name="height_layout_80">78dp</dimen>
 </resources>

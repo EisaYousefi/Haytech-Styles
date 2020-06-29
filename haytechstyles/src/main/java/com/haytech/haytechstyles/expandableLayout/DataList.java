@@ -57,12 +57,12 @@ public class DataList {
     public static List<DataList> getListData() {
         if (lists == null)
             lists = new ArrayList<>();
-        lists.add(new DataList("عیسی یپسفی", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("عیسی یوسفی", "1398 / 11201/05 / 1008 / 244", false));
         lists.add(new DataList("مهندس جانباز", "1398 / 11201/05 / 1008 / 244", false));
         lists.add(new DataList("مجید حسنی", "1398 / 11201/05 / 1008 / 244", false));
         lists.add(new DataList("وریا مرادی", "1398 / 11201/05 / 1008 / 244", false));
         lists.add(new DataList("بروا یوسفی", "1398 / 11201/05 / 1008 / 244", false));
-        lists.add(new DataList("عیسی یپسفی", "1398 / 11201/05 / 1008 / 244", false));
+        lists.add(new DataList("عیسی یوسفی", "1398 / 11201/05 / 1008 / 244", false));
         lists.add(new DataList("مهندس جانباز", "1398 / 11201/05 / 1008 / 244", false));
         lists.add(new DataList("مجید حسنی", "1398 / 11201/05 / 1008 / 244", false));
         lists.add(new DataList("وریا مرادی", "1398 / 11201/05 / 1008 / 244", false));
