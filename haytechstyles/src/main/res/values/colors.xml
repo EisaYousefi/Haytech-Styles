@@ -5,6 +5,8 @@
     <color name="edit_text_color">#2F2F3B</color>
 
     <color name="colorBackground">#1A68B2</color>
+    <color name="colorStartProgressBar">#A7CAEC</color>
+    <color name="colorEndProgressBar">#1A68B2</color>
 
     <color name="colorRed">#FFAA0000</color>
     <color name="colorOrangeYellow">#EDA700</color>
