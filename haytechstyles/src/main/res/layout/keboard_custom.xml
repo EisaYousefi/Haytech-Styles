@@ -273,7 +273,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="09192562910"
+        android:textColor="@color/textColor"
         android:textSize="@dimen/text_size_16sp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -296,13 +296,16 @@
 
     <TextView
         android:id="@+id/tv_re_send"
-        style="@style/textViewStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="left"
+        android:layout_marginStart="10dp"
+        android:gravity="end"
         android:text="@string/reSendCodeVerify"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_14sp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_verify"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintEnd_toStartOf="@+id/btn_verify"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/btn_verify" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

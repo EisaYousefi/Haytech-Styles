@@ -84,19 +84,21 @@ setCountDown();
 
             public void onTick(long millisUntilFinished) {
                 //  title.setText(String.format("اطلاعات مربوط به %s در هفته %s ام", temp, weekNumber));
+                binding.key.getTvReSendCode().setEnabled(false);
+                binding.key.setTvReSendCode(getResources().getString(R.string.reSendCodeVerify));
+                binding.key.getTvReSendCode().append(" ");
+                binding.key.getTvReSendCode().setTextColor(getResources().getColor(R.color.textColor));
 
-
-                binding.key.setTvReSendCode(String.format(new Locale("en"), "%02d:%02d",
+                binding.key.getTvReSendCode().append(String.format(new Locale("en"), "%02d:%02d",
                         TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
                         TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))
                 ));
-                binding.key.getTvReSendCode().append("   ");
-                binding.key.getTvReSendCode().append(getResources().getString(R.string.reSendCodeVerify));
-                binding.key.getTvReSendCode().setTextColor(getResources().getColor(R.color.textColor));
+                binding.key.getTvReSendCode().append(" دیگر");
             }
 
             public void onFinish() {
+                binding.key.getTvReSendCode().setEnabled(true);
                 binding.key.getTvReSendCode().getLinksClickable();
                 binding.key.getTvReSendCode().setTextColor(getResources().getColor(R.color.colorBackground));
                 binding.key.setTvReSendCode(getString(R.string.reSendCode));
