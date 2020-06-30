@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.animation.ValueAnimator;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Html;
+import android.text.util.Linkify;
 import android.view.View;
 import android.widget.Toast;
 
@@ -80,7 +83,7 @@ setCountDown();
     }
 
     private void setCountDown() {
-        counter = new CountDownTimer(10000, 1000) {
+        counter = new CountDownTimer(3000, 1000) {
 
             public void onTick(long millisUntilFinished) {
                 //  title.setText(String.format("اطلاعات مربوط به %s در هفته %s ام", temp, weekNumber));
@@ -99,7 +102,6 @@ setCountDown();
 
             public void onFinish() {
                 binding.key.getTvReSendCode().setEnabled(true);
-                binding.key.getTvReSendCode().getLinksClickable();
                 binding.key.getTvReSendCode().setTextColor(getResources().getColor(R.color.colorBackground));
                 binding.key.setTvReSendCode(getString(R.string.reSendCode));
               //  binding.timer.setVisibility(View.GONE);
@@ -109,7 +111,7 @@ setCountDown();
     }
 
     private void simulateProgress() {
-        animator = ValueAnimator.ofInt(0, 100);
+        animator = ValueAnimator.ofInt(0, 101);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
