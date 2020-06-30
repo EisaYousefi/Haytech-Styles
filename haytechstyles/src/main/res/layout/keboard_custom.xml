@@ -288,8 +288,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:autoLink="all"
-        android:clickable="true"
-        android:text="@string/edite_phone_number"
+        android:text="@string/edit_phone_number"
         android:textColor="@color/colorBackground"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -303,7 +302,7 @@
         android:gravity="left"
         android:text="@string/reSendCodeVerify"
         app:layout_constraintBottom_toBottomOf="@+id/btn_verify"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/btn_verify" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

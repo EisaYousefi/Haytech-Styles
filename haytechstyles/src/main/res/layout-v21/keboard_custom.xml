@@ -275,7 +275,6 @@
         android:gravity="center"
         android:letterSpacing="0.3"
         android:textSize="@dimen/text_size_16sp"
-        android:text="09192562910"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -289,8 +288,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:autoLink="all"
-        android:clickable="true"
-        android:text="@string/edite_phone_number"
+        android:text="@string/edit_phone_number"
         android:textColor="@color/colorBackground"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -299,12 +297,13 @@
     <TextView
         android:id="@+id/tv_re_send"
         style="@style/textViewStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="left"
         android:text="@string/reSendCodeVerify"
+        android:gravity="left"
         app:layout_constraintBottom_toBottomOf="@+id/btn_verify"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/btn_verify"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/btn_verify" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

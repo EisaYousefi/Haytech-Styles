@@ -1,5 +1,6 @@
 package com.haytech.haytechstyles.progressBar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.BlurMaskFilter;
@@ -527,6 +528,7 @@ public class CircleFieldProgressBar extends View {
     private static final class DefaultProgressFormatter implements ProgressFormatter {
         private static final String DEFAULT_PATTERN = "%d%%";
 
+        @SuppressLint("DefaultLocale")
         @Override
         public CharSequence format(int progress, int max) {
             return String.format(DEFAULT_PATTERN, (int) ((float) progress / (float) max * 100));

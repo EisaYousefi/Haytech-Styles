@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.animation.ValueAnimator;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,12 +18,15 @@ import com.haytech.haytechstyles.expandableLayout.DataList;
 import com.haytech.haytechstyles.utils.ThreadUtils;
 import com.haytech.haytechstyles.utils.Utils;
 
+import java.util.Locale;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity implements Validation.phoneValidator {
 
     private ActivityMainBinding binding;
     private ValueAnimator animator;
+    private CountDownTimer counter;
 
 
     @Override
@@ -35,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         binding.key.setVerifyCodeClickListener(new VerifyCodeClickListener() {
             @Override
             public void onResendCodeClicked(View view) {
-                binding.key.setTvReSendCode("Send");
+               setCountDown();
             }
 
             @Override
@@ -66,13 +70,40 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
             }
         });
         
-
+setCountDown();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         simulateProgress();
+    }
+
+    private void setCountDown() {
+        counter = new CountDownTimer(10000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                //  title.setText(String.format("اطلاعات مربوط به %s در هفته %s ام", temp, weekNumber));
+
+
+                binding.key.setTvReSendCode(String.format(new Locale("en"), "%02d:%02d",
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))
+                ));
+                binding.key.getTvReSendCode().append("   ");
+                binding.key.getTvReSendCode().append(getResources().getString(R.string.reSendCodeVerify));
+                binding.key.getTvReSendCode().setTextColor(getResources().getColor(R.color.textColor));
+            }
+
+            public void onFinish() {
+                binding.key.getTvReSendCode().getLinksClickable();
+                binding.key.getTvReSendCode().setTextColor(getResources().getColor(R.color.colorBackground));
+                binding.key.setTvReSendCode(getString(R.string.reSendCode));
+              //  binding.timer.setVisibility(View.GONE);
+              //  binding.resendCode.setVisibility(View.VISIBLE);
+            }
+        }.start();
     }
 
     private void simulateProgress() {
