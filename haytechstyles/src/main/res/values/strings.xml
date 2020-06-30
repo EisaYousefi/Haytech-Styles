@@ -40,4 +40,5 @@
     <string
         name="reSendCode"> <a href="#">ارسال مجدد</a>
     </string>
+    <string name="expert_details">مشخصات کارشناس</string>
 </resources>
