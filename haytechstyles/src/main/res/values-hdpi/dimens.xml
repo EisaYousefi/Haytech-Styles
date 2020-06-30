@@ -1,5 +1,5 @@
 <resources>
-	<dimen name="corner_size_10sp">11sp</dimen>
+	<dimen name="corner_size_10sp">8.8sp</dimen>
 	<dimen name="text_size_normal_btn_12sp">11sp</dimen>
 	<dimen name="text_size_9dp">7.7dp</dimen>
 	<dimen name="text_size_10dp">8.8dp</dimen>
