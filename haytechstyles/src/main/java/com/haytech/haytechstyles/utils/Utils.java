@@ -14,15 +14,14 @@ import java.util.Objects;
 
 public final class Utils {
     public static void hideKeyboard(@NonNull Activity activity) {
-        InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
-        View focusView = activity.getCurrentFocus();
-        if (focusView != null) {
-            Objects.requireNonNull(inputMethodManager).hideSoftInputFromWindow(focusView.getWindowToken(),
-                    InputMethodManager.HIDE_NOT_ALWAYS);
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(activity);
         }
-        if (activity.getCurrentFocus() != null) {
-            activity.getCurrentFocus().clearFocus();
-        }
+        Objects.requireNonNull(imm).hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     public static void showKeyboard(@NonNull Activity activity, View v1) {

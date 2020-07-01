@@ -136,6 +136,7 @@ public class VerifyFieldEditText extends View {
         textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTypeface(typeface);
+
         setFocusableInTouchMode(true); // allows the keyboard to pop up on
         // touch down
     }
@@ -162,10 +163,11 @@ public class VerifyFieldEditText extends View {
                 return sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL)) && sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
             }
         };
-       // outAttrs.actionLabel = null;
+        outAttrs.actionLabel=null;
         outAttrs.inputType = InputType.TYPE_CLASS_NUMBER;
         outAttrs.imeOptions = EditorInfo.IME_ACTION_DONE;
         return fic;
+
     }
 
     @Override
