@@ -77,4 +77,17 @@
     </declare-styleable>
 <!--    End CircleProgressBar-->
 
+    <declare-styleable name="VerifyFieldEditText">
+        <attr name="vcTextColor" format="color|reference" />
+        <attr name="vcCircleColor" format="color|reference" />
+        <attr name="vcTextSize" format="integer" />
+        <attr name="vcCircleRadius" format="integer"/>
+        <attr name="vcLineWidth" format="dimension" />
+        <attr name="vcFont" format="string|reference" />
+        <attr name="vcLineStyle" >
+            <enum name="circle" value="0" />
+            <enum name="onLine" value="1" />
+        </attr>
+    </declare-styleable>
+
 </resources>

@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.haytech.haytechstyles.R;
-import com.haytech.haytechstyles.utils.SizeConverter;
+import com.haytech.haytechstyles.utils.UIUtils;
 
 public class MyTextChecker extends View implements View.OnClickListener {
 
@@ -76,8 +76,8 @@ public class MyTextChecker extends View implements View.OnClickListener {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = (int) SizeConverter.dpToPx(getContext(), 25);
-        int height = (int) SizeConverter.dpToPx(getContext(), 25);
+        int width = (int) UIUtils.dpToPx(getContext(), 25);
+        int height = (int) UIUtils.dpToPx(getContext(), 25);
         setMeasuredDimension(manageDimension(widthMeasureSpec, width), manageDimension(heightMeasureSpec, height));
     }
 

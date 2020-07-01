@@ -9,20 +9,39 @@
         android:layoutDirection="rtl"
         tools:context=".MainActivity">
 
+        <com.haytech.haytechstyles.editTextVerify.VerifyFieldEditText
+            android:id="@+id/verifyCodeView"
+            android:layout_width="164dp"
+            android:layout_height="45dp"
+            android:background="@drawable/back_layout_text_verify"
+            android:paddingLeft="@dimen/corner_size_10"
+            android:paddingRight="@dimen/corner_size_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonFieldMenu"
+            app:vcCircleColor="@color/innerColor"
+            app:vcCircleRadius="6"
+            app:vcLineStyle="circle"
+            app:vcTextColor="@color/white"
+            app:vcTextSize="5" />
+
         <com.haytech.haytechstyles.progressBar.CircleFieldProgressBar
             android:id="@+id/circleProgressBar"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="@+id/expertProfile"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/expertProfile"
             app:line_count="10"
-            app:line_width="15sp"
+            android:padding="3dp"
+            app:line_width="12dp"
             app:progress_end_color="@color/colorEndProgressBar"
-            app:progress_shader="linear"
+            app:progress_shader="radial"
+            app:progress_style="line"
             app:progress_start_color="@color/colorStartProgressBar"
+            app:progress_stroke_cap="round"
             app:progress_stroke_width="5dp"
             app:progress_text_color="@android:color/primary_text_light"
             app:progress_text_size="@dimen/text_size_14sp" />
@@ -46,7 +65,9 @@
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+
+        </com.haytech.haytechstyles.expandableLayout.ExpertProfile>
 
         <com.haytech.haytechstyles.editTextVerify.CustomKeyboardEditTextVerify
             android:id="@+id/key"
@@ -54,8 +75,7 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent">
 
         </com.haytech.haytechstyles.editTextVerify.CustomKeyboardEditTextVerify>
 

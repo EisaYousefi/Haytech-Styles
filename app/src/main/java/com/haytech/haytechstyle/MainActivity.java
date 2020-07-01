@@ -2,24 +2,16 @@ package com.haytech.haytechstyle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.animation.ValueAnimator;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Html;
-import android.text.util.Linkify;
 import android.view.View;
 import android.widget.Toast;
 
 import com.haytech.haytechstyle.databinding.ActivityMainBinding;
 import com.haytech.haytechstyles.Validation;
 import com.haytech.haytechstyles.editTextVerify.VerifyCodeClickListener;
-import com.haytech.haytechstyles.expandableLayout.DataList;
-import com.haytech.haytechstyles.utils.ThreadUtils;
-import com.haytech.haytechstyles.utils.Utils;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -32,10 +24,20 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
     private CountDownTimer counter;
 
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.buttonFieldMenu.setOnClickListener(v->{
+            Toast.makeText(this, ""+binding.verifyCodeView.getText(), Toast.LENGTH_SHORT).show();
+            binding.verifyCodeView.setText("");
+        });
 
         binding.key.onTouchMethod();
 
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
                 Toast.makeText(this, "user and pass valid", Toast.LENGTH_SHORT).show();
             }
         });
+
         
 setCountDown();
     }
@@ -143,4 +146,6 @@ setCountDown();
     public void validPhoneNumber() {
         binding.phoneFieldLayout.valid();
     }
+
+
 }

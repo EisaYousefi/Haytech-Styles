@@ -13,7 +13,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.haytech.haytechstyles.R;
-import com.haytech.haytechstyles.utils.SizeConverter;
+import com.haytech.haytechstyles.utils.UIUtils;
 
 
 public class EditTextVerify extends View implements View.OnClickListener {
@@ -81,8 +81,8 @@ public class EditTextVerify extends View implements View.OnClickListener {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = (int) SizeConverter.dpToPx(getContext(), 25);
-        int height = (int) SizeConverter.dpToPx(getContext(), 25);
+        int width = (int) UIUtils.dpToPx(getContext(), 25);
+        int height = (int) UIUtils.dpToPx(getContext(), 25);
         setMeasuredDimension(manageDimension(widthMeasureSpec, width), manageDimension(heightMeasureSpec, height));
     }
 
@@ -123,7 +123,7 @@ public class EditTextVerify extends View implements View.OnClickListener {
 
             } else {
 
-                //داریه را محو میکند و بجایش عدد تایپ میکند
+                //دایره را محو میکند و بجایش عدد تایپ میکند
                 Path path = new Path();
                 path.addCircle(w / 2, h / 2, radius * morf, Path.Direction.CCW);
                 canvas.drawPath(path, paintEmptyTextColor);
@@ -149,7 +149,7 @@ public class EditTextVerify extends View implements View.OnClickListener {
             paint.getTextBounds(text, 0, text.length(), r);
             float x = cWidth / 2f - r.width() / 2f - r.left;
             float y = cHeight / 2f + r.height() / 2f - r.bottom;
-            paint.setTextSize(SizeConverter.spToPx(getContext(), testSize));
+            paint.setTextSize(UIUtils.spToPx(getContext(), testSize));
             paint.setColor(fullTextColor);
             canvas.drawText(text, x, y, paint);
             if (!text.equals("")) {
