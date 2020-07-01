@@ -80,9 +80,10 @@
     <declare-styleable name="VerifyFieldEditText">
         <attr name="vcTextColor" format="color|reference" />
         <attr name="vcCircleColor" format="color|reference" />
-        <attr name="vcTextSize" format="integer" />
+        <attr name="vcTextCount" format="integer" />
         <attr name="vcCircleRadius" format="integer"/>
         <attr name="vcLineWidth" format="dimension" />
+        <attr name="vcTextDrawSize" format="integer" />
         <attr name="vcFont" format="string|reference" />
         <attr name="vcLineStyle" >
             <enum name="circle" value="0" />

@@ -7,13 +7,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layoutDirection="rtl"
+        android:background="@drawable/back_layout_text_verify"
         tools:context=".MainActivity">
 
         <com.haytech.haytechstyles.editTextVerify.VerifyFieldEditText
             android:id="@+id/verifyCodeView"
-            android:layout_width="164dp"
-            android:layout_height="45dp"
-            android:background="@drawable/back_layout_text_verify"
+            android:layout_width="224dp"
+            android:layout_height="86dp"
             android:paddingLeft="@dimen/corner_size_10"
             android:paddingRight="@dimen/corner_size_10"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -22,9 +22,9 @@
             app:layout_constraintTop_toBottomOf="@+id/buttonFieldMenu"
             app:vcCircleColor="@color/innerColor"
             app:vcCircleRadius="6"
-            app:vcLineStyle="circle"
-            app:vcTextColor="@color/white"
-            app:vcTextSize="5" />
+            app:vcTextColor="@color/black"
+            app:vcTextCount="5"
+            app:vcTextDrawSize="40" />
 
         <com.haytech.haytechstyles.progressBar.CircleFieldProgressBar
             android:id="@+id/circleProgressBar"
@@ -43,6 +43,7 @@
             app:progress_start_color="@color/colorStartProgressBar"
             app:progress_stroke_cap="round"
             app:progress_stroke_width="5dp"
+            android:paddingRight="@dimen/text_size_20sp"
             app:progress_text_color="@android:color/primary_text_light"
             app:progress_text_size="@dimen/text_size_14sp" />
 

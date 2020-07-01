@@ -1,6 +1,7 @@
 package com.haytech.haytechstyles.username;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.text.Editable;
@@ -93,7 +94,7 @@ public class UsernameFieldLayout extends TextInputLayout {
     }
 
     private void showKeyboard(){
-        Utils.showKeyboard(getContext() ,getEditText());
+        Utils.showKeyboard((Activity) getContext() ,getEditText());
     }
 
 }

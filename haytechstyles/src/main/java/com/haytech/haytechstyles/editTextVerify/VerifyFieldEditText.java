@@ -65,7 +65,8 @@ public class VerifyFieldEditText extends View {
     public static final int INPUT_NO_LINE = 1;
     private float morf = 0;
     private boolean isChecked = false;
-    private float circleRadius=8;
+    private float circleRadius = 8;
+    private int textDrawSize=20;
 
     @IntDef({INPUT_CIRCLE, INPUT_NO_LINE})
     @Retention(RetentionPolicy.SOURCE)
@@ -73,7 +74,7 @@ public class VerifyFieldEditText extends View {
     }
 
     @LineStyle
-    private int lineStyle = INPUT_CIRCLE;
+    private int shapeStyle = INPUT_CIRCLE;
 
     private int mLinePosY;
 
@@ -103,8 +104,9 @@ public class VerifyFieldEditText extends View {
             TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VerifyFieldEditText);
             textColor = typedArray.getColor(R.styleable.VerifyFieldEditText_vcTextColor, textColor);
             shapeColor = typedArray.getColor(R.styleable.VerifyFieldEditText_vcCircleColor, shapeColor);
+            textDrawSize = typedArray.getInt(R.styleable.VerifyFieldEditText_vcTextDrawSize,20);
             circleRadius = typedArray.getInteger(R.styleable.VerifyFieldEditText_vcCircleRadius, 8);
-            textSize = typedArray.getInt(R.styleable.VerifyFieldEditText_vcTextSize, textSize);
+            textSize = typedArray.getInt(R.styleable.VerifyFieldEditText_vcTextCount, textSize);
             if (textSize < 2) throw new IllegalArgumentException("Text size must more than 1!");
             lineWidth = typedArray.getDimensionPixelSize(R.styleable.VerifyFieldEditText_vcLineWidth, lineWidth);
             String font = typedArray.getString(R.styleable.VerifyFieldEditText_vcFont);
@@ -112,11 +114,11 @@ public class VerifyFieldEditText extends View {
                 typeface = Typeface.createFromAsset(context.getAssets(), font);
             switch (typedArray.getInt(R.styleable.VerifyFieldEditText_vcLineStyle, INPUT_CIRCLE)) {
                 case INPUT_CIRCLE:
-                    lineStyle = INPUT_CIRCLE;
+                    shapeStyle = INPUT_CIRCLE;
                     break;
 
                 case INPUT_NO_LINE:
-                    lineStyle = INPUT_NO_LINE;
+                    shapeStyle = INPUT_NO_LINE;
                     break;
             }
             typedArray.recycle();
@@ -124,7 +126,7 @@ public class VerifyFieldEditText extends View {
         if (codeBuilder == null)
             codeBuilder = new StringBuilder();
 
-        shapePaint = new Paint();
+        shapePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         shapePaint.setColor(shapeColor);
         shapePaint.setAntiAlias(true);
         shapePaint.setStrokeWidth(lineWidth);
@@ -146,7 +148,7 @@ public class VerifyFieldEditText extends View {
             // touch down
 //            Log.d(TAG, "ACTION_DOWN");
             // show the keyboard so we can enter text
-            Utils.showKeyboard(getContext(),this);
+            Utils.showKeyboard((Activity) getContext(), VerifyFieldEditText.this);
         }
         return true;
     }
@@ -160,9 +162,9 @@ public class VerifyFieldEditText extends View {
                 return sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL)) && sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
             }
         };
-        outAttrs.actionLabel = null;
+       // outAttrs.actionLabel = null;
         outAttrs.inputType = InputType.TYPE_CLASS_NUMBER;
-        outAttrs.imeOptions = EditorInfo.IME_ACTION_NEXT;
+        outAttrs.imeOptions = EditorInfo.IME_ACTION_DONE;
         return fic;
     }
 
@@ -174,12 +176,12 @@ public class VerifyFieldEditText extends View {
         if (keyCode == 67 && codeBuilder.length() > 0) {
             codeBuilder.deleteCharAt(codeBuilder.length() - 1);
             if (listener != null) {
-                listener.afterTextChanged(codeBuilder.toString());
+                Utils.hideKeyboard((Activity) getContext());
             }
-           invalidate();
+            invalidate();
 
         } else if (keyCode >= 7 && keyCode <= 16 && codeBuilder.length() < textSize) {
-            codeBuilder.append(keyCode -7);
+            codeBuilder.append(keyCode - 7);
             if (listener != null) {
                 listener.afterTextChanged(codeBuilder.toString());
             }
@@ -187,7 +189,7 @@ public class VerifyFieldEditText extends View {
         }
         //hide soft keyboard
         if (codeBuilder.length() >= textSize || keyCode == 66) {
-            Utils.hideKeyboard((Activity)(getContext()));
+            Utils.hideKeyboard((Activity) (getContext()));
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -226,7 +228,9 @@ public class VerifyFieldEditText extends View {
         solidLine = mWidth / (4 * textSize - 1) * 3;  //long one
 
         if (textPaint != null)
-            textPaint.setTextSize(solidLine);
+        {
+            textPaint.setTextSize(solidLine+textDrawSize);
+        }
         calculateStartAndEndPoint(textSize);
         setMeasuredDimension(mWidth, mHeight);
     }
@@ -243,14 +247,14 @@ public class VerifyFieldEditText extends View {
         Paint.FontMetricsInt fontMetricsInt = textPaint.getFontMetricsInt();
         //text's vertical center is view's center
         int baseShape = mHeight / 2 + (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.bottom;
-        switch (lineStyle) {
+        switch (shapeStyle) {
             case INPUT_CIRCLE:
                 mLinePosY = mHeight / 2;
                 for (int i = 0; i < textSize; i++) {
                     if (inputLength > i) {
-                        canvas.drawText(codeBuilder.toString(), i, i + 1, solidPoints[i].y - (float)solidLine / 2, baseShape, textPaint);
+                        canvas.drawText(codeBuilder.toString(), i, i + 1, solidPoints[i].y - (float) solidLine / 2, baseShape, textPaint);
                     } else {
-                        canvas.drawCircle((float)(getWidth() / textSize - ((float)getWidth() / (textSize + 4))) + solidPoints[i].x, (float) getHeight() / 2, (float) getHeight() / circleRadius , shapePaint);
+                        canvas.drawCircle((float) (getWidth() / textSize - ((float) getWidth() / (textSize + 4))) + solidPoints[i].x, (float) getHeight() / 2, (float) getHeight() / circleRadius, shapePaint);
                     }
                 }
                 break;
@@ -258,9 +262,9 @@ public class VerifyFieldEditText extends View {
                 mLinePosY = baseShape + lineWidth;
                 for (int i = 0; i < textSize; i++) {
                     if (inputLength > i) {
-                        canvas.drawText(codeBuilder.toString(), i, i + 1, (float)solidPoints[i].y - (float)solidLine / 2, baseShape, textPaint);
+                        canvas.drawText(codeBuilder.toString(), i, i + 1, (float) solidPoints[i].y - (float) solidLine / 2, baseShape, textPaint);
                     } else {
-                        canvas.drawLine(solidPoints[i].x, mLinePosY, (float)solidPoints[i].y, mLinePosY, shapePaint);
+                        canvas.drawLine(solidPoints[i].x, mLinePosY, (float) solidPoints[i].y, mLinePosY, shapePaint);
                     }
                 }
                 break;
@@ -357,11 +361,11 @@ public class VerifyFieldEditText extends View {
     /**
      * define input line's style
      *
-     * @param lineStyle In addition, the lineStyle variation must be one of
-     *                  {@link VerifyFieldEditText#INPUT_CIRCLE},
-     *                  {@link VerifyFieldEditText#INPUT_NO_LINE}
+     * @param shapeStyle In addition, the lineStyle variation must be one of
+     *                   {@link VerifyFieldEditText#INPUT_CIRCLE},
+     *                   {@link VerifyFieldEditText#INPUT_NO_LINE}
      */
-    public void setLineStyle(@LineStyle int lineStyle) {
-        this.lineStyle = lineStyle;
+    public void setShapeStyle(@LineStyle int shapeStyle) {
+        this.shapeStyle = shapeStyle;
     }
 }

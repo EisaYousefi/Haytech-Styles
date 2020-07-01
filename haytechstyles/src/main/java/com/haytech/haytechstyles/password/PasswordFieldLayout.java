@@ -1,5 +1,6 @@
 package com.haytech.haytechstyles.password;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -331,7 +332,7 @@ public class PasswordFieldLayout extends TextInputLayout {
     }
 
     private void showKeyboard(){
-        Utils.showKeyboard(getContext() ,getEditText());
+        Utils.showKeyboard((Activity) getContext() ,getEditText());
     }
     public int getTextGoodPass() {
         return textGoodPass;
