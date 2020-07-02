@@ -19,7 +19,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonFieldMenu"
             app:vcCircleColor="@color/innerColor"
             app:vcCircleRadius="6"
             app:vcTextColor="@color/black"
@@ -30,20 +29,21 @@
             android:id="@+id/circleProgressBar"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="384dp"
+            android:padding="3dp"
+            android:paddingRight="@dimen/text_size_20sp"
             app:layout_constraintEnd_toEndOf="@+id/expertProfile"
+            app:layout_constraintHorizontal_bias="0.565"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/expertProfile"
             app:line_count="10"
-            android:padding="3dp"
             app:line_width="12dp"
             app:progress_end_color="@color/colorEndProgressBar"
             app:progress_shader="radial"
-            app:progress_style="line"
             app:progress_start_color="@color/colorStartProgressBar"
             app:progress_stroke_cap="round"
             app:progress_stroke_width="5dp"
-            android:paddingRight="@dimen/text_size_20sp"
+            app:progress_style="line"
             app:progress_text_color="@android:color/primary_text_light"
             app:progress_text_size="@dimen/text_size_14sp" />
 
@@ -53,8 +53,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="150dp"
-            android:layout_marginTop="@dimen/text_size_20sp"
+            android:layout_marginTop="216dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/expertProfile" />
 
@@ -63,10 +64,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="304dp"
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
         </com.haytech.haytechstyles.expandableLayout.ExpertProfile>
 
@@ -86,7 +89,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:fillViewport="true"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +125,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:hint="@string/enter_user_name"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -137,11 +140,11 @@
         <com.haytech.haytechstyles.password.PasswordFieldLayout
             android:id="@+id/passwordFieldLayout"
             style="@style/HaytechTextInputLayoutStyle"
-            android:visibility="gone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="@string/enter_password"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/usernameFieldLayout"
             app:layout_constraintStart_toStartOf="@+id/usernameFieldLayout"
             app:layout_constraintTop_toBottomOf="@+id/usernameFieldLayout">
@@ -159,9 +162,9 @@
             style="@style/HaytechTextInputLayoutStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:layout_marginTop="30dp"
             android:hint="@string/empty_phone_number"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/passwordFieldLayout"
             app:layout_constraintStart_toStartOf="@+id/passwordFieldLayout"
             app:layout_constraintTop_toBottomOf="@+id/passwordFieldLayout">

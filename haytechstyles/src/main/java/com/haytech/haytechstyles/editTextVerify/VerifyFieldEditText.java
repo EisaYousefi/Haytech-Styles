@@ -149,7 +149,7 @@ public class VerifyFieldEditText extends View {
             // touch down
 //            Log.d(TAG, "ACTION_DOWN");
             // show the keyboard so we can enter text
-            Utils.showKeyboard((Activity) getContext(), VerifyFieldEditText.this);
+            Utils.showKeyboard(getContext(), VerifyFieldEditText.this);
         }
         return true;
     }

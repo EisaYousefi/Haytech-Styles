@@ -24,8 +24,8 @@ public final class Utils {
         Objects.requireNonNull(imm).hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    public static void showKeyboard(@NonNull Activity activity, View v1) {
-        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+    public static void showKeyboard(@NonNull Context context, View v1) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         Objects.requireNonNull(imm).showSoftInput(v1, InputMethodManager.SHOW_IMPLICIT);
     }
 

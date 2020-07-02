@@ -332,7 +332,7 @@ public class PasswordFieldLayout extends TextInputLayout {
     }
 
     private void showKeyboard(){
-        Utils.showKeyboard((Activity) getContext() ,getEditText());
+        Utils.showKeyboard( getContext() ,getEditText());
     }
     public int getTextGoodPass() {
         return textGoodPass;

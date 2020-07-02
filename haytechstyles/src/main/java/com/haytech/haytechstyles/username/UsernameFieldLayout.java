@@ -94,7 +94,7 @@ public class UsernameFieldLayout extends TextInputLayout {
     }
 
     private void showKeyboard(){
-        Utils.showKeyboard((Activity) getContext() ,getEditText());
+        Utils.showKeyboard( getContext() ,getEditText());
     }
 
 }
