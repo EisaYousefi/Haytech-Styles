@@ -34,10 +34,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        binding.buttonFieldMenu.setOnClickListener(v->{
-            Toast.makeText(this, ""+binding.verifyCodeView.getText(), Toast.LENGTH_SHORT).show();
-            binding.verifyCodeView.setText("");
-        });
+
 
         binding.key.onTouchMethod();
 

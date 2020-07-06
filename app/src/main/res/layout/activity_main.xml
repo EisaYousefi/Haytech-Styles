@@ -19,7 +19,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonFieldMenu"
             app:vcCircleColor="@color/innerColor"
             app:vcCircleRadius="6"
             app:vcTextColor="@color/black"
@@ -46,17 +45,6 @@
             android:paddingRight="@dimen/text_size_20sp"
             app:progress_text_color="@android:color/primary_text_light"
             app:progress_text_size="@dimen/text_size_14sp" />
-
-        <com.haytech.haytechstyles.button.ButtonFieldMenu
-            android:id="@+id/buttonFieldMenu"
-            style="@style/btnMenuStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="@dimen/text_size_20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/expertProfile" />
 
         <com.haytech.haytechstyles.expandableLayout.ExpertProfile
             android:id="@+id/expertProfile"
