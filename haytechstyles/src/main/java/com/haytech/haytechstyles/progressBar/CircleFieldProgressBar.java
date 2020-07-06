@@ -125,9 +125,7 @@ public class CircleFieldProgressBar extends View {
         return (int) (dpValue * scale + 0.5f);
     }
 
-    /**
-     * Basic data initialization
-     */
+
     @SuppressWarnings("ResourceType")
     private void initFromAttributes(Context context, AttributeSet attrs) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleFieldProgressBar);
@@ -200,10 +198,7 @@ public class CircleFieldProgressBar extends View {
         }
     }
 
-    /**
-     * The progress bar color gradient,
-     * need to be invoked in the {@link #onSizeChanged(int, int, int, int)}
-     */
+
     private void updateProgressShader() {
         if (mProgressStartColor != mProgressEndColor) {
             Shader shader = null;

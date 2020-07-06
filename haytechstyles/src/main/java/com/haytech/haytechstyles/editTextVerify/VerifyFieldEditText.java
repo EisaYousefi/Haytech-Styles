@@ -67,7 +67,7 @@ public class VerifyFieldEditText extends View {
     private float morf = 0;
     private boolean isChecked = false;
     private float circleRadius = 8;
-    private int textDrawSize=20;
+    private int textDrawSize = 20;
 
     @IntDef({INPUT_CIRCLE, INPUT_NO_LINE})
     @Retention(RetentionPolicy.SOURCE)
@@ -105,7 +105,7 @@ public class VerifyFieldEditText extends View {
             TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VerifyFieldEditText);
             textColor = typedArray.getColor(R.styleable.VerifyFieldEditText_vcTextColor, textColor);
             shapeColor = typedArray.getColor(R.styleable.VerifyFieldEditText_vcCircleColor, shapeColor);
-            textDrawSize = typedArray.getInt(R.styleable.VerifyFieldEditText_vcTextDrawSize,20);
+            textDrawSize = typedArray.getInt(R.styleable.VerifyFieldEditText_vcTextDrawSize, 20);
             circleRadius = typedArray.getInteger(R.styleable.VerifyFieldEditText_vcCircleRadius, 8);
             textSize = typedArray.getInt(R.styleable.VerifyFieldEditText_vcTextCount, textSize);
             if (textSize < 2) throw new IllegalArgumentException("Text size must more than 1!");
@@ -164,7 +164,7 @@ public class VerifyFieldEditText extends View {
                 return sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL)) && sendKeyEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_DEL));
             }
         };
-        outAttrs.actionLabel=null;
+        outAttrs.actionLabel = null;
         outAttrs.inputType = InputType.TYPE_CLASS_NUMBER;
         outAttrs.imeOptions = EditorInfo.IME_ACTION_DONE;
         return fic;
@@ -230,9 +230,8 @@ public class VerifyFieldEditText extends View {
         blankLine = mWidth / (4 * textSize - 1);    //short one
         solidLine = mWidth / (4 * textSize - 1) * 3;  //long one
 
-        if (textPaint != null)
-        {
-            textPaint.setTextSize(solidLine+textDrawSize);
+        if (textPaint != null) {
+            textPaint.setTextSize(solidLine + textDrawSize);
         }
         calculateStartAndEndPoint(textSize);
         setMeasuredDimension(mWidth, mHeight);
@@ -275,20 +274,13 @@ public class VerifyFieldEditText extends View {
         }
     }
 
-    /**
-     * get verify code string
-     *
-     * @return code
-     */
+    //get verify code string
     public String getText() {
         return codeBuilder != null ? codeBuilder.toString() : "";
     }
 
-    /**
-     * set verify code (must less than 4 letters)
-     *
-     * @param code code
-     */
+
+    //set verify code (must less than 4 letters)
     public void setText(String code) {
         if (code == null)
             throw new NullPointerException("Code must not null!");
@@ -304,11 +296,8 @@ public class VerifyFieldEditText extends View {
         void afterTextChanged(String text);
     }
 
-    /**
-     * calculate every points
-     *
-     * @param textSize code length
-     */
+
+    // calculate every points
     private void calculateStartAndEndPoint(int textSize) {
         solidPoints = new PointF[textSize];
         for (int i = 1; i <= textSize; i++) {
@@ -332,42 +321,23 @@ public class VerifyFieldEditText extends View {
         return textSize;
     }
 
-    /**
-     * set the code's length
-     *
-     * @param textSize code length
-     */
+    // set the code's length
     public void setTextSize(int textSize) {
         if (textSize < 2) throw new IllegalArgumentException("Text size must more than 1!");
         this.textSize = textSize;
     }
 
 
-    /**
-     * custom font
-     *
-     * @param typeface font
-     */
     public void setFont(Typeface typeface) {
         this.typeface = typeface;
     }
 
-    /**
-     * custom font
-     *
-     * @param path assets' path
-     */
+
     public void setFont(String path) {
         typeface = Typeface.createFromAsset(getContext().getAssets(), path);
     }
 
-    /**
-     * define input line's style
-     *
-     * @param shapeStyle In addition, the lineStyle variation must be one of
-     *                   {@link VerifyFieldEditText#INPUT_CIRCLE},
-     *                   {@link VerifyFieldEditText#INPUT_NO_LINE}
-     */
+
     public void setShapeStyle(@LineStyle int shapeStyle) {
         this.shapeStyle = shapeStyle;
     }
