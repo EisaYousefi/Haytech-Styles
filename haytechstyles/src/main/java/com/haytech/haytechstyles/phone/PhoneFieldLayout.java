@@ -75,39 +75,47 @@ public class PhoneFieldLayout extends TextInputLayout {
             if (validatorListener != null) {
                 if (!s.toString().startsWith("09") && !s.toString().isEmpty()) {
                     validatorListener.startPhoneNumber(s.toString());
+                    setCheckValid(false);
                     return;
                 }
 
                 if (isValid) {
                     validatorListener.validPhoneNumber();
+                    setCheckValid(true);
                     return;
                 }
 
                 if (s.toString().length() == 0) {
                     validatorListener.emptyPhoneNumber();
+                    setCheckValid(false);
                     return;
                 }
 
                 if (isNotValid) {
                     validatorListener.notValidationPhoneNumber(s.toString());
+                    setCheckValid(false);
                 }
             } else {
                 if (!s.toString().startsWith("09") && !s.toString().isEmpty()) {
                     notValidStartPhoneNumber();
+                    setCheckValid(false);
                     return;
                 }
 
                 if (isValid) {
                     setError("");
+                    setCheckValid(true);
                     return;
                 }
 
                 if (s.toString().length() == 0) {
                     empty();
+                    setCheckValid(false);
                     return;
                 }
 
                 if (isNotValid) {
+                    setCheckValid(false);
                     notValidPhoneNumber(s.toString());
                 }
             }
@@ -161,6 +169,14 @@ public class PhoneFieldLayout extends TextInputLayout {
 
     public void notValidStartPhoneNumber(int startPhoneNumber) {
         setError(getResources().getString(startPhoneNumber));
+    }
+
+    public boolean isCheckValid() {
+        return checkValid;
+    }
+
+    public void setCheckValid(boolean checkValid) {
+        this.checkValid = checkValid;
     }
 }
 
