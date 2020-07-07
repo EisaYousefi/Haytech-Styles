@@ -72,13 +72,6 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
             }
         });
 
-        binding.button2.setOnClickListener(v->{
-            if (binding.phoneFieldLayout.isCheckValid()){
-                Toast.makeText(this, "v", Toast.LENGTH_SHORT).show();
-            }else {
-                Toast.makeText(this, "nv", Toast.LENGTH_SHORT).show();
-            }
-        });
         
 setCountDown();
     }
