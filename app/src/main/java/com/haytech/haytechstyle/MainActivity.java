@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         binding.button.setOnClickListener(v -> {
             if (!Objects.requireNonNull(binding.usernameFieldEditText.getText()).toString().trim().equals("eisa")) {
                 binding.usernameFieldLayout.setNotValidationError(R.string.notValidUser);
-            } else if (!Objects.requireNonNull(binding.passwordFieldEditText.getText()).toString().trim().equals("eisa@2910")) {
+            } else if (!Objects.requireNonNull(binding.passwordFieldEditText.getText()).toString().trim().equals("123")) {
                 binding.passwordFieldLayout.setNotValidationError(R.string.notValidPass);
             } else {
                 Toast.makeText(this, "user and pass valid", Toast.LENGTH_SHORT).show();

@@ -30,7 +30,6 @@ public class UsernameFieldLayout extends TextInputLayout {
         super(context, attrs, defStyleAttr);
     }
 
-
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -47,7 +46,7 @@ public class UsernameFieldLayout extends TextInputLayout {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             if (s.length() == 0) {
-                emptyEditText(s.toString());
+                emptyEditText();
             } else {
                 fullEditText(s.toString());
             }
@@ -68,30 +67,35 @@ public class UsernameFieldLayout extends TextInputLayout {
             setEndIconDrawable(null);
     }
 
-    private void emptyEditText(String text) {
+    private void emptyEditText() {
         setEndIconVisible(false);
         setEndIconDrawable(null);
         setBoxStrokeErrorColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
         setErrorTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
-        setError("نام کاربری نباید خالی باشد");
+        setError(getResources().getString(R.string.usernameEmpty));
     }
 
     public void setNotValidationError(int error) {
-        if (getEditText().getText().toString().isEmpty()) {
+        isValidState(Objects.requireNonNull(getEditText()).getText().toString() ,error);
+    }
+
+    private void isValidState(String editTextValue ,int error) {
+        if (editTextValue.isEmpty()) {
             setError(getResources().getString(R.string.usernameEmpty));
             setBoxStrokeErrorColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
             setErrorTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
-            getEditText().requestFocus();
+            Objects.requireNonNull(getEditText()).requestFocus();
             showKeyboard();
-            return;
+        }else {
+            setError(getResources().getString(error));
+            setBoxStrokeErrorColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
+            setErrorTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
+            setErrorTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
+            Objects.requireNonNull(getEditText()).requestFocus();
+            showKeyboard();
         }
-        setError(getResources().getString(error));
-        setBoxStrokeErrorColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
-        setErrorTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
-        setErrorTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
-        getEditText().requestFocus();
-        showKeyboard();
     }
+
 
     private void showKeyboard(){
         Utils.showKeyboard( getContext() ,getEditText());

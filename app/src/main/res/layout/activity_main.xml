@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" >
@@ -74,7 +75,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:fillViewport="true"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +111,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:hint="@string/enter_user_name"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -125,11 +126,11 @@
         <com.haytech.haytechstyles.password.PasswordFieldLayout
             android:id="@+id/passwordFieldLayout"
             style="@style/HaytechTextInputLayoutStyle"
-            android:visibility="gone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:hint="@string/enter_password"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@+id/usernameFieldLayout"
             app:layout_constraintStart_toStartOf="@+id/usernameFieldLayout"
             app:layout_constraintTop_toBottomOf="@+id/usernameFieldLayout">
