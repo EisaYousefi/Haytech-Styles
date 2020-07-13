@@ -1,6 +1,5 @@
 package com.haytech.haytechstyles.password;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -131,7 +130,7 @@ public class PasswordFieldLayout extends TextInputLayout {
     private void emptyEditText(CharSequence charSequence) {
         setBoxStrokeErrorColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
         setErrorTextColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
-        setError("رمز عبور نباید خالی باشد");
+        setError(getResources().getString(R.string.passEmpty));
         if (isFlagValidationPass()) {
             ThreadUtils.onUI(() -> {
                         count = 0;
@@ -168,25 +167,31 @@ public class PasswordFieldLayout extends TextInputLayout {
         passwordStrengthChecker(charSequence.toString(), PasswordFieldLayout.this);
     }
 
-    public int passwordStrengthChecker(Object sourceObject, View indicatorView) {
+    public void passwordStrengthChecker(Object sourceObject, View indicatorView) {
         StringBuilder sourceText = new StringBuilder();
 
-        if (sourceObject != null && sourceObject instanceof TextView) {
+        if (sourceObject==null){
+            return;
+        }
+
+        if (sourceObject instanceof TextView) {
             sourceText.append(((TextView) sourceObject).getText().toString().trim());
         }
-        if (sourceObject != null && sourceObject instanceof EditText) {
+        if (sourceObject instanceof EditText) {
             sourceText.append(((EditText) sourceObject).getText().toString().trim());
         }
 
-        if (sourceObject != null && sourceObject instanceof TextInputEditText) {
-            sourceText.append(((TextInputEditText) sourceObject).getText().toString().trim());
+        if (sourceObject instanceof TextInputEditText) {
+            sourceText.append(Objects.requireNonNull(((TextInputEditText) sourceObject)
+                    .getText()).toString().trim());
         }
 
-        if (sourceObject != null && sourceObject instanceof PasswordFieldLayout) {
-            sourceText.append(((PasswordFieldLayout) sourceObject).getEditText().getText().toString().trim());
+        if (sourceObject instanceof PasswordFieldLayout) {
+            sourceText.append(Objects.requireNonNull(((PasswordFieldLayout) sourceObject)
+                    .getEditText()).getText().toString().trim());
         }
 
-        if (sourceObject != null && sourceObject instanceof String) {
+        if (sourceObject instanceof String) {
             sourceText.append(sourceObject.toString().trim());
         }
 
@@ -216,12 +221,12 @@ public class PasswordFieldLayout extends TextInputLayout {
             }
 
             if (errorTextApp != -1 && errorTextId != -1 && isFlagValidationPass()) {
-                if (indicatorView != null && indicatorView instanceof TextView) {
+                if (indicatorView instanceof TextView) {
                     ((TextView) indicatorView).setText(errorTextId);
                     TextViewCompat.setTextAppearance((TextView) indicatorView, errorTextApp);
                 }
 
-                if (indicatorView != null && indicatorView instanceof PasswordFieldLayout) {
+                if (indicatorView instanceof PasswordFieldLayout) {
                     Context context = indicatorView.getContext();
                     ((PasswordFieldLayout) indicatorView).setError(context.getString(errorTextId));
                     ((PasswordFieldLayout) indicatorView).setErrorTextAppearance(errorTextApp);
@@ -234,10 +239,8 @@ public class PasswordFieldLayout extends TextInputLayout {
             }
             sourceText.replace(0, sourceText.length(), ""); // Clear the string builder
             sourceText.setLength(0); // Clear the string builder
-            return rank;
         } else {
             sourceText.setLength(0); // Clear the string builder
-            return -1;
         }
     }
 
