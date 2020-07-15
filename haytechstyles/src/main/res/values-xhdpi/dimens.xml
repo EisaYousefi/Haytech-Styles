@@ -1,13 +1,11 @@
 <resources>
-	<dimen name="corner_size_10sp">9.6sp</dimen>
-	<dimen name="text_size_normal_btn_12sp">12sp</dimen>
-	<dimen name="text_size_9dp">8.4dp</dimen>
-	<dimen name="text_size_10dp">9.6dp</dimen>
-	<dimen name="text_size_12dp">12dp</dimen>
-	<dimen name="btn_circle_wh_61">69.6dp</dimen>
-	<dimen name="text_size_20sp">21.6sp</dimen>
-	<dimen name="text_size_16sp">16.8sp</dimen>
-	<dimen name="text_size_14sp">14.4sp</dimen>
-	<dimen name="text_size_very_large_25">27.6sp</dimen>
-	<dimen name="height_layout_80">93.6dp</dimen>
+	<dimen name="text_size_10dp">20dp</dimen>
+	<dimen name="corner_size_10dp">20dp</dimen>
+	<dimen name="text_size_9dp">18dp</dimen>
+	<dimen name="text_size_12dp">24dp</dimen>
+	<dimen name="text_size_20sp">40sp</dimen>
+	<dimen name="text_size_very_large_25">50sp</dimen>
+	<dimen name="text_size_14sp">28sp</dimen>
+	<dimen name="text_size_16sp">32sp</dimen>
+	<dimen name="text_size_normal_btn_12sp">24sp</dimen>
 </resources>

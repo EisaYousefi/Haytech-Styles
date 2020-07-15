@@ -1,0 +1,11 @@
+<resources>
+	<dimen name="text_size_10dp">11.2dp</dimen>
+	<dimen name="corner_size_10dp">11.2dp</dimen>
+	<dimen name="text_size_9dp">10.1dp</dimen>
+	<dimen name="text_size_12dp">13.5dp</dimen>
+	<dimen name="text_size_20sp">22.5sp</dimen>
+	<dimen name="text_size_very_large_25">28.1sp</dimen>
+	<dimen name="text_size_14sp">15.8sp</dimen>
+	<dimen name="text_size_16sp">18sp</dimen>
+	<dimen name="text_size_normal_btn_12sp">13.5sp</dimen>
+</resources>

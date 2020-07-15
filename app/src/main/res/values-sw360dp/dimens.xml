@@ -1,0 +1,5 @@
+<resources>
+	<dimen name="text_size_very_45">50.6dp</dimen>
+	<dimen name="text_size_normal_btn_12">13.5sp</dimen>
+	<dimen name="corner_size_10">11.2sp</dimen>
+</resources>
