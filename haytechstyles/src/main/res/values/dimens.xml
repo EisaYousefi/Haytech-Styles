@@ -11,4 +11,5 @@
     <dimen name="text_size_9dp">9dp</dimen>
     <dimen name="text_size_10dp">10dp</dimen>
     <dimen name="text_size_12dp">12dp</dimen>
+    <dimen name="image_height">273dp</dimen>
 </resources>

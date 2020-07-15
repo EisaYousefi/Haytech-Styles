@@ -8,4 +8,5 @@
 	<dimen name="text_size_14sp">21sp</dimen>
 	<dimen name="text_size_16sp">24sp</dimen>
 	<dimen name="text_size_normal_btn_12sp">18sp</dimen>
+	<dimen name="image_height">409.5dp</dimen>
 </resources>
