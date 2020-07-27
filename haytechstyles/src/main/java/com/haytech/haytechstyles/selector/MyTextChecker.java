@@ -1,6 +1,7 @@
 package com.haytech.haytechstyles.selector;
 
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -17,7 +18,9 @@ import com.haytech.haytechstyles.utils.UIUtils;
 
 public class MyTextChecker extends View implements View.OnClickListener {
 
-    private static final int DEFAULT_DURATION = 300;
+    private static final int DEFAULT_DURATION = 200;
+    private static final float DEFAULT_INNER_WIDTH = 1.95f;
+    private static final float DEFAULT_OUTER_WIDTH = 1.1f;
     private CheckerListener listener;
     private Paint paintInnerColor;
     private Paint paintOuterColor;
@@ -27,6 +30,9 @@ public class MyTextChecker extends View implements View.OnClickListener {
     private int innerColor;
     private int outerColor;
     private int typeCircle = 0;
+    private float innerWidth = DEFAULT_INNER_WIDTH;
+    private float outerWidth = DEFAULT_OUTER_WIDTH;
+    private int valueFinal;
 
     public int getInnerColor() {
         return innerColor;
@@ -65,6 +71,8 @@ public class MyTextChecker extends View implements View.OnClickListener {
         innerColor = typedArray.getColor(R.styleable.MyTextChecker_mtc_checked_inner_color, getResources().getColor(R.color.innerColor));
         outerColor = typedArray.getColor(R.styleable.MyTextChecker_mtc_checked_outer_color, getResources().getColor(R.color.outerColor));
         duration = typedArray.getInt(R.styleable.MyTextChecker_mtc_duration, DEFAULT_DURATION);
+        innerWidth = typedArray.getFloat(R.styleable.MyTextChecker_mtc_inner_width, DEFAULT_INNER_WIDTH);
+        outerWidth = typedArray.getFloat(R.styleable.MyTextChecker_mtc_outer_width, DEFAULT_OUTER_WIDTH);
         typeCircle = typedArray.getInt(R.styleable.MyTextChecker_mtc_type, 0);
         typedArray.recycle();
 
@@ -84,12 +92,9 @@ public class MyTextChecker extends View implements View.OnClickListener {
     }
 
     private int manageDimension(int measureSpace, int valueDefault) {
-
-        int valueFinal = 0;
-
+        valueFinal = 0;
         int valueSize = MeasureSpec.getSize(measureSpace);
         int valueMode = MeasureSpec.getMode(measureSpace);
-
         switch (valueMode) {
             case MeasureSpec.EXACTLY:
                 valueFinal = valueSize;
@@ -100,45 +105,51 @@ public class MyTextChecker extends View implements View.OnClickListener {
             case MeasureSpec.UNSPECIFIED:
                 valueFinal = valueDefault;
         }
-
         return valueFinal;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-
         float w = getWidth();
         float h = getHeight();
         float rab = Math.min(w, h) / 2f;
-
+        @SuppressLint("DrawAllocation")
         Path path = new Path();
-
+        @SuppressLint("DrawAllocation")
         Path path2 = new Path();
+
         switch (typeCircle) {
             case 0:
-                path.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
-                path.addCircle(w / 2, h / 2, (rab / 1.1f), Path.Direction.CW);
-                canvas.drawPath(path, paintInnerColor);
-                path2.addCircle(w / 2, h / 2, (rab / 1.95f) * morf, Path.Direction.CCW);
-                canvas.drawPath(path2, paintOuterColor);
+                drawStrokeCircle(canvas, w, h, rab, path, path2);
                 break;
             case 1:
-                path.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
-                path.addCircle(w / 2, h / 2, (rab / 1.1f), Path.Direction.CW);
-                canvas.drawPath(path, paintInnerColor);
-                path2.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
-                if (morf != 0) {
-                    path2.addCircle(w / 2, h / 2, (rab / 1.95f) * morf, Path.Direction.CW);
-                } else {
-                    path2.addCircle(w / 2, h / 2, (rab / 1.1f), Path.Direction.CW);
-                }
-                canvas.drawPath(path2, paintOuterColor);
+                drawFillAndStrokeCircle(canvas, w, h, rab, path, path2);
                 break;
         }
 
         super.onDraw(canvas);
     }
 
+    private void drawStrokeCircle(Canvas canvas, float w, float h, float rab, Path path, Path path2) {
+        path.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
+        path.addCircle(w / 2, h / 2, (rab / outerWidth), Path.Direction.CW);
+        canvas.drawPath(path, paintOuterColor);
+        path2.addCircle(w / 2, h / 2, (rab / innerWidth) * morf, Path.Direction.CCW);
+        canvas.drawPath(path2, paintInnerColor);
+    }
+
+    private void drawFillAndStrokeCircle(Canvas canvas, float w, float h, float rab, Path path, Path path2) {
+        path.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
+        path.addCircle(w / 2, h / 2, (rab / outerWidth), Path.Direction.CW);
+        canvas.drawPath(path, paintOuterColor);
+        path2.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
+        if (morf != 0) {
+            path2.addCircle(w / 2, h / 2, (rab / innerWidth) * morf, Path.Direction.CW);
+        } else {
+            path2.addCircle(w / 2, h / 2, (rab / outerWidth), Path.Direction.CW);
+        }
+        canvas.drawPath(path2, paintInnerColor);
+    }
 
     public boolean isChecked() {
         return isChecked;
@@ -188,8 +199,7 @@ public class MyTextChecker extends View implements View.OnClickListener {
 
     public interface CheckerListener {
         void check(boolean b);
-
-        boolean getChecked();
+        void getChecked();
     }
 
 

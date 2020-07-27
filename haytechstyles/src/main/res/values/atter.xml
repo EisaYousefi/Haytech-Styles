@@ -18,11 +18,13 @@
     <declare-styleable name="MyTextChecker">
         <attr name="mtc_checked_inner_color" format="color"/>
         <attr name="mtc_checked_outer_color" format="color"/>
+        <attr name="mtc_duration" format="integer"/>
+        <attr name="mtc_inner_width" format="float"/>
+        <attr name="mtc_outer_width" format="float"/>
         <attr name="mtc_type">
             <enum name="STROKE" value="0"/>
             <enum name="FILL_AND_STROKE" value="1"/>
         </attr>
-        <attr name="mtc_duration" format="integer"/>
     </declare-styleable>
 
 

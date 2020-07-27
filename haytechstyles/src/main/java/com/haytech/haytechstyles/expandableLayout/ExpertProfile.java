@@ -175,8 +175,7 @@ public class ExpertProfile extends ConstraintLayout implements MyTextChecker.Che
         }
     }
     @Override
-    public boolean getChecked() {
-        return false;
+    public void getChecked() {
     }
 }
 

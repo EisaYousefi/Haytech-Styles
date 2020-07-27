@@ -80,6 +80,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:mtc_type="FILL_AND_STROKE"
             app:mtc_duration="200" />
 
         <TextView
