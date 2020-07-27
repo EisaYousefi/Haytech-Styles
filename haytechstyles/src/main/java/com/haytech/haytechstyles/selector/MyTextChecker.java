@@ -23,9 +23,10 @@ public class MyTextChecker extends View implements View.OnClickListener {
     private Paint paintOuterColor;
     private boolean isChecked = false;
     private float morf = 0f;
-    private int duration  = DEFAULT_DURATION ;
-    private int innerColor ;
+    private int duration = DEFAULT_DURATION;
+    private int innerColor;
     private int outerColor;
+    private int typeCircle = 0;
 
     public int getInnerColor() {
         return innerColor;
@@ -63,7 +64,8 @@ public class MyTextChecker extends View implements View.OnClickListener {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.MyTextChecker);
         innerColor = typedArray.getColor(R.styleable.MyTextChecker_mtc_checked_inner_color, getResources().getColor(R.color.innerColor));
         outerColor = typedArray.getColor(R.styleable.MyTextChecker_mtc_checked_outer_color, getResources().getColor(R.color.outerColor));
-        duration = typedArray.getInt(R.styleable.MyTextChecker_mtc_duration ,DEFAULT_DURATION);
+        duration = typedArray.getInt(R.styleable.MyTextChecker_mtc_duration, DEFAULT_DURATION);
+        typeCircle = typedArray.getInt(R.styleable.MyTextChecker_mtc_type, 0);
         typedArray.recycle();
 
         paintInnerColor = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -110,15 +112,33 @@ public class MyTextChecker extends View implements View.OnClickListener {
         float rab = Math.min(w, h) / 2f;
 
         Path path = new Path();
-        path.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
-        //path.addCircle(w/2,h/2,(rab/1.2f), Path.Direction.CW);
-        canvas.drawPath(path, paintInnerColor);
 
         Path path2 = new Path();
-        path2.addCircle(w / 2, h / 2, (rab / 1.95f) * morf, Path.Direction.CCW);
-        canvas.drawPath(path2, paintOuterColor);
+        switch (typeCircle) {
+            case 0:
+                path.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
+                path.addCircle(w / 2, h / 2, (rab / 1.1f), Path.Direction.CW);
+                canvas.drawPath(path, paintInnerColor);
+                path2.addCircle(w / 2, h / 2, (rab / 1.95f) * morf, Path.Direction.CCW);
+                canvas.drawPath(path2, paintOuterColor);
+                break;
+            case 1:
+                path.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
+                path.addCircle(w / 2, h / 2, (rab / 1.1f), Path.Direction.CW);
+                canvas.drawPath(path, paintInnerColor);
+                path2.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
+                if (morf != 0) {
+                    path2.addCircle(w / 2, h / 2, (rab / 1.95f) * morf, Path.Direction.CW);
+                } else {
+                    path2.addCircle(w / 2, h / 2, (rab / 1.1f), Path.Direction.CW);
+                }
+                canvas.drawPath(path2, paintOuterColor);
+                break;
+        }
+
         super.onDraw(canvas);
     }
+
 
     public boolean isChecked() {
         return isChecked;
@@ -134,7 +154,7 @@ public class MyTextChecker extends View implements View.OnClickListener {
         setChecked(isChecked);
         if (listener != null) {
             listener.check(isChecked);
-            listener.getChecked() ;
+            listener.getChecked();
         }
         Log.i("animator", "onAnimationUpdate: " + isChecked);
         animator();

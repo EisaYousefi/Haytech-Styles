@@ -15,8 +15,8 @@
     <color name="black">#000000</color>
 
     <!--    selector color-->
-    <color name="innerColor">#898787</color>
-    <color name="outerColor">#848080</color>
+    <color name="innerColor">#0253B3</color>
+    <color name="outerColor">#0253B3</color>
     <color name="white">#FFFFFF</color>
 
     <!--    EditTextVerify-->
