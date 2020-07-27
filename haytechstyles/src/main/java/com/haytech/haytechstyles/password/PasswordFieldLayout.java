@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.TextViewCompat;
@@ -78,25 +77,25 @@ public class PasswordFieldLayout extends TextInputLayout {
     private void init(Context context, @Nullable AttributeSet attrs) {
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.PasswordFieldLayout);
-        colorWeakPassBoxStroke = typedArray.getColor(R.styleable.PasswordFieldLayout_FP_box_stroke_color_weak_pass,
+        colorWeakPassBoxStroke = typedArray.getColor(R.styleable.PasswordFieldLayout_pfl_box_stroke_color_weak_pass,
                 getResources().getColor(R.color.black));
-        colorGoodPassBoxStroke = typedArray.getColor(R.styleable.PasswordFieldLayout_FP_box_stroke_color_good_pass,
+        colorGoodPassBoxStroke = typedArray.getColor(R.styleable.PasswordFieldLayout_pfl_box_stroke_color_good_pass,
                 getResources().getColor(R.color.black));
-        colorStrongPassBoxStroke = typedArray.getColor(R.styleable.PasswordFieldLayout_FP_box_stroke_color_stroke_pass,
+        colorStrongPassBoxStroke = typedArray.getColor(R.styleable.PasswordFieldLayout_pfl_box_stroke_color_stroke_pass,
                 getResources().getColor(R.color.black));
 
 
-        errorTextColorGoodPass = typedArray.getColor(R.styleable.PasswordFieldLayout_FP_error_text_color_good_pass,
+        errorTextColorGoodPass = typedArray.getColor(R.styleable.PasswordFieldLayout_pfl_error_text_color_good_pass,
                 getResources().getColor(R.color.colorRed));
-        errorTextColorWeakPass = typedArray.getColor(R.styleable.PasswordFieldLayout_FP_error_text_color_weak_pass,
+        errorTextColorWeakPass = typedArray.getColor(R.styleable.PasswordFieldLayout_pfl_error_text_color_weak_pass,
                 getResources().getColor(R.color.colorRed));
-        errorTextColorStrokePass = typedArray.getColor(R.styleable.PasswordFieldLayout_FP_error_text_color_stroke_pass,
+        errorTextColorStrokePass = typedArray.getColor(R.styleable.PasswordFieldLayout_pfl_error_text_color_stroke_pass,
                 getResources().getColor(R.color.colorRed));
 
         iconColor = typedArray.getColor(R.styleable.PasswordFieldLayout_ctl_icon_color, getResources().getColor(R.color.icon_color));
-        boxStrokeErrorColor = typedArray.getColor(R.styleable.PasswordFieldLayout_FP_boxStrokeErrorColor, Color.RED);
+        boxStrokeErrorColor = typedArray.getColor(R.styleable.PasswordFieldLayout_pfl_boxStrokeErrorColor, Color.RED);
 
-        flagValidationPass = typedArray.getBoolean(R.styleable.PasswordFieldLayout_FP_flag_validation, false);
+        flagValidationPass = typedArray.getBoolean(R.styleable.PasswordFieldLayout_pfl_flag_validation, false);
         typedArray.recycle();
 
         textWeakPass = R.string.password_weak;

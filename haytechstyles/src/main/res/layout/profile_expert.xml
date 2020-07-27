@@ -72,7 +72,7 @@
             app:layout_constraintEnd_toStartOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.haytech.haytechstyles.selector.MyTextChecker
+        <com.haytech.haytechstyles.selector.RadioButtonField
             android:id="@+id/myTextChecker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

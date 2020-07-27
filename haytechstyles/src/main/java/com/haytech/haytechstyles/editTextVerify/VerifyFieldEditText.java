@@ -102,17 +102,17 @@ public class VerifyFieldEditText extends View {
     private void init(Context context, AttributeSet attrs) {
         if (attrs != null) {
             TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VerifyFieldEditText);
-            textColor = typedArray.getColor(R.styleable.VerifyFieldEditText_vcTextColor, textColor);
-            shapeColor = typedArray.getColor(R.styleable.VerifyFieldEditText_vcCircleColor, shapeColor);
-            textDrawSize = typedArray.getInt(R.styleable.VerifyFieldEditText_vcTextDrawSize, 20);
-            circleRadius = typedArray.getInteger(R.styleable.VerifyFieldEditText_vcCircleRadius, 8);
-            textSize = typedArray.getInt(R.styleable.VerifyFieldEditText_vcTextCount, textSize);
+            textColor = typedArray.getColor(R.styleable.VerifyFieldEditText_vfe_text_color, textColor);
+            shapeColor = typedArray.getColor(R.styleable.VerifyFieldEditText_vfe_circle_color, shapeColor);
+            textDrawSize = typedArray.getInt(R.styleable.VerifyFieldEditText_vfe_text_draw_size, 20);
+            circleRadius = typedArray.getInteger(R.styleable.VerifyFieldEditText_vfe_circle_radius, 8);
+            textSize = typedArray.getInt(R.styleable.VerifyFieldEditText_vfe_text_count, textSize);
             if (textSize < 2) throw new IllegalArgumentException("Text size must more than 1!");
-            lineWidth = typedArray.getDimensionPixelSize(R.styleable.VerifyFieldEditText_vcLineWidth, lineWidth);
-            String font = typedArray.getString(R.styleable.VerifyFieldEditText_vcFont);
+            lineWidth = typedArray.getDimensionPixelSize(R.styleable.VerifyFieldEditText_vfe_line_width, lineWidth);
+            String font = typedArray.getString(R.styleable.VerifyFieldEditText_vfe_font);
             if (font != null)
                 typeface = Typeface.createFromAsset(context.getAssets(), font);
-            switch (typedArray.getInt(R.styleable.VerifyFieldEditText_vcLineStyle, INPUT_CIRCLE)) {
+            switch (typedArray.getInt(R.styleable.VerifyFieldEditText_vfe_line_style, INPUT_CIRCLE)) {
                 case INPUT_CIRCLE:
                     shapeStyle = INPUT_CIRCLE;
                     break;

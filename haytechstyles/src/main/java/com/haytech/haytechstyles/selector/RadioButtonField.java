@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import com.haytech.haytechstyles.R;
 import com.haytech.haytechstyles.utils.UIUtils;
 
-public class MyTextChecker extends View implements View.OnClickListener {
+public class RadioButtonField extends View implements View.OnClickListener {
 
     private static final int DEFAULT_DURATION = 200;
     private static final float DEFAULT_INNER_WIDTH = 1.95f;
@@ -50,30 +50,30 @@ public class MyTextChecker extends View implements View.OnClickListener {
         this.outerColor = outerColor;
     }
 
-    public MyTextChecker(Context context) {
+    public RadioButtonField(Context context) {
         super(context);
         init(context, null);
     }
 
-    public MyTextChecker(Context context, @Nullable AttributeSet attrs) {
+    public RadioButtonField(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public MyTextChecker(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public RadioButtonField(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs );
     }
 
     private void init(Context context, @Nullable AttributeSet attrs ) {
 
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.MyTextChecker);
-        innerColor = typedArray.getColor(R.styleable.MyTextChecker_mtc_checked_inner_color, getResources().getColor(R.color.innerColor));
-        outerColor = typedArray.getColor(R.styleable.MyTextChecker_mtc_checked_outer_color, getResources().getColor(R.color.outerColor));
-        duration = typedArray.getInt(R.styleable.MyTextChecker_mtc_duration, DEFAULT_DURATION);
-        innerWidth = typedArray.getFloat(R.styleable.MyTextChecker_mtc_inner_width, DEFAULT_INNER_WIDTH);
-        outerWidth = typedArray.getFloat(R.styleable.MyTextChecker_mtc_outer_width, DEFAULT_OUTER_WIDTH);
-        typeCircle = typedArray.getInt(R.styleable.MyTextChecker_mtc_type, 0);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.RadioButtonField);
+        innerColor = typedArray.getColor(R.styleable.RadioButtonField_mtc_checked_inner_color, getResources().getColor(R.color.innerColor));
+        outerColor = typedArray.getColor(R.styleable.RadioButtonField_mtc_checked_outer_color, getResources().getColor(R.color.outerColor));
+        duration = typedArray.getInt(R.styleable.RadioButtonField_mtc_duration, DEFAULT_DURATION);
+        innerWidth = typedArray.getFloat(R.styleable.RadioButtonField_mtc_inner_width, DEFAULT_INNER_WIDTH);
+        outerWidth = typedArray.getFloat(R.styleable.RadioButtonField_mtc_outer_width, DEFAULT_OUTER_WIDTH);
+        typeCircle = typedArray.getInt(R.styleable.RadioButtonField_mtc_type, 0);
         typedArray.recycle();
 
         paintInnerColor = new Paint(Paint.ANTI_ALIAS_FLAG);

@@ -2,20 +2,20 @@
 <resources>
     <declare-styleable name="PasswordFieldLayout">
         <attr name="ctl_icon_color" format="color"/>
-        <attr name="FP_box_stroke_color_weak_pass" format="color"/>
-        <attr name="FP_box_stroke_color_good_pass" format="color"/>
-        <attr name="FP_box_stroke_color_stroke_pass" format="color"/>
-        <attr name="FP_error_text_color_weak_pass" format="color"/>
-        <attr name="FP_error_text_color_good_pass" format="color"/>
-        <attr name="FP_error_text_color_stroke_pass" format="color"/>
-        <attr name="FP_boxStrokeErrorColor" format="color"/>
-        <attr name="FP_icon" format="color"/>
-        <attr name="FP_text_good_pass" format="string"/>
-        <attr name="FP_text_weak_pass" format="string"/>
-        <attr name="FP_flag_validation" format="boolean"/>
+        <attr name="pfl_box_stroke_color_weak_pass" format="color"/>
+        <attr name="pfl_box_stroke_color_good_pass" format="color"/>
+        <attr name="pfl_box_stroke_color_stroke_pass" format="color"/>
+        <attr name="pfl_error_text_color_weak_pass" format="color"/>
+        <attr name="pfl_error_text_color_good_pass" format="color"/>
+        <attr name="pfl_error_text_color_stroke_pass" format="color"/>
+        <attr name="pfl_boxStrokeErrorColor" format="color"/>
+        <attr name="pfl_icon" format="color"/>
+        <attr name="pfl_text_good_pass" format="string"/>
+        <attr name="pfl_text_weak_pass" format="string"/>
+        <attr name="pfl_flag_validation" format="boolean"/>
     </declare-styleable>
 
-    <declare-styleable name="MyTextChecker">
+    <declare-styleable name="RadioButtonField">
         <attr name="mtc_checked_inner_color" format="color"/>
         <attr name="mtc_checked_outer_color" format="color"/>
         <attr name="mtc_duration" format="integer"/>
@@ -84,17 +84,22 @@
 <!--    End CircleProgressBar-->
 
     <declare-styleable name="VerifyFieldEditText">
-        <attr name="vcTextColor" format="color|reference" />
-        <attr name="vcCircleColor" format="color|reference" />
-        <attr name="vcTextCount" format="integer" />
-        <attr name="vcCircleRadius" format="integer"/>
-        <attr name="vcLineWidth" format="dimension" />
-        <attr name="vcTextDrawSize" format="integer" />
-        <attr name="vcFont" format="string|reference" />
-        <attr name="vcLineStyle" >
+        <attr name="vfe_text_color" format="color|reference" />
+        <attr name="vfe_circle_color" format="color|reference" />
+        <attr name="vfe_text_count" format="integer" />
+        <attr name="vfe_circle_radius" format="integer"/>
+        <attr name="vfe_line_width" format="dimension" />
+        <attr name="vfe_text_draw_size" format="integer" />
+        <attr name="vfe_font" format="string|reference" />
+        <attr name="vfe_line_style" >
             <enum name="circle" value="0" />
             <enum name="onLine" value="1" />
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="UsernameFieldLayout">
+        <attr name="ufl_icon" format="reference"/>
+        <attr name="ufl_style" format="reference"/>
     </declare-styleable>
 
 </resources>

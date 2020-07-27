@@ -19,10 +19,10 @@
         <item name="endIconTint">@color/icon_color</item>
         <item name="passwordToggleDrawable">@drawable/icon_pass_selector</item>
 
-        <item name="FP_flag_validation">false</item>
-        <item name="FP_box_stroke_color_good_pass">@color/colorOrangeYellow</item>
-        <item name="FP_box_stroke_color_stroke_pass">@color/colorGreen</item>
-        <item name="FP_box_stroke_color_weak_pass">@color/colorOrangeYellow</item>
+        <item name="pfl_flag_validation">false</item>
+        <item name="pfl_box_stroke_color_good_pass">@color/colorOrangeYellow</item>
+        <item name="pfl_box_stroke_color_stroke_pass">@color/black</item>
+        <item name="pfl_box_stroke_color_weak_pass">@color/colorRed</item>
     </style>
 
 

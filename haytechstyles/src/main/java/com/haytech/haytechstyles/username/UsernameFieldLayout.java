@@ -4,12 +4,15 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
+import android.os.Build;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.TextViewCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.haytech.haytechstyles.R;
@@ -18,17 +21,30 @@ import com.haytech.haytechstyles.utils.Utils;
 import java.util.Objects;
 
 public class UsernameFieldLayout extends TextInputLayout {
+    private static final int DEFAULT_ICON = R.drawable.edit_text_ok;
+    private int iconOk = DEFAULT_ICON ;
+
+
     public UsernameFieldLayout(@NonNull Context context) {
         super(context);
+        init(context , null);
     }
 
     public UsernameFieldLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init(context , attrs);
     }
 
     public UsernameFieldLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context , attrs);
+    }
 
+
+    private void init(Context context, AttributeSet attrs) {
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs , R.styleable.UsernameFieldLayout);
+        iconOk = typedArray.getResourceId(R.styleable.UsernameFieldLayout_ufl_icon,DEFAULT_ICON);
+        typedArray.recycle();
     }
 
     @Override
@@ -63,7 +79,7 @@ public class UsernameFieldLayout extends TextInputLayout {
         setError("");
         setEndIconVisible(true);
         if (text.length() > 0) {
-            setEndIconDrawable(getResources().getDrawable(R.drawable.edit_text_ok));
+            setEndIconDrawable(getResources().getDrawable(iconOk));
         } else
             setEndIconDrawable(null);
     }

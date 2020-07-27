@@ -16,15 +16,15 @@ import androidx.core.view.ViewCompat;
 
 
 import com.haytech.haytechstyles.R;
-import com.haytech.haytechstyles.selector.MyTextChecker;
+import com.haytech.haytechstyles.selector.RadioButtonField;
 
 import static android.util.TypedValue.COMPLEX_UNIT_PX;
 
 @Keep
-public class ExpertProfile extends ConstraintLayout implements MyTextChecker.CheckerListener {
+public class ExpertProfile extends ConstraintLayout implements RadioButtonField.CheckerListener {
 
     private ExpandableLayout expandableLayout;
-    private MyTextChecker textChecker;
+    private RadioButtonField textChecker;
     private ConstraintLayout parentLayout;
     private TextView expertName;
     private TextView InquiryٔNumber;
@@ -115,11 +115,11 @@ public class ExpertProfile extends ConstraintLayout implements MyTextChecker.Che
         this.expandableLayout = expandableLayout;
     }
 
-    public MyTextChecker getTextChecker() {
+    public RadioButtonField getTextChecker() {
         return textChecker;
     }
 
-    public void setTextChecker(MyTextChecker textChecker) {
+    public void setTextChecker(RadioButtonField textChecker) {
         this.textChecker = textChecker;
     }
 
