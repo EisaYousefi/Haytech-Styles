@@ -28,6 +28,7 @@ public class UsernameFieldLayout extends TextInputLayout {
 
     public UsernameFieldLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
     }
 
     @Override

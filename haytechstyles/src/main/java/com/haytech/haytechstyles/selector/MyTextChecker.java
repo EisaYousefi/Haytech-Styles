@@ -62,10 +62,10 @@ public class MyTextChecker extends View implements View.OnClickListener {
 
     public MyTextChecker(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
+        init(context, attrs );
     }
 
-    private void init(Context context, @Nullable AttributeSet attrs) {
+    private void init(Context context, @Nullable AttributeSet attrs ) {
 
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.MyTextChecker);
         innerColor = typedArray.getColor(R.styleable.MyTextChecker_mtc_checked_inner_color, getResources().getColor(R.color.innerColor));

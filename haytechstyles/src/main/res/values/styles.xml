@@ -29,7 +29,7 @@
     <style name="PasswordEditTextStyle">
         <item name="android:textColor">@color/edit_text_color</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="singleLine">true</item>
         <item name="android:inputType">textPassword</item>
         <item name="android:maxLength">25</item>
@@ -41,7 +41,7 @@
     <style name="UsernameEditTextStyle">
         <item name="android:textColor">@color/edit_text_color</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="singleLine">true</item>
         <item name="android:maxLength">25</item>
         <item name="android:layoutDirection">ltr</item>
@@ -52,7 +52,7 @@
     <style name="PhoneEditTextStyle">
         <item name="android:textColor">@color/edit_text_color</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textSize">@dimen/text_size_14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="singleLine">true</item>
         <item name="android:maxLength">11</item>
         <item name="android:layoutDirection">ltr</item>
