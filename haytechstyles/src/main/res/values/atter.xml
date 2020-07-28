@@ -92,8 +92,8 @@
         <attr name="vfe_text_draw_size" format="integer" />
         <attr name="vfe_font" format="string|reference" />
         <attr name="vfe_line_style" >
-            <enum name="circle" value="0" />
-            <enum name="onLine" value="1" />
+            <enum name="CIRCLE" value="0" />
+            <enum name="LINEAR" value="1" />
         </attr>
     </declare-styleable>
 

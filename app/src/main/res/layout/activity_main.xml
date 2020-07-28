@@ -29,7 +29,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:vfe_circle_color="@color/innerColor"
             app:vfe_circle_radius="6"
-            app:vfe_line_style="circle"
+            app:vfe_line_style="CIRCLE"
             app:vfe_text_color="@color/black"
             app:vfe_text_count="5"
             app:vfe_text_draw_size="40" />
@@ -92,8 +92,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="parent" />
-
-
 
         <com.haytech.haytechstyles.username.UsernameFieldLayout
             android:id="@+id/usernameFieldLayout"
