@@ -130,43 +130,29 @@ public class RadioButtonField extends View implements View.OnClickListener {
     }
 
     private void drawStrokeCircle(Canvas canvas, float width, float height, float radius, Path pathOuter, Path pathInner) {
-        pathOuter.addCircle(getWidthMethod(width , 2), getHeightMethod(height , 2), radius, Path.Direction.CCW);
-        pathOuter.addCircle(getWidthMethod(width , 2f), getHeightMethod(height , 2f),
-                getRadius(radius , outerWidth), Path.Direction.CW);
+        pathOuter.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height , 2), radius, Path.Direction.CCW);
+        pathOuter.addCircle(UIUtils.getWidthMethod(width , 2f), UIUtils.getHeightMethod(height , 2f),
+                UIUtils.getRadius(radius , outerWidth), Path.Direction.CW);
         canvas.drawPath(pathOuter, paintOuterColor);
 
-        pathInner.addCircle(getWidthMethod(width , 2), getHeightMethod(height , 2),
-                calculateMorph(getRadius(radius  ,  innerWidth) , morph), Path.Direction.CCW);
+        pathInner.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height , 2),
+                UIUtils.calculateMorph(UIUtils.getRadius(radius  ,  innerWidth) , morph), Path.Direction.CCW);
         canvas.drawPath(pathInner, paintInnerColor);
     }
     private void drawFillAndStrokeCircle(Canvas canvas, float width, float height, float radius, Path pathOuter, Path pathInner) {
-        pathOuter.addCircle(getWidthMethod(width  , 2), getHeightMethod(height , 2), radius, Path.Direction.CCW);
-        pathOuter.addCircle(getWidthMethod(width , 2), getHeightMethod(height , 2), getRadius(radius  , outerWidth), Path.Direction.CW);
+        pathOuter.addCircle(UIUtils.getWidthMethod(width  , 2), UIUtils.getHeightMethod(height , 2), radius, Path.Direction.CCW);
+        pathOuter.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height , 2), UIUtils.getRadius(radius  , outerWidth), Path.Direction.CW);
         canvas.drawPath(pathOuter, paintOuterColor);
 
-        pathInner.addCircle(getWidthMethod(width , 2), getHeightMethod(height , 2), radius, Path.Direction.CCW);
+        pathInner.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height , 2), radius, Path.Direction.CCW);
         if (morph != 0) {
-            pathInner.addCircle(getWidthMethod(width , 2), getHeightMethod(height ,2),
-                    calculateMorph((getRadius(radius , innerWidth)) , morph), Path.Direction.CW);
+            pathInner.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height ,2),
+                    UIUtils.calculateMorph((UIUtils.getRadius(radius , innerWidth)) , morph), Path.Direction.CW);
         } else {
-            pathInner.addCircle(getWidthMethod(width , 2), getHeightMethod(height , 2), getRadius(radius , outerWidth), Path.Direction.CW);
+            pathInner.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height , 2),
+                    UIUtils.getRadius(radius , outerWidth), Path.Direction.CW);
         }
         canvas.drawPath(pathInner, paintInnerColor);
-    }
-
-    private float getWidthMethod(float width , float number) {
-        return width/number;
-    }
-
-    private float getHeightMethod(float height , float number) {
-        return height/number;
-    }
-    private float getRadius(float radius , float number) {
-        return radius/number;
-    }
-
-    private float calculateMorph(float radius , float morph){
-        return radius * morph ;
     }
 
     public boolean isChecked() {

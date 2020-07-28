@@ -43,4 +43,20 @@ public class UIUtils {
 	public static float dpToPx(final Context context, final float dp) {
 		return dp * context.getResources().getDisplayMetrics().density;
 	}
+
+
+	public static float getWidthMethod(float width , float number) {
+		return width/number;
+	}
+
+	public static float getHeightMethod(float height , float number) {
+		return height/number;
+	}
+	public static float getRadius(float radius , float number) {
+		return radius/number;
+	}
+
+	public static float calculateMorph(float radius , float morph){
+		return radius * morph ;
+	}
 }

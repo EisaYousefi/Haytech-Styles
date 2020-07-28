@@ -19,11 +19,14 @@ import android.view.View;
 import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+
 import androidx.annotation.ColorRes;
 import androidx.annotation.IntDef;
+
 import com.haytech.haytechstyles.R;
 import com.haytech.haytechstyles.utils.UIUtils;
 import com.haytech.haytechstyles.utils.Utils;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -243,15 +246,16 @@ public class VerifyFieldEditText extends View {
         int inputLength = codeBuilder.length();
         Paint.FontMetricsInt fontMetricsInt = textPaint.getFontMetricsInt();
         //text's vertical center is view's center
-        int baseShape = mHeight / 2 + (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.bottom;
+        int baseShape = (int) UIUtils.getHeightMethod(mHeight, 2) + (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.bottom;
         switch (shapeStyle) {
             case INPUT_CIRCLE:
-                mLinePosY = mHeight / 2;
+                mLinePosY = (int) UIUtils.getHeightMethod(mHeight, 2);
                 for (int i = 0; i < textSize; i++) {
                     if (inputLength > i) {
                         canvas.drawText(codeBuilder.toString(), i, i + 1, solidPoints[i].y - (float) solidLine / 2, baseShape, textPaint);
                     } else {
-                        canvas.drawCircle((float) (getWidth() / textSize - ((float) getWidth() / (textSize + 4))) + solidPoints[i].x, (float) getHeight() / 2, (float) getHeight() / circleRadius, shapePaint);
+                        canvas.drawCircle((UIUtils.getWidthMethod(getWidth(), textSize) - (UIUtils.getWidthMethod(getWidth(), (textSize + 4)))) + solidPoints[i].x,
+                                UIUtils.getHeightMethod(getHeight(), 2), UIUtils.getHeightMethod(getHeight(), circleRadius), shapePaint);
                     }
                 }
                 break;
@@ -259,7 +263,7 @@ public class VerifyFieldEditText extends View {
                 mLinePosY = baseShape + lineWidth;
                 for (int i = 0; i < textSize; i++) {
                     if (inputLength > i) {
-                        canvas.drawText(codeBuilder.toString(), i, i + 1, (float) solidPoints[i].y - (float) solidLine / 2, baseShape, textPaint);
+                        canvas.drawText(codeBuilder.toString(), i, i + 1, solidPoints[i].y - (float) solidLine / 2, baseShape, textPaint);
                     } else {
                         canvas.drawLine(solidPoints[i].x, mLinePosY, (float) solidPoints[i].y, mLinePosY, shapePaint);
                     }
