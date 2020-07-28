@@ -80,6 +80,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:mtc_checked_inner_color="@color/black"
+            app:mtc_checked_outer_color="@color/colorBackground"
             app:mtc_duration="200" />
 
         <TextView

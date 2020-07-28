@@ -19,15 +19,11 @@ import android.view.View;
 import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-
-
 import androidx.annotation.ColorRes;
 import androidx.annotation.IntDef;
-
 import com.haytech.haytechstyles.R;
 import com.haytech.haytechstyles.utils.UIUtils;
 import com.haytech.haytechstyles.utils.Utils;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 

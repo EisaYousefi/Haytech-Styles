@@ -19,20 +19,19 @@ import com.haytech.haytechstyles.utils.UIUtils;
 public class RadioButtonField extends View implements View.OnClickListener {
 
     private static final int DEFAULT_DURATION = 200;
-    private static final float DEFAULT_INNER_WIDTH = 1.95f;
+    private static final float DEFAULT_INNER_WIDTH = 1.8f;
     private static final float DEFAULT_OUTER_WIDTH = 1.1f;
     private CheckerListener listener;
     private Paint paintInnerColor;
     private Paint paintOuterColor;
     private boolean isChecked = false;
-    private float morf = 0f;
+    private float morph = 0f;
     private int duration = DEFAULT_DURATION;
     private int innerColor;
     private int outerColor;
     private int typeCircle = 0;
     private float innerWidth = DEFAULT_INNER_WIDTH;
     private float outerWidth = DEFAULT_OUTER_WIDTH;
-    private int valueFinal;
 
     public int getInnerColor() {
         return innerColor;
@@ -92,7 +91,7 @@ public class RadioButtonField extends View implements View.OnClickListener {
     }
 
     private int manageDimension(int measureSpace, int valueDefault) {
-        valueFinal = 0;
+        int valueFinal = 0;
         int valueSize = MeasureSpec.getSize(measureSpace);
         int valueMode = MeasureSpec.getMode(measureSpace);
         switch (valueMode) {
@@ -110,45 +109,64 @@ public class RadioButtonField extends View implements View.OnClickListener {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        float w = getWidth();
-        float h = getHeight();
-        float rab = Math.min(w, h) / 2f;
+        float width = getWidth();
+        float height = getHeight();
+        float radius = Math.min(width, height) / 2f;
         @SuppressLint("DrawAllocation")
-        Path path = new Path();
+        Path pathOuter = new Path();
         @SuppressLint("DrawAllocation")
-        Path path2 = new Path();
+        Path pathInner = new Path();
 
         switch (typeCircle) {
             case 0:
-                drawStrokeCircle(canvas, w, h, rab, path, path2);
+                drawStrokeCircle(canvas, width, height, radius, pathOuter, pathInner);
                 break;
             case 1:
-                drawFillAndStrokeCircle(canvas, w, h, rab, path, path2);
+                drawFillAndStrokeCircle(canvas, width, height, radius, pathOuter, pathInner);
                 break;
         }
 
         super.onDraw(canvas);
     }
 
-    private void drawStrokeCircle(Canvas canvas, float w, float h, float rab, Path path, Path path2) {
-        path.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
-        path.addCircle(w / 2, h / 2, (rab / outerWidth), Path.Direction.CW);
-        canvas.drawPath(path, paintOuterColor);
-        path2.addCircle(w / 2, h / 2, (rab / innerWidth) * morf, Path.Direction.CCW);
-        canvas.drawPath(path2, paintInnerColor);
+    private void drawStrokeCircle(Canvas canvas, float width, float height, float radius, Path pathOuter, Path pathInner) {
+        pathOuter.addCircle(getWidthMethod(width , 2), getHeightMethod(height , 2), radius, Path.Direction.CCW);
+        pathOuter.addCircle(getWidthMethod(width , 2f), getHeightMethod(height , 2f),
+                getRadius(radius , outerWidth), Path.Direction.CW);
+        canvas.drawPath(pathOuter, paintOuterColor);
+
+        pathInner.addCircle(getWidthMethod(width , 2), getHeightMethod(height , 2),
+                calculateMorph(getRadius(radius  ,  innerWidth) , morph), Path.Direction.CCW);
+        canvas.drawPath(pathInner, paintInnerColor);
+    }
+    private void drawFillAndStrokeCircle(Canvas canvas, float width, float height, float radius, Path pathOuter, Path pathInner) {
+        pathOuter.addCircle(getWidthMethod(width  , 2), getHeightMethod(height , 2), radius, Path.Direction.CCW);
+        pathOuter.addCircle(getWidthMethod(width , 2), getHeightMethod(height , 2), getRadius(radius  , outerWidth), Path.Direction.CW);
+        canvas.drawPath(pathOuter, paintOuterColor);
+
+        pathInner.addCircle(getWidthMethod(width , 2), getHeightMethod(height , 2), radius, Path.Direction.CCW);
+        if (morph != 0) {
+            pathInner.addCircle(getWidthMethod(width , 2), getHeightMethod(height ,2),
+                    calculateMorph((getRadius(radius , innerWidth)) , morph), Path.Direction.CW);
+        } else {
+            pathInner.addCircle(getWidthMethod(width , 2), getHeightMethod(height , 2), getRadius(radius , outerWidth), Path.Direction.CW);
+        }
+        canvas.drawPath(pathInner, paintInnerColor);
     }
 
-    private void drawFillAndStrokeCircle(Canvas canvas, float w, float h, float rab, Path path, Path path2) {
-        path.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
-        path.addCircle(w / 2, h / 2, (rab / outerWidth), Path.Direction.CW);
-        canvas.drawPath(path, paintOuterColor);
-        path2.addCircle(w / 2, h / 2, rab, Path.Direction.CCW);
-        if (morf != 0) {
-            path2.addCircle(w / 2, h / 2, (rab / innerWidth) * morf, Path.Direction.CW);
-        } else {
-            path2.addCircle(w / 2, h / 2, (rab / outerWidth), Path.Direction.CW);
-        }
-        canvas.drawPath(path2, paintInnerColor);
+    private float getWidthMethod(float width , float number) {
+        return width/number;
+    }
+
+    private float getHeightMethod(float height , float number) {
+        return height/number;
+    }
+    private float getRadius(float radius , float number) {
+        return radius/number;
+    }
+
+    private float calculateMorph(float radius , float morph){
+        return radius * morph ;
     }
 
     public boolean isChecked() {
@@ -173,12 +191,12 @@ public class RadioButtonField extends View implements View.OnClickListener {
 
     public void animator() {
         float to = isChecked ? 1f : 0f;
-        final ValueAnimator animator = ValueAnimator.ofFloat(morf, to);
+        final ValueAnimator animator = ValueAnimator.ofFloat(morph, to);
         animator.setDuration(duration);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                morf = (float) animator.getAnimatedValue();
+                morph = (float) animator.getAnimatedValue();
                 invalidate();
             }
         });
@@ -201,6 +219,5 @@ public class RadioButtonField extends View implements View.OnClickListener {
         void check(boolean b);
         void getChecked();
     }
-
 
 }
