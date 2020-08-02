@@ -158,9 +158,9 @@ public class ExpertProfile extends ConstraintLayout implements RadioButtonField.
     public void setCheckBox() {
        // expandableLayout.toggle();
         if (expandableLayout.getExpansion() == 0) {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_select_new));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.waiting_to_visit_select));
         } else {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_un_select_new));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.waiting_to_visit_unselect));
         }
     }
 
@@ -169,9 +169,9 @@ public class ExpertProfile extends ConstraintLayout implements RadioButtonField.
     public void check(boolean b) {
         expandableLayout.toggle();
         if (expandableLayout.getExpansion() == 0) {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_select_new));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.waiting_to_visit_select));
         } else {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_un_select_new));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.waiting_to_visit_unselect));
         }
     }
     @Override

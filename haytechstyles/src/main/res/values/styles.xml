@@ -51,8 +51,9 @@
 
     <style name="PhoneEditTextStyle">
         <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:cacheColorHint">#992B2F3E</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">17sp</item>
         <item name="singleLine">true</item>
         <item name="android:maxLength">11</item>
         <item name="android:layoutDirection">ltr</item>
