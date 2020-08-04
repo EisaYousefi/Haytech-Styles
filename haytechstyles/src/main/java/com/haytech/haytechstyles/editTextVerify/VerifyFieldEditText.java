@@ -336,7 +336,6 @@ public class VerifyFieldEditText extends View {
         typeface = Typeface.createFromAsset(getContext().getAssets(), path);
     }
 
-
     public void setShapeStyle(@LineStyle int shapeStyle) {
         this.shapeStyle = shapeStyle;
     }
