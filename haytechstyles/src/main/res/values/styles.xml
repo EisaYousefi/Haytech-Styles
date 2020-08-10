@@ -1,17 +1,17 @@
 <resources>
 
     <style name="HaytechTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-        <item name="android:textColorHint">@color/colorPrimary_def</item>
-        <item name="boxStrokeColor">@color/edit_text_color</item>
         <item name="android:maxLines">1</item>
         <item name="boxCornerRadiusBottomEnd">@dimen/corner_size_10dp</item>
         <item name="boxCornerRadiusBottomStart">@dimen/corner_size_10dp</item>
         <item name="boxCornerRadiusTopEnd">@dimen/corner_size_10dp</item>
         <item name="boxCornerRadiusTopStart">@dimen/corner_size_10dp</item>
         <item name="android:textColor">@color/edit_text_color</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:labelTextSize">@dimen/corner_size_10dp</item>
         <item name="android:imeOptions">actionNext</item>
+        <item name="boxStrokeColor">@color/colorBackground</item>
+        <item name="android:textColorHint">@color/text_color_hint</item>
         <item name="hintAnimationEnabled">true</item>
         <item name="android:layoutDirection">ltr</item>
         <item name="android:textAlignment">viewStart</item>

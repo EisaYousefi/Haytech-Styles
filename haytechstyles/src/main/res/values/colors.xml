@@ -30,5 +30,6 @@
 
     <color name="textColor">#0E1823</color>
     <color name="view_color">#C0BCBC</color>
+    <color name="text_color_hint">#868B90</color>
 
 </resources>

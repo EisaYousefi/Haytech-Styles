@@ -150,6 +150,7 @@
             <com.haytech.haytechstyles.phone.PhoneFieldEditText
                 android:id="@+id/phoneFieldEditText"
                 style="@style/PhoneEditTextStyle"
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.haytech.haytechstyles.phone.PhoneFieldLayout>

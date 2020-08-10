@@ -18,6 +18,7 @@
     <string name="length_phone_number">شماره تلفن باید 11 رقم باشد</string>
     <string name="empty_phone_number">شماره تلفن نباید خالی باشد</string>
     <string name="not_valid_phone_number">شماره تلفن معتبر نمی باشد</string>
+    <string name="not_pass_persian">رمز عبور می بایست به صورت انگلیسی تایپ شود</string>
 
     <string name="login_to_app">ورود به سامانه</string>
 

@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.TextViewCompat;
@@ -22,6 +23,7 @@ import com.haytech.haytechstyles.utils.Utils;
 import com.haytech.haytechstyles.Validation;
 
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class PasswordFieldLayout extends TextInputLayout {
 
@@ -48,6 +50,8 @@ public class PasswordFieldLayout extends TextInputLayout {
     int colorTextWeakPass = 0;
     int colorTextGoodPass = 0;
     boolean flagValidationPass = false;
+    private static final Pattern VALID_NAME_PATTERN_REGEX = Pattern
+            .compile("[a-zA-Z_0-9\\!\\\"\\#\\$\\%\\&\\'\\(\\)\\*\\+\\ \\,\\-\\.\\/\\:\\;\\<\\>\\=\\?\\@\\[\\]\\{\\}\\\\\\^\\_\\`\\~]+$");
 
     private Validation.PassValidator.ValueText valueTextListener;
 
@@ -117,14 +121,29 @@ public class PasswordFieldLayout extends TextInputLayout {
 
             if (charSequence.toString().length() == 0)
                 emptyEditText(charSequence);
-            else
+            else {
                 fullEditText(charSequence);
+                englishWord(charSequence.toString());
+            }
         }
+
 
         @Override
         public void afterTextChanged(Editable editable) {
         }
     };
+
+    private void englishWord(String textValue) {
+        if (!isEnglishWord(textValue))
+        setError(getResources().getString(R.string.not_pass_persian));
+        else {
+            setError("");
+        }
+    }
+
+    public boolean isEnglishWord(String string) {
+        return VALID_NAME_PATTERN_REGEX.matcher(string).find();
+    }
 
     private void emptyEditText(CharSequence charSequence) {
         setBoxStrokeErrorColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
@@ -169,7 +188,7 @@ public class PasswordFieldLayout extends TextInputLayout {
     public void passwordStrengthChecker(Object sourceObject, View indicatorView) {
         StringBuilder sourceText = new StringBuilder();
 
-        if (sourceObject==null){
+        if (sourceObject == null) {
             return;
         }
 
@@ -333,9 +352,10 @@ public class PasswordFieldLayout extends TextInputLayout {
 
     }
 
-    private void showKeyboard(){
-        Utils.showKeyboard( getContext() ,getEditText());
+    private void showKeyboard() {
+        Utils.showKeyboard(getContext(), getEditText());
     }
+
     public int getTextGoodPass() {
         return textGoodPass;
     }
