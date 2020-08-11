@@ -47,7 +47,7 @@ public class PhoneFieldLayout extends TextInputLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         Objects.requireNonNull(getEditText()).addTextChangedListener(phoneTextWatcher);
-        getEditText().setInputType(InputType.TYPE_CLASS_PHONE);
+        getEditText().setInputType(InputType.TYPE_CLASS_NUMBER);
     }
 
     private TextWatcher phoneTextWatcher = new TextWatcher() {
