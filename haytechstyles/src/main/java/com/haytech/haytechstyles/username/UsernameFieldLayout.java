@@ -1,18 +1,15 @@
 package com.haytech.haytechstyles.username;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.widget.TextViewCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.haytech.haytechstyles.R;
@@ -25,7 +22,7 @@ public class UsernameFieldLayout extends TextInputLayout {
 
     private static final int DEFAULT_ICON = R.drawable.edit_text_ok;
     private int iconOk = DEFAULT_ICON ;
-    private Validation.UsernameValidator usernameValidator ;
+    private Validation.UsernameValidator usernameValidatorListener;
 
 
     public UsernameFieldLayout(@NonNull Context context) {
@@ -65,6 +62,8 @@ public class UsernameFieldLayout extends TextInputLayout {
         @SuppressLint("WrongConstant")
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
+            if (usernameValidatorListener!= null)
+                usernameValidatorListener.userNameListener();
             if (s.length() == 0) {
                 emptyEditText();
             } else {
@@ -88,8 +87,6 @@ public class UsernameFieldLayout extends TextInputLayout {
     }
 
     private void emptyEditText() {
-        if (usernameValidator!=null)
-            usernameValidator.userNameListener();
         setEndIconVisible(false);
         setEndIconDrawable(null);
         setBoxStrokeErrorColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
@@ -98,8 +95,6 @@ public class UsernameFieldLayout extends TextInputLayout {
     }
 
     public void setNotValidationError(int error) {
-        if (usernameValidator!=null)
-            usernameValidator.userNameListener();
         isValidState(Objects.requireNonNull(getEditText()).getText().toString() ,error);
     }
 
@@ -118,12 +113,10 @@ public class UsernameFieldLayout extends TextInputLayout {
             Objects.requireNonNull(getEditText()).requestFocus();
             showKeyboard();
         }
-        if (usernameValidator!=null)
-            usernameValidator.userNameListener();
     }
 
-    public void setUsernameValidator(Validation.UsernameValidator usernameValidator) {
-        this.usernameValidator = usernameValidator;
+    public void setUsernameValidatorListener(Validation.UsernameValidator usernameValidatorListener) {
+        this.usernameValidatorListener = usernameValidatorListener;
     }
 
     private void showKeyboard(){
