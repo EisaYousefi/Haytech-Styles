@@ -19,13 +19,17 @@ public interface Validation {
     }
 
     interface UsernameValidator {
+        void userNameListener();
     }
 
     interface phoneValidator {
 
         void startPhoneNumber(String startPhoneNumber);
+
         void notValidationPhoneNumber(String lengthPhoneNumber);
+
         void emptyPhoneNumber();
+
         void validPhoneNumber();
 
     }

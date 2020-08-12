@@ -16,13 +16,16 @@ import androidx.core.widget.TextViewCompat;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.haytech.haytechstyles.R;
+import com.haytech.haytechstyles.Validation;
 import com.haytech.haytechstyles.utils.Utils;
 
 import java.util.Objects;
 
 public class UsernameFieldLayout extends TextInputLayout {
+
     private static final int DEFAULT_ICON = R.drawable.edit_text_ok;
     private int iconOk = DEFAULT_ICON ;
+    private Validation.UsernameValidator usernameValidator ;
 
 
     public UsernameFieldLayout(@NonNull Context context) {
@@ -85,6 +88,8 @@ public class UsernameFieldLayout extends TextInputLayout {
     }
 
     private void emptyEditText() {
+        if (usernameValidator!=null)
+            usernameValidator.userNameListener();
         setEndIconVisible(false);
         setEndIconDrawable(null);
         setBoxStrokeErrorColor(ColorStateList.valueOf(getResources().getColor(R.color.colorRed)));
@@ -93,6 +98,8 @@ public class UsernameFieldLayout extends TextInputLayout {
     }
 
     public void setNotValidationError(int error) {
+        if (usernameValidator!=null)
+            usernameValidator.userNameListener();
         isValidState(Objects.requireNonNull(getEditText()).getText().toString() ,error);
     }
 
@@ -111,8 +118,13 @@ public class UsernameFieldLayout extends TextInputLayout {
             Objects.requireNonNull(getEditText()).requestFocus();
             showKeyboard();
         }
+        if (usernameValidator!=null)
+            usernameValidator.userNameListener();
     }
 
+    public void setUsernameValidator(Validation.UsernameValidator usernameValidator) {
+        this.usernameValidator = usernameValidator;
+    }
 
     private void showKeyboard(){
         Utils.showKeyboard( getContext() ,getEditText());
