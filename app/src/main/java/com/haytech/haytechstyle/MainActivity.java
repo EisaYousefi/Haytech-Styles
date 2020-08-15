@@ -148,7 +148,7 @@ setCountDown();
 
 
     @Override
-    public void userNameListener() {
-        Log.i("TAGeeee", "userNameListener: ");
+    public void userNameListener(int length) {
+        Log.i("TAGeeee", "userNameListener: " +length);
     }
 }
