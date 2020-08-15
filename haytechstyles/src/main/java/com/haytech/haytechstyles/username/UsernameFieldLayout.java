@@ -63,7 +63,7 @@ public class UsernameFieldLayout extends TextInputLayout {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             if (usernameValidatorListener!= null)
-                usernameValidatorListener.userNameListener();
+                usernameValidatorListener.userNameListener(s.toString().length());
             if (s.length() == 0) {
                 emptyEditText();
             } else {

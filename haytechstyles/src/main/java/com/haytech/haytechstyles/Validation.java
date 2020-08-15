@@ -19,7 +19,7 @@ public interface Validation {
     }
 
     interface UsernameValidator {
-        void userNameListener();
+        void userNameListener(int length);
     }
 
     interface phoneValidator {

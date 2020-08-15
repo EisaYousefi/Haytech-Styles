@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,7 +18,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-public class MainActivity extends AppCompatActivity implements Validation.phoneValidator {
+public class MainActivity extends AppCompatActivity implements Validation.phoneValidator,Validation.UsernameValidator {
 
     private ActivityMainBinding binding;
     private ValueAnimator animator;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         // binding.passwordFieldLayout.setFlagValidationPass(true);
 
         binding.phoneFieldLayout.setValidatorListener(this);
+        binding.usernameFieldLayout.setUsernameValidatorListener(this);
 
         binding.button.setOnClickListener(v -> {
             if (!Objects.requireNonNull(binding.usernameFieldEditText.getText()).toString().trim().equals("eisa")) {
@@ -145,4 +147,8 @@ setCountDown();
     }
 
 
+    @Override
+    public void userNameListener() {
+        Log.i("TAGeeee", "userNameListener: ");
+    }
 }
