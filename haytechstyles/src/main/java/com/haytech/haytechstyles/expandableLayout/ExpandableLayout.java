@@ -57,7 +57,7 @@ public class ExpandableLayout extends ConstraintLayout {
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ExpandableLayout);
             duration = a.getInt(R.styleable.ExpandableLayout_el_duration, DEFAULT_DURATION);
-            expansion = a.getBoolean(R.styleable.ExpandableLayout_el_expanded, true) ? 0:1;
+            expansion = a.getBoolean(R.styleable.ExpandableLayout_el_expanded, false) ? 1:0;
             orientation = a.getInt(R.styleable.ExpandableLayout_android_orientation, VERTICAL);
             parallax = a.getFloat(R.styleable.ExpandableLayout_el_parallax, 1);
             a.recycle();

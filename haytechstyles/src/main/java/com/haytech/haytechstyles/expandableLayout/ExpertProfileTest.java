@@ -21,7 +21,7 @@ import com.haytech.haytechstyles.selector.RadioButtonField;
 import static android.util.TypedValue.COMPLEX_UNIT_PX;
 
 @Keep
-public class ExpertProfile extends ConstraintLayout implements RadioButtonField.CheckerListener {
+public class ExpertProfileTest extends ConstraintLayout implements RadioButtonField.CheckerListener {
 
     private ExpandableLayout expandableLayout;
     private RadioButtonField textChecker;
@@ -33,17 +33,17 @@ public class ExpertProfile extends ConstraintLayout implements RadioButtonField.
     private OnReadMoreClickedListener clickedListener;
     private boolean isChecked = false;
 
-    public ExpertProfile(Context context) {
+    public ExpertProfileTest(Context context) {
         super(context);
         initView(context, null);
     }
 
-    public ExpertProfile(Context context, AttributeSet attrs) {
+    public ExpertProfileTest(Context context, AttributeSet attrs) {
         super(context, attrs);
         initView(context, attrs);
     }
 
-    public ExpertProfile(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ExpertProfileTest(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context, attrs);
     }
@@ -55,7 +55,7 @@ public class ExpertProfile extends ConstraintLayout implements RadioButtonField.
 
     private void initView(@NonNull final Context context, AttributeSet attrs) {
 
-        LayoutInflater.from(context).inflate(R.layout.profile_expert, this);
+        LayoutInflater.from(context).inflate(R.layout.profile_expert_test, this);
         ViewCompat.setLayoutDirection(this, ViewCompat.LAYOUT_DIRECTION_LTR);
         setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         setLayerType(View.LAYER_TYPE_HARDWARE, null);
@@ -158,9 +158,9 @@ public class ExpertProfile extends ConstraintLayout implements RadioButtonField.
     public void setCheckBox() {
        // expandableLayout.toggle();
         if (expandableLayout.getExpansion() == 0) {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.waiting_to_visit_select));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_select_archive));
         } else {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.waiting_to_visit_unselect));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_select_archive));
         }
     }
 
@@ -169,9 +169,9 @@ public class ExpertProfile extends ConstraintLayout implements RadioButtonField.
     public void check(boolean b) {
         expandableLayout.toggle();
         if (expandableLayout.getExpansion() == 0) {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.waiting_to_visit_select));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_un_select_archive));
         } else {
-            parentLayout.setBackground(getResources().getDrawable(R.drawable.waiting_to_visit_unselect));
+            parentLayout.setBackground(getResources().getDrawable(R.drawable.back_card_view_un_select_archive));
         }
     }
     @Override

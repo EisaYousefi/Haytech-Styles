@@ -55,7 +55,7 @@
             app:progress_text_size="@dimen/text_size_14sp"
             tools:visibility="visible" />
 
-        <com.haytech.haytechstyles.expandableLayout.ExpertProfile
+        <com.haytech.haytechstyles.expandableLayout.ExpertProfileTest
             android:id="@+id/expertProfile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -67,7 +67,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-        </com.haytech.haytechstyles.expandableLayout.ExpertProfile>
+        </com.haytech.haytechstyles.expandableLayout.ExpertProfileTest>
 
         <com.haytech.haytechstyles.editTextVerify.CustomKeyboardEditTextVerify
             android:id="@+id/key"
@@ -75,8 +75,7 @@
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/passwordFieldLayout">
+            app:layout_constraintStart_toStartOf="parent">
 
         </com.haytech.haytechstyles.editTextVerify.CustomKeyboardEditTextVerify>
 
