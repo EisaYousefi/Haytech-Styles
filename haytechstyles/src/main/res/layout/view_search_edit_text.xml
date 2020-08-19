@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clt_searchContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/lyt_searchBoxContainer"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rlt_buttonContainer"
+        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/edt_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="@string/inter_insurance_number"
+            android:imeOptions="actionSearch"
+            android:inputType="textNoSuggestions"
+            android:layoutDirection="rtl"
+            android:lines="1"
+            android:textColor="@color/default_textColor"
+            android:textColorHint="@color/default_textColorHint"
+            android:textDirection="rtl"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btn_back"
+        style="@style/SearchViewIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:alpha="0.87"
+        android:contentDescription="@string/action_back"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        android:tint="?attr/colorPrimary"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/rlt_buttonContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_search"
+            style="@style/SearchViewIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/action_clear_search"
+            android:visibility="gone"
+            android:src="@drawable/ic_search_black_24dp"
+            app:layout_constraintEnd_toStartOf="@id/btn_clear"
+            tools:layout_editor_absoluteY="12dp" />
+
+        <ImageButton
+            android:id="@+id/btn_clear"
+            style="@style/SearchViewIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/action_clear_search"
+            android:src="@drawable/ic_close_black_24dp"
+            app:layout_constraintEnd_toStartOf="@id/btn_voice" />
+
+        <ImageButton
+            android:id="@+id/btn_voice"
+            style="@style/SearchViewIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/action_voice_search"
+            android:src="@drawable/ic_voice_search_black_24dp" />
+
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/bottomLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#0D000000"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
