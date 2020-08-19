@@ -161,6 +161,14 @@
             <enum name="centerCrop" value="6" />
             <enum name="centerInside" value="7" />
         </attr>
+        <attr name="cv_sb_text" format="string" />
+        <attr name="cv_sb_hint" format="string" />
+        <attr name="cv_sb_textBold" format="boolean" />
+        <attr name="cv_sb_textColor" format="color" />
+        <attr name="cv_sb_font" format="reference" />
+        <attr name="cv_sb_textSize" format="dimension" />
+        <attr name="cv_sv_textPaddingLeft" format="dimension" />
+        <attr name="cv_sv_textPaddingRight" format="dimension" />
         <attr name="android:ems" />
 
     </declare-styleable>

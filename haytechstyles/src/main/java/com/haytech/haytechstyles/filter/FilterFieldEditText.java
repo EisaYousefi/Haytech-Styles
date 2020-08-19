@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +18,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.haytech.haytechstyles.R;
 
@@ -78,6 +80,27 @@ public class FilterFieldEditText extends LinearLayout implements TextWatcher, Vi
         int clearIconVisibility = typedArray.getInt(R.styleable.FilterFieldEditText_cv_sb_clearIconVisibility, View.GONE);
         int clearIconScaleType = typedArray.getInt(R.styleable.FilterFieldEditText_cv_sb_clearIconScaleType, -1);
         int clearIconSource = typedArray.getResourceId(R.styleable.FilterFieldEditText_cv_sb_clearIconSource, R.drawable.ic_close_black_24dp);
+
+        String filterBoxText = typedArray.getString(R.styleable.FilterFieldEditText_cv_sb_text);
+//        int filterBoxHint = typedArray.getResourceId(R.styleable.FilterFieldEditText_cv_sb_hint, R.drawable.ic_close_black_24dp);
+        String filterBoxHint = typedArray.getString(R.styleable.FilterFieldEditText_cv_sb_hint);
+        int filterBoxTextColor = typedArray.getColor(R.styleable.FilterFieldEditText_cv_sb_textColor, filterBox.getCurrentTextColor());
+        boolean filterBoxTextBold = typedArray.getBoolean(R.styleable.FilterFieldEditText_cv_sb_textBold, false);
+        int filterBoxFont = typedArray.getResourceId(R.styleable.FilterFieldEditText_cv_sb_font, 0);
+        int filterBoxTextSize = (int) typedArray.getDimension(R.styleable.FilterFieldEditText_cv_sb_textSize, 0);
+        int filterBoxPaddingLeft = (int) typedArray.getDimension(R.styleable.FilterFieldEditText_cv_sv_textPaddingLeft, dpToPx(0));
+        int filterBoxPaddingRight = (int) typedArray.getDimension(R.styleable.FilterFieldEditText_cv_sv_textPaddingRight, dpToPx(0));
+
+
+        filterBox.setText(filterBoxText);
+        filterBox.setHint(filterBoxHint);
+        if (filterBoxTextColor != 0) filterBox.setTextColor(filterBoxTextColor);
+        if (filterBoxTextSize > 0) filterBox.setTextSize(filterBoxTextSize);
+        if (filterBoxFont > 0)
+            filterBox.setTypeface(ResourcesCompat.getFont(getContext(), filterBoxFont), filterBoxTextBold ? Typeface.BOLD : Typeface.NORMAL);
+        if (filterBoxTextBold && filterBoxFont == 0)
+            filterBox.setTypeface(filterBox.getTypeface(), Typeface.BOLD);
+        filterBox.setPadding(filterBoxPaddingLeft, dpToPx(0),filterBoxPaddingRight, dpToPx(0));
 //
         textStateBorderBackgoundDrawable = getBorderBackgoundDrawable(
                 typedArray.getColor(R.styleable.FilterFieldEditText_cv_sb_borderTextStateColor, Color.TRANSPARENT),

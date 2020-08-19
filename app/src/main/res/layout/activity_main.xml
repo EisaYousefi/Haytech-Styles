@@ -103,7 +103,7 @@
             app:layout_constraintStart_toStartOf="@+id/phoneFieldLayout"
             app:layout_constraintTop_toBottomOf="@+id/phoneFieldLayout"
 
-            filterBox:cv_sb_borderEmptyStateColor="@color/gray"
+            filterBox:cv_sb_borderEmptyStateColor="@color/gray100"
             filterBox:cv_sb_borderEmptyStateDashGap="5dp"
             filterBox:cv_sb_borderEmptyStateDashWith="5dp"
             filterBox:cv_sb_borderEmptyStateRadius="12dp"
@@ -119,8 +119,12 @@
             filterBox:cv_sb_clearIconSource="@drawable/ic_close_black_24dp"
             filterBox:cv_sb_clearIconVisibility="gone"
             filterBox:cv_sb_searchIconScaleType="center"
-            filterBox:cv_sb_searchIconSource="@drawable/ic_search_black_24dp"
-            filterBox:cv_sb_searchIconVisibility="visible"/>
+            filterBox:cv_sb_searchIconSource="@drawable/ic_search_gray_24dp"
+            filterBox:cv_sb_searchIconVisibility="visible"
+            filterBox:cv_sv_textPaddingRight="48dp"
+            filterBox:cv_sv_textPaddingLeft="48dp"
+
+            />
 
         <com.haytech.haytechstyles.username.UsernameFieldLayout
             android:id="@+id/usernameFieldLayout"

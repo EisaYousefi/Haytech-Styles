@@ -43,7 +43,7 @@
     </string>
     <string name="expert_details">مشخصات کارشناس</string>
 
-    <string name="inter_insurance_number">نام بیمه گذار یا شماره بیمه نامه را وارد کنید</string>
+    <string name="inter_insurance_number">نام بیمه گذار یا شماره بیمه نامه</string>
     <string name="action_back">Back</string>
     <string name="action_voice_search">Voice search</string>
     <string name="action_clear_search">Clear search</string>
