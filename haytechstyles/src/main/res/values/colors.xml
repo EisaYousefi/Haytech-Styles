@@ -32,4 +32,9 @@
     <color name="view_color">#C0BCBC</color>
     <color name="text_color_hint">#868B90</color>
 
+
+    <color name="default_textColor">#DE000000</color>
+    <color name="default_textColorHint">#8A000000</color>
+    <color name="gray">#707070</color>
+
 </resources>

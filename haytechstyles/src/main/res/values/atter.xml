@@ -102,4 +102,67 @@
         <attr name="ufl_style" format="reference"/>
     </declare-styleable>
 
+    <declare-styleable name="FilterFieldEditText">
+        <attr name="cv_sb_layoutDirection">
+            <enum name="ltr" value="0" />
+            <enum name="rtl" value="1" />
+            <enum name="inherit" value="2" />
+            <enum name="locale" value="3" />
+        </attr>
+
+        <attr name="cv_sb_borderEmptyStateColor" format="color" />
+        <attr name="cv_sb_borderEmptyStateSize" format="dimension" />
+        <attr name="cv_sb_borderEmptyStateRadius" format="dimension" />
+        <attr name="cv_sb_borderEmptyStateDashWith" format="dimension" />
+        <attr name="cv_sb_borderEmptyStateDashGap" format="dimension" />
+
+        <attr name="cv_sb_borderTextStateColor" format="color" />
+        <attr name="cv_sb_borderTextStateSize" format="dimension" />
+        <attr name="cv_sb_borderTextStateRadius" format="dimension" />
+        <attr name="cv_sb_borderTextStateDashWith" format="dimension" />
+        <attr name="cv_sb_borderTextStateDashGap" format="dimension" />
+
+        <attr name="cv_sb_searchIconVisibility">
+            <!-- Visible on screen; the default value. -->
+            <enum name="visible" value="0" />
+            <!-- Not displayed, but taken into account during layout (space is left for it). -->
+            <enum name="invisible" value="1" />
+            <!-- Completely hidden, as if the view had not been added. -->
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="cv_sb_searchIconSource" format="reference" />
+        <attr name="cv_sb_searchIconScaleType">
+            <enum name="matrix" value="0" />
+            <enum name="fitXY" value="1" />
+            <enum name="fitStart" value="2" />
+            <enum name="fitCenter" value="3" />
+            <enum name="fitEnd" value="4" />
+            <enum name="center" value="5" />
+            <enum name="centerCrop" value="6" />
+            <enum name="centerInside" value="7" />
+        </attr>
+
+        <attr name="cv_sb_clearIconVisibility">
+            <!-- Visible on screen; the default value. -->
+            <enum name="visible" value="0" />
+            <!-- Not displayed, but taken into account during layout (space is left for it). -->
+            <enum name="invisible" value="1" />
+            <!-- Completely hidden, as if the view had not been added. -->
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="cv_sb_clearIconSource" format="reference" />
+        <attr name="cv_sb_clearIconScaleType">
+            <enum name="matrix" value="0" />
+            <enum name="fitXY" value="1" />
+            <enum name="fitStart" value="2" />
+            <enum name="fitCenter" value="3" />
+            <enum name="fitEnd" value="4" />
+            <enum name="center" value="5" />
+            <enum name="centerCrop" value="6" />
+            <enum name="centerInside" value="7" />
+        </attr>
+        <attr name="android:ems" />
+
+    </declare-styleable>
+
 </resources>
