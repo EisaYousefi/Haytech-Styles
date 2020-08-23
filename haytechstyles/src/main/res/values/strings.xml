@@ -41,7 +41,7 @@
     <string
         name="reSendCode"> <a href="#">ارسال مجدد</a>
     </string>
-    <string name="expert_details">مشخصات کارشناس</string>
+    <string name="expert_details">جزییات کارشناسی</string>
 
     <string name="inter_insurance_number">نام بیمه گذار یا شماره بیمه نامه</string>
     <string name="action_back">Back</string>
