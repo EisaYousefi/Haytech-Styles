@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.haytech.haytechstyle.databinding.ActivityMainBinding;
 import com.haytech.haytechstyles.Validation;
 import com.haytech.haytechstyles.editTextVerify.VerifyCodeClickListener;
+import com.haytech.haytechstyles.layout.ErrorPage;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+            //sample for use ErrorPage View
+//        binding.errorPage.setErrorType(ErrorPage.NOT_INTERNET_CONNECTION_TYPE);
+//        binding.errorPage.getErrorTitleTextView().setText("عنوان خطا زیر عکس");
 
         binding.key.onTouchMethod();
 

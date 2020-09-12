@@ -47,4 +47,26 @@
     <string name="action_back">Back</string>
     <string name="action_voice_search">Voice search</string>
     <string name="action_clear_search">Clear search</string>
+
+    <string name="support_call">تماس با پشتیبانی</string>
+    <string name="review_again">بررسی مجدد</string>
+    <string name="review_internet">بررسی اینترنت</string>
+    <string name="receive_and_install_update">دریافت و نصب بروزرسانی</string>
+    <string name="not_connected_to_the_server">ارتباط شما با سرور برقرار نیست</string>
+    <string name="your_phone_not_supported">مدل گوشی همراه شما \n توسط برنامه پشتیبانی نمیشود</string>
+    <string name="not_connected_to_the_internet">به نظر میاد به اینترنت وصل نیستید </string>
+    <string name="up_to_the_new_version">به نسخه جدید بروزرسانی کنید</string>
+
+    <string name="tracking_code_value">12354689 #</string>
+    <string name="tracking_code_lable">کد پیگیری شما : </string>
+
+    <string name="suggest">پیشنهاد میکنم : </string>
+    <string name="new_changes">تغییرات جدید : </string>
+
+
+    <string name="update_error_description">بهبود رابط کاربری \n\n\n اضافه شدن قابلیت فیلمبرداری \n\n\n اضافه شدن کارتابل پیام</string>
+    <string name="no_internet_error_description">اینترنت خود را قطع و وصل نمایید \n\n\n گوشی خود را خاموش روشن کنید \n\n\n پیشنهاد بعدی مثلا </string>
+    <string name="not_support_error_description">این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر\n\n        </string>
+    <string name="no_server_error_description">این مشکل از سمت ما رخ داده است . کمی دیگر تلاش کنید \n\n\n یا \n\n\n این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر</string>
+
 </resources>

@@ -114,4 +114,25 @@
         <item name="android:scaleType">center</item>
         <item name="android:alpha">0.54</item>
     </style>
+
+    <style name="textStyleBold">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="fontFamily">@font/dana_bold</item>
+    </style>
+
+
+    <style name="textStylePersianNumber">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/font_iran</item>
+    </style>
+
+    <style name="textStyleBoldPersianNumber">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/font_iran</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

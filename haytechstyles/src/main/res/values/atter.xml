@@ -173,4 +173,74 @@
 
     </declare-styleable>
 
+    <declare-styleable name="ErrorPage">
+        <attr name="cv_ep_errorIconSource" format="reference" />
+        <attr name="cv_ep_errorIconWidth" format="dimension" />
+        <attr name="cv_ep_errorIconHeight" format="dimension" />
+        <attr name="cv_ep_errorIconVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="cv_ep_errorPictureSource" format="reference" />
+        <attr name="cv_ep_errorPictureWidth" format="dimension" />
+        <attr name="cv_ep_errorPictureHeight" format="dimension" />
+        <attr name="cv_ep_errorPictureVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+
+        <attr name="cv_ep_errorTitleBackground" format="reference" />
+        <attr name="cv_ep_errorTitleText" format="string" />
+        <attr name="cv_ep_errorTitleTextSize" format="dimension" />
+        <attr name="cv_ep_errorTitleTextColor" format="color" />
+        <attr name="cv_ep_errorTitleTextPaddingTop" format="dimension" />
+
+        <attr name="cv_ep_trackingCodeLableBackground" format="reference" />
+        <attr name="cv_ep_trackingCodeLableText" format="string" />
+        <attr name="cv_ep_trackingCodeLableTextSize" format="dimension" />
+        <attr name="cv_ep_trackingCodeLableTextColor" format="color" />
+        <attr name="cv_ep_trackingCodeLableTextPaddingTop" format="dimension" />
+
+        <attr name="cv_ep_trackingCodeValueBackground" format="reference" />
+        <attr name="cv_ep_trackingCodeValueText" format="string" />
+        <attr name="cv_ep_trackingCodeValueTextSize" format="dimension" />
+        <attr name="cv_ep_trackingCodeValueTextColor" format="color" />
+        <attr name="cv_ep_trackingCodeValueTextPaddingTop" format="dimension" />
+
+        <attr name="cv_ep_errorDescriptionBackground" format="reference" />
+        <attr name="cv_ep_errorDescriptionText" format="string" />
+        <attr name="cv_ep_errorDescriptionTextSize" format="dimension" />
+        <attr name="cv_ep_errorDescriptionTextColor" format="color" />
+        <attr name="cv_ep_errorDescriptionTextPaddingTop" format="dimension" />
+
+        <attr name="cv_ep_errorTitleDescriptionBackground" format="reference" />
+        <attr name="cv_ep_errorTitleDescriptionText" format="string" />
+        <attr name="cv_ep_errorTitleDescriptionTextSize" format="dimension" />
+        <attr name="cv_ep_errorTitleDescriptionTextColor" format="color" />
+        <attr name="cv_ep_errorTitleDescriptionTextPaddingTop" format="dimension" />
+
+        <attr name="cv_ep_firstButtonBackground" format="reference" />
+        <attr name="cv_ep_firstButtonText" format="string" />
+        <attr name="cv_ep_firstButtonTextSize" format="dimension" />
+        <attr name="cv_ep_firstButtonTextColor" format="color" />
+        <attr name="cv_ep_firstButtonVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="cv_ep_secondButtonBackground" format="reference" />
+        <attr name="cv_ep_secondButtonText" format="string" />
+        <attr name="cv_ep_secondButtonTextSize" format="dimension" />
+        <attr name="cv_ep_secondButtonTextColor" format="color" />
+        <attr name="cv_ep_secondButtonVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="cv_ep_errorType">
+            <enum name="no_server_connection" value="0" />
+            <enum name="phone_not_support" value="1" />
+            <enum name="no_internet_connection" value="2" />
+            <enum name="important_update" value="3" />
+        </attr>
+    </declare-styleable>
+
 </resources>

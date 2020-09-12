@@ -38,4 +38,8 @@
     <color name="gray">#707070</color>
     <color name="gray100"> #B4B9C9</color>
 
+    <color name="button_color_blue">#0253B3</color>
+    <color name="transparent">#00000000</color>
+    <color name="textColorItemList">#aa2B2F3E</color>
+    <color name="covers_and_accessories_text">#2B2F3E</color>
 </resources>
