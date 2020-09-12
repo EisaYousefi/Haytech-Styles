@@ -36,6 +36,7 @@
     <color name="default_textColor">#DE000000</color>
     <color name="default_textColorHint">#8A000000</color>
     <color name="gray">#707070</color>
+    <color name="blue">#0253B3</color>
     <color name="gray100"> #B4B9C9</color>
 
     <color name="button_color_blue">#0253B3</color>

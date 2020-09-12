@@ -19,15 +19,11 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-public class MainActivity extends AppCompatActivity implements Validation.phoneValidator,Validation.UsernameValidator {
+public class MainActivity extends AppCompatActivity implements Validation.phoneValidator, Validation.UsernameValidator {
 
     private ActivityMainBinding binding;
     private ValueAnimator animator;
     private CountDownTimer counter;
-
-
-
-
 
 
     @Override
@@ -37,16 +33,15 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-            //sample for use ErrorPage View
-//        binding.errorPage.setErrorType(ErrorPage.NOT_INTERNET_CONNECTION_TYPE);
-//        binding.errorPage.getErrorTitleTextView().setText("عنوان خطا زیر عکس");
+        showErrorView();
+
 
         binding.key.onTouchMethod();
 
         binding.key.setVerifyCodeClickListener(new VerifyCodeClickListener() {
             @Override
             public void onResendCodeClicked(View view) {
-               setCountDown();
+                setCountDown();
             }
 
             @Override
@@ -79,7 +74,49 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         });
 
 
-setCountDown();
+        setCountDown();
+    }
+
+    private void showErrorView() {
+        binding.cvErrorPage.getFirstButtonTextView().setOnClickListener(v -> {
+            binding.mainLayout.setVisibility(View.VISIBLE);
+            binding.cvErrorPage.setVisibility(View.GONE);
+        });
+        binding.cvFilterView.getSearchButton().setOnClickListener(v -> {
+            String searchText = binding.cvFilterView.getFilterBox().getText().toString().trim();
+            switch (searchText) {
+                case "0":
+                    binding.cvErrorPage.setErrorType(ErrorPage.NO_SERVER_CONNECTION_TYPE);
+                    binding.cvErrorPage.getFirstButtonTextView().setText(binding.cvErrorPage.getFirstButtonTextView().getText().toString() + "(برگشت)");
+                    binding.mainLayout.setVisibility(View.GONE);
+                    binding.cvErrorPage.setVisibility(View.VISIBLE);
+                    break;
+                case "1":
+                    binding.cvErrorPage.setErrorType(ErrorPage.NOT_INTERNET_CONNECTION_TYPE);
+                    binding.cvErrorPage.getFirstButtonTextView().setText(binding.cvErrorPage.getFirstButtonTextView().getText().toString() + "(برگشت)");
+                    binding.mainLayout.setVisibility(View.GONE);
+                    binding.cvErrorPage.setVisibility(View.VISIBLE);
+                    break;
+                case "2":
+                    binding.cvErrorPage.setErrorType(ErrorPage.PHONE_NOT_SUPPORTED_TYPE);
+                    binding.cvErrorPage.getFirstButtonTextView().setText(binding.cvErrorPage.getFirstButtonTextView().getText().toString() + "(برگشت)");
+                    binding.mainLayout.setVisibility(View.GONE);
+                    binding.cvErrorPage.setVisibility(View.VISIBLE);
+                    break;
+                case "3":
+                    binding.cvErrorPage.setErrorType(ErrorPage.IMPORTANT_UPDATE_TYPE);
+                    binding.cvErrorPage.getFirstButtonTextView().setText(binding.cvErrorPage.getFirstButtonTextView().getText().toString() + "(برگشت)");
+                    binding.mainLayout.setVisibility(View.GONE);
+                    binding.cvErrorPage.setVisibility(View.VISIBLE);
+                    break;
+
+                default:
+                    Toast.makeText(MainActivity.this, "لطفا برای مشاهده صفحات خطا اعداد 0 تا 3 را وارد کنید" + binding.key.getVerifyNumber(), Toast.LENGTH_SHORT).show();
+                    break;
+
+            }
+
+        });
     }
 
     @Override
@@ -110,8 +147,8 @@ setCountDown();
                 binding.key.getTvReSendCode().setEnabled(true);
                 binding.key.getTvReSendCode().setTextColor(getResources().getColor(R.color.colorBackground));
                 binding.key.setTvReSendCode(getString(R.string.reSendCode));
-              //  binding.timer.setVisibility(View.GONE);
-              //  binding.resendCode.setVisibility(View.VISIBLE);
+                //  binding.timer.setVisibility(View.GONE);
+                //  binding.resendCode.setVisibility(View.VISIBLE);
             }
         }.start();
     }
@@ -153,6 +190,6 @@ setCountDown();
 
     @Override
     public void userNameListener(int length) {
-        Log.i("TAGeeee", "userNameListener: " +length);
+        Log.i("TAGeeee", "userNameListener: " + length);
     }
 }

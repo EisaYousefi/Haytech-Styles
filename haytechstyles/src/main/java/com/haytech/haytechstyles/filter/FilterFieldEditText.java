@@ -75,14 +75,14 @@ public class FilterFieldEditText extends LinearLayout implements TextWatcher, Vi
 
         int searchIconVisibility = typedArray.getInt(R.styleable.FilterFieldEditText_cv_sb_searchIconVisibility, View.VISIBLE);
         int searchIconScaleType = typedArray.getInt(R.styleable.FilterFieldEditText_cv_sb_searchIconScaleType, -1);
-        int searchIconSource = typedArray.getResourceId(R.styleable.FilterFieldEditText_cv_sb_searchIconSource, R.drawable.ic_search_black_24dp);
+        int searchIconSource = typedArray.getResourceId(R.styleable.FilterFieldEditText_cv_sb_searchIconSource, R.drawable.ic_search_gray_24dp);
 
         int clearIconVisibility = typedArray.getInt(R.styleable.FilterFieldEditText_cv_sb_clearIconVisibility, View.GONE);
         int clearIconScaleType = typedArray.getInt(R.styleable.FilterFieldEditText_cv_sb_clearIconScaleType, -1);
-        int clearIconSource = typedArray.getResourceId(R.styleable.FilterFieldEditText_cv_sb_clearIconSource, R.drawable.ic_close_black_24dp);
+        int clearIconSource = typedArray.getResourceId(R.styleable.FilterFieldEditText_cv_sb_clearIconSource, R.drawable.ic_close_black_12dp);
 
         String filterBoxText = typedArray.getString(R.styleable.FilterFieldEditText_cv_sb_text);
-//        int filterBoxHint = typedArray.getResourceId(R.styleable.FilterFieldEditText_cv_sb_hint, R.drawable.ic_close_black_24dp);
+//        int filterBoxHint = typedArray.getResourceId(R.styleable.FilterFieldEditText_cv_sb_hint, R.drawable.ic_close_black_12dp);
         String filterBoxHint = typedArray.getString(R.styleable.FilterFieldEditText_cv_sb_hint);
         int filterBoxTextColor = typedArray.getColor(R.styleable.FilterFieldEditText_cv_sb_textColor, filterBox.getCurrentTextColor());
         boolean filterBoxTextBold = typedArray.getBoolean(R.styleable.FilterFieldEditText_cv_sb_textBold, false);
@@ -103,7 +103,7 @@ public class FilterFieldEditText extends LinearLayout implements TextWatcher, Vi
         filterBox.setPadding(filterBoxPaddingLeft, dpToPx(0),filterBoxPaddingRight, dpToPx(0));
 //
         textStateBorderBackgoundDrawable = getBorderBackgoundDrawable(
-                typedArray.getColor(R.styleable.FilterFieldEditText_cv_sb_borderTextStateColor, Color.TRANSPARENT),
+                typedArray.getColor(R.styleable.FilterFieldEditText_cv_sb_borderTextStateColor, Color.BLUE),
                 typedArray.getDimension(R.styleable.FilterFieldEditText_cv_sb_borderTextStateSize, dpToPx(0)),
                 typedArray.getDimension(R.styleable.FilterFieldEditText_cv_sb_borderTextStateRadius, dpToPx(0)),
                 typedArray.getDimension(R.styleable.FilterFieldEditText_cv_sb_borderTextStateDashWith, dpToPx(0)),
@@ -191,9 +191,11 @@ public class FilterFieldEditText extends LinearLayout implements TextWatcher, Vi
     public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
         if (!charSequence.toString().isEmpty()) {
             clearIcon.setVisibility(View.VISIBLE);
+            searchButton.setImageResource(R.drawable.ic_search_blue_24dp);
             iconContainer.setBackground(textStateBorderBackgoundDrawable);
         } else {
             clearIcon.setVisibility(View.GONE);
+            searchButton.setImageResource(R.drawable.ic_search_gray_24dp);
             iconContainer.setBackground(emptyStateBorderBackgoundDrawable);
         }
     }

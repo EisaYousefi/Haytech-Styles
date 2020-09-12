@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rlt_buttonContainer"
-        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintStart_toEndOf="@+id/btn_clear"
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
@@ -35,15 +35,15 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_clear"
         style="@style/SearchViewIcon"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:alpha="0.87"
-        android:contentDescription="@string/action_back"
-        android:src="@drawable/ic_arrow_back_black_24dp"
-        android:tint="?attr/colorPrimary"
-        android:visibility="visible"
+        android:contentDescription="@string/action_clear_search"
+        android:src="@drawable/ic_close_black_12dp"
+        android:paddingTop="21dp"
+        android:paddingLeft="18dp"
+        android:paddingBottom="20dp"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
@@ -60,18 +60,27 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:contentDescription="@string/action_clear_search"
+            android:src="@drawable/ic_search_blue_24dp"
             android:visibility="gone"
-            android:src="@drawable/ic_search_black_24dp"
-            app:layout_constraintEnd_toStartOf="@id/btn_clear"
+            android:paddingRight="17dp"
+            android:paddingTop="17dp"
+            android:paddingBottom="17dp"
+            app:layout_constraintEnd_toStartOf="@id/btn_back"
             tools:layout_editor_absoluteY="12dp" />
 
         <ImageButton
-            android:id="@+id/btn_clear"
+            android:id="@+id/btn_back"
             style="@style/SearchViewIcon"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:contentDescription="@string/action_clear_search"
-            android:src="@drawable/ic_search_gray_24dp"
+            android:alpha="0.87"
+            android:contentDescription="@string/action_back"
+            android:paddingRight="17dp"
+            android:paddingTop="17dp"
+            android:paddingBottom="17dp"
+            android:src="@drawable/ic_arrow_back_black_24dp"
+            android:tint="?attr/colorPrimary"
+            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@id/btn_voice" />
 
         <ImageButton
@@ -79,6 +88,9 @@
             style="@style/SearchViewIcon"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingRight="17dp"
+            android:paddingTop="17dp"
+            android:paddingBottom="17dp"
             android:contentDescription="@string/action_voice_search"
             android:src="@drawable/ic_voice_search_black_24dp" />
 
