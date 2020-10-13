@@ -242,5 +242,12 @@
             <enum name="important_update" value="3" />
         </attr>
     </declare-styleable>
+    
+    <declare-styleable name="NestedCircle">
+        <attr name="nc_background_outer" format="color" />
+        <attr name="nc_background_center" format="color"/>
+        <attr name="nc_background_inner" format="color"/>
+        <attr name="nc_radius_inner_center_circle" format="integer"/>
+    </declare-styleable>
 
 </resources>
