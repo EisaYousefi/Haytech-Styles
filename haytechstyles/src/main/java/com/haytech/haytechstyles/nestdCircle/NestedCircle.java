@@ -43,7 +43,6 @@ public class NestedCircle extends View {
         innerColor = typedArray.getColor(R.styleable.NestedCircle_nc_background_inner, getResources().getColor(R.color.innerCircle));
         radiusInnerCircles = typedArray.getInt(R.styleable.NestedCircle_nc_radius_inner_center_circle, 3);
         typedArray.recycle();
-
         paintOuterCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
         paintOuterCircle.setColor(outerColor);
 
