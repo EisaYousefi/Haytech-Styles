@@ -15,6 +15,22 @@
         <attr name="pfl_flag_validation" format="boolean"/>
     </declare-styleable>
 
+
+    <declare-styleable name="SeekBar">
+        <attr name="thumbRadius" format="dimension"/>
+        <attr name="sizeShadow" format="dimension"/>
+        <attr name="numberSections" format="dimension"/>
+        <attr name="marginTopBetweenSeekBarAndText" format="dimension"/>
+        <attr name="trackerColor" format="color"/>
+        <attr name="textColor" format="color"/>
+        <attr name="shadowColor" format="color"/>
+        <attr name="thumbColor" format="color"/>
+        <attr name="heightTrack" format="dimension"/>
+        <attr name="widthDegree" format="dimension"/>
+        <attr name="textSize" format="dimension"/>
+    </declare-styleable>
+
+
     <declare-styleable name="RadioButtonField">
         <attr name="mtc_checked_inner_color" format="color"/>
         <attr name="mtc_checked_outer_color" format="color"/>
