@@ -44,6 +44,9 @@
     <color name="textColorItemList">#aa2B2F3E</color>
     <color name="covers_and_accessories_text">#2B2F3E</color>
 
+    <color name="outerCircle">#65FF0000</color>
+    <color name="centerCircle">#80FF0000</color>
+    <color name="innerCircle">#FF0000</color>
 
     <color name="textColorSeekBar">#989AA2</color>
     <color name="thumbColor">#FFFFFF</color>
