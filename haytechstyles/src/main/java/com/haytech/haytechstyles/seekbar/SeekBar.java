@@ -139,6 +139,8 @@ public class SeekBar extends View {
         shadowColor = ta.getColor(R.styleable.SeekBar_shadowColor, resources.getColor(R.color.shadowColor));
         thumbColor = ta.getColor(R.styleable.SeekBar_thumbColor, resources.getColor(R.color.thumbColor));
         numberSections = ta.getDimensionPixelSize(R.styleable.SeekBar_numberSections, 4);
+
+        ta.recycle();
         thumbRadius = (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_thumbRadius, 10));
         shadowSize = thumbRadius + (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_sizeShadow, 1));
         marginBetweenTextAndSeekBar = (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_marginTopBetweenSeekBarAndText, 18));
@@ -360,6 +362,13 @@ public class SeekBar extends View {
             }
         });
         animator.start();
+    }
+
+
+
+    @Override
+    protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec((int) SizeConverter.dpToPx(getContext(),50),MeasureSpec.EXACTLY));
     }
 
 
