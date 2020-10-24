@@ -96,7 +96,7 @@ public class Plaque extends View {
         width = w;
         height = (int) (width * rateWightToHeight);
 
-        margin1 = (float) (width / 162);
+        margin1 = (float) (width * 1.5 / 162);
         margin1dot5 = (float) (width * 1.5 / 162);
         radius = width / 40;
         paintText = UtilPaint.getPaintText((float) (width * 0.09), Color.BLACK, UtilPaint.LEFT_TEXT, typeface, true);
