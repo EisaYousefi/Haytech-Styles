@@ -48,7 +48,10 @@
     <color name="centerCircle">#80FF0000</color>
     <color name="innerCircle">#FF0000</color>
 
+    <!--    SeekBar -->
     <color name="textColorSeekBar">#989AA2</color>
     <color name="thumbColor">#FFFFFF</color>
     <color name="shadowColor">#336E6B6B</color>
+    <!--    Plaque -->
+    <color name="backgroundPlaque">#2B2F3E</color>
 </resources>
