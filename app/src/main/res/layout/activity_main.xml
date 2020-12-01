@@ -112,7 +112,7 @@
                 android:layout_width="0dp"
                 android:layout_height="54dp"
                 android:layout_marginTop="16dp"
-                android:layoutDirection="ltr"
+                android:layoutDirection="rtl"
                 app:layout_constraintEnd_toEndOf="@+id/phoneFieldLayout"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/phoneFieldLayout"
@@ -144,12 +144,13 @@
                 style="@style/HaytechTextInputLayoutStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="10dp"
                 android:hint="@string/enter_user_name"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.haytech.haytechstyles.username.UsernameFieldEditText
@@ -165,16 +166,18 @@
                 style="@style/HaytechTextInputLayoutStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
                 android:hint="@string/enter_password"
                 android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="@+id/usernameFieldLayout"
-                app:layout_constraintStart_toStartOf="@+id/usernameFieldLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/usernameFieldLayout">
 
                 <com.haytech.haytechstyles.password.PasswordFieldEditText
                     android:id="@+id/passwordFieldEditText"
-                    style="@style/PasswordEditTextStyle"
+                    style="@style/PhoneEditTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
@@ -185,11 +188,13 @@
                 style="@style/HaytechTextInputLayoutStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
                 android:hint="@string/empty_phone_number"
                 android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="@+id/passwordFieldLayout"
-                app:layout_constraintStart_toStartOf="@+id/passwordFieldLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/passwordFieldLayout">
 
                 <com.haytech.haytechstyles.phone.PhoneFieldEditText
