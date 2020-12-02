@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.animation.ValueAnimator;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.haytech.haytechstyle.databinding.ActivityMainBinding;
 import com.haytech.haytechstyles.Validation;
+import com.haytech.haytechstyles.customLoginKebord.OnKeyboardCustomListener;
 import com.haytech.haytechstyles.editTextVerify.VerifyCodeClickListener;
 import com.haytech.haytechstyles.layout.ErrorPage;
 
@@ -75,6 +78,42 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
         setCountDown();
+        login();
+    }
+
+
+    private void login() {
+        binding.customKeborad.setTvLable(getResources().getString(R.string.enter_password));
+        binding.customKeborad.onTouchMethod();
+        binding.customKeborad.setStateSelected(1);
+        binding.customKeborad.setValidPass("");
+
+        binding.customKeborad.setLoginAppListener(new OnKeyboardCustomListener.LoginApp() {
+            @Override
+            public void validPass() {
+
+            }
+
+            @Override
+            public void counterErrorPass() {
+
+            }
+        });
+
+
+        binding.customKeborad.setOnClickKeyListener(new OnKeyboardCustomListener.OnClickKey() {
+
+            @Override
+            public void tvFingerClick(View view) {
+
+            }
+
+            @Override
+            public void imgFingerClick(View view) {
+
+            }
+        });
+
     }
 
     private void showErrorView() {

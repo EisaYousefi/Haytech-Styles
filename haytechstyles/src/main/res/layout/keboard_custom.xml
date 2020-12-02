@@ -52,79 +52,63 @@
         app:layout_constraintStart_toStartOf="@+id/guideline70"
         app:layout_constraintTop_toTopOf="@+id/guideline4">
 
-        <com.haytech.haytechstyles.customLoginKebord.CircleCheckers
+        <com.haytech.haytechstyles.selector.RadioButtonField
             android:id="@+id/tow"
-            android:layout_width="17dp"
-            android:layout_height="17dp"
+            style="@style/circrRadioCustomKeboard"
+            app:layout_goneMarginRight="33dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/three"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/one"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.haytech.haytechstyles.customLoginKebord.CircleCheckers
+        <com.haytech.haytechstyles.selector.RadioButtonField
             android:id="@+id/one"
-            android:layout_width="17dp"
-            android:layout_height="17dp"
+            style="@style/circrRadioCustomKeboard"
+            android:layout_marginStart="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideline10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/guideline9"
+            app:layout_constraintEnd_toStartOf="@+id/tow"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.haytech.haytechstyles.customLoginKebord.CircleCheckers
+        <com.haytech.haytechstyles.selector.RadioButtonField
             android:id="@+id/three"
-            android:layout_width="17dp"
-            android:layout_height="17dp"
+            style="@style/circrRadioCustomKeboard"
+            app:layout_goneMarginRight="33dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/foure"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tow"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.haytech.haytechstyles.customLoginKebord.CircleCheckers
+        <com.haytech.haytechstyles.selector.RadioButtonField
             android:id="@+id/foure"
-            android:layout_width="17dp"
-            android:layout_height="17dp"
+            style="@style/circrRadioCustomKeboard"
+            app:layout_goneMarginRight="33dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/five"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/three"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.haytech.haytechstyles.customLoginKebord.CircleCheckers
+        <com.haytech.haytechstyles.selector.RadioButtonField
             android:id="@+id/five"
-            android:layout_width="17dp"
-            android:layout_height="17dp"
+            style="@style/circrRadioCustomKeboard"
+            app:layout_goneMarginRight="33dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/sex"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/foure"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.haytech.haytechstyles.customLoginKebord.CircleCheckers
+        <com.haytech.haytechstyles.selector.RadioButtonField
             android:id="@+id/sex"
-            android:layout_width="17dp"
-            android:layout_height="17dp"
+            style="@style/circrRadioCustomKeboard"
+            android:layout_marginEnd="33dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/five"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.0952381" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.15" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

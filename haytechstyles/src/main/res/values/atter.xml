@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="PasswordFieldLayout">
-        <attr name="ctl_icon_color" format="color"/>
-        <attr name="pfl_box_stroke_color_weak_pass" format="color"/>
-        <attr name="pfl_box_stroke_color_good_pass" format="color"/>
-        <attr name="pfl_box_stroke_color_stroke_pass" format="color"/>
-        <attr name="pfl_error_text_color_weak_pass" format="color"/>
-        <attr name="pfl_error_text_color_good_pass" format="color"/>
-        <attr name="pfl_error_text_color_stroke_pass" format="color"/>
-        <attr name="pfl_boxStrokeErrorColor" format="color"/>
-        <attr name="pfl_icon" format="color"/>
-        <attr name="pfl_text_good_pass" format="string"/>
-        <attr name="pfl_text_weak_pass" format="string"/>
-        <attr name="pfl_flag_validation" format="boolean"/>
+        <attr name="ctl_icon_color" format="color" />
+        <attr name="pfl_box_stroke_color_weak_pass" format="color" />
+        <attr name="pfl_box_stroke_color_good_pass" format="color" />
+        <attr name="pfl_box_stroke_color_stroke_pass" format="color" />
+        <attr name="pfl_error_text_color_weak_pass" format="color" />
+        <attr name="pfl_error_text_color_good_pass" format="color" />
+        <attr name="pfl_error_text_color_stroke_pass" format="color" />
+        <attr name="pfl_boxStrokeErrorColor" format="color" />
+        <attr name="pfl_icon" format="color" />
+        <attr name="pfl_text_good_pass" format="string" />
+        <attr name="pfl_text_weak_pass" format="string" />
+        <attr name="pfl_flag_validation" format="boolean" />
     </declare-styleable>
 
 
     <declare-styleable name="SeekBar">
-        <attr name="thumbRadius" format="dimension"/>
-        <attr name="sizeShadow" format="dimension"/>
-        <attr name="numberSections" format="dimension"/>
-        <attr name="marginTopBetweenSeekBarAndText" format="dimension"/>
-        <attr name="trackerColor" format="color"/>
-        <attr name="textColor" format="color"/>
-        <attr name="shadowColor" format="color"/>
-        <attr name="thumbColor" format="color"/>
-        <attr name="heightTrack" format="dimension"/>
-        <attr name="widthDegree" format="dimension"/>
-        <attr name="textSize" format="dimension"/>
+        <attr name="thumbRadius" format="dimension" />
+        <attr name="sizeShadow" format="dimension" />
+        <attr name="numberSections" format="dimension" />
+        <attr name="marginTopBetweenSeekBarAndText" format="dimension" />
+        <attr name="trackerColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="shadowColor" format="color" />
+        <attr name="thumbColor" format="color" />
+        <attr name="heightTrack" format="dimension" />
+        <attr name="widthDegree" format="dimension" />
+        <attr name="textSize" format="dimension" />
     </declare-styleable>
 
 
     <declare-styleable name="RadioButtonField">
-        <attr name="mtc_checked_inner_color" format="color"/>
-        <attr name="mtc_checked_outer_color" format="color"/>
-        <attr name="mtc_duration" format="integer"/>
-        <attr name="mtc_inner_width" format="float"/>
-        <attr name="mtc_outer_width" format="float"/>
+        <attr name="mtc_checked_inner_color" format="color" />
+        <attr name="mtc_checked_outer_color" format="color" />
+        <attr name="mtc_duration" format="integer" />
+        <attr name="mtc_inner_width" format="float" />
+        <attr name="mtc_outer_width" format="float" />
         <attr name="mtc_type">
-            <enum name="STROKE" value="0"/>
-            <enum name="FILL_AND_STROKE" value="1"/>
+            <enum name="STROKE" value="0" />
+            <enum name="FILL_AND_STROKE" value="1" />
+            <enum name="Full" value="2" />
         </attr>
     </declare-styleable>
 
@@ -48,74 +49,74 @@
         <attr name="el_duration" format="integer" />
         <attr name="el_expanded" format="boolean" />
         <attr name="el_parallax" format="float" />
-        <attr name="android:orientation"/>
+        <attr name="android:orientation" />
     </declare-styleable>
 
     <declare-styleable name="EditTextVerify">
-        <attr name="etv_text_empty_color" format="color"/>
-        <attr name="etv_text_full_color" format="color"/>
-        <attr name="etv_text_size" format="float"/>
+        <attr name="etv_text_empty_color" format="color" />
+        <attr name="etv_text_full_color" format="color" />
+        <attr name="etv_text_size" format="float" />
     </declare-styleable>
 
-<!--    CircleProgressBar-->
+    <!--    CircleProgressBar-->
     <declare-styleable name="CircleFieldProgressBar">
-        <attr name="line_count" format="integer|reference"/>
-        <attr name="line_width" format="dimension|reference"/>
-        <attr name="progress_start_color" format="color|reference"/>
-        <attr name="progress_end_color" format="color|reference"/>
-        <attr name="progress_text_color" format="color|reference"/>
-        <attr name="progress_text_size" format="dimension|reference"/>
-        <attr name="progress_stroke_width" format="dimension|reference"/>
-        <attr name="progress_background_color" format="color|reference"/>
-        <attr name="progress_start_degree" format="integer|reference"/>
-        <attr name="drawBackgroundOutsideProgress" format="boolean|reference"/>
+        <attr name="line_count" format="integer|reference" />
+        <attr name="line_width" format="dimension|reference" />
+        <attr name="progress_start_color" format="color|reference" />
+        <attr name="progress_end_color" format="color|reference" />
+        <attr name="progress_text_color" format="color|reference" />
+        <attr name="progress_text_size" format="dimension|reference" />
+        <attr name="progress_stroke_width" format="dimension|reference" />
+        <attr name="progress_background_color" format="color|reference" />
+        <attr name="progress_start_degree" format="integer|reference" />
+        <attr name="drawBackgroundOutsideProgress" format="boolean|reference" />
 
-        <attr name="progress_blur_radius" format="dimension|reference"/>
+        <attr name="progress_blur_radius" format="dimension|reference" />
         <attr name="progress_blur_style">
-            <enum name="normal" value="0"/>
-            <enum name="solid" value="1"/>
-            <enum name="outer" value="2"/>
-            <enum name="inner" value="3"/>
+            <enum name="normal" value="0" />
+            <enum name="solid" value="1" />
+            <enum name="outer" value="2" />
+            <enum name="inner" value="3" />
         </attr>
 
         <attr name="progress_style">
-            <enum name="line" value="0"/>
-            <enum name="solid" value="1"/>
-            <enum name="solid_line" value="2"/>
+            <enum name="line" value="0" />
+            <enum name="solid" value="1" />
+            <enum name="solid_line" value="2" />
         </attr>
 
         <attr name="progress_shader">
-            <enum name="linear" value="0"/>
-            <enum name="radial" value="1"/>
-            <enum name="sweep" value="2"/>
+            <enum name="linear" value="0" />
+            <enum name="radial" value="1" />
+            <enum name="sweep" value="2" />
         </attr>
 
         <attr name="progress_stroke_cap">
-            <enum name="butt" value="0"/>
-            <enum name="round" value="1"/>
-            <enum name="square" value="2"/>
+            <enum name="butt" value="0" />
+            <enum name="round" value="1" />
+            <enum name="square" value="2" />
         </attr>
 
     </declare-styleable>
-<!--    End CircleProgressBar-->
+    <!--    End CircleProgressBar-->
 
     <declare-styleable name="VerifyFieldEditText">
         <attr name="vfe_text_color" format="color|reference" />
         <attr name="vfe_circle_color" format="color|reference" />
         <attr name="vfe_text_count" format="integer" />
-        <attr name="vfe_circle_radius" format="integer"/>
+        <attr name="vfe_circle_radius" format="integer" />
         <attr name="vfe_line_width" format="dimension" />
         <attr name="vfe_text_draw_size" format="integer" />
         <attr name="vfe_font" format="string|reference" />
-        <attr name="vfe_line_style" >
+        <attr name="vfe_line_style">
             <enum name="CIRCLE" value="0" />
             <enum name="LINEAR" value="1" />
         </attr>
     </declare-styleable>
 
     <declare-styleable name="UsernameFieldLayout">
-        <attr name="ufl_icon" format="reference"/>
-        <attr name="ufl_style" format="reference"/>
+        <attr name="ufl_icon" format="reference" />
+        <attr name="ufl_style" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="FilterFieldEditText">
@@ -258,22 +259,27 @@
             <enum name="important_update" value="3" />
         </attr>
     </declare-styleable>
-    
+
     <declare-styleable name="NestedCircle">
         <attr name="nc_background_outer" format="color" />
-        <attr name="nc_background_center" format="color"/>
-        <attr name="nc_background_inner" format="color"/>
-        <attr name="nc_radius_inner_center_circle" format="integer"/>
+        <attr name="nc_background_center" format="color" />
+        <attr name="nc_background_inner" format="color" />
+        <attr name="nc_radius_inner_center_circle" format="integer" />
     </declare-styleable>
 
 
     <declare-styleable name="CircleCheckers">
-        <attr name="morph_checked_inner_color" format="color"/>
-        <attr name="morph_checked_outer_color" format="color"/>
+        <attr name="morph_checked_inner_color" format="color" />
+        <attr name="morph_checked_outer_color" format="color" />
     </declare-styleable>
-    
-    <declare-styleable name="CustomKeyboard">
 
+    <declare-styleable name="CustomKeyboard">
+        <attr name="CK_background_down" format="reference" />
+        <attr name="CK_textColor_down"  format="color" />
+        <attr name="CK_background_up"   format="color|reference" />
+        <attr name="CK_textColor_up"    format="color" />
+        <attr name="CK_one"             format="color"/>
+        <attr name="CK_count"             format="integer"/>
     </declare-styleable>
 
 </resources>

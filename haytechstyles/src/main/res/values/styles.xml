@@ -137,4 +137,14 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="circrRadioCustomKeboard">
+        <item name="android:layout_width">17dp</item>
+        <item name="android:layout_height">17dp</item>
+        <item name="mtc_type">Full</item>
+        <item name="mtc_outer_width">1.5</item>
+        <item name="mtc_checked_inner_color">@color/gray100</item>
+        <item name="mtc_checked_outer_color">@color/gray100</item>
+        <item name="mtc_duration">400</item>
+    </style>
+
 </resources>
