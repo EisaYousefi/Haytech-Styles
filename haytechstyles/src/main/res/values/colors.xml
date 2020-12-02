@@ -54,4 +54,15 @@
     <color name="shadowColor">#336E6B6B</color>
     <!--    Plaque -->
     <color name="backgroundPlaque">#2B2F3E</color>
+
+<!--    custom kebord login-->
+    <color name="btn_back_shado_color">#6694D8</color>
+    <color name="back_my_text_checker">#E8ECEF</color>
+    <color name="color_head_opacity">#88034EA1</color>
+    <color name="color_head_opacity_round">#88034EA1</color>
+    <color name="radioButtonColor">#4D7CFE</color>
+    <color name="click_color">#1f000000</color>
+    <color name="un_select_keybord">#034EA1</color>
+    <color name="color_black_text">#2E384D</color>
+    <color name="error_text_color">#FE4D97</color>
 </resources>

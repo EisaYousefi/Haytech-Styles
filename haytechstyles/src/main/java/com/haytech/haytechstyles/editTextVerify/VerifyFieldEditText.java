@@ -24,7 +24,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.IntDef;
 
 import com.haytech.haytechstyles.R;
-import com.haytech.haytechstyles.utils.UIUtils;
+import com.haytech.haytechstyles.utils.UIUtilsHytechStyle;
 import com.haytech.haytechstyles.utils.Utils;
 
 import java.lang.annotation.Retention;
@@ -218,10 +218,10 @@ public class VerifyFieldEditText extends View {
         mWidth = MeasureSpec.getSize(widthMeasureSpec);
         mHeight = MeasureSpec.getSize(heightMeasureSpec);
         if (widthMode == MeasureSpec.AT_MOST) {
-            mWidth = UIUtils.getWidth(getContext()) * 2 / 3;
+            mWidth = UIUtilsHytechStyle.getInstance().getInstance().getWidth(getContext()) * 2 / 3;
         }
         if (heightMode == MeasureSpec.AT_MOST) {
-            mHeight = UIUtils.getWidth(getContext()) / 4;
+            mHeight = UIUtilsHytechStyle.getInstance().getWidth(getContext()) / 4;
         }
 
         //calculate line's length
@@ -246,16 +246,16 @@ public class VerifyFieldEditText extends View {
         int inputLength = codeBuilder.length();
         Paint.FontMetricsInt fontMetricsInt = textPaint.getFontMetricsInt();
         //text's vertical center is view's center
-        int baseShape = (int) UIUtils.getHeightMethod(mHeight, 2) + (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.bottom;
+        int baseShape = (int) UIUtilsHytechStyle.getInstance().getHeightMethod(mHeight, 2) + (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.bottom;
         switch (shapeStyle) {
             case INPUT_CIRCLE:
-                mLinePosY = (int) UIUtils.getHeightMethod(mHeight, 2);
+                mLinePosY = (int) UIUtilsHytechStyle.getInstance().getHeightMethod(mHeight, 2);
                 for (int i = 0; i < textSize; i++) {
                     if (inputLength > i) {
                         canvas.drawText(codeBuilder.toString(), i, i + 1, solidPoints[i].y - (float) solidLine / 2, baseShape, textPaint);
                     } else {
-                        canvas.drawCircle((UIUtils.getWidthMethod(getWidth(), textSize) - (UIUtils.getWidthMethod(getWidth(), (textSize + 4)))) + solidPoints[i].x,
-                                UIUtils.getHeightMethod(getHeight(), 2), UIUtils.getHeightMethod(getHeight(), circleRadius), shapePaint);
+                        canvas.drawCircle((UIUtilsHytechStyle.getInstance().getWidthMethod(getWidth(), textSize) - (UIUtilsHytechStyle.getInstance().getWidthMethod(getWidth(), (textSize + 4)))) + solidPoints[i].x,
+                                UIUtilsHytechStyle.getInstance().getHeightMethod(getHeight(), 2), UIUtilsHytechStyle.getInstance().getHeightMethod(getHeight(), circleRadius), shapePaint);
                     }
                 }
                 break;

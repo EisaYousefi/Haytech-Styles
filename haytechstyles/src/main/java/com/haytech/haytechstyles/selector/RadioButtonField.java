@@ -14,7 +14,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.haytech.haytechstyles.R;
-import com.haytech.haytechstyles.utils.UIUtils;
+import com.haytech.haytechstyles.utils.UIUtilsHytechStyle;
 
 public class RadioButtonField extends View implements View.OnClickListener {
 
@@ -85,8 +85,8 @@ public class RadioButtonField extends View implements View.OnClickListener {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = (int) UIUtils.dpToPx(getContext(), 25);
-        int height = (int) UIUtils.dpToPx(getContext(), 25);
+        int width = (int) UIUtilsHytechStyle.getInstance().dpToPx(getContext(), 25);
+        int height = (int) UIUtilsHytechStyle.getInstance().dpToPx(getContext(), 25);
         setMeasuredDimension(manageDimension(widthMeasureSpec, width), manageDimension(heightMeasureSpec, height));
     }
 
@@ -130,27 +130,27 @@ public class RadioButtonField extends View implements View.OnClickListener {
     }
 
     private void drawStrokeCircle(Canvas canvas, float width, float height, float radius, Path pathOuter, Path pathInner) {
-        pathOuter.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height , 2), radius, Path.Direction.CCW);
-        pathOuter.addCircle(UIUtils.getWidthMethod(width , 2f), UIUtils.getHeightMethod(height , 2f),
-                UIUtils.getRadius(radius , outerWidth), Path.Direction.CW);
+        pathOuter.addCircle(UIUtilsHytechStyle.getInstance().getWidthMethod(width , 2), UIUtilsHytechStyle.getInstance().getHeightMethod(height , 2), radius, Path.Direction.CCW);
+        pathOuter.addCircle(UIUtilsHytechStyle.getInstance().getWidthMethod(width , 2f), UIUtilsHytechStyle.getInstance().getHeightMethod(height , 2f),
+                UIUtilsHytechStyle.getInstance().getRadius(radius , outerWidth), Path.Direction.CW);
         canvas.drawPath(pathOuter, paintOuterColor);
 
-        pathInner.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height , 2),
-                UIUtils.calculateMorph(UIUtils.getRadius(radius  ,  innerWidth) , morph), Path.Direction.CCW);
+        pathInner.addCircle(UIUtilsHytechStyle.getInstance().getWidthMethod(width , 2), UIUtilsHytechStyle.getInstance().getHeightMethod(height , 2),
+                UIUtilsHytechStyle.getInstance().calculateMorph(UIUtilsHytechStyle.getInstance().getRadius(radius  ,  innerWidth) , morph), Path.Direction.CCW);
         canvas.drawPath(pathInner, paintInnerColor);
     }
     private void drawFillAndStrokeCircle(Canvas canvas, float width, float height, float radius, Path pathOuter, Path pathInner) {
-        pathOuter.addCircle(UIUtils.getWidthMethod(width  , 2), UIUtils.getHeightMethod(height , 2), radius, Path.Direction.CCW);
-        pathOuter.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height , 2), UIUtils.getRadius(radius  , outerWidth), Path.Direction.CW);
+        pathOuter.addCircle(UIUtilsHytechStyle.getInstance().getWidthMethod(width  , 2), UIUtilsHytechStyle.getInstance().getHeightMethod(height , 2), radius, Path.Direction.CCW);
+        pathOuter.addCircle(UIUtilsHytechStyle.getInstance().getWidthMethod(width , 2), UIUtilsHytechStyle.getInstance().getHeightMethod(height , 2), UIUtilsHytechStyle.getInstance().getRadius(radius  , outerWidth), Path.Direction.CW);
         canvas.drawPath(pathOuter, paintOuterColor);
 
-        pathInner.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height , 2), radius, Path.Direction.CCW);
+        pathInner.addCircle(UIUtilsHytechStyle.getInstance().getWidthMethod(width , 2), UIUtilsHytechStyle.getInstance().getHeightMethod(height , 2), radius, Path.Direction.CCW);
         if (morph != 0) {
-            pathInner.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height ,2),
-                    UIUtils.calculateMorph((UIUtils.getRadius(radius , innerWidth)) , morph), Path.Direction.CW);
+            pathInner.addCircle(UIUtilsHytechStyle.getInstance().getWidthMethod(width , 2), UIUtilsHytechStyle.getInstance().getHeightMethod(height ,2),
+                    UIUtilsHytechStyle.getInstance().calculateMorph((UIUtilsHytechStyle.getInstance().getRadius(radius , innerWidth)) , morph), Path.Direction.CW);
         } else {
-            pathInner.addCircle(UIUtils.getWidthMethod(width , 2), UIUtils.getHeightMethod(height , 2),
-                    UIUtils.getRadius(radius , outerWidth), Path.Direction.CW);
+            pathInner.addCircle(UIUtilsHytechStyle.getInstance().getWidthMethod(width , 2), UIUtilsHytechStyle.getInstance().getHeightMethod(height , 2),
+                    UIUtilsHytechStyle.getInstance().getRadius(radius , outerWidth), Path.Direction.CW);
         }
         canvas.drawPath(pathInner, paintInnerColor);
     }

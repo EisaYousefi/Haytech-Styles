@@ -266,4 +266,14 @@
         <attr name="nc_radius_inner_center_circle" format="integer"/>
     </declare-styleable>
 
+
+    <declare-styleable name="CircleCheckers">
+        <attr name="morph_checked_inner_color" format="color"/>
+        <attr name="morph_checked_outer_color" format="color"/>
+    </declare-styleable>
+    
+    <declare-styleable name="CustomKeyboard">
+
+    </declare-styleable>
+
 </resources>

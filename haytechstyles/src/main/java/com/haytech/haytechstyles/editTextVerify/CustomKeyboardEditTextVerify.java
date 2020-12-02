@@ -59,7 +59,7 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
 
 //        layoutInflater = LayoutInflater.from(context);
 //        binding = DataBindingUtil.inflate(layoutInflater, R.layout.keybord_custom, this, false);
-        LayoutInflater.from(context).inflate(R.layout.keboard_custom, this);
+        LayoutInflater.from(context).inflate(R.layout.keboard_custom_verify, this);
         ViewCompat.setLayoutDirection(this, ViewCompat.LAYOUT_DIRECTION_LTR);
         setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -169,7 +169,7 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
         tv4.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switchDownAndUp(event, tv4, getResources().getString(R.string.fore));
+                switchDownAndUp(event, tv4, getResources().getString(R.string.four));
                 return true;
             }
         });
@@ -183,7 +183,7 @@ public class CustomKeyboardEditTextVerify extends ConstraintLayout {
         tv6.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switchDownAndUp(event, tv6, getResources().getString(R.string.sex));
+                switchDownAndUp(event, tv6, getResources().getString(R.string.sxs));
                 return true;
             }
         });
