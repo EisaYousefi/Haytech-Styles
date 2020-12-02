@@ -232,7 +232,6 @@ public class CustomKeyboard extends ConstraintLayout {
         innerColor = typedArray.getInt(R.styleable.CustomKeyboard_CK_one ,R.color.blue);
         typedArray.recycle();
 
-
         tvFingerPrint.setBackgroundResource(backgroundUpKey);
 
         tv0.setTextColor(textColorUpKey);
