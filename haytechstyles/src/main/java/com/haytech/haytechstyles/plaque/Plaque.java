@@ -19,6 +19,7 @@ import androidx.annotation.RequiresApi;
 
 import com.haytech.haytechstyles.R;
 import com.haytech.haytechstyles.utils.PropertyRect;
+import com.haytech.haytechstyles.utils.SizeConverter;
 import com.haytech.haytechstyles.utils.UtilImage;
 import com.haytech.haytechstyles.utils.UtilPaint;
 import com.haytech.haytechstyles.utils.UtilRect;
@@ -73,6 +74,8 @@ public class Plaque extends View {
 
     private void init(Context context, AttributeSet attrs) {
 
+        modelPlaque = new ModelPlaque("12","الف","342","22");
+
         AssetManager assetMgr = getContext().getAssets();
         typeface = Typeface.createFromAsset(assetMgr, "fonts/ir_san_m.ttf");
 
@@ -89,6 +92,7 @@ public class Plaque extends View {
                 iconTextIran = UtilImage.getResizedBitmap(iconTextIran, (int) (getWidth() * 0.13), (int) (getWidth() * 0.078));
             }
         });
+
     }
 
     @Override
@@ -162,13 +166,38 @@ public class Plaque extends View {
 
     @Override
     protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        height = (int) (MeasureSpec.getSize(widthMeasureSpec) * rateWightToHeight * 1.01);
+
         // setMeasuredDimension(width, height);
         // super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec((int) SizeConverter.dpToPx(getContext(),80),MeasureSpec.EXACTLY));
-        super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
+       // super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY));
+        int width = (int) SizeConverter.dpToPx(getContext(),162);
+        int height = (int) SizeConverter.dpToPx(getContext(), 30.42f);
+
+        setMeasuredDimension(manageDimension(widthMeasureSpec, width,false), manageDimension(widthMeasureSpec,height, true));
         // super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
+    private int manageDimension(int measureSpace, int valueDefault,boolean isHeight) {
+        int valueFinal = 0;
+        int valueSize = MeasureSpec.getSize(measureSpace);
+        int valueMode = MeasureSpec.getMode(measureSpace);
 
+        if(isHeight){
+            valueSize = (int) (MeasureSpec.getSize(measureSpace)* rateWightToHeight * 1.01);
+            height = valueSize;
+        }
+
+        switch (valueMode) {
+            case MeasureSpec.EXACTLY:
+                valueFinal = valueSize;
+                break;
+            case MeasureSpec.AT_MOST:
+                valueFinal = Math.min(valueSize, valueDefault);
+                break;
+            case MeasureSpec.UNSPECIFIED:
+                valueFinal = valueDefault;
+        }
+        return valueFinal;
+    }
 
 }

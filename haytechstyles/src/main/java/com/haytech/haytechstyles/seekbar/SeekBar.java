@@ -36,17 +36,6 @@ import io.reactivex.subjects.PublishSubject;
 public class SeekBar extends View {
 
     private PublishSubject<Integer> mCallbackRx;
-
-    public static int ONE_DAY = 0;
-    public static int ONE_WEEK = 1;
-    public static int ONE_MONTH = 2;
-    public static int ONE_YEAR = 3;
-
-    public static int ONE_GB = 0;
-    public static int TWO_GB = 1;
-    public static int THREE_GB = 2;
-    public static int FOUR_GB = 3;
-
     private int thumbRadius = 0;
     private int shadowSize = 0;
     private long animatorDuration = 450L;
