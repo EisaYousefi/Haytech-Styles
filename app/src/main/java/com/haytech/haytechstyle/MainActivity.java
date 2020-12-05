@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.animation.ValueAnimator;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -83,10 +81,33 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
     private void login() {
-        binding.customKeborad.setTvLable(getResources().getString(R.string.enter_password));
+
+
+//create a new pass
+        binding.customKeborad.hideImgFingerPrint();
+        binding.customKeborad.setTvLabel("dsf");
+        binding.customKeborad.setTvHeaderTitle("dsfdsfsd");
+        binding.customKeborad.getTitleAndHeaderModel().setTvLabelRepeatNewPass2("ddsdfsdfsdf");
+        binding.customKeborad.getTitleAndHeaderModel().setTvHeaderRepeatNewPass2("dd");
+        binding.customKeborad.hideTvFingerPrint();
         binding.customKeborad.onTouchMethod();
         binding.customKeborad.setStateSelected(1);
-        binding.customKeborad.setValidPass("");
+
+        // login pass
+     /*   binding.customKeborad.setTvLabel(getResources().getString(R.string.enter_password));
+        binding.customKeborad.setTvHeaderTitle(getResources().getString(R.string.login));
+        binding.customKeborad.onTouchMethod();
+        binding.customKeborad.setStateSelected(2);
+        binding.customKeborad.setValidPass("111111");*/
+
+        //change pass
+      /*  binding.customKeborad.onTouchMethod();
+        binding.customKeborad.setStateSelected(3);
+        binding.customKeborad.setTvLabel(getResources().getString(R.string.old_pass));
+        binding.customKeborad.setTvHeaderTitle(getResources().getString(R.string.old_pass));
+        binding.customKeborad.setValidPass("111111");
+        binding.customKeborad.hideTvFingerPrint();
+        binding.customKeborad.hideImgFingerPrint();*/
 
         binding.customKeborad.setLoginAppListener(new OnKeyboardCustomListener.LoginApp() {
             @Override
@@ -230,5 +251,17 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
     @Override
     public void userNameListener(int length) {
         Log.i("TAGeeee", "userNameListener: " + length);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (binding.customKeborad.getBackPressedKey()==1) {
+            binding.customKeborad.onBackPrees();
+        }else if (binding.customKeborad.getBackPressedKey()==2) {
+            binding.customKeborad.onBackPrees();
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }

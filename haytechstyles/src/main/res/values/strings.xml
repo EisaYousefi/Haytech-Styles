@@ -60,10 +60,11 @@
 
 
 <!--    custom keboard login-->
-    <string name="define_app_password">به منظور امنیت بیشتر نرم افزار، یک رمز 6 رقمی دلخواه برای ورود به همراه بانک خود تعیین فرمایید</string>
+    <string name="define_app_password"> بااستفاده از رمز کوتاه ،در حالت آفلاین هم میتوانید از اپلیکیشن استفاده کنید</string>
     <string name="new_pass">رمز جدید</string>
     <string name="old_pass">رمز فعلی</string>
-    <string name="repeat_pass">رمز خود را دوباره  وارد کنید</string>
+    <string name="login"> ورود به سامانه</string>
+    <string name="repeat_pass">جهت تایید رمز کوتاه دوباره رمز خود را وارد نمایید</string>
     <string name="tv_error_key_pass">رمز وارد شده صحیح نیست!</string>
     <string name="one">1</string>
     <string name="tow">2</string>
@@ -75,4 +76,6 @@
     <string name="eahgt">8</string>
     <string name="nine">9</string>
     <string name="zero">0</string>
+    <string name="accept_password">تایید رمز کوتاه</string>
+    <string name="create_pass">تعریف رمز کوتاه</string>
 </resources>

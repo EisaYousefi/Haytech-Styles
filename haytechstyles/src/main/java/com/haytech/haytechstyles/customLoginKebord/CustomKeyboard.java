@@ -38,8 +38,8 @@ public class CustomKeyboard extends ConstraintLayout {
     private String valuePass1 = "", valuePass2 = "", valuePass3 = "";
     private int backPressedKey = 0;
     public TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv0, tvError;
-    private RadioButtonField one, tow, three, four, five, sex;
-    private TextView tvLable;
+    private  RadioButtonField one, tow, three, four, five, sex;
+    private TextView tvLabel, tvHeaderTitle;
     private Animation animation;
     private String validPass = "";
     private TextView tvFingerPrint;
@@ -51,8 +51,7 @@ public class CustomKeyboard extends ConstraintLayout {
     private int textColorDwnKey ;
     private int textColorUpKey;
     private int count;
-
-
+    private TitleAndHeaderModel titleAndHeaderModel ;
     private OnKeyboardCustomListener.CreateNewPass createNewPassListener;
     private OnKeyboardCustomListener.LoginApp loginAppListener;
     private OnKeyboardCustomListener.ChangePass changePassListener;
@@ -105,14 +104,31 @@ public class CustomKeyboard extends ConstraintLayout {
         this.validPass = validPass;
     }
 
-    public TextView getTvLable() {
-        return tvLable;
+    public TextView getTvLabel() {
+        return tvLabel;
     }
 
-    public void setTvLable(String tvLable) {
-        this.tvLable.setText(tvLable);
+    public void setTvLabel(String tvLabel) {
+        this.tvLabel.setText(tvLabel);
+        getTitleAndHeaderModel().setTvLabel(tvLabel);
     }
 
+    public TextView getTvHeaderTitle() {
+        return tvHeaderTitle;
+    }
+
+    public void setTvHeaderTitle(String tvHeaderTitle) {
+        this.tvHeaderTitle .setText(tvHeaderTitle);
+        getTitleAndHeaderModel().setTvHeaderTitle(tvHeaderTitle);
+    }
+
+    public TitleAndHeaderModel getTitleAndHeaderModel() {
+        return titleAndHeaderModel;
+    }
+
+    public void setTitleAndHeaderModel(TitleAndHeaderModel titleAndHeaderModel) {
+        this.titleAndHeaderModel = titleAndHeaderModel;
+    }
 
     public int getBackPressedKey() {
         return backPressedKey;
@@ -175,6 +191,9 @@ public class CustomKeyboard extends ConstraintLayout {
         params.gravity = Gravity.TOP;
         setLayoutParams(params);
 
+        titleAndHeaderModel = new TitleAndHeaderModel(getContext());
+        titleAndHeaderModel.setDataTitleAndHeader();
+
         one = findViewById(R.id.one);
         tow = findViewById(R.id.tow);
         three = findViewById(R.id.three);
@@ -195,12 +214,12 @@ public class CustomKeyboard extends ConstraintLayout {
         tv9 = findViewById(R.id.tv9);
         tv0 = findViewById(R.id.tv0);
         tvError = findViewById(R.id.tv_error);
-        tvLable = findViewById(R.id.tv_lable);
+        tvLabel = findViewById(R.id.tv_lable);
+        tvHeaderTitle = findViewById(R.id.headerTitle);
         ImageView btnClear = findViewById(R.id.img_clear);
         ConstraintLayout layoutBackSpace = findViewById(R.id.constrant_clear);
         tvFingerPrint = findViewById(R.id.tv_finger_print);
         imgFingerPrint = findViewById(R.id.img_finger_print);
-
 
         btnClear.setOnClickListener(v -> {
             clear();
@@ -518,14 +537,18 @@ public class CustomKeyboard extends ConstraintLayout {
                             circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                             circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
                             circleCheckers[i].onClick(new RadioButtonField(getContext()));
-
                             backPressedKey = 1;
-                            ThreadUtils.onUI(() -> startAnimation(tvLable, R.anim.slide_out_right), 2);
+                            ThreadUtils.onUI(() -> {
+                                startAnimation(tvLabel, R.anim.slide_out_right);
+                                startAnimation(tvHeaderTitle, R.anim.slide_out_right);
+                            }, 2);
 
                             ThreadUtils.onUI(() -> {
-                                tvLable.setVisibility(View.VISIBLE);
-                                startAnimation(tvLable, R.anim.slid_in_left_interpolator);
-                                tvLable.setText(getResources().getString(R.string.repeat_pass));
+                                tvLabel.setVisibility(View.VISIBLE);
+                                startAnimation(tvLabel, R.anim.slid_in_left_interpolator);
+                                startAnimation(tvHeaderTitle, R.anim.slid_in_left_interpolator);
+                                tvLabel.setText(titleAndHeaderModel.getTvLabelRepeatNewPass2());
+                                tvHeaderTitle.setText(titleAndHeaderModel.getTvHeaderRepeatNewPass2());
                             }, 300);
                         }
 
@@ -579,13 +602,17 @@ public class CustomKeyboard extends ConstraintLayout {
                                 tvError.setVisibility(INVISIBLE);
                                 backPressedKey = 1;
                                 ThreadUtils.onUI(() -> {
-                                    startAnimation(tvLable, R.anim.slide_out_right);
+                                    startAnimation(tvLabel, R.anim.slide_out_right);
+                                    startAnimation(tvHeaderTitle, R.anim.slide_out_right);
                                 }, 2);
 
                                 ThreadUtils.onUI(() -> {
-                                    tvLable.setVisibility(View.VISIBLE);
-                                    startAnimation(tvLable, R.anim.slid_in_left_interpolator);
-                                    tvLable.setText(getResources().getString(R.string.new_pass));
+                                    tvLabel.setVisibility(View.VISIBLE);
+                                    startAnimation(tvLabel, R.anim.slid_in_left_interpolator);
+                                    startAnimation(tvHeaderTitle, R.anim.slid_in_left_interpolator);
+                                    tvLabel.setText(getTitleAndHeaderModel().getTvLabelCreateNewForPassChange3());
+                                    tvHeaderTitle.setText(getTitleAndHeaderModel().getTvHeaderCreateNewForPassChange3());
+
                                 }, 300);
                             }
 
@@ -602,13 +629,15 @@ public class CustomKeyboard extends ConstraintLayout {
                             tvError.setVisibility(INVISIBLE);
                             backPressedKey = 2;
                             ThreadUtils.onUI(() -> {
-                                startAnimation(tvLable, R.anim.slide_out_right);
+                                startAnimation(tvLabel, R.anim.slide_out_right);
+                                startAnimation(tvHeaderTitle, R.anim.slide_out_right);
                             }, 2);
 
                             ThreadUtils.onUI(() -> {
-                                tvLable.setVisibility(View.VISIBLE);
-                                startAnimation(tvLable, R.anim.slid_in_left_interpolator);
-                                tvLable.setText(getResources().getString(R.string.repeat_pass));
+                                tvLabel.setVisibility(View.VISIBLE);
+                                startAnimation(tvLabel, R.anim.slid_in_left_interpolator);
+                                tvLabel.setText(getTitleAndHeaderModel().getTvLabelRepeatNewForPassChange3());
+                                tvHeaderTitle.setText(getTitleAndHeaderModel().getTvHeaderRepeatNewForPassChange3());
                             }, 300);
 
                         }
@@ -677,12 +706,14 @@ public class CustomKeyboard extends ConstraintLayout {
                 circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[i].onClick(new RadioButtonField(getContext()));
-                tvLable.setText(getResources().getString(R.string.define_app_password));
+                tvLabel.setText(getTitleAndHeaderModel().getTvLabel());
+                tvHeaderTitle.setText(getTitleAndHeaderModel().getTvHeaderTitle());
                 tvError.setVisibility(View.INVISIBLE);
 
                 ThreadUtils.onUI(() -> {
-                    startAnimation(tvLable, R.anim.slide_in_right);
-                    tvLable.setVisibility(View.VISIBLE);
+                    startAnimation(tvLabel, R.anim.slide_in_right);
+                    startAnimation(tvHeaderTitle, R.anim.slide_in_right);
+                    tvLabel.setVisibility(View.VISIBLE);
                 }, 100);
             }
         } else if (backPressedKey == 2) {
@@ -696,12 +727,14 @@ public class CustomKeyboard extends ConstraintLayout {
                 circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[i].onClick(new RadioButtonField(getContext()));
-                tvLable.setText(getResources().getString(R.string.new_pass));
+                tvLabel.setText(getTitleAndHeaderModel().getTvLabelCreateNewForPassChange3());
+                tvHeaderTitle.setText(getTitleAndHeaderModel().getTvHeaderCreateNewForPassChange3());
                 tvError.setVisibility(View.INVISIBLE);
 
                 ThreadUtils.onUI(() -> {
-                    startAnimation(tvLable, R.anim.slide_in_right);
-                    tvLable.setVisibility(View.VISIBLE);
+                    startAnimation(tvLabel, R.anim.slide_in_right);
+                    startAnimation(tvHeaderTitle, R.anim.slide_in_right);
+                    tvLabel.setVisibility(View.VISIBLE);
                 }, 100);
             }
         }

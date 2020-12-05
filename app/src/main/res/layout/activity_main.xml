@@ -22,6 +22,7 @@
             android:id="@+id/mainLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="gone"
             android:layoutDirection="rtl">
 
             <androidx.constraintlayout.widget.Guideline
@@ -230,13 +231,14 @@
             android:id="@+id/customKeborad"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:CK_count="4"
-            android:visibility="gone"
-            app:CK_one="@color/gray100"
+            android:visibility="visible"
+            app:CK_count="6"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
