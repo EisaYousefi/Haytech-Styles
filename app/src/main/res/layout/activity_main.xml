@@ -22,8 +22,7 @@
             android:id="@+id/mainLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layoutDirection="rtl"
-            android:visibility="gone">
+            android:layoutDirection="rtl">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline6"
@@ -232,6 +231,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:CK_count="4"
+            android:visibility="gone"
             app:CK_one="@color/gray100"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
