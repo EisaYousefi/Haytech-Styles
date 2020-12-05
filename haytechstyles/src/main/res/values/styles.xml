@@ -147,14 +147,5 @@
         <item name="mtc_duration">400</item>
     </style>
 
-    <style name="circrRadioCustomKeboard1">
-        <item name="android:layout_width">17dp</item>
-        <item name="android:layout_height">17dp</item>
-        <item name="mtc_type">STROKE</item>
-        <item name="mtc_outer_width">1.2</item>
-        <item name="mtc_checked_inner_color">@color/colorRed</item>
-        <item name="mtc_checked_outer_color">@color/blue</item>
-        <item name="mtc_duration">400</item>
-    </style>
 
 </resources>

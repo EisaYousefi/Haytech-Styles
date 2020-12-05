@@ -200,7 +200,6 @@ public class CustomKeyboard extends ConstraintLayout {
         four = findViewById(R.id.foure);
         five = findViewById(R.id.five);
         sex = findViewById(R.id.sex);
-
         circleCheckers = new RadioButtonField[]{one, tow, three, four, five, sex};
 
         tv1 = findViewById(R.id.tv1);
@@ -703,9 +702,10 @@ public class CustomKeyboard extends ConstraintLayout {
             valuePass1 = "";
             valuePass2 = "";
             for (int i = 0; i < count; i++) {
+                circleCheckers[i].setChecked(true);
+                circleCheckers[i].onClick(new RadioButtonField(getContext()));
                 circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[i].onClick(new RadioButtonField(getContext()));
                 tvLabel.setText(getTitleAndHeaderModel().getTvLabel());
                 tvHeaderTitle.setText(getTitleAndHeaderModel().getTvHeaderTitle());
                 tvError.setVisibility(View.INVISIBLE);
@@ -724,9 +724,9 @@ public class CustomKeyboard extends ConstraintLayout {
             setValuePass3("");
             setValuePass2("");
             for (int i = 0; i < count; i++) {
+                circleCheckers[i].onClick(new RadioButtonField(getContext()));
                 circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[i].onClick(new RadioButtonField(getContext()));
                 tvLabel.setText(getTitleAndHeaderModel().getTvLabelCreateNewForPassChange3());
                 tvHeaderTitle.setText(getTitleAndHeaderModel().getTvHeaderCreateNewForPassChange3());
                 tvError.setVisibility(View.INVISIBLE);

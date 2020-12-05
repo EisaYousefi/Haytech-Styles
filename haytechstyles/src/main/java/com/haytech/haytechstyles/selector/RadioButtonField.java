@@ -51,6 +51,14 @@ public class RadioButtonField extends View implements View.OnClickListener {
         this.outerColor = outerColor;
     }
 
+    public Paint getPaintOuterColor() {
+        return paintOuterColor;
+    }
+
+    public void setPaintOuterColor(Paint paintOuterColor) {
+        this.paintOuterColor = paintOuterColor;
+    }
+
     public RadioButtonField(Context context) {
         super(context);
         init(context, null);
@@ -78,10 +86,10 @@ public class RadioButtonField extends View implements View.OnClickListener {
         typedArray.recycle();
 
         paintInnerColor = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paintInnerColor.setColor(innerColor);
+        paintInnerColor.setColor(getInnerColor());
 
         paintOuterColor = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paintOuterColor.setColor(outerColor);
+        paintOuterColor.setColor(getOuterColor());
         setOnClickListener(this);
     }
 
@@ -211,6 +219,14 @@ public class RadioButtonField extends View implements View.OnClickListener {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public float getOuterWidth() {
+        return outerWidth;
+    }
+
+    public void setOuterWidth(float outerWidth) {
+        this.outerWidth = outerWidth;
     }
 
     public void setListener(CheckerListener listener) {
