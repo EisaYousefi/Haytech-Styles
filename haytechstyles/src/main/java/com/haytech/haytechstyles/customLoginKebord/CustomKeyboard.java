@@ -33,7 +33,7 @@ public class CustomKeyboard extends ConstraintLayout {
     private static final int CHANGE_PASS_STATE = 3;
     private static final int DEFAULT_COUNT = 5;
     private int stateSelected = 1;
-    private RadioButtonField circleCheckers[];
+    private RadioButtonField[] circleCheckers;
     private int countValuePass1, countValuePass2, countValuePass3;
     private int backSpace1 = 0, backSpace2 = 0;
     private String valuePass1 = "", valuePass2 = "", valuePass3 = "";
@@ -724,9 +724,9 @@ public class CustomKeyboard extends ConstraintLayout {
     public void onBackPrees() {
         if (backPressedKey == 1) {
             countValuePass1 = 0;
-            countValuePass2 = count + 1;
+            countValuePass2 =count+1;
             backSpace1 = 0;
-            backPressedKey = 0;
+            setBackPressedKey(0);
             valuePass1 = "";
             valuePass2 = "";
             for (int i = 0; i < count; i++) {
@@ -746,11 +746,11 @@ public class CustomKeyboard extends ConstraintLayout {
             }
         } else if (backPressedKey == 2) {
             countValuePass2 = 0;
-            countValuePass3 = count + 1;
+            countValuePass3 = count+1;
             backSpace2 = 0;
             setBackPressedKey(1);
-            setValuePass3("");
-            setValuePass2("");
+            valuePass2 = "";
+            valuePass3 = "";
             for (int i = 0; i < count; i++) {
                 circleCheckers[i].setChecked(true);
                 circleCheckers[i].onClick(new RadioButtonField(getContext()));

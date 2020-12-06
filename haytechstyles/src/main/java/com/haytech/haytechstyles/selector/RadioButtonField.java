@@ -213,6 +213,7 @@ public class RadioButtonField extends View implements View.OnClickListener {
         animator.start();
     }
 
+
     public int getDuration() {
         return duration;
     }
