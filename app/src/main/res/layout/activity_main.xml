@@ -22,8 +22,8 @@
             android:id="@+id/mainLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible"
-            android:layoutDirection="rtl">
+            android:layoutDirection="rtl"
+            android:visibility="gone">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline6"
@@ -231,8 +231,8 @@
             android:id="@+id/customKeborad"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            app:CK_count="6"
+            android:visibility="visible"
+            app:CK_count="4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

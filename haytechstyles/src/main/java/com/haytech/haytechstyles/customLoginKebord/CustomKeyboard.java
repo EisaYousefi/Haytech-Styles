@@ -17,6 +17,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.ViewCompat;
 
@@ -33,12 +34,12 @@ public class CustomKeyboard extends ConstraintLayout {
     private static final int DEFAULT_COUNT = 5;
     private int stateSelected = 1;
     private RadioButtonField circleCheckers[];
-    private int countValuePass1 , countValuePass2 , countValuePass3 ;
+    private int countValuePass1, countValuePass2, countValuePass3;
     private int backSpace1 = 0, backSpace2 = 0;
     private String valuePass1 = "", valuePass2 = "", valuePass3 = "";
     private int backPressedKey = 0;
     public TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv0, tvError;
-    private  RadioButtonField one, tow, three, four, five, sex;
+    private RadioButtonField one, tow, three, four, five, sex;
     private TextView tvLabel, tvHeaderTitle;
     private Animation animation;
     private String validPass = "";
@@ -46,12 +47,12 @@ public class CustomKeyboard extends ConstraintLayout {
     private ImageView imgFingerPrint;
     private int counterErrorPass = 0;
 
-    private int backgroundDownKey ;
+    private int backgroundDownKey;
     private int backgroundUpKey;
-    private int textColorDwnKey ;
+    private int textColorDwnKey;
     private int textColorUpKey;
     private int count;
-    private TitleAndHeaderModel titleAndHeaderModel ;
+    private TitleAndHeaderModel titleAndHeaderModel;
     private OnKeyboardCustomListener.CreateNewPass createNewPassListener;
     private OnKeyboardCustomListener.LoginApp loginAppListener;
     private OnKeyboardCustomListener.ChangePass changePassListener;
@@ -60,6 +61,8 @@ public class CustomKeyboard extends ConstraintLayout {
     private int innerColor;
     private int outerColor;
     private int typeCircle = 0;
+    private ConstraintLayout layoutBackSpace;
+    private ImageView btnClear;
 
     public int getCount() {
         return count;
@@ -118,7 +121,7 @@ public class CustomKeyboard extends ConstraintLayout {
     }
 
     public void setTvHeaderTitle(String tvHeaderTitle) {
-        this.tvHeaderTitle .setText(tvHeaderTitle);
+        this.tvHeaderTitle.setText(tvHeaderTitle);
         getTitleAndHeaderModel().setTvHeaderTitle(tvHeaderTitle);
     }
 
@@ -215,17 +218,10 @@ public class CustomKeyboard extends ConstraintLayout {
         tvError = findViewById(R.id.tv_error);
         tvLabel = findViewById(R.id.tv_lable);
         tvHeaderTitle = findViewById(R.id.headerTitle);
-        ImageView btnClear = findViewById(R.id.img_clear);
-        ConstraintLayout layoutBackSpace = findViewById(R.id.constrant_clear);
+        btnClear = findViewById(R.id.img_clear);
+        layoutBackSpace = findViewById(R.id.constrant_clear);
         tvFingerPrint = findViewById(R.id.tv_finger_print);
         imgFingerPrint = findViewById(R.id.img_finger_print);
-
-        btnClear.setOnClickListener(v -> {
-            clear();
-        });
-        layoutBackSpace.setOnClickListener(v -> {
-            clear();
-        });
 
         //onClickkListener
         tvFingerPrint.setOnClickListener(v1 -> {
@@ -241,13 +237,13 @@ public class CustomKeyboard extends ConstraintLayout {
         });
 
 
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs , R.styleable.CustomKeyboard);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CustomKeyboard);
         backgroundDownKey = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_background_down, R.drawable.back_text_pass_doun);
-        textColorDwnKey = typedArray.getInt(R.styleable.CustomKeyboard_CK_textColor_down,getResources().getColor(R.color.text_number_down));
-        backgroundUpKey = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_background_up,R.drawable.back_text_pass_up);
-        textColorUpKey = typedArray.getInt(R.styleable.CustomKeyboard_CK_textColor_up,getResources().getColor(R.color.un_select_keybord));
-        count = typedArray.getInt(R.styleable.CustomKeyboard_CK_count,DEFAULT_COUNT);
-        innerColor = typedArray.getInt(R.styleable.CustomKeyboard_CK_one ,R.color.blue);
+        textColorDwnKey = typedArray.getInt(R.styleable.CustomKeyboard_CK_textColor_down, getResources().getColor(R.color.text_number_down));
+        backgroundUpKey = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_background_up, R.drawable.back_text_pass_up);
+        textColorUpKey = typedArray.getInt(R.styleable.CustomKeyboard_CK_textColor_up, getResources().getColor(R.color.un_select_keybord));
+        count = typedArray.getInt(R.styleable.CustomKeyboard_CK_count, DEFAULT_COUNT);
+        innerColor = typedArray.getInt(R.styleable.CustomKeyboard_CK_one, R.color.blue);
         typedArray.recycle();
 
         tvFingerPrint.setBackgroundResource(backgroundUpKey);
@@ -285,10 +281,14 @@ public class CustomKeyboard extends ConstraintLayout {
         tv9.setTextColor(textColorUpKey);
         tv9.setBackgroundResource(backgroundUpKey);
 
+        layoutBackSpace.setBackgroundResource(backgroundUpKey);
 
-        countValuePass1 = 0; countValuePass2 = count+1;countValuePass3 = count+1;
 
-        switch (count){
+        countValuePass1 = 0;
+        countValuePass2 = count + 1;
+        countValuePass3 = count + 1;
+
+        switch (count) {
             case 3:
                 four.setVisibility(GONE);
                 five.setVisibility(GONE);
@@ -304,7 +304,7 @@ public class CustomKeyboard extends ConstraintLayout {
 
     public void clear() {
         if (getStateSelected() == CREATE_PASS_STATE) {
-            if (countValuePass1 > 0 && countValuePass2 == count+1) {
+            if (countValuePass1 > 0 && countValuePass2 == count + 1) {
                 circleCheckers[countValuePass1 - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[countValuePass1 - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[countValuePass1 - 1].onClick(new CustomKeyboard(getContext()));
@@ -313,7 +313,7 @@ public class CustomKeyboard extends ConstraintLayout {
                     countValuePass1--;
                     backSpace1--;
                 }
-            } else if (backSpace1 == 0 && countValuePass2 > 0 && countValuePass2 != count+1) {
+            } else if (backSpace1 == 0 && countValuePass2 > 0 && countValuePass2 != count + 1) {
                 circleCheckers[countValuePass2 - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[countValuePass2 - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[countValuePass2 - 1].onClick(new RadioButtonField(getContext()));
@@ -336,7 +336,7 @@ public class CustomKeyboard extends ConstraintLayout {
                 tvError.setVisibility(INVISIBLE);
             }
         } else if (getStateSelected() == CHANGE_PASS_STATE) {
-            if (countValuePass1 > 0 && countValuePass2 == count+1) {
+            if (countValuePass1 > 0 && countValuePass2 == count + 1) {
                 circleCheckers[countValuePass1 - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[countValuePass1 - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[countValuePass1 - 1].onClick(new RadioButtonField(getContext()));
@@ -345,7 +345,7 @@ public class CustomKeyboard extends ConstraintLayout {
                     countValuePass1--;
                     backSpace1--;
                 }
-            } else if (backSpace1 == 0 && countValuePass2 > 0 && countValuePass2 != count+1 && countValuePass3 == count+1) {
+            } else if (backSpace1 == 0 && countValuePass2 > 0 && countValuePass2 != count + 1 && countValuePass3 == count + 1) {
                 circleCheckers[countValuePass2 - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[countValuePass2 - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[countValuePass2 - 1].onClick(new RadioButtonField(getContext()));
@@ -355,7 +355,7 @@ public class CustomKeyboard extends ConstraintLayout {
                     backSpace2--;
                 }
                 tvError.setVisibility(View.INVISIBLE);
-            } else if (backSpace2 == 0 && countValuePass3 > 0 && countValuePass3 != count+1) {
+            } else if (backSpace2 == 0 && countValuePass3 > 0 && countValuePass3 != count + 1) {
                 circleCheckers[countValuePass3 - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[countValuePass3 - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[countValuePass3 - 1].onClick(new RadioButtonField(getContext()));
@@ -443,6 +443,34 @@ public class CustomKeyboard extends ConstraintLayout {
             }
         });
 
+        btnClear.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    layoutBackSpace.setBackgroundResource(backgroundDownKey);
+                    break;
+                case MotionEvent.ACTION_UP:
+                    layoutBackSpace.setBackgroundResource(backgroundUpKey);
+                    startAnimation(layoutBackSpace, R.anim.fade_in);
+                    clear();
+                    break;
+            }
+            return true;
+        });
+
+        layoutBackSpace.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    layoutBackSpace.setBackgroundResource(backgroundDownKey);
+                    break;
+                case MotionEvent.ACTION_UP:
+                    layoutBackSpace.setBackgroundResource(backgroundUpKey);
+                    clear();
+                    startAnimation(layoutBackSpace, R.anim.fade_in);
+                    break;
+            }
+            return true;
+        });
+
     }
 
     private void switchDownAndUp(MotionEvent event, TextView tv) {
@@ -454,7 +482,6 @@ public class CustomKeyboard extends ConstraintLayout {
                 }
                 tv.setBackgroundResource(backgroundDownKey);
                 tv.setTextColor(textColorDwnKey);
-
                 //create a new pass   //تعریف پسورد اولیه برای ورود به نرم افزار
                 if (getStateSelected() == CREATE_PASS_STATE) {
                     if (countValuePass1 < count) {
@@ -529,7 +556,7 @@ public class CustomKeyboard extends ConstraintLayout {
             case MotionEvent.ACTION_UP:
                 tv.setBackgroundResource(backgroundUpKey);
                 tv.setTextColor(textColorUpKey);
-
+                startAnimation(tv, R.anim.fade_in);
                 if (getStateSelected() == CREATE_PASS_STATE) {
                     if (backSpace1 == count) {
                         for (int i = 0; i < count; i++) {
@@ -651,7 +678,8 @@ public class CustomKeyboard extends ConstraintLayout {
                             }, 300);
 
                         } else {
-                            changePassListener.validPass();
+                            if (changePassListener != null)
+                                changePassListener.validPass();
                         }
                     }
                 }
@@ -696,7 +724,7 @@ public class CustomKeyboard extends ConstraintLayout {
     public void onBackPrees() {
         if (backPressedKey == 1) {
             countValuePass1 = 0;
-            countValuePass2 = count+1;
+            countValuePass2 = count + 1;
             backSpace1 = 0;
             backPressedKey = 0;
             valuePass1 = "";
@@ -718,12 +746,13 @@ public class CustomKeyboard extends ConstraintLayout {
             }
         } else if (backPressedKey == 2) {
             countValuePass2 = 0;
-            countValuePass3 = count+1;
+            countValuePass3 = count + 1;
             backSpace2 = 0;
             setBackPressedKey(1);
             setValuePass3("");
             setValuePass2("");
             for (int i = 0; i < count; i++) {
+                circleCheckers[i].setChecked(true);
                 circleCheckers[i].onClick(new RadioButtonField(getContext()));
                 circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));

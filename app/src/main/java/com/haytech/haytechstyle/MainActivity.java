@@ -84,14 +84,14 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
 //create a new pass
-        binding.customKeborad.hideImgFingerPrint();
+      /*  binding.customKeborad.hideImgFingerPrint();
         binding.customKeborad.setTvLabel("dsf");
         binding.customKeborad.setTvHeaderTitle("dsfdsfsd");
         binding.customKeborad.getTitleAndHeaderModel().setTvLabelRepeatNewPass2("ddsdfsdfsdf");
         binding.customKeborad.getTitleAndHeaderModel().setTvHeaderRepeatNewPass2("dd");
         binding.customKeborad.hideTvFingerPrint();
         binding.customKeborad.onTouchMethod();
-        binding.customKeborad.setStateSelected(1);
+        binding.customKeborad.setStateSelected(1);*/
 
         // login pass
      /*   binding.customKeborad.setTvLabel(getResources().getString(R.string.enter_password));
@@ -101,26 +101,29 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         binding.customKeborad.setValidPass("111111");*/
 
         //change pass
-      /*  binding.customKeborad.onTouchMethod();
+        binding.customKeborad.onTouchMethod();
         binding.customKeborad.setStateSelected(3);
         binding.customKeborad.setTvLabel(getResources().getString(R.string.old_pass));
         binding.customKeborad.setTvHeaderTitle(getResources().getString(R.string.old_pass));
-        binding.customKeborad.setValidPass("111111");
+        binding.customKeborad.setValidPass("1111");
         binding.customKeborad.hideTvFingerPrint();
-        binding.customKeborad.hideImgFingerPrint();*/
+        binding.customKeborad.hideImgFingerPrint();
 
         binding.customKeborad.setLoginAppListener(new OnKeyboardCustomListener.LoginApp() {
             @Override
             public void validPass() {
-
+                Toast.makeText(MainActivity.this, "validPass", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void counterErrorPass() {
-
+                Toast.makeText(MainActivity.this, "counterErrorPass", Toast.LENGTH_SHORT).show();
             }
         });
 
+        binding.customKeborad.setChangePassListener(() -> {
+            Toast.makeText(MainActivity.this, "validPass change", Toast.LENGTH_SHORT).show();
+        });
 
         binding.customKeborad.setOnClickKeyListener(new OnKeyboardCustomListener.OnClickKey() {
 
