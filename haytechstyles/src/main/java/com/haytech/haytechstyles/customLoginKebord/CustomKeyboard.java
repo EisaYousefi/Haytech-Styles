@@ -734,13 +734,14 @@ public class CustomKeyboard extends ConstraintLayout {
                 circleCheckers[i].onClick(new RadioButtonField(getContext()));
                 circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                tvLabel.setText(getTitleAndHeaderModel().getTvLabel());
-                tvHeaderTitle.setText(getTitleAndHeaderModel().getTvHeaderTitle());
+
                 tvError.setVisibility(View.INVISIBLE);
 
                 ThreadUtils.onUI(() -> {
                     startAnimation(tvLabel, R.anim.slide_in_right);
                     startAnimation(tvHeaderTitle, R.anim.slide_in_right);
+                    tvLabel.setText(getTitleAndHeaderModel().getTvLabel());
+                    tvHeaderTitle.setText(getTitleAndHeaderModel().getTvHeaderTitle());
                     tvLabel.setVisibility(View.VISIBLE);
                 }, 100);
             }
@@ -756,13 +757,14 @@ public class CustomKeyboard extends ConstraintLayout {
                 circleCheckers[i].onClick(new RadioButtonField(getContext()));
                 circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                tvLabel.setText(getTitleAndHeaderModel().getTvLabelCreateNewForPassChange3());
-                tvHeaderTitle.setText(getTitleAndHeaderModel().getTvHeaderCreateNewForPassChange3());
+
                 tvError.setVisibility(View.INVISIBLE);
 
                 ThreadUtils.onUI(() -> {
                     startAnimation(tvLabel, R.anim.slide_in_right);
                     startAnimation(tvHeaderTitle, R.anim.slide_in_right);
+                    tvLabel.setText(getTitleAndHeaderModel().getTvLabelCreateNewForPassChange3());
+                    tvHeaderTitle.setText(getTitleAndHeaderModel().getTvHeaderCreateNewForPassChange3());
                     tvLabel.setVisibility(View.VISIBLE);
                 }, 100);
             }

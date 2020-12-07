@@ -89,6 +89,8 @@ public class TitleAndHeaderModel {
     }
 
     public void  setDataTitleAndHeader(){
+        setTvLabel(context.getResources().getString(R.string.define_app_password));
+        setTvHeaderTitle(context.getResources().getString(R.string.create_pass));
 
         setTvLabelRepeatNewPass2(context.getResources().getString(R.string.repeat_pass));
         setTvHeaderRepeatNewPass2(context.getResources().getString(R.string.accept_password));
