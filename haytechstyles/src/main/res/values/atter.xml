@@ -273,13 +273,26 @@
         <attr name="morph_checked_outer_color" format="color" />
     </declare-styleable>
 
-    <declare-styleable name="CustomKeyboard">
-        <attr name="CK_background_down" format="reference" />
-        <attr name="CK_textColor_down"  format="color" />
+    <declare-styleable name="CustomKeyboard" >
+        <attr name="CK_background_down" format="reference|color" />
+        <attr name="CK_textColor_down"  format="color|reference" />
         <attr name="CK_background_up"   format="color|reference" />
-        <attr name="CK_textColor_up"    format="color" />
-        <attr name="CK_one"             format="color"/>
+        <attr name="CK_textColor_up"    format="color|reference" />
+        <attr name="CK_one"             format="color|reference"/>
         <attr name="CK_count"             format="integer"/>
+        <attr name="CK_src_clear_text_image" format="reference|color" />
+        <attr name="CK_src_finger_print_image" format="reference|color" />
+
+        <attr name="CK_checked_inner_color" format="color|reference" />
+        <attr name="CK_checked_outer_color" format="color|reference" />
+        <attr name="CK_duration" format="integer" />
+        <attr name="CK_inner_width" format="float" />
+        <attr name="CK_outer_width" format="float" />
+        <attr name="CK_type">
+            <enum name="STROKE" value="0" />
+            <enum name="FILL_AND_STROKE" value="1" />
+            <enum name="Full" value="2" />
+        </attr>
     </declare-styleable>
 
 </resources>

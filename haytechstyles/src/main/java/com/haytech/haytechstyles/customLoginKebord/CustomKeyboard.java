@@ -32,12 +32,19 @@ public class CustomKeyboard extends ConstraintLayout {
     private static final int LOGIN_TO_APP_STATE = 2;
     private static final int CHANGE_PASS_STATE = 3;
     private static final int DEFAULT_COUNT = 5;
-    private int stateSelected = 1;
+    private static final int ZERO_DEFAULT = 0;
+
+    private static final int DEFAULT_DURATION = 300;
+    private static final float DEFAULT_INNER_WIDTH = 1.8f;
+    private static final float DEFAULT_OUTER_WIDTH = 1.2f;
+    private static final float DEFAULT_INNER_FULL_WIDTH = 1;
+
+    private int stateSelected = CREATE_PASS_STATE;
     private RadioButtonField[] circleCheckers;
     private int countValuePass1, countValuePass2, countValuePass3;
-    private int backSpace1 = 0, backSpace2 = 0;
+    private int backSpace1 = ZERO_DEFAULT, backSpace2 = ZERO_DEFAULT;
     private String valuePass1 = "", valuePass2 = "", valuePass3 = "";
-    private int backPressedKey = 0;
+    private int backPressedKey = ZERO_DEFAULT;
     public TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv0, tvError;
     private RadioButtonField one, tow, three, four, five, sex;
     private TextView tvLabel, tvHeaderTitle;
@@ -45,24 +52,30 @@ public class CustomKeyboard extends ConstraintLayout {
     private String validPass = "";
     private TextView tvFingerPrint;
     private ImageView imgFingerPrint;
-    private int counterErrorPass = 0;
+    private int counterErrorPass = ZERO_DEFAULT;
 
     private int backgroundDownKey;
     private int backgroundUpKey;
     private int textColorDwnKey;
     private int textColorUpKey;
     private int count;
+    private int srcClearNumber ;
+    private int srcFingerPrint ;
+
     private TitleAndHeaderModel titleAndHeaderModel;
     private OnKeyboardCustomListener.CreateNewPass createNewPassListener;
     private OnKeyboardCustomListener.LoginApp loginAppListener;
     private OnKeyboardCustomListener.ChangePass changePassListener;
     private OnKeyboardCustomListener.OnClickKey onClickKeyListener;
-
     private int innerColor;
     private int outerColor;
+    private float innerWidth = DEFAULT_INNER_WIDTH;
+    private float innerWidthFull = DEFAULT_INNER_FULL_WIDTH;
+    private float outerWidth = DEFAULT_OUTER_WIDTH;
     private int typeCircle = 0;
     private ConstraintLayout layoutBackSpace;
     private ImageView btnClear;
+    private int duration=DEFAULT_DURATION;
 
     public int getCount() {
         return count;
@@ -182,14 +195,11 @@ public class CustomKeyboard extends ConstraintLayout {
     }
 
     private void initView(@androidx.annotation.NonNull final Context context, AttributeSet attrs) {
-//        layoutInflater = LayoutInflater.from(context);
-//        binding = DataBindingUtil.inflate(layoutInflater, R.layout.keybord_custom, this, false);
         LayoutInflater.from(context).inflate(R.layout.keboard_custom, this);
         ViewCompat.setLayoutDirection(this, ViewCompat.LAYOUT_DIRECTION_LTR);
         setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         setLayerType(LAYER_TYPE_HARDWARE, null);
-        //setBackground(getResources().getDrawable(R.drawable.expandable_layout_bkg));
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) getLayoutParams();
         params.gravity = Gravity.TOP;
         setLayoutParams(params);
@@ -243,7 +253,19 @@ public class CustomKeyboard extends ConstraintLayout {
         backgroundUpKey = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_background_up, R.drawable.back_text_pass_up);
         textColorUpKey = typedArray.getInt(R.styleable.CustomKeyboard_CK_textColor_up, getResources().getColor(R.color.un_select_keybord));
         count = typedArray.getInt(R.styleable.CustomKeyboard_CK_count, DEFAULT_COUNT);
-        innerColor = typedArray.getInt(R.styleable.CustomKeyboard_CK_one, R.color.blue);
+        srcClearNumber = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_src_clear_text_image, R.drawable.backspace);
+        srcFingerPrint = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_src_finger_print_image, R.drawable.ic_ok_fingerprint);
+
+        typeCircle = typedArray.getInt(R.styleable.CustomKeyboard_CK_type, 0);
+        innerWidth = typedArray.getFloat(R.styleable.CustomKeyboard_CK_inner_width, DEFAULT_INNER_WIDTH);
+        outerWidth = typedArray.getFloat(R.styleable.CustomKeyboard_CK_outer_width, DEFAULT_OUTER_WIDTH);
+        duration = typedArray.getInt(R.styleable.CustomKeyboard_CK_duration, DEFAULT_DURATION);
+        innerColor = typedArray.getColor(R.styleable.CustomKeyboard_CK_checked_inner_color, getResources().getColor(R.color.colorRed));
+        outerColor = typedArray.getColor(R.styleable.CustomKeyboard_CK_checked_outer_color, getResources().getColor(R.color.black));
+
+        one.setInnerColor(innerColor);
+        tow.setOuterColor(outerColor);
+
         typedArray.recycle();
 
         tvFingerPrint.setBackgroundResource(backgroundUpKey);
@@ -282,11 +304,40 @@ public class CustomKeyboard extends ConstraintLayout {
         tv9.setBackgroundResource(backgroundUpKey);
 
         layoutBackSpace.setBackgroundResource(backgroundUpKey);
-
+        btnClear.setImageResource(srcClearNumber);
+        imgFingerPrint.setImageResource(srcFingerPrint);
 
         countValuePass1 = 0;
         countValuePass2 = count + 1;
         countValuePass3 = count + 1;
+
+        one.setTypeCircle(typeCircle);
+        tow.setTypeCircle(typeCircle);
+        three.setTypeCircle(typeCircle);
+        four.setTypeCircle(typeCircle);
+        five.setTypeCircle(typeCircle);
+        sex.setTypeCircle(typeCircle);
+
+        one.setInnerWidth(innerWidth);
+        one.setOuterWidth(outerWidth);
+        tow.setInnerWidth(innerWidth);
+        tow.setOuterWidth(outerWidth);
+        three.setInnerWidth(innerWidth);
+        three.setOuterWidth(outerWidth);
+        four.setInnerWidth(innerWidth);
+        four.setOuterWidth(outerWidth);
+        five.setInnerWidth(innerWidth);
+        five.setOuterWidth(outerWidth);
+        sex.setInnerWidth(innerWidth);
+        sex.setOuterWidth(outerWidth);
+
+        one.  setDuration(duration);
+        tow.  setDuration(duration);
+        three.setDuration(duration);
+        four. setDuration(duration);
+        five. setDuration(duration);
+        sex.  setDuration(duration);
+
 
         switch (count) {
             case 3:
@@ -724,7 +775,7 @@ public class CustomKeyboard extends ConstraintLayout {
     public void onBackPrees() {
         if (backPressedKey == 1) {
             countValuePass1 = 0;
-            countValuePass2 =count+1;
+            countValuePass2 = count + 1;
             backSpace1 = 0;
             setBackPressedKey(0);
             valuePass1 = "";
@@ -747,7 +798,7 @@ public class CustomKeyboard extends ConstraintLayout {
             }
         } else if (backPressedKey == 2) {
             countValuePass2 = 0;
-            countValuePass3 = count+1;
+            countValuePass3 = count + 1;
             backSpace2 = 0;
             setBackPressedKey(1);
             valuePass2 = "";
