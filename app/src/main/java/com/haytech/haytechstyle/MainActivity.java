@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.haytech.haytechstyle.databinding.ActivityMainBinding;
@@ -77,36 +79,51 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
         setCountDown();
         login();
+
+        findViewById(R.id.button2).setOnClickListener(v -> {
+          login();
+        });
     }
 
 
+    String state = "1" ;
     private void login() {
+        EditText editText = findViewById(R.id.editTextTextPersonName);
+        state = editText.getText().toString().trim();
+        switch (state) {
+            case "1":
+                //create a new pass
+                binding.customKeborad.hideImgFingerPrint();
+               /* binding.customKeborad.setMessage("dsf");
+                binding.customKeborad.setTitle("dsfdsfsd");
+                binding.customKeborad.getTitleAndHeaderModel().setTvLabelRepeatNewPass2("ddsdfsdfsdf");
+                binding.customKeborad.getTitleAndHeaderModel().setTvHeaderRepeatNewPass2("dd");*/
+                binding.customKeborad.hideTvFingerPrint();
+                binding.customKeborad.onTouchMethod();
+                binding.customKeborad.setSelectedType(1);
+                break;
+            case "2":
+                // login pass
+                binding.customKeborad.setMessage(getResources().getString(R.string.enter_password));
+                binding.customKeborad.setTitle(getResources().getString(R.string.login));
+                binding.customKeborad.onTouchMethod();
+                binding.customKeborad.setSelectedType(2);
+                binding.customKeborad.setValidPass("1111");
 
+                break;
+            case "3":
+                //change pass
+                binding.customKeborad.onTouchMethod();
+                binding.customKeborad.setSelectedType(3);
+                binding.customKeborad.setTitle(getResources().getString(R.string.old_pass));
+                binding.customKeborad.setMessage(getResources().getString(R.string.old_pass));
+                binding.customKeborad.setValidPass("1111");
+                binding.customKeborad.hideTvFingerPrint();
+                binding.customKeborad.hideImgFingerPrint();
+                break;
 
-//create a new pass
-       /* binding.customKeborad.hideImgFingerPrint();
-       *//* binding.customKeborad.setTvLabel("dsf");
-        binding.customKeborad.setTvHeaderTitle("dsfdsfsd");
-        binding.customKeborad.getTitleAndHeaderModel().setTvLabelRepeatNewPass2("ddsdfsdfsdf");
-        binding.customKeborad.getTitleAndHeaderModel().setTvHeaderRepeatNewPass2("dd");*//*
-        binding.customKeborad.hideTvFingerPrint();
-        binding.customKeborad.onTouchMethod();
-        binding.customKeborad.setSelectedType(1);*/
-        // login pass
-    /*    binding.customKeborad.setTvLabel(getResources().getString(R.string.enter_password));
-        binding.customKeborad.setTvHeaderTitle(getResources().getString(R.string.login));
-        binding.customKeborad.onTouchMethod();
-        binding.customKeborad.setSelectedType(2);
-        binding.customKeborad.setValidPass("1111");*/
+        }
 
-        //change pass
-        binding.customKeborad.onTouchMethod();
-        binding.customKeborad.setSelectedType(3);
-        binding.customKeborad.setTitle(getResources().getString(R.string.old_pass));
-        binding.customKeborad.setMessage(getResources().getString(R.string.old_pass));
-        binding.customKeborad.setValidPass("1111");
-        binding.customKeborad.hideTvFingerPrint();
-        binding.customKeborad.hideImgFingerPrint();
 
         binding.customKeborad.setLoginAppListener(new OnKeyboardCustomListener.LoginApp() {
             @Override
@@ -260,12 +277,11 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
     @Override
     public void onBackPressed() {
-        if (binding.customKeborad.getBackPressedKey()==1) {
+        if (binding.customKeborad.getBackPressedKey() == 1) {
             binding.customKeborad.onBackPress();
-        }else if (binding.customKeborad.getBackPressedKey()==2) {
+        } else if (binding.customKeborad.getBackPressedKey() == 2) {
             binding.customKeborad.onBackPress();
-        }
-        else {
+        } else {
             super.onBackPressed();
         }
     }
