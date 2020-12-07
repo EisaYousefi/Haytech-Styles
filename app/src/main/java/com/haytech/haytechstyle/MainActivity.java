@@ -84,20 +84,20 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
 //create a new pass
-        binding.customKeborad.hideImgFingerPrint();
-       /* binding.customKeborad.setTvLabel("dsf");
+       /* binding.customKeborad.hideImgFingerPrint();
+       *//* binding.customKeborad.setTvLabel("dsf");
         binding.customKeborad.setTvHeaderTitle("dsfdsfsd");
         binding.customKeborad.getTitleAndHeaderModel().setTvLabelRepeatNewPass2("ddsdfsdfsdf");
-        binding.customKeborad.getTitleAndHeaderModel().setTvHeaderRepeatNewPass2("dd");*/
+        binding.customKeborad.getTitleAndHeaderModel().setTvHeaderRepeatNewPass2("dd");*//*
         binding.customKeborad.hideTvFingerPrint();
         binding.customKeborad.onTouchMethod();
-        binding.customKeborad.setStateSelected(1);
+        binding.customKeborad.setStateSelected(1);*/
         // login pass
-     /*   binding.customKeborad.setTvLabel(getResources().getString(R.string.enter_password));
+        binding.customKeborad.setTvLabel(getResources().getString(R.string.enter_password));
         binding.customKeborad.setTvHeaderTitle(getResources().getString(R.string.login));
         binding.customKeborad.onTouchMethod();
         binding.customKeborad.setStateSelected(2);
-        binding.customKeborad.setValidPass("111111");*/
+        binding.customKeborad.setValidPass("1111");
 
         //change pass
       /*  binding.customKeborad.onTouchMethod();
@@ -111,7 +111,10 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         binding.customKeborad.setLoginAppListener(new OnKeyboardCustomListener.LoginApp() {
             @Override
             public void validPass() {
-                Toast.makeText(MainActivity.this, "validPass", Toast.LENGTH_SHORT).show();
+                if (binding.customKeborad.getValuePass1().equals("1111")) {
+                    Toast.makeText(MainActivity.this, "validPass", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override

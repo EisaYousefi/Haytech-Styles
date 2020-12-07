@@ -26,6 +26,7 @@ import com.haytech.haytechstyles.selector.RadioButtonField;
 import com.haytech.haytechstyles.utils.ThreadUtils;
 import com.haytech.haytechstyles.utils.UIUtilsHytechStyle;
 
+
 public class CustomKeyboard extends ConstraintLayout {
 
     private static final int CREATE_PASS_STATE = 1;
@@ -45,6 +46,9 @@ public class CustomKeyboard extends ConstraintLayout {
     private int backSpace1 = ZERO_DEFAULT, backSpace2 = ZERO_DEFAULT;
     private String valuePass1 = "", valuePass2 = "", valuePass3 = "";
     private int backPressedKey = ZERO_DEFAULT;
+
+
+
     public TextView tv1, tv2, tv3, tv4, tv5, tv6, tv7, tv8, tv9, tv0, tvError;
     private RadioButtonField one, tow, three, four, five, sex;
     private TextView tvLabel, tvHeaderTitle;
@@ -199,41 +203,33 @@ public class CustomKeyboard extends ConstraintLayout {
         ViewCompat.setLayoutDirection(this, ViewCompat.LAYOUT_DIRECTION_LTR);
         setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
-        setLayerType(LAYER_TYPE_HARDWARE, null);
-        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) getLayoutParams();
-        params.gravity = Gravity.TOP;
-        setLayoutParams(params);
 
-        titleAndHeaderModel = new TitleAndHeaderModel(getContext());
-        titleAndHeaderModel.setDataTitleAndHeader();
+        initId();
 
-        one = findViewById(R.id.one);
-        tow = findViewById(R.id.tow);
-        three = findViewById(R.id.three);
-        four = findViewById(R.id.foure);
-        five = findViewById(R.id.five);
-        sex = findViewById(R.id.sex);
-        circleCheckers = new RadioButtonField[]{one, tow, three, four, five, sex};
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CustomKeyboard);
+        backgroundDownKey = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_background_down, R.drawable.back_text_pass_doun);
+        textColorDwnKey = typedArray.getInt(R.styleable.CustomKeyboard_CK_textColor_down, getResources().getColor(R.color.text_number_down));
+        backgroundUpKey = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_background_up, R.drawable.back_text_pass_up);
+        textColorUpKey = typedArray.getInt(R.styleable.CustomKeyboard_CK_textColor_up, getResources().getColor(R.color.un_select_keybord));
+        count = typedArray.getInt(R.styleable.CustomKeyboard_CK_count, DEFAULT_COUNT);
+        srcClearNumber = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_src_clear_text_image, R.drawable.backspace);
+        srcFingerPrint = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_src_finger_print_image, R.drawable.ic_ok_fingerprint);
+        //radioButtonField status
+        typeCircle = typedArray.getInt(R.styleable.CustomKeyboard_CK_type, 0);
+        innerWidth = typedArray.getFloat(R.styleable.CustomKeyboard_CK_inner_width, DEFAULT_INNER_WIDTH);
+        outerWidth = typedArray.getFloat(R.styleable.CustomKeyboard_CK_outer_width, DEFAULT_OUTER_WIDTH);
+        duration = typedArray.getInt(R.styleable.CustomKeyboard_CK_duration, DEFAULT_DURATION);
+        innerColor = typedArray.getColor(R.styleable.CustomKeyboard_CK_checked_inner_color, getResources().getColor(R.color.innerColor));
+        outerColor = typedArray.getColor(R.styleable.CustomKeyboard_CK_checked_outer_color, getResources().getColor(R.color.outerColor));
+        typedArray.recycle();
 
-        tv1 = findViewById(R.id.tv1);
-        tv2 = findViewById(R.id.tv2);
-        tv3 = findViewById(R.id.tv3);
-        tv4 = findViewById(R.id.tv4);
-        tv5 = findViewById(R.id.tv5);
-        tv6 = findViewById(R.id.tv6);
-        tv7 = findViewById(R.id.tv7);
-        tv8 = findViewById(R.id.tv8);
-        tv9 = findViewById(R.id.tv9);
-        tv0 = findViewById(R.id.tv0);
-        tvError = findViewById(R.id.tv_error);
-        tvLabel = findViewById(R.id.tv_lable);
-        tvHeaderTitle = findViewById(R.id.headerTitle);
-        btnClear = findViewById(R.id.img_clear);
-        layoutBackSpace = findViewById(R.id.constrant_clear);
-        tvFingerPrint = findViewById(R.id.tv_finger_print);
-        imgFingerPrint = findViewById(R.id.img_finger_print);
+        setDefaultParam();
 
-        //onClickkListener
+        onClick();
+
+    }
+
+    private void onClick() {
         tvFingerPrint.setOnClickListener(v1 -> {
             if (onClickKeyListener != null) {
                 onClickKeyListener.tvFingerClick(v1);
@@ -245,28 +241,11 @@ public class CustomKeyboard extends ConstraintLayout {
                 onClickKeyListener.imgFingerClick(v1);
             }
         });
+    }
 
-
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.CustomKeyboard);
-        backgroundDownKey = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_background_down, R.drawable.back_text_pass_doun);
-        textColorDwnKey = typedArray.getInt(R.styleable.CustomKeyboard_CK_textColor_down, getResources().getColor(R.color.text_number_down));
-        backgroundUpKey = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_background_up, R.drawable.back_text_pass_up);
-        textColorUpKey = typedArray.getInt(R.styleable.CustomKeyboard_CK_textColor_up, getResources().getColor(R.color.un_select_keybord));
-        count = typedArray.getInt(R.styleable.CustomKeyboard_CK_count, DEFAULT_COUNT);
-        srcClearNumber = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_src_clear_text_image, R.drawable.backspace);
-        srcFingerPrint = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_src_finger_print_image, R.drawable.ic_ok_fingerprint);
-
-        typeCircle = typedArray.getInt(R.styleable.CustomKeyboard_CK_type, 0);
-        innerWidth = typedArray.getFloat(R.styleable.CustomKeyboard_CK_inner_width, DEFAULT_INNER_WIDTH);
-        outerWidth = typedArray.getFloat(R.styleable.CustomKeyboard_CK_outer_width, DEFAULT_OUTER_WIDTH);
-        duration = typedArray.getInt(R.styleable.CustomKeyboard_CK_duration, DEFAULT_DURATION);
-        innerColor = typedArray.getColor(R.styleable.CustomKeyboard_CK_checked_inner_color, getResources().getColor(R.color.colorRed));
-        outerColor = typedArray.getColor(R.styleable.CustomKeyboard_CK_checked_outer_color, getResources().getColor(R.color.black));
-
-        one.setInnerColor(innerColor);
-        tow.setOuterColor(outerColor);
-
-        typedArray.recycle();
+    private void setDefaultParam() {
+        titleAndHeaderModel = new TitleAndHeaderModel(getContext());
+        titleAndHeaderModel.setDataTitleAndHeader();
 
         tvFingerPrint.setBackgroundResource(backgroundUpKey);
 
@@ -350,7 +329,34 @@ public class CustomKeyboard extends ConstraintLayout {
             case 5:
                 sex.setVisibility(GONE);
         }
+    }
 
+    private void initId() {
+        one = findViewById(R.id.one);
+        tow = findViewById(R.id.tow);
+        three = findViewById(R.id.three);
+        four = findViewById(R.id.foure);
+        five = findViewById(R.id.five);
+        sex = findViewById(R.id.sex);
+        circleCheckers = new RadioButtonField[]{one, tow, three, four, five, sex};
+
+        tv1 = findViewById(R.id.tv1);
+        tv2 = findViewById(R.id.tv2);
+        tv3 = findViewById(R.id.tv3);
+        tv4 = findViewById(R.id.tv4);
+        tv5 = findViewById(R.id.tv5);
+        tv6 = findViewById(R.id.tv6);
+        tv7 = findViewById(R.id.tv7);
+        tv8 = findViewById(R.id.tv8);
+        tv9 = findViewById(R.id.tv9);
+        tv0 = findViewById(R.id.tv0);
+        tvError = findViewById(R.id.tv_error);
+        tvLabel = findViewById(R.id.tv_lable);
+        tvHeaderTitle = findViewById(R.id.headerTitle);
+        btnClear = findViewById(R.id.img_clear);
+        layoutBackSpace = findViewById(R.id.constrant_clear);
+        tvFingerPrint = findViewById(R.id.tv_finger_print);
+        imgFingerPrint = findViewById(R.id.img_finger_print);
     }
 
     public void clear() {
@@ -521,6 +527,37 @@ public class CustomKeyboard extends ConstraintLayout {
             }
             return true;
         });
+
+
+        imgFingerPrint.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    tvFingerPrint.setBackgroundResource(backgroundDownKey);
+                    break;
+                case MotionEvent.ACTION_UP:
+                    tvFingerPrint.setBackgroundResource(backgroundUpKey);
+                    startAnimation(imgFingerPrint, R.anim.fade_in);
+                    clear();
+                    break;
+            }
+            return true;
+        });
+
+        tvFingerPrint.setOnTouchListener((v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    tvFingerPrint.setBackgroundResource(backgroundDownKey);
+                    break;
+                case MotionEvent.ACTION_UP:
+                    tvFingerPrint.setBackgroundResource(backgroundUpKey);
+                    clear();
+                    startAnimation(tvFingerPrint, R.anim.fade_in);
+                    break;
+            }
+            return true;
+        });
+
+
 
     }
 
