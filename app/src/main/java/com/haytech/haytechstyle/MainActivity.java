@@ -91,27 +91,27 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         binding.customKeborad.getTitleAndHeaderModel().setTvHeaderRepeatNewPass2("dd");*//*
         binding.customKeborad.hideTvFingerPrint();
         binding.customKeborad.onTouchMethod();
-        binding.customKeborad.setStateSelected(1);*/
+        binding.customKeborad.setSelectedType(1);*/
         // login pass
-        binding.customKeborad.setTvLabel(getResources().getString(R.string.enter_password));
+    /*    binding.customKeborad.setTvLabel(getResources().getString(R.string.enter_password));
         binding.customKeborad.setTvHeaderTitle(getResources().getString(R.string.login));
         binding.customKeborad.onTouchMethod();
-        binding.customKeborad.setStateSelected(2);
-        binding.customKeborad.setValidPass("1111");
+        binding.customKeborad.setSelectedType(2);
+        binding.customKeborad.setValidPass("1111");*/
 
         //change pass
-      /*  binding.customKeborad.onTouchMethod();
-        binding.customKeborad.setStateSelected(3);
-        binding.customKeborad.setTvLabel(getResources().getString(R.string.old_pass));
-        binding.customKeborad.setTvHeaderTitle(getResources().getString(R.string.old_pass));
+        binding.customKeborad.onTouchMethod();
+        binding.customKeborad.setSelectedType(3);
+        binding.customKeborad.setTitle(getResources().getString(R.string.old_pass));
+        binding.customKeborad.setMessage(getResources().getString(R.string.old_pass));
         binding.customKeborad.setValidPass("1111");
         binding.customKeborad.hideTvFingerPrint();
-        binding.customKeborad.hideImgFingerPrint();*/
+        binding.customKeborad.hideImgFingerPrint();
 
         binding.customKeborad.setLoginAppListener(new OnKeyboardCustomListener.LoginApp() {
             @Override
             public void validPass() {
-                if (binding.customKeborad.getValuePass1().equals("1111")) {
+                if (binding.customKeborad.getCurrentOrCreateValuePassword().equals("1111")) {
                     Toast.makeText(MainActivity.this, "validPass", Toast.LENGTH_SHORT).show();
                 }
 
@@ -261,9 +261,9 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
     @Override
     public void onBackPressed() {
         if (binding.customKeborad.getBackPressedKey()==1) {
-            binding.customKeborad.onBackPrees();
+            binding.customKeborad.onBackPress();
         }else if (binding.customKeborad.getBackPressedKey()==2) {
-            binding.customKeborad.onBackPrees();
+            binding.customKeborad.onBackPress();
         }
         else {
             super.onBackPressed();
