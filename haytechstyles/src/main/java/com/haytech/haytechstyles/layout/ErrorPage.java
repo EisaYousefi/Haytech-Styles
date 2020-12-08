@@ -18,7 +18,7 @@ import com.google.android.material.textview.MaterialTextView;
 import com.haytech.haytechstyles.R;
 
 public class ErrorPage extends LinearLayout {
-    private static final float TEXT_SIZE = 17;//
+    private static final float TEXT_SIZE = 17;
     public static final int NO_SERVER_CONNECTION_TYPE = 0;
     public static final int PHONE_NOT_SUPPORTED_TYPE = 1;
     public static final int NOT_INTERNET_CONNECTION_TYPE = 2;
