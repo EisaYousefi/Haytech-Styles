@@ -75,10 +75,6 @@ public class CustomKeyboard extends ConstraintLayout {
     private ImageView clearDigit;
     private int duration=DEFAULT_DURATION;
 
-    public int getCountBitePassword() {
-        return countBitePassword;
-    }
-
     public CustomKeyboard(Context context) {
         super(context);
         initView(context, null);
@@ -92,6 +88,10 @@ public class CustomKeyboard extends ConstraintLayout {
     public CustomKeyboard(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context, attrs);
+    }
+
+    public int getCountBitePassword() {
+        return countBitePassword;
     }
 
     public String getRepeateValuePassword() {
@@ -134,6 +134,38 @@ public class CustomKeyboard extends ConstraintLayout {
     public void setMessage(String message) {
         this.message.setText(message);
         getTitleAndHeaderModel().setTvHeaderTitle(message);
+    }
+
+    public OnKeyboardCustomListener.CreateNewPass getCreateNewPassListener() {
+        return createNewPassListener;
+    }
+
+    public void setCreateNewPassListener(OnKeyboardCustomListener.CreateNewPass createNewPassListener) {
+        this.createNewPassListener = createNewPassListener;
+    }
+
+    public OnKeyboardCustomListener.LoginApp getLoginAppListener() {
+        return loginAppListener;
+    }
+
+    public void setLoginAppListener(OnKeyboardCustomListener.LoginApp loginAppListener) {
+        this.loginAppListener = loginAppListener;
+    }
+
+    public OnKeyboardCustomListener.ChangePass getChangePassListener() {
+        return changePassListener;
+    }
+
+    public void setChangePassListener(OnKeyboardCustomListener.ChangePass changePassListener) {
+        this.changePassListener = changePassListener;
+    }
+
+    public OnKeyboardCustomListener.OnClickKey getOnClickKeyListener() {
+        return onClickKeyListener;
+    }
+
+    public void setOnClickKeyListener(OnKeyboardCustomListener.OnClickKey onClickKeyListener) {
+        this.onClickKeyListener = onClickKeyListener;
     }
 
     public TitleAndHeaderModel getTitleAndHeaderModel() {
@@ -349,9 +381,7 @@ public class CustomKeyboard extends ConstraintLayout {
                     backSpaceLoginAndCreatePassword--;
                 }
             } else if (backSpaceLoginAndCreatePassword == 0 && repeatValuePasswordCounter > 0 && repeatValuePasswordCounter != countBitePassword + 1) {
-                circleCheckers[repeatValuePasswordCounter - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[repeatValuePasswordCounter - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[repeatValuePasswordCounter - 1].onClick(new RadioButtonField(getContext()));
+                handlerBitePasswordDownAndUp(repeatValuePasswordCounter - 1, R.color.back_my_text_checker, R.color.back_my_text_checker);
                 if (repeatValuePasswordCounter != 0) {
                     createOrRepeatValuePassword = createOrRepeatValuePassword.substring(0, repeatValuePasswordCounter - 1);
                     repeatValuePasswordCounter--;
@@ -360,9 +390,7 @@ public class CustomKeyboard extends ConstraintLayout {
             }
         } else if (getSelectedType() == LOGIN_TO_APP_STATE) {
             if (valuePasswordCounter > 0) {
-                circleCheckers[valuePasswordCounter - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[valuePasswordCounter - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[valuePasswordCounter - 1].onClick(new RadioButtonField(getContext()));
+                handlerBitePasswordDownAndUp(valuePasswordCounter - 1, R.color.back_my_text_checker, R.color.back_my_text_checker);
                 if (valuePasswordCounter != 0) {
                     currentOrCreateValuePassword = currentOrCreateValuePassword.substring(0, valuePasswordCounter - 1);
                     valuePasswordCounter--;
@@ -372,18 +400,14 @@ public class CustomKeyboard extends ConstraintLayout {
             }
         } else if (getSelectedType() == CHANGE_PASS_STATE) {
             if (valuePasswordCounter > 0 && repeatValuePasswordCounter == countBitePassword + 1) {
-                circleCheckers[valuePasswordCounter - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[valuePasswordCounter - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[valuePasswordCounter - 1].onClick(new RadioButtonField(getContext()));
+                handlerBitePasswordDownAndUp(valuePasswordCounter - 1, R.color.back_my_text_checker, R.color.back_my_text_checker);
                 if (valuePasswordCounter != 0) {
                     currentOrCreateValuePassword = currentOrCreateValuePassword.substring(0, valuePasswordCounter - 1);
                     valuePasswordCounter--;
                     backSpaceLoginAndCreatePassword--;
                 }
             } else if (backSpaceLoginAndCreatePassword == 0 && repeatValuePasswordCounter > 0 && repeatValuePasswordCounter != countBitePassword + 1 && rTryValuePasswordCounter == countBitePassword + 1) {
-                circleCheckers[repeatValuePasswordCounter - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[repeatValuePasswordCounter - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[repeatValuePasswordCounter - 1].onClick(new RadioButtonField(getContext()));
+                handlerBitePasswordDownAndUp(repeatValuePasswordCounter - 1, R.color.back_my_text_checker, R.color.back_my_text_checker);
                 if (repeatValuePasswordCounter != 0) {
                     createOrRepeatValuePassword = createOrRepeatValuePassword.substring(0, repeatValuePasswordCounter - 1);
                     repeatValuePasswordCounter--;
@@ -391,9 +415,7 @@ public class CustomKeyboard extends ConstraintLayout {
                 }
                 errorText.setVisibility(View.INVISIBLE);
             } else if (backSpaceLoginAndCreateAndChangePassword == 0 && rTryValuePasswordCounter > 0 && rTryValuePasswordCounter != countBitePassword + 1) {
-                circleCheckers[rTryValuePasswordCounter - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[rTryValuePasswordCounter - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[rTryValuePasswordCounter - 1].onClick(new RadioButtonField(getContext()));
+                handlerBitePasswordDownAndUp(rTryValuePasswordCounter - 1, R.color.back_my_text_checker, R.color.back_my_text_checker);
                 if (rTryValuePasswordCounter != 0) {
                     repeatValuePassword = repeatValuePassword.substring(0, rTryValuePasswordCounter - 1);
                     rTryValuePasswordCounter--;
@@ -559,9 +581,7 @@ public class CustomKeyboard extends ConstraintLayout {
                 //create a new pass   //تعریف پسورد اولیه برای ورود به نرم افزار
                 if (getSelectedType() == CREATE_PASS_STATE) {
                     if (valuePasswordCounter < countBitePassword) {
-                        circleCheckers[valuePasswordCounter].setInnerColor(getResources().getColor(R.color.white));
-                        circleCheckers[valuePasswordCounter].setOuterColor(getResources().getColor(R.color.radioButtonColor));
-                        circleCheckers[valuePasswordCounter].onClick(new RadioButtonField(getContext()));
+                        handlerBitePasswordDownAndUp(valuePasswordCounter, R.color.white, R.color.radioButtonColor);
                         valuePasswordCounter++;
                         backSpaceLoginAndCreatePassword++;
                         backPressedKey = countBitePassword;
@@ -571,9 +591,7 @@ public class CustomKeyboard extends ConstraintLayout {
 
                     //repeat pass
                     if (repeatValuePasswordCounter < countBitePassword) {
-                        circleCheckers[repeatValuePasswordCounter].setInnerColor(getResources().getColor(R.color.white));
-                        circleCheckers[repeatValuePasswordCounter].setOuterColor(getResources().getColor(R.color.radioButtonColor));
-                        circleCheckers[repeatValuePasswordCounter].onClick(new RadioButtonField(getContext()));
+                        handlerBitePasswordDownAndUp(repeatValuePasswordCounter, R.color.white, R.color.radioButtonColor);
                         repeatValuePasswordCounter++;
                         createOrRepeatValuePassword += tv.getText().toString().trim();
                         backPressedKey = 1;
@@ -581,9 +599,7 @@ public class CustomKeyboard extends ConstraintLayout {
                     //insert to App After create pass
                 } else if (getSelectedType() == LOGIN_TO_APP_STATE) {
                     if (valuePasswordCounter < countBitePassword) {
-                        circleCheckers[valuePasswordCounter].setInnerColor(getResources().getColor(R.color.white));
-                        circleCheckers[valuePasswordCounter].setOuterColor(getResources().getColor(R.color.radioButtonColor));
-                        circleCheckers[valuePasswordCounter].onClick(new RadioButtonField(getContext()));
+                        handlerBitePasswordDownAndUp(valuePasswordCounter, R.color.white, R.color.radioButtonColor);
                         valuePasswordCounter++;
                         backSpaceLoginAndCreatePassword++;
                         backPressedKey = 0;
@@ -594,9 +610,7 @@ public class CustomKeyboard extends ConstraintLayout {
                 } else if (getSelectedType() == CHANGE_PASS_STATE) {
                     //checked Old Pass is valid or not valid
                     if (valuePasswordCounter < countBitePassword) {
-                        circleCheckers[valuePasswordCounter].setInnerColor(getResources().getColor(R.color.white));
-                        circleCheckers[valuePasswordCounter].setOuterColor(getResources().getColor(R.color.radioButtonColor));
-                        circleCheckers[valuePasswordCounter].onClick(new RadioButtonField(getContext()));
+                        handlerBitePasswordDownAndUp(valuePasswordCounter, R.color.white, R.color.radioButtonColor);
                         valuePasswordCounter++;
                         backSpaceLoginAndCreatePassword++;
                         backPressedKey = 0;
@@ -606,9 +620,7 @@ public class CustomKeyboard extends ConstraintLayout {
 
                     //new pass
                     if (repeatValuePasswordCounter < countBitePassword) {
-                        circleCheckers[repeatValuePasswordCounter].setInnerColor(getResources().getColor(R.color.white));
-                        circleCheckers[repeatValuePasswordCounter].setOuterColor(getResources().getColor(R.color.radioButtonColor));
-                        circleCheckers[repeatValuePasswordCounter].onClick(new RadioButtonField(getContext()));
+                        handlerBitePasswordDownAndUp(repeatValuePasswordCounter, R.color.white, R.color.radioButtonColor);
                         repeatValuePasswordCounter++;
                         backSpaceLoginAndCreateAndChangePassword++;
                         createOrRepeatValuePassword += tv.getText().toString().trim();
@@ -616,9 +628,7 @@ public class CustomKeyboard extends ConstraintLayout {
                     }
                     //repeat new pass
                     if (rTryValuePasswordCounter < countBitePassword) {
-                        circleCheckers[rTryValuePasswordCounter].setInnerColor(getResources().getColor(R.color.white));
-                        circleCheckers[rTryValuePasswordCounter].setOuterColor(getResources().getColor(R.color.radioButtonColor));
-                        circleCheckers[rTryValuePasswordCounter].onClick(new RadioButtonField(getContext()));
+                        handlerBitePasswordDownAndUp(rTryValuePasswordCounter, R.color.white, R.color.radioButtonColor);
                         rTryValuePasswordCounter++;
                         repeatValuePassword += tv.getText().toString().trim();
                         backPressedKey = 2;
@@ -634,9 +644,7 @@ public class CustomKeyboard extends ConstraintLayout {
                 if (getSelectedType() == CREATE_PASS_STATE) {
                     if (backSpaceLoginAndCreatePassword == countBitePassword) {
                         for (int i = 0; i < countBitePassword; i++) {
-                            circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                            circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                            circleCheckers[i].onClick(new RadioButtonField(getContext()));
+                            handlerBitePasswordDownAndUp(i, R.color.back_my_text_checker, R.color.back_my_text_checker);
                             backPressedKey = 1;
                             ThreadUtils.onUI(() -> {
                                 startAnimation(title, R.anim.slide_out_right);
@@ -696,9 +704,7 @@ public class CustomKeyboard extends ConstraintLayout {
                             }, 300);
                         } else {
                             for (int i = 0; i < countBitePassword; i++) {
-                                circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                                circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                                circleCheckers[i].onClick(new RadioButtonField(getContext()));
+                                handlerBitePasswordDownAndUp(i, R.color.back_my_text_checker, R.color.back_my_text_checker);
                                 errorText.setVisibility(INVISIBLE);
                                 backPressedKey = 1;
                                 ThreadUtils.onUI(() -> {
@@ -723,9 +729,7 @@ public class CustomKeyboard extends ConstraintLayout {
                     }
                     if (backSpaceLoginAndCreateAndChangePassword == countBitePassword) {
                         for (int i = 0; i < countBitePassword; i++) {
-                            circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                            circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
-                            circleCheckers[i].onClick(new RadioButtonField(getContext()));
+                            handlerBitePasswordDownAndUp(i, R.color.back_my_text_checker, R.color.back_my_text_checker);
                             errorText.setVisibility(INVISIBLE);
                             backPressedKey = 2;
                             ThreadUtils.onUI(() -> {
@@ -761,39 +765,15 @@ public class CustomKeyboard extends ConstraintLayout {
         }
     }
 
+    private void handlerBitePasswordDownAndUp(int valuePasswordCounter, int innerColor, int outerColor) {
+        circleCheckers[valuePasswordCounter].setInnerColor(getResources().getColor(innerColor));
+        circleCheckers[valuePasswordCounter].setOuterColor(getResources().getColor(outerColor));
+        circleCheckers[valuePasswordCounter].onClick(new RadioButtonField(getContext()));
+    }
+
     //پایان تعریف پسورد اولیه
 
-    public OnKeyboardCustomListener.CreateNewPass getCreateNewPassListener() {
-        return createNewPassListener;
-    }
 
-    public void setCreateNewPassListener(OnKeyboardCustomListener.CreateNewPass createNewPassListener) {
-        this.createNewPassListener = createNewPassListener;
-    }
-
-    public OnKeyboardCustomListener.LoginApp getLoginAppListener() {
-        return loginAppListener;
-    }
-
-    public void setLoginAppListener(OnKeyboardCustomListener.LoginApp loginAppListener) {
-        this.loginAppListener = loginAppListener;
-    }
-
-    public OnKeyboardCustomListener.ChangePass getChangePassListener() {
-        return changePassListener;
-    }
-
-    public void setChangePassListener(OnKeyboardCustomListener.ChangePass changePassListener) {
-        this.changePassListener = changePassListener;
-    }
-
-    public OnKeyboardCustomListener.OnClickKey getOnClickKeyListener() {
-        return onClickKeyListener;
-    }
-
-    public void setOnClickKeyListener(OnKeyboardCustomListener.OnClickKey onClickKeyListener) {
-        this.onClickKeyListener = onClickKeyListener;
-    }
 
     public void onBackPress() {
         if (backPressedKey == 1) {

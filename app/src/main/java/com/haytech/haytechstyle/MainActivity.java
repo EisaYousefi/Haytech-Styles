@@ -80,16 +80,13 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         setCountDown();
         login();
 
-        findViewById(R.id.button2).setOnClickListener(v -> {
-          login();
-        });
     }
 
 
     String state = "1" ;
     private void login() {
-        EditText editText = findViewById(R.id.editTextTextPersonName);
-        state = editText.getText().toString().trim();
+
+        state = "1";
         switch (state) {
             case "1":
                 //create a new pass
