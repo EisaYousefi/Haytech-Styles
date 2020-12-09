@@ -257,9 +257,7 @@ public class CustomKeyboard extends ConstraintLayout {
 
     private void onClick() {
         backFingerPrint.setOnClickListener(v1 -> {
-            if (onClickKeyListener != null) {
-                onClickKeyListener.tvFingerClick(v1);
-            }
+            initFingerPrentClick(v1);
         });
 
         imgFingerPrint.setOnClickListener(v1 -> {
@@ -475,6 +473,7 @@ public class CustomKeyboard extends ConstraintLayout {
                     backFingerPrint.setBackgroundResource(backgroundUpKey);
                     startAnimation(imgFingerPrint, R.anim.fade_in);
                     clear();
+                    initFingerPrentClick(v);
                     break;
             }
             return true;
@@ -489,10 +488,17 @@ public class CustomKeyboard extends ConstraintLayout {
                     backFingerPrint.setBackgroundResource(backgroundUpKey);
                     clear();
                     startAnimation(backFingerPrint, R.anim.fade_in);
+                    initFingerPrentClick(v);
                     break;
             }
             return true;
         });
+    }
+
+    private void initFingerPrentClick(View view) {
+        if (onClickKeyListener != null) {
+            onClickKeyListener.tvFingerClick(view);
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
