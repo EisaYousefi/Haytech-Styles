@@ -18,6 +18,8 @@ import com.haytech.haytechstyles.customLoginKebord.OnKeyboardCustomListener;
 import com.haytech.haytechstyles.editTextVerify.VerifyCodeClickListener;
 import com.haytech.haytechstyles.layout.ErrorPage;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+
 
         showErrorView();
 
@@ -83,10 +87,10 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
     }
 
 
-    String state = "1" ;
+    String state ;
     private void login() {
 
-        state = "1";
+        state = "2";
         switch (state) {
             case "1":
                 //create a new pass
@@ -145,12 +149,12 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
             @Override
             public void tvFingerClick(View view) {
-
+                Toast.makeText(MainActivity.this, "tvFingerClick", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void imgFingerClick(View view) {
-
+                Toast.makeText(MainActivity.this, "imgFingerClick", Toast.LENGTH_SHORT).show();
             }
         });
 
