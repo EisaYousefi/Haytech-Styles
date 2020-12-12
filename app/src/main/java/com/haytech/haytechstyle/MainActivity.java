@@ -40,20 +40,6 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
 
-
-
-        List<String> listDate = new ArrayList<>();
-        listDate.add("یک روز");
-        listDate.add("یک هفته");
-        listDate.add("یک ماه");
-        listDate.add("یک سال");
-        binding.seekbar.setTitle(listDate).build();
-
-
-
-
-
-
         showErrorView();
 
 
