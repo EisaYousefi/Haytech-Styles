@@ -19,6 +19,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.Switch;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -123,13 +124,13 @@ public class SeekBar extends View {
         mCallbackRx = PublishSubject.create();
 
         TypedArray ta = context.getTheme().obtainStyledAttributes(attrs, R.styleable.SeekBar, 0, 0);
-
         colorText = ta.getColor(R.styleable.SeekBar_textColor, resources.getColor(R.color.textColorSeekBar));
         shadowColor = ta.getColor(R.styleable.SeekBar_shadowColor, resources.getColor(R.color.shadowColor));
         thumbColor = ta.getColor(R.styleable.SeekBar_thumbColor, resources.getColor(R.color.thumbColor));
         numberSections = ta.getDimensionPixelSize(R.styleable.SeekBar_numberSections, 4);
 
-        ta.recycle();
+
+
         thumbRadius = (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_thumbRadius, 10));
         shadowSize = thumbRadius + (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_sizeShadow, 1));
         marginBetweenTextAndSeekBar = (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_marginTopBetweenSeekBarAndText, 18));
@@ -137,10 +138,10 @@ public class SeekBar extends View {
         widthDegree = (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_widthDegree, 1));
         textSize = (int) ta.getDimensionPixelSize(R.styleable.SeekBar_textSize, (int) SizeConverter.dpToPx(getContext(), 13));
 
+        ta.recycle();
 
         fontText = Typeface.createFromAsset(assetMgr, "fonts/iransansmobile.ttf");
         paintText = PaintText.getPaintText(textSize, colorText, PaintText.CENTER_TEXT, fontText, false);
-
         //Paint Background
         BackgroundFillPaint = new Paint();
         BackgroundFillPaint.setAntiAlias(true);
@@ -357,8 +358,53 @@ public class SeekBar extends View {
 
     @Override
     protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec((int) SizeConverter.dpToPx(getContext(),50),MeasureSpec.EXACTLY));
+      //  super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec((int) SizeConverter.dpToPx(getContext(),50),MeasureSpec.EXACTLY));
+
+
+        int desiredWidth = (int) SizeConverter.dpToPx(getContext(),350);
+        int desiredHeight = (int) SizeConverter.dpToPx(getContext(),50);
+
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        int width;
+        int height;
+
+        //Measure Width
+        if (widthMode == MeasureSpec.EXACTLY) {
+            //Must be this size
+            width = widthSize;
+        } else if (widthMode == MeasureSpec.AT_MOST) {
+            //Can't be bigger than...
+            width = Math.min(desiredWidth, widthSize);
+        } else {
+            //Be whatever you want
+            width = desiredWidth;
+        }
+
+        //Measure Height
+        if (heightMode == MeasureSpec.EXACTLY) {
+            //Must be this size
+            height = heightSize;
+        } else if (heightMode == MeasureSpec.AT_MOST) {
+            //Can't be bigger than...
+            height = Math.min(desiredHeight, heightSize);
+        } else {
+            //Be whatever you want
+            height = desiredHeight;
+        }
+
+        //MUST CALL THIS
+        setMeasuredDimension(width, height);
     }
+
+
+
+
+
+
 
 
 }

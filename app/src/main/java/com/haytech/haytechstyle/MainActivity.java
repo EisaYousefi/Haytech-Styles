@@ -18,6 +18,8 @@ import com.haytech.haytechstyles.customLoginKebord.OnKeyboardCustomListener;
 import com.haytech.haytechstyles.editTextVerify.VerifyCodeClickListener;
 import com.haytech.haytechstyles.layout.ErrorPage;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -35,6 +37,22 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+
+
+
+
+        List<String> listDate = new ArrayList<>();
+        listDate.add("یک روز");
+        listDate.add("یک هفته");
+        listDate.add("یک ماه");
+        listDate.add("یک سال");
+        binding.seekbar.setTitle(listDate).build();
+
+
+
+
+
 
         showErrorView();
 
