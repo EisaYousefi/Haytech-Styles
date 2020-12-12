@@ -146,6 +146,11 @@
         <item name="mtc_checked_outer_color">@color/gray100</item>
         <item name="mtc_duration">400</item>
     </style>
-
+    <declare-styleable name="MultiButtonView">
+        <attr name="cv_mbv_itemCount" format="integer" />
+        <attr name="cv_mbv_itemSpace" format="integer" />
+        <attr name="cv_mbv_itemColumn" format="integer" />
+        <attr name="cv_mbv_itemDefaultSelect" format="integer" />
+    </declare-styleable>
 
 </resources>

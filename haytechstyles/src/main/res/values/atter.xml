@@ -194,6 +194,7 @@
         <attr name="cv_ep_errorIconSource" format="reference" />
         <attr name="cv_ep_errorIconWidth" format="dimension" />
         <attr name="cv_ep_errorIconHeight" format="dimension" />
+        <attr name="cv_ep_errorIconMarginTop" format="dimension" />
         <attr name="cv_ep_errorIconVisibility">
             <enum name="visible" value="0" />
             <enum name="gone" value="8" />
@@ -201,6 +202,7 @@
         <attr name="cv_ep_errorPictureSource" format="reference" />
         <attr name="cv_ep_errorPictureWidth" format="dimension" />
         <attr name="cv_ep_errorPictureHeight" format="dimension" />
+        <attr name="cv_ep_errorPictureMarginTop" format="dimension" />
         <attr name="cv_ep_errorPictureVisibility">
             <enum name="visible" value="0" />
             <enum name="gone" value="8" />
@@ -259,7 +261,93 @@
             <enum name="important_update" value="3" />
         </attr>
     </declare-styleable>
+    <declare-styleable name="WarningPage">
+        <attr name="cv_wp_IconSource" format="reference" />
+        <attr name="cv_wp_IconWidth" format="dimension" />
+        <attr name="cv_wp_IconHeight" format="dimension" />
+        <attr name="cv_wp_IconMarginBottom" format="dimension" />
+        <attr name="cv_wp_warningIconVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="cv_wp_mainPictureSource" format="reference" />
+        <attr name="cv_wp_mainPictureWidth" format="dimension" />
+        <attr name="cv_wp_mainPictureHeight" format="dimension" />
+        <attr name="cv_wp_mainPictureMarginTop" format="dimension" />
+        <attr name="cv_wp_mainPictureVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
 
+        <attr name="cv_wp_topTitleBackground" format="reference" />
+        <attr name="cv_wp_topTitleText" format="string" />
+        <attr name="cv_wp_topTitleTextSize" format="dimension" />
+        <attr name="cv_wp_topTitleTextColor" format="color" />
+        <attr name="cv_wp_topTitleTextPaddingTop" format="dimension" />
+
+        <attr name="cv_wp_topTitleVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+
+        <attr name="cv_wp_trackingContainerPaddingTop" format="dimension" />
+        <attr name="cv_wp_trackingContainerVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="cv_wp_trackingCodeLabelBackground" format="reference" />
+        <attr name="cv_wp_trackingCodeLabelText" format="string" />
+        <attr name="cv_wp_trackingCodeLabelTextSize" format="dimension" />
+        <attr name="cv_wp_trackingCodeLabelTextColor" format="color" />
+
+        <attr name="cv_wp_trackingCodeValueBackground" format="reference" />
+        <attr name="cv_wp_trackingCodeValueText" format="string" />
+        <attr name="cv_wp_trackingCodeValueTextSize" format="dimension" />
+        <attr name="cv_wp_trackingCodeValueTextColor" format="color" />
+
+        <attr name="cv_wp_descriptionBackground" format="reference" />
+        <attr name="cv_wp_descriptionText" format="string" />
+        <attr name="cv_wp_descriptionTextSize" format="dimension" />
+        <attr name="cv_wp_descriptionTextColor" format="color" />
+        <attr name="cv_wp_descriptionPaddingTop" format="dimension" />
+        <attr name="cv_wp_descriptionVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+
+        <attr name="cv_wp_descriptionTitleBackground" format="reference" />
+        <attr name="cv_wp_descriptionTitleText" format="string" />
+        <attr name="cv_wp_descriptionTitleTextSize" format="dimension" />
+        <attr name="cv_wp_descriptionTitleTextColor" format="color" />
+        <attr name="cv_wp_descriptionTitlePaddingBottom" format="dimension" />
+        <attr name="cv_wp_descriptionTitleVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+
+        <attr name="cv_wp_firstButtonBackground" format="reference" />
+        <attr name="cv_wp_firstButtonText" format="string" />
+        <attr name="cv_wp_firstButtonTextSize" format="dimension" />
+        <attr name="cv_wp_firstButtonTextColor" format="color" />
+        <attr name="cv_wp_firstButtonVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="cv_wp_secondButtonBackground" format="reference" />
+        <attr name="cv_wp_secondButtonText" format="string" />
+        <attr name="cv_wp_secondButtonTextSize" format="dimension" />
+        <attr name="cv_wp_secondButtonTextColor" format="color" />
+        <attr name="cv_wp_secondButtonVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="8" />
+        </attr>
+        <attr name="cv_wp_warningType">
+            <enum name="no_server_connection" value="0" />
+            <enum name="phone_not_support" value="1" />
+            <enum name="no_internet_connection" value="2" />
+            <enum name="important_update" value="3" />
+        </attr>
+    </declare-styleable>
     <declare-styleable name="NestedCircle">
         <attr name="nc_background_outer" format="color" />
         <attr name="nc_background_center" format="color" />
@@ -273,13 +361,13 @@
         <attr name="morph_checked_outer_color" format="color" />
     </declare-styleable>
 
-    <declare-styleable name="CustomKeyboard" >
+    <declare-styleable name="CustomKeyboard">
         <attr name="CK_background_down" format="reference|color" />
-        <attr name="CK_textColor_down"  format="color|reference" />
-        <attr name="CK_background_up"   format="color|reference" />
-        <attr name="CK_textColor_up"    format="color|reference" />
-        <attr name="CK_one"             format="color|reference"/>
-        <attr name="CK_count"             format="integer"/>
+        <attr name="CK_textColor_down" format="color|reference" />
+        <attr name="CK_background_up" format="color|reference" />
+        <attr name="CK_textColor_up" format="color|reference" />
+        <attr name="CK_one" format="color|reference" />
+        <attr name="CK_count" format="integer" />
         <attr name="CK_src_clear_text_image" format="reference|color" />
         <attr name="CK_src_finger_print_image" format="reference|color" />
 

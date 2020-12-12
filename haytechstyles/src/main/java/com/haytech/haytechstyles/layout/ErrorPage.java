@@ -13,21 +13,24 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.textview.MaterialTextView;
 import com.haytech.haytechstyles.R;
 
 public class ErrorPage extends LinearLayout {
-    private static final float TEXT_SIZE = 17;//
+    public static final int NON_VALUE = -1;
     public static final int NO_SERVER_CONNECTION_TYPE = 0;
     public static final int PHONE_NOT_SUPPORTED_TYPE = 1;
     public static final int NOT_INTERNET_CONNECTION_TYPE = 2;
     public static final int IMPORTANT_UPDATE_TYPE = 3;
+    public static final int MANY_NUMBERS_ENTERED_TYPE = 4;
+    private static final float TEXT_SIZE = 17;
     private final Context context;
     private AppCompatImageView errorIconImageView;
     private AppCompatImageView errorPictureImageView;
     private MaterialTextView errorTitleTextView,
-            trackingCodeLableTextView,
+            trackingCodeLabelTextView,
             trackingCodeValueTextView,
             errorDescriptionTextView,
             secondButtonTextView,
@@ -54,7 +57,7 @@ public class ErrorPage extends LinearLayout {
         errorIconImageView = (AppCompatImageView) rootView.findViewById(R.id.img_errorIcon);
         errorPictureImageView = (AppCompatImageView) rootView.findViewById(R.id.img_errorPicture);
         errorTitleTextView = (MaterialTextView) rootView.findViewById(R.id.mtv_titleError);
-        trackingCodeLableTextView = (MaterialTextView) rootView.findViewById(R.id.mtv_trackingCodeLable);
+        trackingCodeLabelTextView = (MaterialTextView) rootView.findViewById(R.id.mtv_trackingCodeLable);
         trackingCodeValueTextView = (MaterialTextView) rootView.findViewById(R.id.mtv_trackingCodeValue);
         errorTitleDescriptionTextView = (MaterialTextView) rootView.findViewById(R.id.mtv_titleDescriptionError);
         errorDescriptionTextView = (MaterialTextView) rootView.findViewById(R.id.mtv_descriptionError);
@@ -72,18 +75,20 @@ public class ErrorPage extends LinearLayout {
         }
 
         //get styleable property
-        int errorType = (int) typedArray.getInt(R.styleable.ErrorPage_cv_ep_errorType, NO_SERVER_CONNECTION_TYPE);
+        int errorType = (int) typedArray.getInt(R.styleable.ErrorPage_cv_ep_errorType, NON_VALUE);
 
 
         int errorIconVisibility = typedArray.getInt(R.styleable.ErrorPage_cv_ep_errorIconVisibility, View.VISIBLE);
-        int errorIconSource = typedArray.getResourceId(R.styleable.ErrorPage_cv_ep_errorIconSource, -1);
-        int errorIconWidth = (int) typedArray.getDimension(R.styleable.ErrorPage_cv_ep_errorIconWidth, dpToPx(48));
-        int errorIconHeight = (int) typedArray.getDimension(R.styleable.ErrorPage_cv_ep_errorIconHeight, dpToPx(48));////
+        int errorIconSource = typedArray.getResourceId(R.styleable.ErrorPage_cv_ep_errorIconSource, NON_VALUE);
+        int errorIconWidth = (int) typedArray.getDimension(R.styleable.ErrorPage_cv_ep_errorIconWidth, NON_VALUE);
+        int errorIconHeight = (int) typedArray.getDimension(R.styleable.ErrorPage_cv_ep_errorIconHeight, NON_VALUE);////
+        int errorIconMarginTop = (int) typedArray.getDimension(R.styleable.ErrorPage_cv_ep_errorIconMarginTop, NON_VALUE);////
 
         int errorImageVisibility = typedArray.getInt(R.styleable.ErrorPage_cv_ep_errorPictureVisibility, View.VISIBLE);
-        int errorImageSource = typedArray.getResourceId(R.styleable.ErrorPage_cv_ep_errorPictureSource, -1);
-        int errorImageWidth = (int) typedArray.getDimension(R.styleable.ErrorPage_cv_ep_errorPictureWidth, dpToPx(100));
-        int errorImageHeight = (int) typedArray.getDimension(R.styleable.ErrorPage_cv_ep_errorPictureHeight, dpToPx(167));////
+        int errorImageSource = typedArray.getResourceId(R.styleable.ErrorPage_cv_ep_errorPictureSource, NON_VALUE);
+        int errorImageWidth = (int) typedArray.getDimension(R.styleable.ErrorPage_cv_ep_errorPictureWidth, NON_VALUE);
+        int errorImageHeight = (int) typedArray.getDimension(R.styleable.ErrorPage_cv_ep_errorPictureHeight, NON_VALUE);////
+        int errorImageMarginTop = (int) typedArray.getDimension(R.styleable.ErrorPage_cv_ep_errorPictureMarginTop, NON_VALUE);////
 
 
         Drawable errorTitleBackground = typedArray.getDrawable(R.styleable.ErrorPage_cv_ep_errorTitleBackground);
@@ -132,16 +137,25 @@ public class ErrorPage extends LinearLayout {
 
         //set property into view
         errorIconImageView.setVisibility(errorIconVisibility);
-        if (errorIconSource != -1)
+        if (errorIconSource != NON_VALUE)
             errorIconImageView.setImageResource(errorIconSource);
-        errorIconImageView.getLayoutParams().height = errorIconHeight;
-        errorIconImageView.getLayoutParams().width = errorIconWidth;
-
+        if (errorIconHeight != NON_VALUE)
+            errorIconImageView.getLayoutParams().height = errorIconHeight;
+        if (errorIconWidth != NON_VALUE)
+            errorIconImageView.getLayoutParams().width = errorIconWidth;
+        if (errorIconMarginTop != NON_VALUE) {
+            setViewMargin(errorIconImageView, NON_VALUE, errorIconMarginTop, NON_VALUE, NON_VALUE);
+        }
         errorPictureImageView.setVisibility(errorImageVisibility);
-        if (errorImageSource != -1)
+        if (errorImageSource != NON_VALUE)
             errorPictureImageView.setImageResource(errorImageSource);
-        errorPictureImageView.getLayoutParams().height = errorImageHeight;
-        errorPictureImageView.getLayoutParams().width = errorImageWidth;
+        if (errorImageHeight != NON_VALUE)
+            errorPictureImageView.getLayoutParams().height = errorImageHeight;
+        if (errorImageWidth != NON_VALUE)
+            errorPictureImageView.getLayoutParams().width = errorImageWidth;
+        if (errorImageMarginTop != NON_VALUE) {
+            setViewMargin(errorPictureImageView, NON_VALUE, errorImageMarginTop, NON_VALUE, NON_VALUE);
+        }
 
         if (errorTitleBackground != null)
             errorTitleTextView.setBackground(errorTitleBackground);
@@ -149,14 +163,14 @@ public class ErrorPage extends LinearLayout {
             errorTitleTextView.setText(errorTitleText);
         errorTitleTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, errorTitleTextSize);
         errorTitleTextView.setTextColor(errorTitleTextColor);
-        errorTitleTextView.setPadding(dpToPx(0), errorTitleTextPaddingTop, dpToPx(0), dpToPx(0));
+        errorTitleTextView.setPadding(dpToPx(0), dpToPx(errorTitleTextPaddingTop), dpToPx(0), dpToPx(0));
         if (trackingCodeLableBackground != null)
-            trackingCodeLableTextView.setBackground(trackingCodeLableBackground);
+            trackingCodeLabelTextView.setBackground(trackingCodeLableBackground);
         if (trackingCodeLableText != null)
-            trackingCodeLableTextView.setText(trackingCodeLableText);
-        trackingCodeLableTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, trackingCodeLableTextSize);
-        trackingCodeLableTextView.setTextColor(trackingCodeLableTextColor);
-        trackingCodeLableTextView.setPadding(dpToPx(0), trackingCodeLableTextPaddingTop, dpToPx(0), dpToPx(0));
+            trackingCodeLabelTextView.setText(trackingCodeLableText);
+        trackingCodeLabelTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, trackingCodeLableTextSize);
+        trackingCodeLabelTextView.setTextColor(trackingCodeLableTextColor);
+        trackingCodeLabelTextView.setPadding(dpToPx(0), trackingCodeLableTextPaddingTop, dpToPx(0), dpToPx(0));
         if (trackingCodeValueBackground != null)
             trackingCodeValueTextView.setBackground(trackingCodeValueBackground);
         if (trackingCodeValueText != null)
@@ -164,6 +178,15 @@ public class ErrorPage extends LinearLayout {
         trackingCodeValueTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, trackingCodeValueTextSize);
         trackingCodeValueTextView.setTextColor(trackingCodeValueTextColor);
         trackingCodeValueTextView.setPadding(dpToPx(0), trackingCodeValueTextPaddingTop, dpToPx(0), dpToPx(0));
+
+        if (errorDescriptionBackground != null)
+            errorTitleDescriptionTextView.setBackground(errorTitleDescriptionBackground);
+        if (errorDescriptionText != null)
+            errorTitleDescriptionTextView.setText(errorTitleDescriptionText);
+        errorTitleDescriptionTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, errorTitleDescriptionTextSize);
+        errorTitleDescriptionTextView.setTextColor(errorTitleDescriptionTextColor);
+        errorTitleDescriptionTextView.setPadding(dpToPx(0), errorTitleDescriptionTextPaddingTop, dpToPx(0), dpToPx(0));
+
         if (errorDescriptionBackground != null)
             errorDescriptionTextView.setBackground(errorDescriptionBackground);
         if (errorDescriptionText != null)
@@ -193,8 +216,22 @@ public class ErrorPage extends LinearLayout {
         setErrorType(errorType);
     }
 
+    private void setViewMargin(View view, int leftMargin, int topMargin, int rightMargin, int bottomMargin) {
+        if (view.getLayoutParams() != null) {
+            ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) view.getLayoutParams();
+
+            if (leftMargin != NON_VALUE) params.leftMargin = leftMargin;
+            if (topMargin != NON_VALUE) params.topMargin = topMargin;
+            if (rightMargin != NON_VALUE) params.rightMargin = rightMargin;
+            if (bottomMargin != NON_VALUE) params.bottomMargin = bottomMargin;
+            view.setLayoutParams(params);
+        }
+    }
+
     public void setErrorType(int errorType) {
         switch (errorType) {
+            case NON_VALUE:
+                break;
             case NO_SERVER_CONNECTION_TYPE:
                 errorIconImageView.setImageResource(R.drawable.ic_error_no_server_connection);
                 errorPictureImageView.setImageResource(R.drawable.error_no_server_connection);
@@ -204,9 +241,10 @@ public class ErrorPage extends LinearLayout {
                 secondButtonTextView.setText(context.getResources().getString(R.string.support_call));
 
                 errorDescriptionTextView.setGravity(Gravity.CENTER);
-                errorDescriptionTextView.setPadding(0, dpToPx(5), 0, 0);
-
-                trackingCodeLableTextView.setVisibility(GONE);
+                errorDescriptionTextView.setPadding(dpToPx(0), dpToPx(5), dpToPx(0), dpToPx(0));
+                errorIconImageView.setVisibility(VISIBLE);
+                errorPictureImageView.setVisibility(VISIBLE);
+                trackingCodeLabelTextView.setVisibility(GONE);
                 trackingCodeValueTextView.setVisibility(GONE);
                 errorTitleDescriptionTextView.setVisibility(GONE);
                 secondButtonTextView.setVisibility(VISIBLE);
@@ -217,15 +255,17 @@ public class ErrorPage extends LinearLayout {
                 errorIconImageView.setImageResource(R.drawable.ic_error_phone_not_support);
                 errorPictureImageView.setImageResource(R.drawable.error_phone_not_support);
                 errorTitleTextView.setText(context.getResources().getString(R.string.your_phone_not_supported));
-                trackingCodeLableTextView.setText(context.getResources().getString(R.string.tracking_code_lable));
+                trackingCodeLabelTextView.setText(context.getResources().getString(R.string.tracking_code_lable));
                 trackingCodeValueTextView.setText(context.getResources().getString(R.string.tracking_code_value));
                 errorDescriptionTextView.setText(context.getResources().getString(R.string.not_support_error_description));
                 firstButtonTextView.setText(context.getResources().getString(R.string.support_call));
 
                 errorDescriptionTextView.setGravity(Gravity.CENTER);
-                errorDescriptionTextView.setPadding(0, dpToPx(50), 0, 0);
+                errorDescriptionTextView.setPadding(dpToPx(0), dpToPx(50), dpToPx(0), dpToPx(0));
+                errorIconImageView.setVisibility(VISIBLE);
+                errorPictureImageView.setVisibility(VISIBLE);
                 trackingCodeValueTextView.setVisibility(VISIBLE);
-                trackingCodeLableTextView.setVisibility(VISIBLE);
+                trackingCodeLabelTextView.setVisibility(VISIBLE);
                 errorTitleDescriptionTextView.setVisibility(GONE);
                 secondButtonTextView.setVisibility(GONE);
                 break;
@@ -238,10 +278,12 @@ public class ErrorPage extends LinearLayout {
                 firstButtonTextView.setText(context.getResources().getString(R.string.review_internet));
 
                 errorDescriptionTextView.setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
-                errorDescriptionTextView.setPadding(0, dpToPx(25), dpToPx(35), 0);
+                errorDescriptionTextView.setPadding(dpToPx(0), dpToPx(25), dpToPx(35), dpToPx(0));
 
+                errorIconImageView.setVisibility(VISIBLE);
+                errorPictureImageView.setVisibility(VISIBLE);
                 trackingCodeValueTextView.setVisibility(GONE);
-                trackingCodeLableTextView.setVisibility(GONE);
+                trackingCodeLabelTextView.setVisibility(GONE);
                 errorTitleDescriptionTextView.setVisibility(VISIBLE);
                 secondButtonTextView.setVisibility(GONE);
                 break;
@@ -254,11 +296,30 @@ public class ErrorPage extends LinearLayout {
                 firstButtonTextView.setText(context.getResources().getString(R.string.receive_and_install_update));
 
                 errorDescriptionTextView.setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
-                errorDescriptionTextView.setPadding(0, dpToPx(25), dpToPx(35), 0);
+                errorDescriptionTextView.setPadding(dpToPx(0), dpToPx(25), dpToPx(35), dpToPx(0));
 
+                errorIconImageView.setVisibility(VISIBLE);
+                errorPictureImageView.setVisibility(VISIBLE);
                 trackingCodeValueTextView.setVisibility(GONE);
-                trackingCodeLableTextView.setVisibility(GONE);
+                trackingCodeLabelTextView.setVisibility(GONE);
                 errorTitleDescriptionTextView.setVisibility(VISIBLE);
+                secondButtonTextView.setVisibility(GONE);
+                break;
+            case MANY_NUMBERS_ENTERED_TYPE:
+                errorIconImageView.setVisibility(GONE);
+                setViewMargin(errorPictureImageView, NON_VALUE, dpToPx(200), NON_VALUE, NON_VALUE);
+                errorPictureImageView.setImageResource(R.drawable.ic_iphone);
+                errorTitleTextView.setText(context.getResources().getString(R.string.you_have_entered_many_numbers));
+                trackingCodeLabelTextView.setText(context.getResources().getString(R.string.tracking_code_lable));
+                trackingCodeValueTextView.setText(context.getResources().getString(R.string.tracking_code_value));
+                errorDescriptionTextView.setText(context.getResources().getString(R.string.you_have_sent_many_requests));
+                firstButtonTextView.setText(context.getResources().getString(R.string.support_call));
+
+                errorDescriptionTextView.setGravity(Gravity.CENTER);
+                errorDescriptionTextView.setPadding(dpToPx(0), dpToPx(0), dpToPx(0), dpToPx(0));
+                trackingCodeValueTextView.setVisibility(VISIBLE);
+                trackingCodeLabelTextView.setVisibility(VISIBLE);
+                errorTitleDescriptionTextView.setVisibility(GONE);
                 secondButtonTextView.setVisibility(GONE);
                 break;
         }
@@ -296,12 +357,12 @@ public class ErrorPage extends LinearLayout {
         this.errorTitleTextView = errorTitleTextView;
     }
 
-    public MaterialTextView getTrackingCodeLableTextView() {
-        return trackingCodeLableTextView;
+    public MaterialTextView getTrackingCodeLabelTextView() {
+        return trackingCodeLabelTextView;
     }
 
-    public void setTrackingCodeLableTextView(MaterialTextView trackingCodeLableTextView) {
-        this.trackingCodeLableTextView = trackingCodeLableTextView;
+    public void setTrackingCodeLabelTextView(MaterialTextView trackingCodeLabelTextView) {
+        this.trackingCodeLabelTextView = trackingCodeLabelTextView;
     }
 
     public MaterialTextView getTrackingCodeValueTextView() {

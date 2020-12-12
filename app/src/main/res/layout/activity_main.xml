@@ -18,6 +18,11 @@
             android:visibility="gone"
             errorpage:cv_ep_errorType="important_update" />
 
+        <com.haytech.haytechstyles.layout.WarningPage
+            android:id="@+id/cv_warningPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mainLayout"
             android:layout_width="match_parent"
@@ -235,15 +240,15 @@
             android:id="@+id/customKeborad"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible"
+            android:visibility="gone"
+            app:CK_background_down="@drawable/back_text_pass_doun11"
+            app:CK_background_up="@drawable/back_text_pass_up111"
+            app:CK_checked_inner_color="@color/black"
+            app:CK_checked_outer_color="@color/colorRed"
             app:CK_count="4"
             app:CK_src_clear_text_image="@drawable/backspace"
             app:CK_src_finger_print_image="@drawable/ic_ok_fingerprint"
-            app:CK_background_up="@drawable/back_text_pass_up111"
-            app:CK_background_down="@drawable/back_text_pass_doun11"
             app:CK_type="STROKE"
-            app:CK_checked_outer_color="@color/colorRed"
-            app:CK_checked_inner_color="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

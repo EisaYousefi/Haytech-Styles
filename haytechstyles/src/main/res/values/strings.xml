@@ -11,7 +11,7 @@
     <string name="passEmpty">رمز عبور نباید خالی باشد</string>
     <string name="usernameEmpty">نام کاربری نباید خالی باشد</string>
     <string name="notValidPass">رمز عبور را صحیح وارد کنید</string>
-    <string name="notValidUser" >نام کاربری را صحیح وارد کنید</string>
+    <string name="notValidUser">نام کاربری را صحیح وارد کنید</string>
 
     <string name="ent_phone_number">شماره موبایل خود را وارد نمایید</string>
     <string name="start_phone_number">شماره تلفن باید با 09 شروع شود</string>
@@ -23,12 +23,10 @@
     <string name="login_to_app">ورود به سامانه</string>
 
     <string name="text_ok_phone">کد تایید ارسال شده به شماره موبایل زیر را وارد نمایید</string>
-    <string
-        name="edit_phone_number"> <a href="#">نیاز به اصلاح شماره موبایل دارید ؟</a>
+    <string name="edit_phone_number"> <a href="#">نیاز به اصلاح شماره موبایل دارید ؟</a>
     </string>
     <string name="reSendCodeVerify">ارسال مجدد کد تا </string>
-    <string
-        name="reSendCode"> <a href="#">ارسال مجدد</a>
+    <string name="reSendCode"> <a href="#">ارسال مجدد</a>
     </string>
     <string name="expert_details">جزییات کارشناسی</string>
 
@@ -40,8 +38,8 @@
     <string name="support_call">تماس با پشتیبانی</string>
     <string name="review_again">بررسی مجدد</string>
     <string name="review_internet">بررسی اینترنت</string>
-    <string name="receive_and_install_update">دریافت و نصب بروزرسانی</string>
     <string name="not_connected_to_the_server">ارتباط شما با سرور برقرار نیست</string>
+    <string name="receive_and_install_update">دریافت و نصب بروزرسانی</string>
     <string name="your_phone_not_supported">مدل گوشی همراه شما \n توسط برنامه پشتیبانی نمیشود</string>
     <string name="not_connected_to_the_internet">به نظر میاد به اینترنت وصل نیستید </string>
     <string name="up_to_the_new_version">به نسخه جدید بروزرسانی کنید</string>
@@ -59,7 +57,7 @@
     <string name="no_server_error_description">این مشکل از سمت ما رخ داده است . کمی دیگر تلاش کنید \n\n\n یا \n\n\n این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر\n\n    این یک متن تستی است برای توضیحات بیشتر</string>
 
 
-<!--    custom keboard login-->
+    <!--    custom keboard login-->
     <string name="define_app_password"> بااستفاده از رمز کوتاه ،در حالت آفلاین هم میتوانید از اپلیکیشن استفاده کنید</string>
     <string name="new_pass">رمز جدید</string>
     <string name="old_pass">رمز فعلی</string>
@@ -78,4 +76,7 @@
     <string name="zero">0</string>
     <string name="accept_password">تایید رمز کوتاه</string>
     <string name="create_pass">تعریف رمز کوتاه</string>
+
+    <string name="you_have_entered_many_numbers">\شماره های خیلی زیادی وارد کرده اید\n صبر کنید تا 00:00:00 دیگر\</string>
+    <string name="you_have_sent_many_requests">\متاسفانه از سمت شما درخواست های زیادی ارسال \n\n  شده است به همین دلیل تا تمام شدن زمان تعیین شده \n\n  امکان تایید شماره موبایل وجود ندارد\</string>
 </resources>
