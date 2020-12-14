@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.inputmethod.BaseInputConnection;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
+import android.widget.Toast;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.IntDef;
@@ -29,6 +30,8 @@ import com.haytech.haytechstyles.utils.Utils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import io.reactivex.subjects.PublishSubject;
 
 
 public class VerifyFieldEditText extends View {
@@ -140,6 +143,14 @@ public class VerifyFieldEditText extends View {
         // touch down
     }
 
+    public Paint getTextPaint() {
+        return textPaint;
+    }
+
+    public void setTextPaint(int textPaint) {
+       this.textPaint.setColor(textColor);
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         super.onTouchEvent(event);
@@ -191,6 +202,7 @@ public class VerifyFieldEditText extends View {
         //hide soft keyboard
         if (codeBuilder.length() >= textSize || keyCode == 66) {
             Utils.hideKeyboard((Activity) (getContext()));
+           verifyCode.onNext(codeBuilder.toString());
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -258,6 +270,7 @@ public class VerifyFieldEditText extends View {
                                 UIUtilsHytechStyle.getInstance().getHeightMethod(getHeight(), 2), UIUtilsHytechStyle.getInstance().getHeightMethod(getHeight(), circleRadius), shapePaint);
                     }
                 }
+
                 break;
             case INPUT_NO_LINE:
                 mLinePosY = baseShape + lineWidth;
@@ -338,5 +351,11 @@ public class VerifyFieldEditText extends View {
 
     public void setShapeStyle(@LineStyle int shapeStyle) {
         this.shapeStyle = shapeStyle;
+    }
+
+    private PublishSubject<String> verifyCode  = PublishSubject.create();
+
+    public PublishSubject<String> getVerifyCode() {
+        return verifyCode;
     }
 }

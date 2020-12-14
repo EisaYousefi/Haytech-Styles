@@ -146,6 +146,15 @@
         <item name="mtc_checked_outer_color">@color/gray100</item>
         <item name="mtc_duration">400</item>
     </style>
+
+    <style name="digitCustomKeyboard">
+        <item name="android:background">@drawable/back_text_pass_up</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/un_select_keybord</item>
+        <item name="fontPath">fonts/dana_fa_num_regular.ttf</item>
+        <item name="android:textSize">@dimen/text_size_very_large_25</item>
+    </style>
+
     <declare-styleable name="MultiButtonView">
         <attr name="cv_mbv_itemCount" format="integer" />
         <attr name="cv_mbv_itemSpace" format="integer" />
