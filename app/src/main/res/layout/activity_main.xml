@@ -26,11 +26,7 @@
                 android:layout_height="match_parent"
                 android:visibility="gone"
                 errorpage:cv_ep_errorType="important_update" />
-
-        <com.haytech.haytechstyles.layout.WarningPage
-            android:id="@+id/cv_warningPage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/mainLayout"
