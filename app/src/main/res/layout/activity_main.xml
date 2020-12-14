@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layoutDirection="rtl"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +59,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:vfe_circle_color="@color/innerColor"
                     app:vfe_circle_radius="6"
-                    app:vfe_line_style="CIRCLE"
+                    app:vfe_line_style="LINEAR"
                     app:vfe_text_color="@color/black"
                     app:vfe_text_count="5"
                     app:vfe_text_draw_size="40" />
@@ -247,7 +247,7 @@
                 android:id="@+id/customKeborad"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:CK_background_down="@drawable/back_text_pass_doun11"
                 app:CK_background_up="@drawable/back_text_pass_up111"
                 app:CK_checked_inner_color="@color/black"
@@ -261,7 +261,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" >
+                app:layout_constraintVertical_bias="0.0">
 
             </com.haytech.haytechstyles.customLoginKebord.CustomKeyboard>
 

@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
                 Toast.makeText(MainActivity.this, "3 " + binding.key.getTvEditPhoneNumber().toString(), Toast.LENGTH_SHORT).show();
 
             }
+
+
         });
 
         // binding.passwordFieldLayout.setTextGoodPass(R.string.app_name);
@@ -112,6 +114,16 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
         setCountDown();
         login();
+
+
+
+        binding.verifyCodeView.getVerifyCode()
+                .subscribe(verifyCode ->{
+                    if (verifyCode.equals("11111")) {
+                        binding.verifyCodeView.setTextPaint(R.color.colorRed);
+                        Toast.makeText(this, "sd", Toast.LENGTH_SHORT).show();
+                    }
+                } );
 
     }
 
