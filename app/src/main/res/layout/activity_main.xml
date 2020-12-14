@@ -58,7 +58,7 @@
                     app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:vfe_circle_color="@color/innerColor"
-                    app:vfe_circle_radius="6"
+                    app:vfe_circle_radius="15"
                     app:vfe_line_style="LINEAR"
                     app:vfe_text_color="@color/black"
                     app:vfe_text_count="5"

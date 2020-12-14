@@ -148,7 +148,11 @@ public class VerifyFieldEditText extends View {
     }
 
     public void setTextPaint(int textPaint) {
-       this.textPaint.setColor(textColor);
+         this.textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+         this.textPaint.setColor(textPaint);
+         this.textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+         this.textPaint.setTextAlign(Paint.Align.CENTER);
+         this.textPaint.setTypeface(typeface);
     }
 
     @Override

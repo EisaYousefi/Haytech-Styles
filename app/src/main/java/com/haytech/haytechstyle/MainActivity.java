@@ -120,8 +120,9 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         binding.verifyCodeView.getVerifyCode()
                 .subscribe(verifyCode ->{
                     if (verifyCode.equals("11111")) {
-                        binding.verifyCodeView.setTextPaint(R.color.colorRed);
-                        Toast.makeText(this, "sd", Toast.LENGTH_SHORT).show();
+                        binding.verifyCodeView.setTextPaint(getResources().getColor(R.color.colorRed));
+                    }else {
+                        Toast.makeText(this, ""+verifyCode, Toast.LENGTH_SHORT).show();
                     }
                 } );
 
