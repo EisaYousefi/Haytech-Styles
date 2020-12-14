@@ -151,7 +151,7 @@
 
         <TextView
             android:id="@+id/tv0"
-            fontPath="fonts/StandardIRANSansMobile.ttf"
+            fontPath="fonts/dana_bold.ttf"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/back_text_pass_up"
@@ -246,7 +246,7 @@
             android:text="@string/one"
             android:textColor="@color/un_select_keybord"
             android:textSize="@dimen/text_size_very_large_25"
-            fontPath="fonts/StandardIRANSansMobile.ttf"
+            fontPath="fonts/dana_fa_num_regular.ttf"
             app:layout_constraintBottom_toTopOf="@+id/guideline64"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/guideline60"
@@ -485,12 +485,12 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="55dp"
         android:layout_marginEnd="30dp"
-        android:fontFamily="@font/font_iran"
+        fontPath="fonts/dana_fa_num_bold.ttf"
+        tools:ignore="MissingPrefix"
         android:gravity="center"
         android:text="تعریف رمز کوتاه"
         android:textColor="@color/black"
         android:textSize="17sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

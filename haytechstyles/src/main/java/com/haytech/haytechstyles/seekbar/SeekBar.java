@@ -140,7 +140,7 @@ public class SeekBar extends View {
         ta.recycle();
 
 
-        fontText = Typeface.createFromAsset(assetMgr, "fonts/iransansmobile.ttf");
+        fontText = Typeface.createFromAsset(assetMgr, "fonts/dana_fa_num_regular.ttf");
         paintText = PaintText.getPaintText(textSize, colorText, PaintText.CENTER_TEXT, fontText, false);
         //Paint Background
         BackgroundFillPaint = new Paint();

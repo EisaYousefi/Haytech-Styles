@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
     private ActivityMainBinding binding;
     private ValueAnimator animator;
     private CountDownTimer counter;
+
 
 
     @Override
@@ -60,7 +62,6 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
                 return false;
             }
         });
-
 
 
 

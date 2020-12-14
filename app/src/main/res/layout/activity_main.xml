@@ -26,14 +26,14 @@
                 android:layout_height="match_parent"
                 android:visibility="gone"
                 errorpage:cv_ep_errorType="important_update" />
-        
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/mainLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layoutDirection="rtl"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -247,7 +247,7 @@
                 android:id="@+id/customKeborad"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:CK_background_down="@drawable/back_text_pass_doun11"
                 app:CK_background_up="@drawable/back_text_pass_up111"
                 app:CK_checked_inner_color="@color/black"
@@ -261,7 +261,9 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0" >
+
+            </com.haytech.haytechstyles.customLoginKebord.CustomKeyboard>
 
 
             <androidx.constraintlayout.widget.Guideline
@@ -271,6 +273,16 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.1" />
 
+            <com.haytech.haytechstyles.seekbar.SeekBar
+                android:id="@+id/seekbar2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/customKeborad"
+                app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                app:layout_constraintStart_toStartOf="@+id/guideline8" />
+
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline9"
                 android:layout_width="wrap_content"
@@ -279,19 +291,10 @@
                 app:layout_constraintGuide_percent="0.9" />
 
             <LinearLayout
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@color/white"
                 android:layout_width="match_parent"
-                android:layout_height="1000dp" />
-
-            <com.haytech.haytechstyles.seekbar.SeekBar
-                android:id="@+id/seekbar2"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/guideline9"
-                app:layout_constraintStart_toStartOf="@+id/guideline8"
+                android:layout_height="1000dp"
+                android:background="@color/white"
+                android:visibility="gone"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
