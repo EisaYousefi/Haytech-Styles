@@ -130,7 +130,6 @@ public class SeekBar extends View {
         numberSections = ta.getDimensionPixelSize(R.styleable.SeekBar_numberSections, 4);
 
 
-
         thumbRadius = (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_thumbRadius, 10));
         shadowSize = thumbRadius + (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_sizeShadow, 1));
         marginBetweenTextAndSeekBar = (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_marginTopBetweenSeekBarAndText, 18));
@@ -139,6 +138,7 @@ public class SeekBar extends View {
         textSize = (int) ta.getDimensionPixelSize(R.styleable.SeekBar_textSize, (int) SizeConverter.dpToPx(getContext(), 13));
 
         ta.recycle();
+
 
         fontText = Typeface.createFromAsset(assetMgr, "fonts/iransansmobile.ttf");
         paintText = PaintText.getPaintText(textSize, colorText, PaintText.CENTER_TEXT, fontText, false);
@@ -269,15 +269,16 @@ public class SeekBar extends View {
                     break;
                 }
             }
-
             calculateViewAnimation(x);
             postInvalidate();
             return true;
+
         } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
 
             xCircle = (int) x;
-            postInvalidate();
+            invalidate();
             return true;
+
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
 
             for (int i = 0; i < numberSections; i++) {
@@ -295,6 +296,7 @@ public class SeekBar extends View {
 
             return true;
         }
+
         return true;
     }
 
@@ -355,14 +357,13 @@ public class SeekBar extends View {
     }
 
 
-
     @Override
     protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-      //  super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec((int) SizeConverter.dpToPx(getContext(),50),MeasureSpec.EXACTLY));
+        //  super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec((int) SizeConverter.dpToPx(getContext(),50),MeasureSpec.EXACTLY));
 
 
-        int desiredWidth = (int) SizeConverter.dpToPx(getContext(),350);
-        int desiredHeight = (int) SizeConverter.dpToPx(getContext(),50);
+        int desiredWidth = (int) SizeConverter.dpToPx(getContext(), 350);
+        int desiredHeight = (int) SizeConverter.dpToPx(getContext(), 50);
 
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
@@ -399,12 +400,6 @@ public class SeekBar extends View {
         //MUST CALL THIS
         setMeasuredDimension(width, height);
     }
-
-
-
-
-
-
 
 
 }

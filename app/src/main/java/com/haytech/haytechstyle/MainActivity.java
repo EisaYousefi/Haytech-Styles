@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -38,9 +40,35 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        List<String> listDate = new ArrayList<>();
+        listDate.add("یک روز");
+        listDate.add("یک هفته");
+        listDate.add("یک ماه");
+        listDate.add("یک سال");
+        binding.seekbar2.setTitle(listDate).build();
+       // binding.seekBarTimeSaveFilm.setTitle(listDate).build();
+
+
+
+        binding.seekbar2.setOnTouchListener(new View.OnTouchListener() {
+            // Setting on Touch Listener for handling the touch inside ScrollView
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // Disallow the touch request for parent scroll on touch of child view
+                v.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
+
+
+
+
 
 
         showErrorView();
+
+
 
 
         binding.key.onTouchMethod();

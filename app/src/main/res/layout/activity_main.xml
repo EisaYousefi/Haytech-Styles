@@ -5,258 +5,304 @@
     xmlns:filterBox="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layoutDirection="ltr"
-        tools:context=".MainActivity">
+        android:fillViewport="true">
 
-        <com.haytech.haytechstyles.layout.ErrorPage
-            android:id="@+id/cv_errorPage"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            errorpage:cv_ep_errorType="important_update" />
+            android:layoutDirection="ltr"
+            tools:context=".MainActivity">
+
+
+
+
+
+            <com.haytech.haytechstyles.layout.ErrorPage
+                android:id="@+id/cv_errorPage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                errorpage:cv_ep_errorType="important_update" />
 
         <com.haytech.haytechstyles.layout.WarningPage
             android:id="@+id/cv_warningPage"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/mainLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layoutDirection="rtl"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.95" />
-
-            <com.haytech.haytechstyles.editTextVerify.VerifyFieldEditText
-                android:id="@+id/verifyCodeView"
-                android:layout_width="224dp"
-                android:layout_height="86dp"
-                android:layout_marginBottom="10dp"
-                android:paddingLeft="@dimen/corner_size_10"
-                android:paddingRight="@dimen/corner_size_10"
-                app:layout_constraintBottom_toTopOf="@+id/button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:vfe_circle_color="@color/innerColor"
-                app:vfe_circle_radius="6"
-                app:vfe_line_style="CIRCLE"
-                app:vfe_text_color="@color/black"
-                app:vfe_text_count="5"
-                app:vfe_text_draw_size="40" />
-
-            <com.haytech.haytechstyles.progressBar.CircleFieldProgressBar
-                android:id="@+id/circleProgressBar"
-                android:layout_width="59dp"
-                android:layout_height="61dp"
-                android:padding="3dp"
-                android:paddingRight="@dimen/text_size_20sp"
-                app:layout_constraintBottom_toTopOf="@+id/expertProfile"
-                app:layout_constraintEnd_toEndOf="@+id/expertProfile"
-                app:layout_constraintStart_toStartOf="parent"
-                app:line_count="10"
-                app:line_width="12dp"
-                app:progress_end_color="@color/colorEndProgressBar"
-                app:progress_shader="radial"
-                app:progress_start_color="@color/colorStartProgressBar"
-                app:progress_stroke_cap="round"
-                app:progress_stroke_width="5dp"
-                app:progress_style="line"
-                app:progress_text_color="@android:color/primary_text_light"
-                app:progress_text_size="@dimen/text_size_14sp"
-                tools:visibility="visible" />
-
-            <com.haytech.haytechstyles.expandableLayout.ExpertProfileTest
-                android:id="@+id/expertProfile"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
-                android:visibility="visible"
-                app:layout_constraintBottom_toTopOf="@+id/verifyCodeView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-            </com.haytech.haytechstyles.expandableLayout.ExpertProfileTest>
-
-            <com.haytech.haytechstyles.editTextVerify.CustomKeyboardEditTextVerify
-                android:id="@+id/key"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-            </com.haytech.haytechstyles.editTextVerify.CustomKeyboardEditTextVerify>
-
-
-            <com.haytech.haytechstyles.button.ButtonFieldRectangle
-                android:id="@+id/button"
-                style="@style/btnRectangleStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="@string/login_to_app"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <com.haytech.haytechstyles.filter.FilterFieldEditText
-                android:id="@+id/cv_filterView"
-                android:layout_width="0dp"
-                android:layout_height="54dp"
-                android:layout_marginTop="16dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/mainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layoutDirection="rtl"
-                app:layout_constraintEnd_toEndOf="@+id/phoneFieldLayout"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/phoneFieldLayout"
-                app:layout_constraintTop_toBottomOf="@+id/phoneFieldLayout"
-
-                filterBox:cv_sb_borderEmptyStateColor="@color/gray100"
-                filterBox:cv_sb_borderEmptyStateDashGap="5dp"
-                filterBox:cv_sb_borderEmptyStateDashWith="5dp"
-                filterBox:cv_sb_borderEmptyStateRadius="12dp"
-                filterBox:cv_sb_borderEmptyStateSize="1dp"
-
-                filterBox:cv_sb_borderTextStateColor="@color/blue"
-                filterBox:cv_sb_borderTextStateDashGap="5dp"
-                filterBox:cv_sb_borderTextStateDashWith="5dp"
-                filterBox:cv_sb_borderTextStateRadius="12dp"
-                filterBox:cv_sb_borderTextStateSize="2dp"
-
-                filterBox:cv_sb_clearIconScaleType="center"
-                filterBox:cv_sb_clearIconSource="@drawable/ic_close_black_12dp"
-                filterBox:cv_sb_clearIconVisibility="gone"
-                filterBox:cv_sb_searchIconScaleType="center"
-                filterBox:cv_sb_searchIconSource="@drawable/ic_search_gray_24dp"
-                filterBox:cv_sb_searchIconVisibility="visible"
-
-                />
-
-            <com.haytech.haytechstyles.username.UsernameFieldLayout
-                android:id="@+id/usernameFieldLayout"
-                style="@style/HaytechTextInputLayoutStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                android:hint="@string/enter_user_name"
                 android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.haytech.haytechstyles.username.UsernameFieldEditText
-                    android:id="@+id/usernameFieldEditText"
-                    style="@style/UsernameEditTextStyle"
-                    android:layout_width="match_parent"
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline6"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp" />
-            </com.haytech.haytechstyles.username.UsernameFieldLayout>
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.95" />
 
-            <com.haytech.haytechstyles.password.PasswordFieldLayout
-                android:id="@+id/passwordFieldLayout"
-                style="@style/HaytechTextInputLayoutStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                android:hint="@string/enter_password"
-                android:visibility="visible"
+                <com.haytech.haytechstyles.editTextVerify.VerifyFieldEditText
+                    android:id="@+id/verifyCodeView"
+                    android:layout_width="224dp"
+                    android:layout_height="86dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="@dimen/corner_size_10"
+                    android:paddingRight="@dimen/corner_size_10"
+                    app:layout_constraintBottom_toTopOf="@+id/button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:vfe_circle_color="@color/innerColor"
+                    app:vfe_circle_radius="6"
+                    app:vfe_line_style="CIRCLE"
+                    app:vfe_text_color="@color/black"
+                    app:vfe_text_count="5"
+                    app:vfe_text_draw_size="40" />
+
+                <com.haytech.haytechstyles.progressBar.CircleFieldProgressBar
+                    android:id="@+id/circleProgressBar"
+                    android:layout_width="59dp"
+                    android:layout_height="61dp"
+                    android:padding="3dp"
+                    android:paddingRight="@dimen/text_size_20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/expertProfile"
+                    app:layout_constraintEnd_toEndOf="@+id/expertProfile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:line_count="10"
+                    app:line_width="12dp"
+                    app:progress_end_color="@color/colorEndProgressBar"
+                    app:progress_shader="radial"
+                    app:progress_start_color="@color/colorStartProgressBar"
+                    app:progress_stroke_cap="round"
+                    app:progress_stroke_width="5dp"
+                    app:progress_style="line"
+                    app:progress_text_color="@android:color/primary_text_light"
+                    app:progress_text_size="@dimen/text_size_14sp"
+                    tools:visibility="visible" />
+
+                <com.haytech.haytechstyles.expandableLayout.ExpertProfileTest
+                    android:id="@+id/expertProfile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/verifyCodeView"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                </com.haytech.haytechstyles.expandableLayout.ExpertProfileTest>
+
+                <com.haytech.haytechstyles.editTextVerify.CustomKeyboardEditTextVerify
+                    android:id="@+id/key"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                </com.haytech.haytechstyles.editTextVerify.CustomKeyboardEditTextVerify>
+
+
+                <com.haytech.haytechstyles.button.ButtonFieldRectangle
+                    android:id="@+id/button"
+                    style="@style/btnRectangleStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/login_to_app"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <com.haytech.haytechstyles.filter.FilterFieldEditText
+                    android:id="@+id/cv_filterView"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="16dp"
+                    android:layoutDirection="rtl"
+                    app:layout_constraintEnd_toEndOf="@+id/phoneFieldLayout"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/phoneFieldLayout"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneFieldLayout"
+
+                    filterBox:cv_sb_borderEmptyStateColor="@color/gray100"
+                    filterBox:cv_sb_borderEmptyStateDashGap="5dp"
+                    filterBox:cv_sb_borderEmptyStateDashWith="5dp"
+                    filterBox:cv_sb_borderEmptyStateRadius="12dp"
+                    filterBox:cv_sb_borderEmptyStateSize="1dp"
+
+                    filterBox:cv_sb_borderTextStateColor="@color/blue"
+                    filterBox:cv_sb_borderTextStateDashGap="5dp"
+                    filterBox:cv_sb_borderTextStateDashWith="5dp"
+                    filterBox:cv_sb_borderTextStateRadius="12dp"
+                    filterBox:cv_sb_borderTextStateSize="2dp"
+
+                    filterBox:cv_sb_clearIconScaleType="center"
+                    filterBox:cv_sb_clearIconSource="@drawable/ic_close_black_12dp"
+                    filterBox:cv_sb_clearIconVisibility="gone"
+                    filterBox:cv_sb_searchIconScaleType="center"
+                    filterBox:cv_sb_searchIconSource="@drawable/ic_search_gray_24dp"
+                    filterBox:cv_sb_searchIconVisibility="visible"
+
+                    />
+
+                <com.haytech.haytechstyles.username.UsernameFieldLayout
+                    android:id="@+id/usernameFieldLayout"
+                    style="@style/HaytechTextInputLayoutStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/enter_user_name"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.haytech.haytechstyles.username.UsernameFieldEditText
+                        android:id="@+id/usernameFieldEditText"
+                        style="@style/UsernameEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp" />
+                </com.haytech.haytechstyles.username.UsernameFieldLayout>
+
+                <com.haytech.haytechstyles.password.PasswordFieldLayout
+                    android:id="@+id/passwordFieldLayout"
+                    style="@style/HaytechTextInputLayoutStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/enter_password"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/usernameFieldLayout">
+
+                    <com.haytech.haytechstyles.password.PasswordFieldEditText
+                        android:id="@+id/passwordFieldEditText"
+                        style="@style/PhoneEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.haytech.haytechstyles.password.PasswordFieldLayout>
+
+                <com.haytech.haytechstyles.phone.PhoneFieldLayout
+                    android:id="@+id/phoneFieldLayout"
+                    style="@style/HaytechTextInputLayoutStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/empty_phone_number"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/passwordFieldLayout">
+
+                    <com.haytech.haytechstyles.phone.PhoneFieldEditText
+                        android:id="@+id/phoneFieldEditText"
+                        style="@style/PhoneEditTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp" />
+
+                </com.haytech.haytechstyles.phone.PhoneFieldLayout>
+
+                <com.haytech.haytechstyles.selector.RadioButtonField
+                    android:id="@+id/circleCheckers"
+                    android:layout_width="82dp"
+                    android:layout_height="88dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="80dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/nestedCircle" />
+
+                <com.haytech.haytechstyles.nestdCircle.NestedCircle
+                    android:id="@+id/nestedCircle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/circleProgressBar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cv_filterView" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.haytech.haytechstyles.customLoginKebord.CustomKeyboard
+                android:id="@+id/customKeborad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:CK_background_down="@drawable/back_text_pass_doun11"
+                app:CK_background_up="@drawable/back_text_pass_up111"
+                app:CK_checked_inner_color="@color/black"
+                app:CK_checked_outer_color="@color/colorRed"
+                app:CK_count="4"
+                app:CK_src_clear_text_image="@drawable/backspace"
+                app:CK_src_finger_print_image="@drawable/ic_ok_fingerprint"
+                app:CK_type="STROKE"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/usernameFieldLayout">
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
-                <com.haytech.haytechstyles.password.PasswordFieldEditText
-                    android:id="@+id/passwordFieldEditText"
-                    style="@style/PhoneEditTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
-            </com.haytech.haytechstyles.password.PasswordFieldLayout>
 
-            <com.haytech.haytechstyles.phone.PhoneFieldLayout
-                android:id="@+id/phoneFieldLayout"
-                style="@style/HaytechTextInputLayoutStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                android:hint="@string/empty_phone_number"
-                android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/passwordFieldLayout">
-
-                <com.haytech.haytechstyles.phone.PhoneFieldEditText
-                    android:id="@+id/phoneFieldEditText"
-                    style="@style/PhoneEditTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16sp" />
-
-            </com.haytech.haytechstyles.phone.PhoneFieldLayout>
-
-            <com.haytech.haytechstyles.selector.RadioButtonField
-                android:id="@+id/circleCheckers"
-                android:layout_width="82dp"
-                android:layout_height="88dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="80dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/nestedCircle" />
-
-            <com.haytech.haytechstyles.nestdCircle.NestedCircle
-                android:id="@+id/nestedCircle"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/circleProgressBar"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cv_filterView" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9" />
+
+            <LinearLayout
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp" />
+
+            <com.haytech.haytechstyles.seekbar.SeekBar
+                android:id="@+id/seekbar2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/guideline9"
+                app:layout_constraintStart_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.haytech.haytechstyles.customLoginKebord.CustomKeyboard
-            android:id="@+id/customKeborad"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            app:CK_background_down="@drawable/back_text_pass_doun11"
-            app:CK_background_up="@drawable/back_text_pass_up111"
-            app:CK_checked_inner_color="@color/black"
-            app:CK_checked_outer_color="@color/colorRed"
-            app:CK_count="4"
-            app:CK_src_clear_text_image="@drawable/backspace"
-            app:CK_src_finger_print_image="@drawable/ic_ok_fingerprint"
-            app:CK_type="STROKE"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+    </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 </layout>
