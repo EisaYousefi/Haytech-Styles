@@ -61,7 +61,7 @@
                     app:vfe_circle_radius="15"
                     app:vfe_line_style="LINEAR"
                     app:vfe_text_color="@color/black"
-                    app:vfe_text_count="5"
+                    app:vfe_text_count="4"
                     app:vfe_text_draw_size="40" />
 
                 <com.haytech.haytechstyles.progressBar.CircleFieldProgressBar
@@ -255,6 +255,13 @@
                 app:CK_count="4"
                 app:CK_src_clear_text_image="@drawable/backspace"
                 app:CK_src_finger_print_image="@drawable/ic_ok_fingerprint"
+                app:CK_type="Full"
+
+                app:CK_errorMessage="@string/login"
+                app:CK_message_text_color="@color/blue"
+                app:CK_header_text_color="@color/colorGreen"
+                app:CK_error_text_color="@color/colorRed"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

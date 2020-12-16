@@ -5,14 +5,11 @@ import androidx.databinding.DataBindingUtil;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.haytech.haytechstyle.databinding.ActivityMainBinding;
@@ -121,9 +118,9 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
                 .subscribe(verifyCode ->{
                     if (verifyCode.equals("11111")) {
                         binding.verifyCodeView.setTextPaint(getResources().getColor(R.color.colorRed));
-                    }else {
-                        Toast.makeText(this, ""+verifyCode, Toast.LENGTH_SHORT).show();
-                    }
+                    }else
+                        binding.verifyCodeView.setTextPaint(getResources().
+                                getColor(R.color.blue));
                 } );
 
     }
@@ -147,8 +144,8 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
                 break;
             case "2":
                 // login pass
-                binding.customKeborad.setMessage(getResources().getString(R.string.enter_password));
-                binding.customKeborad.setTitle(getResources().getString(R.string.login));
+                binding.customKeborad.setHeaderText(getResources().getString(R.string.enter_password));
+                binding.customKeborad.setMessageText(getResources().getString(R.string.login));
                 binding.customKeborad.onTouchMethod();
                 binding.customKeborad.setSelectedType(2);
                 binding.customKeborad.setValidPass("1111");
@@ -158,8 +155,8 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
                 //change pass
                 binding.customKeborad.onTouchMethod();
                 binding.customKeborad.setSelectedType(3);
-                binding.customKeborad.setTitle(getResources().getString(R.string.old_pass));
-                binding.customKeborad.setMessage(getResources().getString(R.string.old_pass));
+                binding.customKeborad.setMessageText(getResources().getString(R.string.old_pass));
+                binding.customKeborad.setHeaderText(getResources().getString(R.string.old_pass));
                 binding.customKeborad.setValidPass("1111");
                 binding.customKeborad.hideTvFingerPrint();
                 binding.customKeborad.hideImgFingerPrint();

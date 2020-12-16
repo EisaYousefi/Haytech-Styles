@@ -45,7 +45,7 @@ public class CustomKeyboard extends ConstraintLayout {
 
     public TextView digit1, digit2, digit3, digit4, digit5, digit6, digit7, digit8, digit9, digit0, errorText;
     private RadioButtonField passBiteOne, passBiteTow, passBiteThree, passBiteFour, passBiteFive, passBiteSex;
-    private TextView title, message;
+    private TextView messageText, headerText;
     private Animation animation;
     private String validPass = "";
     private TextView backFingerPrint;
@@ -59,6 +59,10 @@ public class CustomKeyboard extends ConstraintLayout {
     private int countBitePassword;
     private int srcClearNumber ;
     private int srcFingerPrint ;
+    private String errorMessage = "pass not valid" ;
+    private int headerTextColor ;
+    private int messageTextColor ;
+    private int errorTextColor ;
 
     private TitleAndHeaderModel titleAndHeaderModel;
     private OnKeyboardCustomListener.CreateNewPass createNewPassListener;
@@ -118,22 +122,22 @@ public class CustomKeyboard extends ConstraintLayout {
         this.validPass = validPass;
     }
 
-    public TextView getTitle() {
-        return title;
+    public TextView getMessageText() {
+        return messageText;
     }
 
-    public void setTitle(String title) {
-        this.title.setText(title);
-        getTitleAndHeaderModel().setTvLabel(title);
+    public void setMessageText(String messageText) {
+        this.messageText.setText(messageText);
+        getTitleAndHeaderModel().setTvLabel(messageText);
     }
 
-    public TextView getMessage() {
-        return message;
+    public TextView getHeaderText() {
+        return headerText;
     }
 
-    public void setMessage(String message) {
-        this.message.setText(message);
-        getTitleAndHeaderModel().setTvHeaderTitle(message);
+    public void setHeaderText(String headerText) {
+        this.headerText.setText(headerText);
+        getTitleAndHeaderModel().setTvHeaderTitle(headerText);
     }
 
     public OnKeyboardCustomListener.CreateNewPass getCreateNewPassListener() {
@@ -240,6 +244,11 @@ public class CustomKeyboard extends ConstraintLayout {
         countBitePassword = typedArray.getInt(R.styleable.CustomKeyboard_CK_count, DEFAULT_COUNT);
         srcClearNumber = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_src_clear_text_image, R.drawable.backspace);
         srcFingerPrint = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_src_finger_print_image, R.drawable.ic_ok_fingerprint);
+        errorTextColor = typedArray.getInt(R.styleable.CustomKeyboard_CK_error_text_color, getResources().getColor(R.color.error_text_color));
+        headerTextColor = typedArray.getInt(R.styleable.CustomKeyboard_CK_header_text_color, getResources().getColor(R.color.textColorItemList));
+        errorMessage = typedArray.getString(R.styleable.CustomKeyboard_CK_errorMessage);
+        messageTextColor = typedArray.getInt(R.styleable.CustomKeyboard_CK_message_text_color, getResources().getColor(R.color.textColorItemList));
+
         //radioButtonField status
         typeBitePassword = typedArray.getInt(R.styleable.CustomKeyboard_CK_type, 2);
         innerWidth = typedArray.getFloat(R.styleable.CustomKeyboard_CK_inner_width, DEFAULT_INNER_WIDTH);
@@ -272,6 +281,11 @@ public class CustomKeyboard extends ConstraintLayout {
         titleAndHeaderModel.setDataTitleAndHeader();
 
         backFingerPrint.setBackgroundResource(backgroundUpKey);
+
+        headerText.setTextColor(headerTextColor);
+        messageText.setTextColor(messageTextColor);
+        errorText.setTextColor(errorTextColor);
+
 
         setStyleDigitButton(digit0);
         setStyleDigitButton(digit1);
@@ -359,8 +373,8 @@ public class CustomKeyboard extends ConstraintLayout {
         digit9 = findViewById(R.id.tv9);
         digit0 = findViewById(R.id.tv0);
         errorText = findViewById(R.id.tv_error);
-        title = findViewById(R.id.tv_lable);
-        message = findViewById(R.id.headerTitle);
+        messageText = findViewById(R.id.tv_lable);
+        headerText = findViewById(R.id.headerTitle);
         clearDigit = findViewById(R.id.img_clear);
         backClearDigit = findViewById(R.id.constrant_clear);
         backFingerPrint = findViewById(R.id.tv_finger_print);
@@ -653,16 +667,16 @@ public class CustomKeyboard extends ConstraintLayout {
                             handlerBitePasswordDownAndUp(i, R.color.back_my_text_checker, R.color.back_my_text_checker);
                             backPressedKey = 1;
                             ThreadUtils.onUI(() -> {
-                                startAnimation(title, R.anim.slide_out_right);
-                                startAnimation(message, R.anim.slide_out_right);
+                                startAnimation(messageText, R.anim.slide_out_right);
+                                startAnimation(headerText, R.anim.slide_out_right);
                             }, 2);
 
                             ThreadUtils.onUI(() -> {
-                                title.setVisibility(View.VISIBLE);
-                                startAnimation(title, R.anim.slid_in_left_interpolator);
-                                startAnimation(message, R.anim.slid_in_left_interpolator);
-                                title.setText(titleAndHeaderModel.getTvLabelRepeatNewPass2());
-                                message.setText(titleAndHeaderModel.getTvHeaderRepeatNewPass2());
+                                messageText.setVisibility(View.VISIBLE);
+                                startAnimation(messageText, R.anim.slid_in_left_interpolator);
+                                startAnimation(headerText, R.anim.slid_in_left_interpolator);
+                                messageText.setText(titleAndHeaderModel.getTvLabelRepeatNewPass2());
+                                headerText.setText(titleAndHeaderModel.getTvHeaderRepeatNewPass2());
                             }, 300);
                         }
 
@@ -714,16 +728,16 @@ public class CustomKeyboard extends ConstraintLayout {
                                 errorText.setVisibility(INVISIBLE);
                                 backPressedKey = 1;
                                 ThreadUtils.onUI(() -> {
-                                    startAnimation(title, R.anim.slide_out_right);
-                                    startAnimation(message, R.anim.slide_out_right);
+                                    startAnimation(messageText, R.anim.slide_out_right);
+                                    startAnimation(headerText, R.anim.slide_out_right);
                                 }, 2);
 
                                 ThreadUtils.onUI(() -> {
-                                    title.setVisibility(View.VISIBLE);
-                                    startAnimation(title, R.anim.slid_in_left_interpolator);
-                                    startAnimation(message, R.anim.slid_in_left_interpolator);
-                                    title.setText(getTitleAndHeaderModel().getTvLabelCreateNewForPassChange3());
-                                    message.setText(getTitleAndHeaderModel().getTvHeaderCreateNewForPassChange3());
+                                    messageText.setVisibility(View.VISIBLE);
+                                    startAnimation(messageText, R.anim.slid_in_left_interpolator);
+                                    startAnimation(headerText, R.anim.slid_in_left_interpolator);
+                                    messageText.setText(getTitleAndHeaderModel().getTvLabelCreateNewForPassChange3());
+                                    headerText.setText(getTitleAndHeaderModel().getTvHeaderCreateNewForPassChange3());
 
                                 }, 300);
                             }
@@ -739,15 +753,15 @@ public class CustomKeyboard extends ConstraintLayout {
                             errorText.setVisibility(INVISIBLE);
                             backPressedKey = 2;
                             ThreadUtils.onUI(() -> {
-                                startAnimation(title, R.anim.slide_out_right);
-                                startAnimation(message, R.anim.slide_out_right);
+                                startAnimation(messageText, R.anim.slide_out_right);
+                                startAnimation(headerText, R.anim.slide_out_right);
                             }, 2);
 
                             ThreadUtils.onUI(() -> {
-                                title.setVisibility(View.VISIBLE);
-                                startAnimation(title, R.anim.slid_in_left_interpolator);
-                                title.setText(getTitleAndHeaderModel().getTvLabelRepeatNewForPassChange3());
-                                message.setText(getTitleAndHeaderModel().getTvHeaderRepeatNewForPassChange3());
+                                messageText.setVisibility(View.VISIBLE);
+                                startAnimation(messageText, R.anim.slid_in_left_interpolator);
+                                messageText.setText(getTitleAndHeaderModel().getTvLabelRepeatNewForPassChange3());
+                                headerText.setText(getTitleAndHeaderModel().getTvHeaderRepeatNewForPassChange3());
                             }, 300);
 
                         }
@@ -798,11 +812,11 @@ public class CustomKeyboard extends ConstraintLayout {
                 errorText.setVisibility(View.INVISIBLE);
 
                 ThreadUtils.onUI(() -> {
-                    startAnimation(title, R.anim.slide_in_right);
-                    startAnimation(message, R.anim.slide_in_right);
-                    title.setText(getTitleAndHeaderModel().getTvLabel());
-                    message.setText(getTitleAndHeaderModel().getTvHeaderTitle());
-                    title.setVisibility(View.VISIBLE);
+                    startAnimation(messageText, R.anim.slide_in_right);
+                    startAnimation(headerText, R.anim.slide_in_right);
+                    messageText.setText(getTitleAndHeaderModel().getTvLabel());
+                    headerText.setText(getTitleAndHeaderModel().getTvHeaderTitle());
+                    messageText.setVisibility(View.VISIBLE);
                 }, 100);
             }
         } else if (backPressedKey == 2) {
@@ -821,11 +835,11 @@ public class CustomKeyboard extends ConstraintLayout {
                 errorText.setVisibility(View.INVISIBLE);
 
                 ThreadUtils.onUI(() -> {
-                    startAnimation(title, R.anim.slide_in_right);
-                    startAnimation(message, R.anim.slide_in_right);
-                    title.setText(getTitleAndHeaderModel().getTvLabelCreateNewForPassChange3());
-                    message.setText(getTitleAndHeaderModel().getTvHeaderCreateNewForPassChange3());
-                    title.setVisibility(View.VISIBLE);
+                    startAnimation(messageText, R.anim.slide_in_right);
+                    startAnimation(headerText, R.anim.slide_in_right);
+                    messageText.setText(getTitleAndHeaderModel().getTvLabelCreateNewForPassChange3());
+                    headerText.setText(getTitleAndHeaderModel().getTvHeaderCreateNewForPassChange3());
+                    messageText.setVisibility(View.VISIBLE);
                 }, 100);
             }
         }
