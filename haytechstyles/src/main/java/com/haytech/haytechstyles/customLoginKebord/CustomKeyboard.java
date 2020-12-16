@@ -241,7 +241,7 @@ public class CustomKeyboard extends ConstraintLayout {
         srcClearNumber = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_src_clear_text_image, R.drawable.backspace);
         srcFingerPrint = typedArray.getResourceId(R.styleable.CustomKeyboard_CK_src_finger_print_image, R.drawable.ic_ok_fingerprint);
         //radioButtonField status
-        typeBitePassword = typedArray.getInt(R.styleable.CustomKeyboard_CK_type, 0);
+        typeBitePassword = typedArray.getInt(R.styleable.CustomKeyboard_CK_type, 2);
         innerWidth = typedArray.getFloat(R.styleable.CustomKeyboard_CK_inner_width, DEFAULT_INNER_WIDTH);
         outerWidth = typedArray.getFloat(R.styleable.CustomKeyboard_CK_outer_width, DEFAULT_OUTER_WIDTH);
         duration = typedArray.getInt(R.styleable.CustomKeyboard_CK_duration, DEFAULT_DURATION);

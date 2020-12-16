@@ -191,6 +191,7 @@ public class VerifyFieldEditText extends View {
         //67 is backspace,7-16 are 0-9
         if (keyCode == 67 && codeBuilder.length() > 0) {
             codeBuilder.deleteCharAt(codeBuilder.length() - 1);
+
             if (listener != null) {
                 Utils.hideKeyboard((Activity) getContext());
             }
