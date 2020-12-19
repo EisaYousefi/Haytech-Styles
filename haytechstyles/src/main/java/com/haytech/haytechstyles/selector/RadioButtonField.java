@@ -41,6 +41,7 @@ public class RadioButtonField extends View implements View.OnClickListener {
 
     public void setInnerColor(int innerColor) {
         this.innerColor = innerColor;
+        invalidate();
     }
 
     public int getOuterColor() {
@@ -49,6 +50,7 @@ public class RadioButtonField extends View implements View.OnClickListener {
 
     public void setOuterColor(int outerColor) {
         this.outerColor = outerColor;
+        invalidate();
     }
 
     public Paint getPaintOuterColor() {
