@@ -3,6 +3,7 @@ package com.haytech.haytechstyles.plaque;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -42,6 +43,13 @@ public class Plaque extends View {
 
     private ModelPlaque modelPlaque;
 
+    private String txtPart1 = "";
+    private String txtPart2 = "";
+    private String txtPart3 = "";
+    private String txtPart4 = "";
+
+
+
     public Plaque(Context context) {
         super(context);
         init(context, null);
@@ -74,14 +82,30 @@ public class Plaque extends View {
 
     private void init(Context context, AttributeSet attrs) {
 
-        modelPlaque = new ModelPlaque("12","الف","342","22");
-
         AssetManager assetMgr = getContext().getAssets();
+        Resources resources = getResources();
+        TypedArray ta = context.getTheme().obtainStyledAttributes(attrs, R.styleable.Plaque, 0, 0);
+        txtPart1 = ta.getString(R.styleable.Plaque_textPart1);
+        txtPart2 = ta.getString(R.styleable.Plaque_textPart2);
+        txtPart3 = ta.getString(R.styleable.Plaque_textPart3);
+        txtPart4 = ta.getString(R.styleable.Plaque_textPart4);
+        ta.recycle();
+        if(txtPart1==null || txtPart1.isEmpty()){
+            txtPart1 = " ";
+        }
+        if(txtPart2==null || txtPart2.isEmpty()){
+            txtPart2 = " ";
+        }
+        if(txtPart3==null || txtPart3.isEmpty()){
+            txtPart3 = " ";
+        }
+        if(txtPart4==null || txtPart4.isEmpty()){
+            txtPart4 = " ";
+        }
+        modelPlaque = new ModelPlaque(txtPart1,txtPart2,txtPart3,txtPart4);
         typeface = Typeface.createFromAsset(assetMgr, "fonts/dana_fa_num_bold.ttf");
-
         this.iconFlag = BitmapFactory.decodeResource(this.getResources(), R.drawable.flag);
         this.iconTextIran = UtilImage.getBitmapFromVectorDrawable(getContext(), R.drawable.ic_text_iran);
-
         this.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
