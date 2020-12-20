@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
 
+
         binding.seekbar2.setOnTouchListener(new View.OnTouchListener() {
             // Setting on Touch Listener for handling the touch inside ScrollView
             @SuppressLint("ClickableViewAccessibility")
