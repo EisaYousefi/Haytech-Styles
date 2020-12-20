@@ -77,7 +77,7 @@ public class Plaque extends View {
         modelPlaque = new ModelPlaque("12","الف","342","22");
 
         AssetManager assetMgr = getContext().getAssets();
-        typeface = Typeface.createFromAsset(assetMgr, "fonts/ir_san_m.ttf");
+        typeface = Typeface.createFromAsset(assetMgr, "fonts/dana_fa_num_bold.ttf");
 
         this.iconFlag = BitmapFactory.decodeResource(this.getResources(), R.drawable.flag);
         this.iconTextIran = UtilImage.getBitmapFromVectorDrawable(getContext(), R.drawable.ic_text_iran);
@@ -103,7 +103,7 @@ public class Plaque extends View {
         margin1 = (float) (width * 1.5 / 162);
         margin1dot5 = (float) (width * 1.5 / 162);
         radius = width / 40;
-        paintText = UtilPaint.getPaintText((float) (width * 0.09), Color.BLACK, UtilPaint.LEFT_TEXT, typeface, true);
+        paintText = UtilPaint.getPaintText((float) (width * 0.09), Color.BLACK, UtilPaint.LEFT_TEXT, typeface, false);
         paintTextWhite = UtilPaint.getPaintText((float) (width * 0.026), Color.WHITE, UtilPaint.LEFT_TEXT, typeface, false);
 
         super.onSizeChanged(w, h, oldw, oldh);
@@ -154,7 +154,7 @@ public class Plaque extends View {
 
         canvas.drawText(modelPlaque.getTxtPart1(), (float) (width * 0.17), (float) (width * rateWightToHeight * 0.5 + UtilPaint.bound(modelPlaque.getTxtPart1(), paintText).height() / 2), paintText);
         canvas.drawText(modelPlaque.getTxtPart2(), (float) (width * 0.36), (float) (width * rateWightToHeight * 0.5 + UtilPaint.bound(modelPlaque.getTxtPart2(), paintText).height() / 2), paintText);
-        canvas.drawText(modelPlaque.getTxtPart3(), (float) (width * 0.58), (float) (width * rateWightToHeight * 0.5 + UtilPaint.bound(modelPlaque.getTxtPart3(), paintText).height() / 2), paintText);
+        canvas.drawText(modelPlaque.getTxtPart3(), (float) (width * 0.57), (float) (width * rateWightToHeight * 0.5 + UtilPaint.bound(modelPlaque.getTxtPart3(), paintText).height() / 2), paintText);
         canvas.drawText(modelPlaque.getTxtPart4(), (float) (width * 0.85), (float) (width * rateWightToHeight * 0.5 + UtilPaint.bound(modelPlaque.getTxtPart4(), paintText).height() / 1.1), paintText);
         canvas.drawText(txt1, (float) (width * 0.03), (float) (width * 0.13), paintTextWhite);
         canvas.drawText(txt2, (float) (width * 0.03), (float) (width * 0.17), paintTextWhite);

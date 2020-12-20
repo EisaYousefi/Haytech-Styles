@@ -16,6 +16,12 @@
             android:layoutDirection="ltr"
             tools:context=".MainActivity">
 
+            <com.haytech.haytechstyles.plaque.Plaque
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="300dp"
+                android:layout_height="100dp"/>
+
 
 
             <com.haytech.haytechstyles.layout.ErrorPage
@@ -31,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layoutDirection="rtl"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
