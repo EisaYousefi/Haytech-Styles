@@ -19,6 +19,7 @@
             <com.haytech.haytechstyles.plaque.Plaque
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="gone"
                 android:layout_width="300dp"
                 android:layout_height="100dp"/>
 
@@ -251,20 +252,20 @@
                 android:id="@+id/customKeborad"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:CK_background_down="@drawable/back_text_pass_doun11"
                 app:CK_background_up="@drawable/back_text_pass_up111"
                 app:CK_checked_inner_color="@color/black"
                 app:CK_checked_outer_color="@color/colorRed"
                 app:CK_count="4"
+                app:CK_errorMessage="@string/login"
+                app:CK_error_text_color="@color/colorRed"
+                app:CK_header_text_color="@color/colorGreen"
+
+                app:CK_message_text_color="@color/blue"
                 app:CK_src_clear_text_image="@drawable/backspace"
                 app:CK_src_finger_print_image="@drawable/ic_ok_fingerprint"
                 app:CK_type="Full"
-
-                app:CK_errorMessage="@string/login"
-                app:CK_message_text_color="@color/blue"
-                app:CK_header_text_color="@color/colorGreen"
-                app:CK_error_text_color="@color/colorRed"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

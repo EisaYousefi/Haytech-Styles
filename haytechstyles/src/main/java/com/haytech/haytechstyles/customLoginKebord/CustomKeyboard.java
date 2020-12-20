@@ -384,8 +384,8 @@ public class CustomKeyboard extends ConstraintLayout {
     public void clear() {
         if (getSelectedType() == CREATE_PASS_STATE) {
             if (valuePasswordCounter > 0 && repeatValuePasswordCounter == countBitePassword + 1) {
-                circleCheckers[valuePasswordCounter - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[valuePasswordCounter - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
+               // circleCheckers[valuePasswordCounter - 1].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
+              //  circleCheckers[valuePasswordCounter - 1].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
                 circleCheckers[valuePasswordCounter - 1].onClick(new CustomKeyboard(getContext()));
                 if (valuePasswordCounter != 0) {
                     currentOrCreateValuePassword = currentOrCreateValuePassword.substring(0, valuePasswordCounter - 1);
@@ -786,8 +786,8 @@ public class CustomKeyboard extends ConstraintLayout {
     }
 
     private void handlerBitePasswordDownAndUp(int valuePasswordCounter, int innerColor, int outerColor) {
-        circleCheckers[valuePasswordCounter].setInnerColor(getResources().getColor(innerColor));
-        circleCheckers[valuePasswordCounter].setOuterColor(getResources().getColor(outerColor));
+        //circleCheckers[valuePasswordCounter].setInnerColor(getResources().getColor(innerColor));
+       // circleCheckers[valuePasswordCounter].setOuterColor(getResources().getColor(outerColor));
         circleCheckers[valuePasswordCounter].onClick(new RadioButtonField(getContext()));
     }
 
@@ -806,8 +806,8 @@ public class CustomKeyboard extends ConstraintLayout {
             for (int i = 0; i < countBitePassword; i++) {
                 circleCheckers[i].setChecked(true);
                 circleCheckers[i].onClick(new RadioButtonField(getContext()));
-                circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
+               // circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
+               // circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
 
                 errorText.setVisibility(View.INVISIBLE);
 
@@ -829,8 +829,8 @@ public class CustomKeyboard extends ConstraintLayout {
             for (int i = 0; i < countBitePassword; i++) {
                 circleCheckers[i].setChecked(true);
                 circleCheckers[i].onClick(new RadioButtonField(getContext()));
-                circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
-                circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
+               // circleCheckers[i].setInnerColor(getResources().getColor(R.color.back_my_text_checker));
+               // circleCheckers[i].setOuterColor(getResources().getColor(R.color.back_my_text_checker));
 
                 errorText.setVisibility(View.INVISIBLE);
 
