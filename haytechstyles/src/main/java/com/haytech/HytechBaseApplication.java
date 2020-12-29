@@ -14,6 +14,8 @@ public class HytechBaseApplication extends Application {
     private static HytechBaseApplication instance;
     private Context context;
 
+
+
     public static synchronized HytechBaseApplication getInstance() {
         return instance;
     }
