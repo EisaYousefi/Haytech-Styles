@@ -1,8 +1,5 @@
 package com.haytech.haytechstyle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -12,11 +9,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.haytech.haytechstyle.databinding.ActivityMainBinding;
 import com.haytech.haytechstyles.Validation;
 import com.haytech.haytechstyles.customLoginKebord.OnKeyboardCustomListener;
 import com.haytech.haytechstyles.editTextVerify.VerifyCodeClickListener;
 import com.haytech.haytechstyles.layout.ErrorPage;
+import com.haytech.haytechstyles.multibutton.BaseListAdapter;
+import com.haytech.haytechstyles.multibutton.ItemStyleModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +28,10 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity implements Validation.phoneValidator, Validation.UsernameValidator {
 
+    String state;
     private ActivityMainBinding binding;
     private ValueAnimator animator;
     private CountDownTimer counter;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +40,25 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        ArrayList<String> Items = new ArrayList<>();
+        Items.add("سالم");
+        Items.add("آسیب دیده");
+        Items.add("بازدید");
+        binding.multiButtonView.setItems(Items);
+        binding.multiButtonView.setItemClickListener(new BaseListAdapter.OnItemClickListener<ItemStyleModel>() {
+            @Override
+            public void onItemClick(ItemStyleModel item, int position) {
+                Log.i("vouria", item.getLabelText().toString() + "  " + position);
+            }
+        });
+
         List<String> listDate = new ArrayList<>();
         listDate.add("یک روز");
         listDate.add("یک هفته");
         listDate.add("یک ماه");
         listDate.add("یک سال");
         binding.seekbar2.setTitle(listDate).build();
-       // binding.seekBarTimeSaveFilm.setTitle(listDate).build();
-
-
+        // binding.seekBarTimeSaveFilm.setTitle(listDate).build();
 
 
         binding.seekbar2.setOnTouchListener(new View.OnTouchListener() {
@@ -62,12 +73,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         });
 
 
-
-
-
         showErrorView();
-
-
 
 
         binding.key.onTouchMethod();
@@ -114,20 +120,17 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         login();
 
 
-
         binding.verifyCodeView.getVerifyCode()
-                .subscribe(verifyCode ->{
+                .subscribe(verifyCode -> {
                     if (verifyCode.equals("11111")) {
                         binding.verifyCodeView.setTextPaint(getResources().getColor(R.color.colorRed));
-                    }else
+                    } else
                         binding.verifyCodeView.setTextPaint(getResources().
                                 getColor(R.color.blue));
-                } );
+                });
 
     }
 
-
-    String state ;
     private void login() {
 
         state = "2";

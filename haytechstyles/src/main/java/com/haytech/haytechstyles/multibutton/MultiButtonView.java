@@ -33,7 +33,8 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
     private int itemSpace = NONE_SET_VALUE;
     private int graidColumn = NONE_SET_VALUE;
     private int itemDefaultSelect = NONE_SET_VALUE;
-
+    private BaseListAdapter.OnItemClickListener<ItemStyleModel> itemClickListener;
+    private BaseListAdapter.OnItemLongClickListener<ItemStyleModel> itemLongClickListener;
 
     public MultiButtonView(@NonNull Context context) {
         super(context);
@@ -66,7 +67,11 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
             layoutManager = new GridLayoutManager(context, graidColumn);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new MultiButtonAdapter(context, itemsStyle, this, this);
+        if (itemClickListener == null)
+            itemClickListener = this;
+        if (itemLongClickListener == null)
+            itemLongClickListener = this;
+        adapter = new MultiButtonAdapter(context, itemsStyle, itemClickListener, itemLongClickListener);
 
         if (selectedItemStyle == null)
             selectedItemStyle = createSelectedItemStyle();
@@ -110,7 +115,16 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
         numberOfItem = itemsName.length;
         List<ItemStyleModel> items = new ArrayList<>();
         for (int i = 0; i < itemsName.length; i++) {
-            items.add(createUnSelectedItemStyleByName(itemsName[i] ));
+            items.add(createUnSelectedItemStyleByName(itemsName[i]));
+        }
+        return items;
+    }
+
+    public List<ItemStyleModel> createItemStyleListByName(ArrayList<String> itemsName) {
+        numberOfItem = itemsName.size();
+        List<ItemStyleModel> items = new ArrayList<>();
+        for (int i = 0; i < itemsName.size(); i++) {
+            items.add(createUnSelectedItemStyleByName(itemsName.get(i)));
         }
         return items;
     }
@@ -166,6 +180,14 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
 
     public void setItems(String[] itemsName) {
         if (itemsName != null) {
+            this.itemsStyle = createItemStyleListByName(itemsName);
+            adapter.removeItems();
+            adapter.setItems(itemsStyle);
+        }
+    }
+
+    public void setItems(ArrayList<String> itemsName) {
+        if (itemsName != null && itemsName.size() != 0) {
             this.itemsStyle = createItemStyleListByName(itemsName);
             adapter.removeItems();
             adapter.setItems(itemsStyle);
@@ -235,6 +257,16 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
     public void setItemDefaultSelect(int itemDefaultSelect) {
         this.itemDefaultSelect = itemDefaultSelect;
         if (adapter != null) adapter.setSelectedItemPosition(itemDefaultSelect);
+    }
+
+    public void setItemClickListener(BaseListAdapter.OnItemClickListener<ItemStyleModel> itemClickListener) {
+        this.itemClickListener = itemClickListener;
+        inflateView();
+    }
+
+    public void setItemLongClickListener(BaseListAdapter.OnItemLongClickListener<ItemStyleModel> itemLongClickListener) {
+        this.itemLongClickListener = itemLongClickListener;
+        inflateView();
     }
 
     public class SpacesItemDecoration extends RecyclerView.ItemDecoration {
