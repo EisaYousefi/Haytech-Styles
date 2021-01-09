@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         ArrayList<String> Items = new ArrayList<>();
         Items.add("سالم");
         Items.add("آسیب دیده");
-        Items.add("بازدید");
         binding.multiButtonView.setItems(Items);
         binding.multiButtonView.setItemClickListener(new BaseListAdapter.OnItemClickListener<ItemStyleModel>() {
             @Override

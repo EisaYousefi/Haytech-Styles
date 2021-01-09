@@ -61,7 +61,7 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rootView = (ConstraintLayout) layoutInflater.inflate(R.layout.view_multi_button, this, true);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true);
 
         if (graidColumn > 0)
             layoutManager = new GridLayoutManager(context, graidColumn);
