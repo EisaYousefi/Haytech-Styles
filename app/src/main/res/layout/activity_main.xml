@@ -292,12 +292,9 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline9"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline8"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.519"
-                multiButton:cv_mbv_itemCount="5"
-                multiButton:cv_mbv_itemSpace="10" />
+                app:cv_mbv_itemCount="3"/>
 
             <com.haytech.haytechstyles.seekbar.SeekBar
                 android:id="@+id/seekbar2"

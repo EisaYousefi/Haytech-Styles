@@ -129,12 +129,26 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
         return items;
     }
 
+    public List<ItemStyleModel> createItemStyleListByModel(List<ItemModel> itemsName) {
+        numberOfItem = itemsName.size();
+        List<ItemStyleModel> items = new ArrayList<>();
+        for (int i = 0; i < itemsName.size(); i++) {
+            if (itemsName.get(i).getTitle() != null)
+                items.add(createUnSelectedItemStyleByName(itemsName.get(i).getTitle(), itemsName.get(i).getId()));
+        }
+        return items;
+    }
+
     public ItemStyleModel createUnSelectedItemStyle() {
         return ItemStyleModel.getUnSelectedItemStyle(context);
     }
 
     public ItemStyleModel createUnSelectedItemStyleByName(String itemName) {
         return ItemStyleModel.getUnSelectedItemStyleByName(context, itemName);
+    }
+
+    public ItemStyleModel createUnSelectedItemStyleByName(String itemName, long id) {
+        return ItemStyleModel.getUnSelectedItemStyleByName(context, itemName, id);
     }
 
     public ItemStyleModel createSelectedItemStyle() {
@@ -178,6 +192,14 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
         }
     }
 
+    public void setItemsModel(List<ItemModel> itemsName) {
+        if (itemsName != null && itemsName.size() != 0) {
+            this.itemsStyle = createItemStyleListByModel(itemsName);
+            adapter.removeItems();
+            adapter.setItems(itemsStyle);
+        }
+    }
+
     public void setItems(String[] itemsName) {
         if (itemsName != null) {
             this.itemsStyle = createItemStyleListByName(itemsName);
@@ -193,6 +215,7 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
             adapter.setItems(itemsStyle);
         }
     }
+
 
     public ItemStyleModel getSelectedItemStyle() {
         return selectedItemStyle;
@@ -218,8 +241,8 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
 
     public void setItemSpace(int itemSpace) {
         this.itemSpace = itemSpace;
-        adapter = null;
-        itemsStyle = null;
+//        adapter = null;
+//        itemsStyle = null;
         inflateView();
     }
 

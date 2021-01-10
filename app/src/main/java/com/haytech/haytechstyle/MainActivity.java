@@ -2,15 +2,20 @@ package com.haytech.haytechstyle;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.DividerItemDecoration;
 
 import com.haytech.haytechstyle.databinding.ActivityMainBinding;
 import com.haytech.haytechstyles.Validation;
@@ -18,6 +23,7 @@ import com.haytech.haytechstyles.customLoginKebord.OnKeyboardCustomListener;
 import com.haytech.haytechstyles.editTextVerify.VerifyCodeClickListener;
 import com.haytech.haytechstyles.layout.ErrorPage;
 import com.haytech.haytechstyles.multibutton.BaseListAdapter;
+import com.haytech.haytechstyles.multibutton.ItemModel;
 import com.haytech.haytechstyles.multibutton.ItemStyleModel;
 
 import java.util.ArrayList;
@@ -26,12 +32,15 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+import static com.haytech.haytechstyles.multibutton.ItemStyleModel.dp2px;
+
 public class MainActivity extends AppCompatActivity implements Validation.phoneValidator, Validation.UsernameValidator {
 
     String state;
     private ActivityMainBinding binding;
     private ValueAnimator animator;
     private CountDownTimer counter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +49,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        ArrayList<String> Items = new ArrayList<>();
-        Items.add("سالم");
-        Items.add("آسیب دیده");
-        binding.multiButtonView.setItems(Items);
-        binding.multiButtonView.setItemClickListener(new BaseListAdapter.OnItemClickListener<ItemStyleModel>() {
-            @Override
-            public void onItemClick(ItemStyleModel item, int position) {
-                Log.i("vouria", item.getLabelText().toString() + "  " + position);
-            }
-        });
+
 
         List<String> listDate = new ArrayList<>();
         listDate.add("یک روز");
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
             }
         });
 
-
+        showMultiButton();
         showErrorView();
 
 
@@ -128,6 +128,94 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
                                 getColor(R.color.blue));
                 });
 
+    }
+
+    private void showMultiButton() {
+        ArrayList<ItemModel> list = new ArrayList<>();
+        list.add(new ItemModel("سالم",21));
+        list.add(new ItemModel("آسیب دیده",22));
+        list.add(new ItemModel("بازدید",23));
+
+
+//        ArrayList<ItemStyleModel> list = new ArrayList<>();
+//        list.add(getUnSelectedItemStyleByName(getBaseContext(), "سالم",210));
+//        list.add(getUnSelectedItemStyleByName(getBaseContext(), "آسیب دیده",220));
+//        list.add(getUnSelectedItemStyleByName(getBaseContext(), "بازدید",230));
+
+
+        binding.multiButtonView.setItemsModel(list);
+        binding.multiButtonView.setItemSpace(9);
+
+//        binding.multiButtonView.setSelectedItemStyle(getSelectedItemStyle(getBaseContext()));
+
+//        ItemStyleModel builder = new ItemStyleModel.Builder()
+//                .setLabelText("")
+//                .setLabelTextColor(Color.WHITE)
+//                .setBackgroundDrawable(getBorderBackgroundDrawable(getBaseContext(), 12, getBaseContext().getResources().getColor(com.haytech.haytechstyles.R.color.blue)))
+//                .build();
+//        binding.multiButtonView.setSelectedItemStyle(builder);
+
+//        binding.multiButtonView.getRecyclerView().setBackground(getBorderBackgroundDrawable(getBaseContext(), 12, getBaseContext().getResources().getColor(com.haytech.haytechstyles.R.color.colorOrangeYellow)));
+        binding.multiButtonView.setItemClickListener(new BaseListAdapter.OnItemClickListener<ItemStyleModel>() {
+            @Override
+            public void onItemClick(ItemStyleModel item, int position) {
+                Log.i("vouria", item.getLabelText().toString() + "  ps: " + position+" id: "+item.getId());
+            }
+        });
+    }
+
+    public ItemStyleModel getSelectedItemStyle(Context context) {
+        ItemStyleModel.Builder builder = new ItemStyleModel.Builder();
+        builder.setSelectedItem(true)
+                .setLabelText("")
+                .setLabelTextColor(Color.WHITE)
+                .setLabelTextSize(20)
+                .setLabelVisibility(View.VISIBLE)
+                .setLabelPaddingLeft(16)
+                .setLabelPaddingTop(8)
+                .setLabelPaddingRight(16)
+                .setLabelPaddingBottom(8)
+                .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
+                .setHeight(dp2px(context, 48))
+//                .setMarginLeft(20)
+//                .setMarginTop(10)
+//                .setMarginRight(20)
+//                .setMarginBottom(10)
+                .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, context.getResources().getColor(com.haytech.haytechstyles.R.color.blue)));
+//              .setLabelTypeface(Typeface.DEFAULT)
+        return builder.build();
+    }
+
+    public ItemStyleModel getUnSelectedItemStyleByName(Context context, String labelText,long id) {
+        ItemStyleModel.Builder builder = new ItemStyleModel.Builder();
+        builder.setId(id)
+                .setLabelText(labelText)
+                .setLabelTextColor(context.getResources().getColor(com.haytech.haytechstyles.R.color.blue))
+                .setLabelTextSize(20)
+                .setLabelVisibility(View.VISIBLE)
+                .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
+                .setHeight(dp2px(context, 48))
+                .setMarginLeft(0)
+                .setMarginTop(0)
+                .setMarginRight(0)
+                .setMarginBottom(0)
+                .setLabelPaddingLeft(10)
+                .setLabelPaddingTop(10)
+                .setLabelPaddingRight(10)
+                .setLabelPaddingBottom(10)
+                .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
+//                .setLabelTypeface(Typeface.DEFAULT)
+        return builder.build();
+    }
+
+    public GradientDrawable getBorderBackgroundDrawable(Context context, float borderRadius, int color) {
+        GradientDrawable gd = new GradientDrawable();
+        gd.setShape(GradientDrawable.RECTANGLE);
+        gd.setSize(dp2px(context, 48), dp2px(context, 48));
+        gd.setColor(color); // Changes this drawbale to use a single color instead of a gradient
+        gd.setCornerRadius(dp2px(context, borderRadius));
+
+        return gd;
     }
 
     private void login() {

@@ -12,7 +12,7 @@ import com.haytech.haytechstyles.R;
 
 public class ItemStyleModel {
 
-
+    private long id;
     private String labelText;
     private int labelTextColor;
     private float labelTextSize;
@@ -58,14 +58,14 @@ public class ItemStyleModel {
                 .setLabelVisibility(View.VISIBLE)
                 .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .setHeight(dp2px(context, 48))
-                .setMarginLeft(10)
-                .setMarginTop(20)
-                .setMarginRight(10)
-                .setMarginBottom(20)
-                .setLabelPaddingLeft(16)
-                .setLabelPaddingTop(8)
-                .setLabelPaddingRight(16)
-                .setLabelPaddingBottom(8)
+                .setMarginLeft(0)
+                .setMarginTop(0)
+                .setMarginRight(0)
+                .setMarginBottom(0)
+                .setLabelPaddingLeft(10)
+                .setLabelPaddingTop(10)
+                .setLabelPaddingRight(10)
+                .setLabelPaddingBottom(10)
                 .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
 //                .setLabelTypeface(Typeface.DEFAULT)
 //                .setLabelPaddingLeft(8)
@@ -77,6 +77,7 @@ public class ItemStyleModel {
 //                .setBackgroundColor(Color.TRANSPARENT);
         return builder.build();
     }
+
     public static ItemStyleModel getUnSelectedItemStyleByName(Context context, String labelText) {
         Builder builder = new Builder();
         builder.setLabelText(labelText)
@@ -85,14 +86,14 @@ public class ItemStyleModel {
                 .setLabelVisibility(View.VISIBLE)
                 .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .setHeight(dp2px(context, 48))
-                .setMarginLeft(10)
-                .setMarginTop(20)
-                .setMarginRight(10)
-                .setMarginBottom(20)
-                .setLabelPaddingLeft(16)
-                .setLabelPaddingTop(8)
-                .setLabelPaddingRight(16)
-                .setLabelPaddingBottom(8)
+                .setMarginLeft(0)
+                .setMarginTop(0)
+                .setMarginRight(0)
+                .setMarginBottom(0)
+                .setLabelPaddingLeft(10)
+                .setLabelPaddingTop(10)
+                .setLabelPaddingRight(10)
+                .setLabelPaddingBottom(10)
                 .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
 //                .setLabelTypeface(Typeface.DEFAULT)
 //                .setLabelPaddingLeft(8)
@@ -105,6 +106,93 @@ public class ItemStyleModel {
         return builder.build();
     }
 
+    public static ItemStyleModel getUnSelectedItemStyleByName(Context context, String labelText, long id) {
+        Builder builder = new Builder();
+        builder
+                .setId(id)
+                .setLabelText(labelText)
+                .setLabelTextColor(context.getResources().getColor(R.color.blue))
+                .setLabelTextSize(20)
+                .setLabelVisibility(View.VISIBLE)
+                .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
+                .setHeight(dp2px(context, 48))
+                .setMarginLeft(0)
+                .setMarginTop(0)
+                .setMarginRight(0)
+                .setMarginBottom(0)
+                .setLabelPaddingLeft(10)
+                .setLabelPaddingTop(10)
+                .setLabelPaddingRight(10)
+                .setLabelPaddingBottom(10)
+                .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
+//                .setLabelTypeface(Typeface.DEFAULT)
+//                .setLabelPaddingLeft(8)
+//                .setLabelPaddingTop(8)
+//                .setLabelPaddingRight(8)
+//                .setLabelPaddingBottom(8)
+//                .setLabelBackgroundColor(Color.TRANSPARENT)
+//                .setLabelBackgroundResource(com.example.babnowidgets.R.drawable.ic_close_black_24dp)
+//                .setBackgroundColor(Color.TRANSPARENT);
+        return builder.build();
+    }
+
+    public static ItemStyleModel getUnSelectedItemStyleByName(Context context, ItemStyleModel itemStyleModel) {
+        Builder builder = new Builder();
+        if (itemStyleModel.getId() != 0) builder.setId(itemStyleModel.getId());
+        else builder.setId(0);
+        if (itemStyleModel.getLabelText() != null)
+            builder.setLabelText(itemStyleModel.getLabelText());
+        else builder.setLabelText("");
+        if (itemStyleModel.getLabelTextColor() != 0)
+            builder.setLabelTextColor(itemStyleModel.getLabelTextColor());
+        else builder.setLabelTextColor(context.getResources().getColor(R.color.blue));
+        if (itemStyleModel.getLabelTextSize() != 0)
+            builder.setLabelTextSize(itemStyleModel.getLabelTextSize());
+        else builder.setLabelTextSize(20);
+        if (itemStyleModel.getLabelVisibility() != 0)
+            builder.setLabelVisibility(itemStyleModel.getLabelVisibility());
+        else builder.setLabelVisibility(View.VISIBLE);
+        if (itemStyleModel.getWidth() != 0) builder.setWidth(itemStyleModel.getWidth());
+        else builder.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        if (itemStyleModel.getHeight() != 0) builder.setHeight(itemStyleModel.getHeight());
+        else builder.setHeight(dp2px(context, 48));
+        if (itemStyleModel.getMarginLeft() != 0)
+            builder.setMarginLeft(itemStyleModel.getMarginLeft());
+        else builder.setMarginLeft(0);
+        if (itemStyleModel.getMarginTop() != 0) builder.setMarginTop(itemStyleModel.getMarginTop());
+        else builder.setMarginTop(0);
+        if (itemStyleModel.getMarginRight() != 0)
+            builder.setMarginRight(itemStyleModel.getMarginRight());
+        else builder.setMarginRight(0);
+        if (itemStyleModel.getMarginBottom() != 0)
+            builder.setMarginBottom(itemStyleModel.getMarginBottom());
+        else builder.setMarginBottom(0);
+        if (itemStyleModel.getLabelPaddingLeft() != 0)
+            builder.setLabelPaddingLeft(itemStyleModel.getLabelPaddingLeft());
+        else builder.setLabelPaddingLeft(10);
+        if (itemStyleModel.getLabelPaddingTop() != 0)
+            builder.setLabelPaddingTop(itemStyleModel.getLabelPaddingTop());
+        else builder.setLabelPaddingTop(10);
+        if (itemStyleModel.getLabelPaddingRight() != 0)
+            builder.setLabelPaddingRight(itemStyleModel.getLabelPaddingRight());
+        else builder.setLabelPaddingRight(10);
+        if (itemStyleModel.getLabelPaddingBottom() != 0)
+            builder.setLabelPaddingBottom(itemStyleModel.getLabelPaddingBottom());
+        else builder.setLabelPaddingBottom(10);
+        if (itemStyleModel.getBackgroundDrawable() != null)
+            builder.setBackgroundDrawable(itemStyleModel.getBackgroundDrawable());
+        else
+            builder.setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
+//                .setLabelTypeface(Typeface.DEFAULT)
+//                .setLabelPaddingLeft(8)
+//                .setLabelPaddingTop(8)
+//                .setLabelPaddingRight(8)
+//                .setLabelPaddingBottom(8)
+//                .setLabelBackgroundColor(Color.TRANSPARENT)
+//                .setLabelBackgroundResource(com.example.babnowidgets.R.drawable.ic_close_black_24dp)
+//                .setBackgroundColor(Color.TRANSPARENT);
+        return builder.build();
+    }
 
     public static ItemStyleModel getSelectedItemStyle(Context context) {
         Builder builder = new Builder();
@@ -113,16 +201,16 @@ public class ItemStyleModel {
                 .setLabelTextColor(Color.WHITE)
                 .setLabelTextSize(20)
                 .setLabelVisibility(View.VISIBLE)
-                .setLabelPaddingLeft(16)
-                .setLabelPaddingTop(8)
-                .setLabelPaddingRight(16)
-                .setLabelPaddingBottom(8)
+                .setLabelPaddingLeft(10)
+                .setLabelPaddingTop(10)
+                .setLabelPaddingRight(10)
+                .setLabelPaddingBottom(10)
                 .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .setHeight(dp2px(context, 48))
-                .setMarginLeft(10)
-                .setMarginTop(5)
-                .setMarginRight(10)
-                .setMarginBottom(5)
+                .setMarginLeft(0)
+                .setMarginTop(0)
+                .setMarginRight(0)
+                .setMarginBottom(0)
                 .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, context.getResources().getColor(R.color.blue)));
 //              .setLabelTypeface(Typeface.DEFAULT)
 //              .setLabelBackgroundColor(Color.TRANSPARENT)
@@ -148,6 +236,7 @@ public class ItemStyleModel {
 
     public void setBuilder(Builder builder) {
         this.builder = builder;
+        this.id = builder.id;
         this.labelText = builder.labelText;
         this.labelTextColor = builder.labelTextColor;
         this.labelTextSize = builder.labelTextSize;
@@ -173,6 +262,10 @@ public class ItemStyleModel {
         this.paddingTop = builder.paddingTop;
         this.paddingRight = builder.paddingRight;
         this.paddingBottom = builder.paddingBottom;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getLabelText() {
@@ -277,6 +370,7 @@ public class ItemStyleModel {
     }
 
     public static class Builder {
+        private long id;
         private String labelText;
         private int labelTextColor;
         private float labelTextSize;
@@ -303,7 +397,13 @@ public class ItemStyleModel {
         private int paddingRight;
         private int paddingBottom;
 
+
         public Builder() {
+        }
+
+        public Builder setId(long id) {
+            this.id = id;
+            return this;
         }
 
         public Builder setLabelText(String labelText) {
@@ -437,6 +537,7 @@ public class ItemStyleModel {
         }
 
         public ItemStyleModel update(ItemStyleModel itemStyleModel) {
+            itemStyleModel.id = this.id;
             itemStyleModel.labelText = this.labelText;
             itemStyleModel.labelTextColor = this.labelTextColor;
             itemStyleModel.labelTextSize = this.labelTextSize;
@@ -464,5 +565,6 @@ public class ItemStyleModel {
             itemStyleModel.paddingBottom = this.paddingBottom;
             return itemStyleModel;
         }
+
     }
 }

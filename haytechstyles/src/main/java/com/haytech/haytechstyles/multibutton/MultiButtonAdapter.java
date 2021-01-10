@@ -66,7 +66,7 @@ public class MultiButtonAdapter extends BaseListAdapter<ItemStyleModel> {
 //                        .setSelectedItem(true)
 //                        .build();
 //                setItemStyle(itemStyleModel);
-                if (selectedItemStyle.getLabelText().isEmpty()) {
+                if (selectedItemStyle.getLabelText() != null && selectedItemStyle.getLabelText().isEmpty()) {
                     ItemStyleModel itemStyleModel = selectedItemStyle.getBuilder()
                             .setLabelText(item.getLabelText())
                             .setSelectedItem(true)
@@ -83,11 +83,14 @@ public class MultiButtonAdapter extends BaseListAdapter<ItemStyleModel> {
         }
 
         private void setItemStyle(ItemStyleModel item) {
-            buttonItemLabel.setText(item.getLabelText());
+            if (item.getLabelText() != null)
+                buttonItemLabel.setText(item.getLabelText());
             buttonItemLabel.setTextColor(item.getLabelTextColor());
-            buttonItemLabel.setTextSize(item.getLabelTextSize());
+            if (item.getLabelTextSize() != 0)
+                buttonItemLabel.setTextSize(item.getLabelTextSize());
             buttonItemLabel.setVisibility(item.getLabelVisibility());
-            buttonItemLabel.setTypeface(item.getLabelTypeface());
+            if (item.getLabelTypeface() != null)
+                buttonItemLabel.setTypeface(item.getLabelTypeface());
             buttonItemLabel.setPadding(
                     dp2px(context, item.getLabelPaddingLeft()),
                     dp2px(context, item.getLabelPaddingTop()),
@@ -96,10 +99,16 @@ public class MultiButtonAdapter extends BaseListAdapter<ItemStyleModel> {
             );
             buttonItemLabel.setBackgroundColor(item.getLabelBackgroundColor());
 
-            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) itemView.getLayoutParams();
             itemView.setBackgroundResource(item.getLabelBackgroundResource());
-            params.width = item.getWidth();
-            params.height = item.getHeight();
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) itemView.getLayoutParams();
+            if (item.getWidth() == 0)
+                params.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+            else
+                params.width = item.getWidth();
+            if (item.getWidth() == 0)
+                params.height = dp2px(context, 48);
+            else
+                params.height = item.getHeight();
             itemView.setLayoutParams(params);
             itemView.setPadding(
                     dp2px(context, item.getPaddingLeft()),
