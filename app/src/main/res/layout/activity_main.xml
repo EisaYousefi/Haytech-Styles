@@ -289,6 +289,7 @@
             <com.haytech.haytechstyles.multibutton.MultiButtonView
                 android:id="@+id/multiButtonView"
                 android:layout_width="0dp"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline9"
@@ -303,11 +304,14 @@
                 android:id="@+id/seekbar2"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-
                 android:visibility="visible"
-                app:layout_constraintBottom_toBottomOf="@+id/customKeborad"
-                app:layout_constraintEnd_toStartOf="@+id/guideline9"
-                app:layout_constraintStart_toStartOf="@+id/guideline8" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/guideline9"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:textSize="13dp"
+                app:layout_constraintStart_toStartOf="@+id/guideline8"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline9"
