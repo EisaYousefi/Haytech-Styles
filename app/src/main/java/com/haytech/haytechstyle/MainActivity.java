@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         listDate.add("یک هفته");
         listDate.add("یک ماه");
         listDate.add("یک سال");
+        listDate.add("محدودیت");
         binding.seekbar2.setTitle(listDate).build();
         // binding.seekBarTimeSaveFilm.setTitle(listDate).build();
 

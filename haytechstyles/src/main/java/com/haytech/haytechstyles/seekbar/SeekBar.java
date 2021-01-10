@@ -60,7 +60,6 @@ public class SeekBar extends View {
     private int heightCircle = 0;
     private float xCircle = 0;
     private Paint paintText;
-    public static Typeface fontText;
     private int width = 0;
     private int height = 0;
     private int lengthSection = 0;
@@ -118,7 +117,7 @@ public class SeekBar extends View {
 
     private void init(Context context, AttributeSet attrs) {
 
-        AssetManager assetMgr = getContext().getAssets();
+
         Resources resources = getResources();
 
         mCallbackRx = PublishSubject.create();
@@ -127,7 +126,6 @@ public class SeekBar extends View {
         colorText = ta.getColor(R.styleable.SeekBar_textColor, resources.getColor(R.color.textColorSeekBar));
         shadowColor = ta.getColor(R.styleable.SeekBar_shadowColor, resources.getColor(R.color.shadowColor));
         thumbColor = ta.getColor(R.styleable.SeekBar_thumbColor, resources.getColor(R.color.thumbColor));
-        numberSections = ta.getDimensionPixelSize(R.styleable.SeekBar_numberSections, 4);
 
 
         thumbRadius = (int) SizeConverter.dpToPx(getContext(), ta.getDimensionPixelSize(R.styleable.SeekBar_thumbRadius, 10));
@@ -139,9 +137,7 @@ public class SeekBar extends View {
 
         ta.recycle();
 
-
-        fontText = Typeface.createFromAsset(assetMgr, "fonts/dana_fa_num_regular.ttf");
-        paintText = PaintText.getPaintText(textSize, colorText, PaintText.CENTER_TEXT, fontText, false);
+        paintText = PaintText.getPaintText(getContext(),textSize, colorText, PaintText.CENTER_TEXT, null, false);
         //Paint Background
         BackgroundFillPaint = new Paint();
         BackgroundFillPaint.setAntiAlias(true);
@@ -152,13 +148,14 @@ public class SeekBar extends View {
 
 
     public SeekBar setFont(Typeface font) {
-        this.fontText = font;
+        paintText.setTypeface(font);
         return this;
     }
 
 
     public SeekBar setTitle(List<String> listTitle) {
         this.listTitle = listTitle;
+        this.numberSections = listTitle.size();
         return this;
     }
 
@@ -178,12 +175,15 @@ public class SeekBar extends View {
     protected void onDraw(Canvas canvas) {
 
         int heightTopTrack = 0;
+        Paint paintText1 = PaintText.getPaintText(getContext(),textSize, colorText, PaintText.CENTER_TEXT, null, false);
 
         for (int i = 0; i < numberSections; i++) {
+            Rect bounds1 = new Rect();
             Rect bounds = new Rect();
+            paintText1.getTextBounds(getTextTitle(0), 0, getTextTitle(0).length(), bounds1);
             paintText.getTextBounds(getTextTitle(i), 0, getTextTitle(i).length(), bounds);
-            heightText = (int) (bounds.height() * 1.1 + getPaddingTop());
-            heightTopTrack = marginBetweenTextAndSeekBar + heightText;
+            heightText = (int) (bounds1.height() * 1.1 + getPaddingTop());
+            heightTopTrack = marginBetweenTextAndSeekBar + (int) (bounds1.height() * 1.1 + getPaddingTop());
 
             final Path path2 = new Path();
             RectF rect2 = null;

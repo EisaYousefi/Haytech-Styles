@@ -19,7 +19,6 @@
     <declare-styleable name="SeekBar">
         <attr name="thumbRadius" format="dimension" />
         <attr name="sizeShadow" format="dimension" />
-        <attr name="numberSections" format="dimension" />
         <attr name="marginTopBetweenSeekBarAndText" format="dimension" />
         <attr name="trackerColor" format="color" />
         <attr name="textColor" format="color" />
