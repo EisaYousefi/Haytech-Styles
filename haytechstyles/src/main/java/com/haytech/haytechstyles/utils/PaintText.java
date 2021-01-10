@@ -42,14 +42,16 @@ public class PaintText {
                 paintText.setTextAlign(Paint.Align.RIGHT);
                 break;
         }
-        if(typeface!=null){
-            if(isBold){
-                paintText.setFakeBoldText(false);
-                paintText.setTypeface(Typeface.create(typeface, Typeface.BOLD));
-            }else{
-                AssetManager assetMgr = context.getAssets();
-                paintText.setTypeface(Typeface.createFromAsset(assetMgr, "fonts/dana_fa_num_regular.ttf"));
-            }
+
+        if(typeface == null){
+            AssetManager assetMgr = context.getAssets();
+            paintText.setTypeface(Typeface.createFromAsset(assetMgr, "fonts/dana_fa_num_regular.ttf"));
+        }
+
+
+        if(isBold){
+            paintText.setFakeBoldText(false);
+            paintText.setTypeface(Typeface.create(typeface, Typeface.BOLD));
         }
         return paintText;
     }
