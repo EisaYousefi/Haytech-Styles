@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -71,6 +73,24 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
                 return false;
             }
         });
+
+
+
+        final Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                List<String> listDate = new ArrayList<>();
+                listDate.add("یک روز");
+                listDate.add("یک روز");
+                listDate.add("یک هفته");
+                listDate.add("یک ماه");
+                listDate.add("یک سال");
+                listDate.add("محدودیت");
+                binding.seekbar2.setTitle(listDate).build();
+                //Do something after 100ms
+            }
+        }, 4000);
 
         showMultiButton();
         showErrorView();

@@ -89,9 +89,18 @@ public class SeekBar extends View {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+
         width = w;
         height = h;
 
+        initialParameter();
+
+
+
+        super.onSizeChanged(w, h, oldw, oldh);
+    }
+
+    private void initialParameter() {
         heightDegree = heightTrack * 3;
         // marginBetweenTextAndSeekBar = (int) SizeConverter.dpToPx(getContext(), 45);
         heightCircle = thumbRadius;
@@ -103,8 +112,6 @@ public class SeekBar extends View {
         if (xCircle == 0) {
             xCircle = xMin;
         }
-
-        super.onSizeChanged(w, h, oldw, oldh);
     }
 
 
@@ -166,6 +173,7 @@ public class SeekBar extends View {
     }
 
     public void build() {
+        initialParameter();
         invalidate();
     }
 
