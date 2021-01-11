@@ -106,7 +106,7 @@ public class MultiButtonAdapter extends BaseListAdapter<ItemStyleModel> {
             else
                 params.width = item.getWidth();
             if (item.getWidth() == 0)
-                params.height = dp2px(context, 48);
+                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
             else
                 params.height = item.getHeight();
             itemView.setLayoutParams(params);

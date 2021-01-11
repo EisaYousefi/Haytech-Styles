@@ -77,7 +77,7 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
             selectedItemStyle = createSelectedItemStyle();
         adapter.setSelectedItemStyle(selectedItemStyle);
 
-        recyclerView.addItemDecoration(new SpacesItemDecoration());
+        recyclerView.addItemDecoration(new SpaceItemDecoration());
         recyclerView.setAdapter(adapter);
         adapter.setSelectedItemPosition(itemDefaultSelect);
 //            recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.HORIZONTAL));
@@ -354,6 +354,45 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
                             .setMarginBottom(0);
                 }
 
+            }
+        }
+
+        public int dp2px(float dpVal) {
+            return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpVal,
+                    context.getResources().getDisplayMetrics());
+        }
+    }
+    public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
+
+        public SpaceItemDecoration() {
+        }
+
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            if (adapter.getItemCount() != 0) {
+
+                ItemStyleModel item = adapter.getItem(parent.getChildLayoutPosition(view));
+                if (itemSpace != NONE_SET_VALUE) {
+                    item.getBuilder().setMarginLeft(itemSpace)
+                            .setMarginTop(0)
+                            .setMarginRight(0)
+                            .setMarginBottom(0).update(item);
+
+                }
+                if (item != null && graidColumn == NONE_SET_VALUE) {
+                    outRect.left = dp2px(item.getMarginLeft());
+                    outRect.top = dp2px(item.getMarginTop());
+                    outRect.right = dp2px(item.getMarginRight());
+                    outRect.bottom = dp2px(item.getMarginBottom());
+                    // Add top margin only for the special item
+
+                } else {
+                    outRect.left = itemSpace;
+                    outRect.top = itemSpace;
+                    outRect.right = itemSpace;
+                    outRect.bottom = itemSpace;
+                }
             }
         }
 
