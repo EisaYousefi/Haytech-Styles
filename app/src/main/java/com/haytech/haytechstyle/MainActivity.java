@@ -147,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         binding.multiButtonView.setItemsModel(list);
         binding.multiButtonView.setItemSpace(5);
 
+
 //        binding.multiButtonView.setSelectedItemStyle(getSelectedItemStyle(getBaseContext()));
 
 //        ItemStyleModel builder = new ItemStyleModel.Builder()
