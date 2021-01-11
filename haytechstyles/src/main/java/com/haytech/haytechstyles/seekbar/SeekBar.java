@@ -15,7 +15,10 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -69,6 +72,7 @@ public class SeekBar extends View {
 
     private int xMin = 0;
     private int xMax = 0;
+    private boolean ctrl = true;
 
 
     public SeekBar(Context context) {
@@ -96,7 +100,7 @@ public class SeekBar extends View {
         initialParameter();
 
 
-
+        ctrl = false;
         super.onSizeChanged(w, h, oldw, oldh);
     }
 
@@ -166,6 +170,18 @@ public class SeekBar extends View {
         return this;
     }
 
+    public SeekBar setSelectItem(int itemSelect) {
+        final Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                xCircle = xMin + lengthSection * itemSelect;
+                invalidate();
+            }
+        }, 100);
+
+        return this;
+    }
 
     public SeekBar setTimeAnimate(long animatorDuration) {
         this.animatorDuration = animatorDuration;
@@ -369,7 +385,8 @@ public class SeekBar extends View {
     @Override
     protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         //  super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec((int) SizeConverter.dpToPx(getContext(),50),MeasureSpec.EXACTLY));
-
+        width = getWidth();
+        height = getHeight();
 
         int desiredWidth = (int) SizeConverter.dpToPx(getContext(), 350);
         int desiredHeight = (int) SizeConverter.dpToPx(getContext(), 50);

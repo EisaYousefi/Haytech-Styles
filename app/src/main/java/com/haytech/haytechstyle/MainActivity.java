@@ -76,21 +76,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
 
-        final Handler handler = new Handler(Looper.getMainLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                List<String> listDate = new ArrayList<>();
-                listDate.add("یک روز");
-                listDate.add("یک روز");
-                listDate.add("یک هفته");
-                listDate.add("یک ماه");
-                listDate.add("یک سال");
-                listDate.add("محدودیت");
-                binding.seekbar2.setTitle(listDate).build();
-                //Do something after 100ms
-            }
-        }, 4000);
+        binding.seekbar2.setSelectItem(2);
 
         showMultiButton();
         showErrorView();
