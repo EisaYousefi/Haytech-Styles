@@ -137,7 +137,7 @@ public class SeekBar extends View {
 
         ta.recycle();
 
-        paintText = PaintText.getPaintText(getContext(),textSize, colorText, PaintText.CENTER_TEXT, null, false);
+        paintText = PaintText.getPaintText(getContext(), textSize, colorText, PaintText.CENTER_TEXT, null, false);
         //Paint Background
         BackgroundFillPaint = new Paint();
         BackgroundFillPaint.setAntiAlias(true);
@@ -175,12 +175,13 @@ public class SeekBar extends View {
     protected void onDraw(Canvas canvas) {
 
         int heightTopTrack = 0;
-        Paint paintText1 = PaintText.getPaintText(getContext(),textSize, colorText, PaintText.CENTER_TEXT, null, false);
+        String txtExampleNormal = "یک ماه";
+        Paint paintText1 = PaintText.getPaintText(getContext(), textSize, colorText, PaintText.CENTER_TEXT, null, false);
 
         for (int i = 0; i < numberSections; i++) {
             Rect bounds1 = new Rect();
             Rect bounds = new Rect();
-            paintText1.getTextBounds(getTextTitle(0), 0, getTextTitle(0).length(), bounds1);
+            paintText1.getTextBounds(txtExampleNormal, 0, txtExampleNormal.length(), bounds1);
             paintText.getTextBounds(getTextTitle(i), 0, getTextTitle(i).length(), bounds);
             heightText = (int) (bounds1.height() * 1.1 + getPaddingTop());
             heightTopTrack = marginBetweenTextAndSeekBar + (int) (bounds1.height() * 1.1 + getPaddingTop());
