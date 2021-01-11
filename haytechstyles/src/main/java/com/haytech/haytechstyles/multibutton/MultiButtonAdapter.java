@@ -21,8 +21,8 @@ public class MultiButtonAdapter extends BaseListAdapter<ItemStyleModel> {
     private ItemStyleModel selectedItemStyle;
     private int selectedItemPosition;
 
-    public MultiButtonAdapter(Context context, @NonNull List<ItemStyleModel> items, @Nullable OnItemClickListener<ItemStyleModel> clickListener, @Nullable OnItemLongClickListener<ItemStyleModel> longClickListener) {
-        super(items, clickListener, longClickListener);
+    public MultiButtonAdapter(Context context, @Nullable OnItemClickListener<ItemStyleModel> clickListener, @Nullable OnItemLongClickListener<ItemStyleModel> longClickListener) {
+        super(clickListener, longClickListener);
         this.context = context;
     }
 

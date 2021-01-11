@@ -71,14 +71,17 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
             itemClickListener = this;
         if (itemLongClickListener == null)
             itemLongClickListener = this;
-        adapter = new MultiButtonAdapter(context, itemsStyle, itemClickListener, itemLongClickListener);
+        adapter = new MultiButtonAdapter(context, itemClickListener, itemLongClickListener);
+
 
         if (selectedItemStyle == null)
             selectedItemStyle = createSelectedItemStyle();
         adapter.setSelectedItemStyle(selectedItemStyle);
 
-        recyclerView.addItemDecoration(new SpaceItemDecoration());
+        if (recyclerView.getItemDecorationCount() == 0)
+            recyclerView.addItemDecoration(new SpaceLeftItemDecoration());
         recyclerView.setAdapter(adapter);
+        adapter.addItems(itemsStyle);
         adapter.setSelectedItemPosition(itemDefaultSelect);
 //            recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.HORIZONTAL));
     }
@@ -362,16 +365,16 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
                     context.getResources().getDisplayMetrics());
         }
     }
-    public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
 
-        public SpaceItemDecoration() {
+    public class SpaceLeftItemDecoration extends RecyclerView.ItemDecoration {
+
+        public SpaceLeftItemDecoration() {
         }
 
 
         @Override
         public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
             if (adapter.getItemCount() != 0) {
-
                 ItemStyleModel item = adapter.getItem(parent.getChildLayoutPosition(view));
                 if (itemSpace != NONE_SET_VALUE) {
                     item.getBuilder().setMarginLeft(itemSpace)
