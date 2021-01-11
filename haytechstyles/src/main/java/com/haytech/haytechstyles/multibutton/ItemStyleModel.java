@@ -39,8 +39,7 @@ public class ItemStyleModel {
     private int paddingRight;
     private int paddingBottom;
     private Builder builder;
-
-
+    
     private ItemStyleModel(Builder builder) {
         setBuilder(builder);
     }
@@ -54,7 +53,7 @@ public class ItemStyleModel {
         Builder builder = new Builder();
         builder.setLabelText("")
                 .setLabelTextColor(context.getResources().getColor(R.color.blue))
-                .setLabelTextSize(20)
+                .setLabelTextSize(15)
                 .setLabelVisibility(View.VISIBLE)
                 .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .setHeight(dp2px(context, 48))
@@ -62,10 +61,10 @@ public class ItemStyleModel {
                 .setMarginTop(0)
                 .setMarginRight(0)
                 .setMarginBottom(0)
-                .setLabelPaddingLeft(10)
-                .setLabelPaddingTop(10)
-                .setLabelPaddingRight(10)
-                .setLabelPaddingBottom(10)
+                .setLabelPaddingLeft(16)
+                .setLabelPaddingTop(16)
+                .setLabelPaddingRight(16)
+                .setLabelPaddingBottom(16)
                 .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
 //                .setLabelTypeface(Typeface.DEFAULT)
 //                .setLabelPaddingLeft(8)
@@ -82,7 +81,7 @@ public class ItemStyleModel {
         Builder builder = new Builder();
         builder.setLabelText(labelText)
                 .setLabelTextColor(context.getResources().getColor(R.color.blue))
-                .setLabelTextSize(20)
+                .setLabelTextSize(15)
                 .setLabelVisibility(View.VISIBLE)
                 .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .setHeight(dp2px(context, 48))
@@ -90,10 +89,10 @@ public class ItemStyleModel {
                 .setMarginTop(0)
                 .setMarginRight(0)
                 .setMarginBottom(0)
-                .setLabelPaddingLeft(10)
-                .setLabelPaddingTop(10)
-                .setLabelPaddingRight(10)
-                .setLabelPaddingBottom(10)
+                .setLabelPaddingLeft(16)
+                .setLabelPaddingTop(16)
+                .setLabelPaddingRight(16)
+                .setLabelPaddingBottom(16)
                 .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
 //                .setLabelTypeface(Typeface.DEFAULT)
 //                .setLabelPaddingLeft(8)
@@ -112,7 +111,7 @@ public class ItemStyleModel {
                 .setId(id)
                 .setLabelText(labelText)
                 .setLabelTextColor(context.getResources().getColor(R.color.blue))
-                .setLabelTextSize(20)
+                .setLabelTextSize(15)
                 .setLabelVisibility(View.VISIBLE)
                 .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .setHeight(dp2px(context, 48))
@@ -120,10 +119,10 @@ public class ItemStyleModel {
                 .setMarginTop(0)
                 .setMarginRight(0)
                 .setMarginBottom(0)
-                .setLabelPaddingLeft(10)
-                .setLabelPaddingTop(10)
-                .setLabelPaddingRight(10)
-                .setLabelPaddingBottom(10)
+                .setLabelPaddingLeft(16)
+                .setLabelPaddingTop(16)
+                .setLabelPaddingRight(16)
+                .setLabelPaddingBottom(16)
                 .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
 //                .setLabelTypeface(Typeface.DEFAULT)
 //                .setLabelPaddingLeft(8)
@@ -199,12 +198,12 @@ public class ItemStyleModel {
         builder.setSelectedItem(true)
                 .setLabelText("")
                 .setLabelTextColor(Color.WHITE)
-                .setLabelTextSize(20)
+                .setLabelTextSize(14)
                 .setLabelVisibility(View.VISIBLE)
-                .setLabelPaddingLeft(10)
-                .setLabelPaddingTop(10)
-                .setLabelPaddingRight(10)
-                .setLabelPaddingBottom(10)
+                .setLabelPaddingLeft(16)
+                .setLabelPaddingTop(16)
+                .setLabelPaddingRight(16)
+                .setLabelPaddingBottom(16)
                 .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
                 .setHeight(dp2px(context, 48))
                 .setMarginLeft(0)

@@ -284,18 +284,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.1" />
+                app:layout_constraintGuide_percent="0.05" />
 
             <com.haytech.haytechstyles.multibutton.MultiButtonView
                 android:id="@+id/multiButtonView"
                 android:layout_width="0dp"
-                android:visibility="gone"
                 android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:cv_mbv_itemCount="3"
+                app:cv_mbv_itemSpace="3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline9"
                 app:layout_constraintStart_toStartOf="@+id/guideline8"
-                app:layout_constraintTop_toTopOf="parent"
-                app:cv_mbv_itemCount="3"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.haytech.haytechstyles.seekbar.SeekBar
                 android:id="@+id/seekbar2"
@@ -315,7 +316,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.9" />
+                app:layout_constraintGuide_percent="0.95" />
 
             <LinearLayout
                 android:layout_width="match_parent"
