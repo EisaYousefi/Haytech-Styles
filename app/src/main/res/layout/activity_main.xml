@@ -292,6 +292,7 @@
                 android:layout_height="wrap_content"
                 android:visibility="visible"
                 app:cv_mbv_itemCount="3"
+                app:cv_mbv_itemSpace="3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline9"
                 app:layout_constraintStart_toStartOf="@+id/guideline8"
