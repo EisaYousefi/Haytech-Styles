@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
 
+
         List<String> listDate = new ArrayList<>();
         listDate.add("یک روز");
         listDate.add("یک هفته");
@@ -57,13 +60,8 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         listDate.add("یک سال");
         listDate.add("محدودیت");
         binding.seekbar2.setTitle(listDate).build();
-
         // binding.seekBarTimeSaveFilm.setTitle(listDate).build();
 
-        binding.seekbar2.getCallbackSubjectRx().subscribe(integer -> {
-            if (integer == 1)
-                showMultiButton();
-        });
 
         binding.seekbar2.setOnTouchListener(new View.OnTouchListener() {
             // Setting on Touch Listener for handling the touch inside ScrollView
@@ -76,6 +74,25 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
             }
         });
 
+
+
+        final Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                List<String> listDate = new ArrayList<>();
+                listDate.add("یک روز");
+                listDate.add("یک روز");
+                listDate.add("یک هفته");
+                listDate.add("یک ماه");
+                listDate.add("یک سال");
+                listDate.add("محدودیت");
+                binding.seekbar2.setTitle(listDate).build();
+                //Do something after 100ms
+            }
+        }, 4000);
+
+        showMultiButton();
         showErrorView();
 
 
@@ -136,9 +153,9 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
     private void showMultiButton() {
         ArrayList<ItemModel> list = new ArrayList<>();
-        list.add(new ItemModel("سالم", 21));
-        list.add(new ItemModel("آسیب دیده", 22));
-        list.add(new ItemModel("بازدید", 23));
+        list.add(new ItemModel("سالم",21));
+        list.add(new ItemModel("آسیب دیده",22));
+        list.add(new ItemModel("بازدید",23));
 
 
 //        ArrayList<ItemStyleModel> list = new ArrayList<>();
@@ -148,7 +165,6 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
 
         binding.multiButtonView.setItemsModel(list);
-        binding.multiButtonView.setItemSpace(10);
 
 
 
@@ -161,12 +177,11 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 //                .build();
 //        binding.multiButtonView.setSelectedItemStyle(builder);
 
-        binding.multiButtonView.getRecyclerView().addItemDecoration(new DividerItemDecoration(getBaseContext(), DividerItemDecoration.HORIZONTAL));
-        binding.multiButtonView.getRecyclerView().setBackground(getBorderBackgroundDrawable(getBaseContext(), 12, getBaseContext().getResources().getColor(com.haytech.haytechstyles.R.color.colorOrangeYellow)));
+//        binding.multiButtonView.getRecyclerView().setBackground(getBorderBackgroundDrawable(getBaseContext(), 12, getBaseContext().getResources().getColor(com.haytech.haytechstyles.R.color.colorOrangeYellow)));
         binding.multiButtonView.setItemClickListener(new BaseListAdapter.OnItemClickListener<ItemStyleModel>() {
             @Override
             public void onItemClick(ItemStyleModel item, int position) {
-                Log.i("vouria", item.getLabelText().toString() + "  ps: " + position + " id: " + item.getId());
+                Log.i("vouria", item.getLabelText().toString() + "  ps: " + position+" id: "+item.getId());
             }
         });
     }
@@ -193,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         return builder.build();
     }
 
-    public ItemStyleModel getUnSelectedItemStyleByName(Context context, String labelText, long id) {
+    public ItemStyleModel getUnSelectedItemStyleByName(Context context, String labelText,long id) {
         ItemStyleModel.Builder builder = new ItemStyleModel.Builder();
         builder.setId(id)
                 .setLabelText(labelText)
