@@ -6,11 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseListAdapter<T> extends RecyclerView.Adapter<BaseListAdapter<T>.ViewHolder> {
 
-    private List<T> items;
+    private List<T> items = new ArrayList<>();
 
     @Nullable
     private OnItemClickListener<T> clickListener;
@@ -22,6 +23,13 @@ public abstract class BaseListAdapter<T> extends RecyclerView.Adapter<BaseListAd
                            @Nullable OnItemClickListener<T> clickListener,
                            @Nullable OnItemLongClickListener<T> longClickListener) {
         this.items = items;
+        this.clickListener = clickListener;
+        this.longClickListener = longClickListener;
+    }
+
+    public BaseListAdapter(
+            @Nullable OnItemClickListener<T> clickListener,
+            @Nullable OnItemLongClickListener<T> longClickListener) {
         this.clickListener = clickListener;
         this.longClickListener = longClickListener;
     }
@@ -47,8 +55,11 @@ public abstract class BaseListAdapter<T> extends RecyclerView.Adapter<BaseListAd
     }
 
     public final void removeItems() {
-        this.items.clear();
-        notifyDataSetChanged();
+        if (items.size() != 0) {
+            this.items.clear();
+            notifyDataSetChanged();
+
+        }
     }
 
     public final void removeItem(int itemPosition) {
@@ -64,8 +75,10 @@ public abstract class BaseListAdapter<T> extends RecyclerView.Adapter<BaseListAd
 //            if (this.items.get(i) == item)
 //                itemPosition = i;
 //        }
-        this.items.remove(this.items.indexOf(item));
-        notifyDataSetChanged();
+        if (item != null) {
+            this.items.remove(this.items.indexOf(item));
+            notifyDataSetChanged();
+        }
     }
 
     protected final T getItem(int position) {

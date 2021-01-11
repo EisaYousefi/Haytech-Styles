@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:errorpage="http://schemas.android.com/apk/res-auto"
     xmlns:filterBox="http://schemas.android.com/apk/res-auto"
-    xmlns:multiButton="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ScrollView
@@ -286,17 +285,28 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.05" />
 
-            <com.haytech.haytechstyles.multibutton.MultiButtonView
-                android:id="@+id/multiButtonView"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:cv_mbv_itemCount="3"
-                app:cv_mbv_itemSpace="3"
+                android:background="@drawable/border_corner12_stroke1_blue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline9"
                 app:layout_constraintStart_toStartOf="@+id/guideline8"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.haytech.haytechstyles.multibutton.MultiButtonView
+                    android:id="@+id/multiButtonView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    app:cv_mbv_itemCount="3"
+                    app:cv_mbv_itemSpace="10"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <com.haytech.haytechstyles.seekbar.SeekBar
                 android:id="@+id/seekbar2"
@@ -306,10 +316,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/guideline9"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:textSize="13dp"
                 app:layout_constraintStart_toStartOf="@+id/guideline8"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                app:textSize="13dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline9"

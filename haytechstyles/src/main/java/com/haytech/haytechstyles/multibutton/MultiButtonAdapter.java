@@ -13,16 +13,14 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 import com.haytech.haytechstyles.R;
 
-import java.util.List;
-
 public class MultiButtonAdapter extends BaseListAdapter<ItemStyleModel> {
 
     private Context context;
     private ItemStyleModel selectedItemStyle;
     private int selectedItemPosition;
 
-    public MultiButtonAdapter(Context context, @NonNull List<ItemStyleModel> items, @Nullable OnItemClickListener<ItemStyleModel> clickListener, @Nullable OnItemLongClickListener<ItemStyleModel> longClickListener) {
-        super(items, clickListener, longClickListener);
+    public MultiButtonAdapter(Context context, @Nullable OnItemClickListener<ItemStyleModel> clickListener, @Nullable OnItemLongClickListener<ItemStyleModel> longClickListener) {
+        super(clickListener, longClickListener);
         this.context = context;
     }
 
@@ -106,7 +104,7 @@ public class MultiButtonAdapter extends BaseListAdapter<ItemStyleModel> {
             else
                 params.width = item.getWidth();
             if (item.getWidth() == 0)
-                params.height = dp2px(context, 48);
+                params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
             else
                 params.height = item.getHeight();
             itemView.setLayoutParams(params);
