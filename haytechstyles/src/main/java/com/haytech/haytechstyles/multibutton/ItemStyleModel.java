@@ -39,8 +39,7 @@ public class ItemStyleModel {
     private int paddingRight;
     private int paddingBottom;
     private Builder builder;
-
-
+    
     private ItemStyleModel(Builder builder) {
         setBuilder(builder);
     }
