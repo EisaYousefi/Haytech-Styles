@@ -13,8 +13,6 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 import com.haytech.haytechstyles.R;
 
-import java.util.List;
-
 public class MultiButtonAdapter extends BaseListAdapter<ItemStyleModel> {
 
     private Context context;

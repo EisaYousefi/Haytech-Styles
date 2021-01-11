@@ -160,6 +160,9 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         list.add(new ItemModel("سالم", 21));
         list.add(new ItemModel("آسیب دیده", 22));
         list.add(new ItemModel("بازدید", 23));
+        list.add(new ItemModel("NEWS", 24));
+        list.add(new ItemModel("بازدید", 25));
+        list.add(new ItemModel("NE", 26));
 
 
 //        ArrayList<ItemStyleModel> list = new ArrayList<>();

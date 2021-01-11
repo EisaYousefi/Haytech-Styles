@@ -78,8 +78,7 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
             selectedItemStyle = createSelectedItemStyle();
         adapter.setSelectedItemStyle(selectedItemStyle);
 
-        if (recyclerView.getItemDecorationCount() == 0)
-            recyclerView.addItemDecoration(new SpaceLeftItemDecoration());
+        recyclerView.addItemDecoration(new SpaceLeftItemDecoration());
         recyclerView.setAdapter(adapter);
         adapter.addItems(itemsStyle);
         adapter.setSelectedItemPosition(itemDefaultSelect);
