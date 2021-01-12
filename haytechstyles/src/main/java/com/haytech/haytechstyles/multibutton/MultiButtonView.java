@@ -12,6 +12,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -79,6 +80,7 @@ public class MultiButtonView extends ConstraintLayout implements BaseListAdapter
         adapter.setSelectedItemStyle(selectedItemStyle);
 
         recyclerView.addItemDecoration(new SpaceLeftItemDecoration());
+//        recyclerView.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.HORIZONTAL));
         recyclerView.setAdapter(adapter);
         adapter.addItems(itemsStyle);
         adapter.setSelectedItemPosition(itemDefaultSelect);
