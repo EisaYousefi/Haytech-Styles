@@ -182,7 +182,11 @@ public class SeekBar extends View {
 
         return this;
     }
-
+    public SeekBar setSelectItem2(int itemSelect) {
+        xCircle = xMin + lengthSection * itemSelect;
+        invalidate();
+        return this;
+    }
     public SeekBar setTimeAnimate(long animatorDuration) {
         this.animatorDuration = animatorDuration;
         return this;
