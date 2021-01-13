@@ -143,12 +143,12 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
     private void showMultiButton() {
         ArrayList<ItemModel> list = new ArrayList<>();
-        list.add(new ItemModel("سالم", 21));
-        list.add(new ItemModel("آسیب دیده", 22));
-        list.add(new ItemModel("بازدید", 23));
-        list.add(new ItemModel("NEWS", 24));
-        list.add(new ItemModel("بازدید", 25));
-        list.add(new ItemModel("NE", 26));
+        list.add(new ItemModel("خسارت", 21));
+        list.add(new ItemModel("HEALTHه", 22));
+        list.add(new ItemModel("string", 23));
+        list.add(new ItemModel("whats my question?lllllll", 25));
+        list.add(new ItemModel("Nwhats my question?", 24));
+        list.add(new ItemModel("Nx4", 26));
 
 
 //        ArrayList<ItemStyleModel> list = new ArrayList<>();
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 //                .build();
 //        binding.multiButtonView.setSelectedItemStyle(builder);
 
-//        binding.multiButtonView.getRecyclerView().addItemDecoration(new DividerItemDecoration(getBaseContext(), DividerItemDecoration.HORIZONTAL));
+        binding.multiButtonView.getRecyclerView().addItemDecoration(new DividerItemDecoration(getBaseContext(), DividerItemDecoration.HORIZONTAL));
 //        binding.multiButtonView.getRecyclerView().setBackground(getBorderBackgroundDrawable(getBaseContext(), 12, getBaseContext().getResources().getColor(com.haytech.haytechstyles.R.color.colorOrangeYellow)));
         binding.multiButtonView.setItemClickListener(new BaseListAdapter.OnItemClickListener<ItemStyleModel>() {
             @Override

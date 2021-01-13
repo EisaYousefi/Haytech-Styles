@@ -61,10 +61,10 @@ public class ItemStyleModel {
                 .setMarginTop(0)
                 .setMarginRight(0)
                 .setMarginBottom(0)
-                .setLabelPaddingLeft(16)
-                .setLabelPaddingTop(16)
-                .setLabelPaddingRight(16)
-                .setLabelPaddingBottom(16)
+                .setLabelPaddingLeft(20)
+                .setLabelPaddingTop(10)
+                .setLabelPaddingRight(20)
+                .setLabelPaddingBottom(10)
                 .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
 //                .setLabelTypeface(Typeface.DEFAULT)
 //                .setLabelPaddingLeft(8)
@@ -89,10 +89,10 @@ public class ItemStyleModel {
                 .setMarginTop(0)
                 .setMarginRight(0)
                 .setMarginBottom(0)
-                .setLabelPaddingLeft(16)
-                .setLabelPaddingTop(16)
-                .setLabelPaddingRight(16)
-                .setLabelPaddingBottom(16)
+                .setLabelPaddingLeft(20)
+                .setLabelPaddingTop(10)
+                .setLabelPaddingRight(20)
+                .setLabelPaddingBottom(10)
                 .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
 //                .setLabelTypeface(Typeface.DEFAULT)
 //                .setLabelPaddingLeft(8)
@@ -119,10 +119,10 @@ public class ItemStyleModel {
                 .setMarginTop(0)
                 .setMarginRight(0)
                 .setMarginBottom(0)
-                .setLabelPaddingLeft(16)
-                .setLabelPaddingTop(16)
-                .setLabelPaddingRight(16)
-                .setLabelPaddingBottom(16)
+                .setLabelPaddingLeft(20)
+                .setLabelPaddingTop(10)
+                .setLabelPaddingRight(20)
+                .setLabelPaddingBottom(10)
                 .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, Color.TRANSPARENT));
 //                .setLabelTypeface(Typeface.DEFAULT)
 //                .setLabelPaddingLeft(8)
@@ -135,6 +135,32 @@ public class ItemStyleModel {
         return builder.build();
     }
 
+
+    public static ItemStyleModel getSelectedItemStyle(Context context) {
+        Builder builder = new Builder();
+        builder.setSelectedItem(true)
+                .setLabelText("")
+                .setLabelTextColor(Color.WHITE)
+                .setLabelTextSize(15)
+                .setLabelVisibility(View.VISIBLE)
+                .setLabelPaddingLeft(20)
+                .setLabelPaddingTop(10)
+                .setLabelPaddingRight(20)
+                .setLabelPaddingBottom(10)
+                .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
+                .setHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
+                .setMarginLeft(0)
+                .setMarginTop(0)
+                .setMarginRight(0)
+                .setMarginBottom(0)
+                .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, context.getResources().getColor(R.color.blue)));
+//              .setLabelTypeface(Typeface.DEFAULT)
+//              .setLabelBackgroundColor(Color.TRANSPARENT)
+//              .setLabelBackgroundResource(com.example.babnowidgets.R.drawable.ic_close_black_24dp)
+//              .setPosition(i)
+//              .setBackgroundColor(Color.GRAY);
+        return builder.build();
+    }
     public static ItemStyleModel getUnSelectedItemStyleByName(Context context, ItemStyleModel itemStyleModel) {
         Builder builder = new Builder();
         if (itemStyleModel.getId() != 0) builder.setId(itemStyleModel.getId());
@@ -190,32 +216,6 @@ public class ItemStyleModel {
 //                .setLabelBackgroundColor(Color.TRANSPARENT)
 //                .setLabelBackgroundResource(com.example.babnowidgets.R.drawable.ic_close_black_24dp)
 //                .setBackgroundColor(Color.TRANSPARENT);
-        return builder.build();
-    }
-
-    public static ItemStyleModel getSelectedItemStyle(Context context) {
-        Builder builder = new Builder();
-        builder.setSelectedItem(true)
-                .setLabelText("")
-                .setLabelTextColor(Color.WHITE)
-                .setLabelTextSize(15)
-                .setLabelVisibility(View.VISIBLE)
-                .setLabelPaddingLeft(16)
-                .setLabelPaddingTop(16)
-                .setLabelPaddingRight(16)
-                .setLabelPaddingBottom(16)
-                .setWidth(ViewGroup.LayoutParams.WRAP_CONTENT)
-                .setHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
-                .setMarginLeft(0)
-                .setMarginTop(0)
-                .setMarginRight(0)
-                .setMarginBottom(0)
-                .setBackgroundDrawable(getBorderBackgroundDrawable(context, 12, context.getResources().getColor(R.color.blue)));
-//              .setLabelTypeface(Typeface.DEFAULT)
-//              .setLabelBackgroundColor(Color.TRANSPARENT)
-//              .setLabelBackgroundResource(com.example.babnowidgets.R.drawable.ic_close_black_24dp)
-//              .setPosition(i)
-//              .setBackgroundColor(Color.GRAY);
         return builder.build();
     }
 

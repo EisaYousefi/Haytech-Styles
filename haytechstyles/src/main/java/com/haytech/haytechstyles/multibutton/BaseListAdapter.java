@@ -108,6 +108,7 @@ public abstract class BaseListAdapter<T> extends RecyclerView.Adapter<BaseListAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.setIsRecyclable(false);
         holder.bind(getItem(position));
     }
 
