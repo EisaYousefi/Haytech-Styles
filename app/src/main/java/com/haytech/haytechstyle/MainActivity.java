@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        binding.nestedCircle.setColors(getResources().getColor(R.color.colorGreen) , getResources().getColor(R.color.blue ), getResources().getColor(R.color.outerCircle));
 
 
         List<String> listDate = new ArrayList<>();

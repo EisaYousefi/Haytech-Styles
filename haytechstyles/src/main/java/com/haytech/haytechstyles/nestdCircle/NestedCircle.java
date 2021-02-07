@@ -53,6 +53,45 @@ public class NestedCircle extends View {
         paintInnerCircle.setColor(innerColor);
     }
 
+    public int getOuterColor() {
+        return outerColor;
+    }
+
+    public void setOuterColor(int outerColor) {
+        paintOuterCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintOuterCircle.setColor(outerColor);
+    }
+
+    public int getCenterColor() {
+        return centerColor;
+    }
+
+    public void setCenterColor(int centerColor) {
+        paintCenterCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintCenterCircle.setColor(centerColor);
+    }
+
+    public int getInnerColor() {
+        return innerColor;
+    }
+
+    public void setInnerColor(int innerColor) {
+
+        paintInnerCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintInnerCircle.setColor(innerColor);
+    }
+
+    public void setColors(int innerColor ,int centerColor , int outerColor ){
+        paintOuterCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintOuterCircle.setColor(outerColor);
+
+        paintCenterCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintCenterCircle.setColor(centerColor);
+
+        paintInnerCircle = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paintInnerCircle.setColor(innerColor);
+    }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int width = 70;
