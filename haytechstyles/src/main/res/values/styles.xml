@@ -117,6 +117,12 @@
         <item name="android:alpha">0.54</item>
     </style>
 
+    <style name="textToastStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/dana_bold</item>
+    </style>
+
     <style name="textStyleBold">
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">@color/textColor</item>

@@ -7,8 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -27,6 +25,8 @@ import com.haytech.haytechstyles.layout.ErrorPage;
 import com.haytech.haytechstyles.multibutton.BaseListAdapter;
 import com.haytech.haytechstyles.multibutton.ItemModel;
 import com.haytech.haytechstyles.multibutton.ItemStyleModel;
+import com.haytech.haytechstyles.toast.HytechTypeToast;
+import com.haytech.haytechstyles.toast.HytechToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
 
         binding.nestedCircle.setColors(getResources().getColor(R.color.colorGreen) , getResources().getColor(R.color.blue ), getResources().getColor(R.color.outerCircle));
 
+   binding.nestedCircle.setOnClickListener(v -> {
+       HytechToast.makeText(this, "درست شد عزیز دلم !", HytechToast.LENGTH_LONG, HytechTypeToast.SUCCESS, true).show();
+   });
 
         List<String> listDate = new ArrayList<>();
         listDate.add("یک روز");

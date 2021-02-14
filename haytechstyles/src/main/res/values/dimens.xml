@@ -13,5 +13,10 @@
     <dimen name="text_size_12dp">12dp</dimen>
     <dimen name="image_height">273dp</dimen>
 
+
+    <dimen name="corner_toast_size">50dp</dimen>
+
+
+
     <dimen name="search_icon_padding">12dp</dimen>
 </resources>
