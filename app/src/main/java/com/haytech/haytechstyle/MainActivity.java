@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         binding.nestedCircle.setColors(getResources().getColor(R.color.colorGreen) , getResources().getColor(R.color.blue ), getResources().getColor(R.color.outerCircle));
 
    binding.nestedCircle.setOnClickListener(v -> {
-       HytechToast.makeText(this, "درست شد عزیز دلم !", HytechToast.LENGTH_LONG, HytechTypeToast.SUCCESS, true).show();
+       HytechToast.makeText(this, "درست شد !", HytechToast.LENGTH_LONG, HytechTypeToast.SUCCESS, true).show();
    });
 
         List<String> listDate = new ArrayList<>();
