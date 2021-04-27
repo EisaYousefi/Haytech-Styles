@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.DividerItemDecoration;
 
+import com.haytech.HytechBaseApplication;
 import com.haytech.haytechstyle.databinding.ActivityMainBinding;
 import com.haytech.haytechstyles.Validation;
 import com.haytech.haytechstyles.customLoginKebord.OnKeyboardCustomListener;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements Validation.phoneV
         binding.nestedCircle.setColors(getResources().getColor(R.color.colorGreen) , getResources().getColor(R.color.blue ), getResources().getColor(R.color.outerCircle));
 
    binding.nestedCircle.setOnClickListener(v -> {
-       HytechToast.makeText(this, "دوربین باید nv lkflksdflksd", HytechToast.LENGTH_LONG, HytechTypeToast.SUCCESS, true).show();
+       HytechToast.makeText(this, "دوربین باید erytert ertertnv lkflksdflksd", HytechToast.LENGTH_LONG, HytechTypeToast.SUCCESS, true).show();
    });
 
         List<String> listDate = new ArrayList<>();
